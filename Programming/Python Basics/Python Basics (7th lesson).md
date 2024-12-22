@@ -118,7 +118,7 @@ The `@lru_cache` decorator provides a least-recently-used cache.
         - **maxsize=None:** **Equals to @functools.cache**. The cache will grow without bound. Be careful with this, as it can consume a lot of memory if the function is called with many different arguments.
         - **maxsize=0** effectively disables the cache.
     - **typed Argument:**
-        - **typed=False (default):** Function arguments of different types will be treated as equivalent for caching purposes if their values are the same. For example, f(3) and f(3.0) will be considered the same call and will return the same cached result.
+        - **typed=False (default):** Function arguments of different types will be treated as equivalent for caching purposes if their values are the same. For example, **`f(3)`** and **`f(3.0)`** will be considered the same call and will return the same cached result.
         - **typed=True:** Arguments of different types are cached separately. f(3) and f(3.0) will have their own cached results.
 
 **Example:**
