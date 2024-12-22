@@ -138,7 +138,6 @@ Create a dictionary to store the names and ages of three people: "Alice" (25), "
 people = {"Alice": 25, "Bob": 30, "Charlie": 35}
 print(people["Bob"])  # Output: 30
 ```
-<!--SR:!2025-02-17,58,310-->
 
 Given this dictionary:  `data = {"a": 1, "b": 2, "c": 3}`, print all the keys of this dictionary.
 ?
@@ -147,7 +146,6 @@ data = {"a": 1, "b": 2, "c": 3}
 keys = data.keys()
 print(keys) #Output dict_keys(['a', 'b', 'c'])
 ```
-<!--SR:!2025-01-26,52,310-->
 
 Implement a **frequency counter** with a dictionary `counts` where keys are characters in the string "abracadabra" and values are the count of each character.
 ?
@@ -158,7 +156,6 @@ for char in text:
     counts[char] = counts.get(char, 0) + 1 # Nice way to add occurances in one line.
 print(counts)  # Output: {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}
 ```
-<!--SR:!2025-02-16,59,310-->
 
 You have a tuple representing a date: `(2024, 8, 21)`. Extract the year, month, and day into separate variables and print them.
 ?
@@ -169,7 +166,6 @@ print(year)   # Output: 2024
 print(month)  # Output: 8
 print(day)    # Output: 21
 ```
-<!--SR:!2025-02-25,68,310-->
 
 Given two sets: `set1 = {1, 2, 3, 4}` and `set2 = {3, 4, 5, 6}`, find the intersection of these sets and print the result.
 ?
@@ -179,7 +175,6 @@ set2 = {3, 4, 5, 6}
 intersection = set1.intersection(set2) 
 print(intersection)  # Output: {3, 4}
 ```
-<!--SR:!2025-02-28,69,310-->
 
 You are managing a list of students and their grades, where the data is stored in a dictionary. The dictionary currently looks like this: `grades = {"Alice": [85, 90], "Bob": [78]}`. Add a new student "Charlie" with an initial empty list of grades using `setdefault()`, and then add a grade of 92 for "Charlie". Print the updated dictionary.
 ?
@@ -188,7 +183,6 @@ grades = {"Alice": [85, 90], "Bob": [78]}
 grades.setdefault("Charlie", []).append(92) 
 print(grades)  # Output: {'Alice': [85, 90], 'Bob': [78], 'Charlie': [92]}
 ```
-<!--SR:!2025-02-15,56,310-->
 
 You have a list of numbers with some duplicates: `[10, 20, 10, 30, 40, 30, 50]`. Convert this list to a set to eliminate duplicates, and then find the difference between the resulting set and the set `{20, 30}`. Print the final result.
 ?
@@ -198,7 +192,6 @@ unique_numbers = set(numbers)
 difference = unique_numbers.difference({20, 30})  
 print(difference)  # Output: {40, 10, 50} (order may vary)
 ```
-<!--SR:!2025-01-25,51,310-->
 
 
 

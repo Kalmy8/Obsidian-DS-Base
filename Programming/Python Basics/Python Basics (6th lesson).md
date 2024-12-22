@@ -71,7 +71,7 @@ print(summator('somestring', 4))
 
 When you are working on a large application, it is impossible to memorize all functions and their usage details, thus there is a great chance to use some function in an inappropriate way/pass some mismatching parameters. We have 2 instruments to address this problem:
 
-###### Type hints: these are little helpers which advise you about what **variable types** the function expects from the user.  
+ Type hints: these are little helpers which advise you about what **variable types** the function expects from the user.  
 ```python
 # Types of:     param1   param2   return_value
 def summator(a : int, b : int) -> int:
@@ -212,7 +212,7 @@ Define a function `multiply` that takes two integers and returns their product. 
 	def multiply(num1: int, num2: int)->int:
 		return num1*num2
 ```
-<!--SR:!2025-02-11,52,310-->
+<!--SR:!2024-11-26,4,270-->
 
 Define a function `power` that takes a number and raises it to a power. The power should have a default value of 2.
 ?
@@ -220,7 +220,7 @@ Define a function `power` that takes a number and raises it to a power. The powe
 	def power(num1: int, num2: int = 2)->int:
 		return num1**num2
 ```
-<!--SR:!2025-02-18,59,310-->
+<!--SR:!2024-11-26,4,270-->
 
 Define a function `greet` that takes the name of the user, and, optionally, takes the weather state. When it greets the user and also prints the weather state if it's given
 ?
@@ -231,69 +231,16 @@ Define a function `greet` that takes the name of the user, and, optionally, take
 		if weather: 
 			print(f"The weather today is {weather}")
 ```
-<!--SR:!2025-02-13,54,310-->
+<!--SR:!2024-11-26,4,270-->
 
 
-Create a function `sum_integers` that takes any number of integers and prints their sum?
-?
-```python
-	def sum_integers(*integers : int):
-		print sum(integers)
-```
-<!--SR:!2025-01-06,16,302-->
+
+
+Create a function `sum_integers` that takes any number of integers and prints their sum.
 
 
 Define a function `print_kwargs` that takes any number of keyword arguments and prints them.
-?
-```python
-def print_kwargs(**kwargs): 
-	"""
-	Prints keyword arguments passed to the function.
-	
-	Args: **kwargs: Arbitrary keyword arguments. 
-	""" 
 
-	for key, value in kwargs.items(): 
-		print(f"{key}: {value}") 
-
-# Example Usage 
-print_kwargs(name="Alice", age=30, city="New York") 
-# Output: 
-# name: Alice 
-# age: 30 
-# city: New York 
-
-print_kwargs(country="USA", language="English") 
-# Output: 
-# country: USA 
-# language: English
-```
-<!--SR:!2024-12-25,4,284-->
 
 Define a function `create_message` that takes a default greeting and any number of names (`args`), then prints a greeting for each name.
-?
-```python
-def create_message(greeting="Hello", *names): 
-	"""
-	Prints a greeting message for each name. 
-
-	Args: greeting: The greeting message (default is "Hello"). 
-	*names: A variable number of names. 
-	""" 
-
-	for name in names: 
-		print(f"{greeting}, {name}!") 
-		
-# Example Usage 
-create_message("Hi", "Alice", "Bob", "Charlie") 
-# Output: 
-# Hi, Alice! 
-# Hi, Bob! 
-# Hi, Charlie! 
-
-create_message("Good morning", "David") 
-# Output: 
-# Good morning, David!
-```
-<!--SR:!2024-12-25,4,284-->
 

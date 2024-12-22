@@ -1,19 +1,26 @@
-**Codewords:** Python's  `for` loop, `enumerate` and `range` commands
+#🃏/programming/python 
+**Codewords:** Python's `while` and `for` loops, `enumerate`, `continue`, `break` commands.
 
-### "For" loop
+**Review Questions:**
+- What is the difference between an *iterable* and an *iterator*?
+- What happens to the loop variable after a `for` loop finishes execution?
+- How can you modify elements within an iterable while iterating over it?
+
+### **1. "For" loop**
+
 First, let's get familiar with **ITERATION**, **ITERATOR**, and **ITERABLE** definitions, as they'll help you understand how loops and generators work in Python. 
 
 **ITERATION** - the general process of accessing elements within a sequence, one by one or in batches.
 
 **ITERATOR** - a Python **object** with a special **`__next__()`** method, enabling iteration through a sequence.
 
-**ITERABLE** - a Python **object** which can be traversed with use of **ITERATOR** Basic Python iterables are **lists, sets, tuples, dictionaries, ranges, str**.
+**ITERABLE** - a Python **object** with either a **`__iter__()`** method (returning an **ITERATOR**) or a **`__getitem__()`** method. Basic Python iterables include **lists, sets, tuples, dictionaries, ranges, str**.  The use of **`__getitem__`** for iteration is primarily for backward compatibility with older code or specialized cases. If an object has **`__getitem__`** but no **`__iter__`**, Python will attempt to create a default iterator that accesses elements sequentially by index using **` __getitem__`**. However, this is not the preferred or recommended approach for new code.
 
 > **Note:**  Methods surrounded by double underscores (\_\_) are typically not meant for direct user calls. They're invoked internally by Python as needed.
 
 Let's explore common **`for`** loop usage scenarios:
 
-#### 1.1. Elements Extraction (for)
+#### 1.1. Elements Extraction
 
 ```python
 my_iterable = [1, 2, 3, 4]
@@ -21,12 +28,10 @@ for x in my_iterable:
 	print(x, end=', ')
 # Output: 1, 2, 3, 4 
 ```
-Here, `for` statement implicitly creates an **iterator** for `my_iterable`, which assings each extracted value to `x` until all items are processed. After the loop, `x` retains the last assigned value (**4** in this case).
 
-- **Problem 1:** Print each number from 0 to 4 using a `for` loop and `range()`.
-- **Problem 2:** Print each character in the string "Python".
+Here, an **iterator** is implicitly created for `my_iterable`, assigning each extracted value to `x` until all items are processed. After the loop, `x` retains the last assigned value (**4** in this case).
 
-#### 1.2. Modifying the Iterable Itself (enumerate)
+#### 1.2. Modifying the Iterable Itself
 
 ```python
 my_iterable = [1, 2, 3, 4]
@@ -36,74 +41,100 @@ for index, x in enumerate(my_iterable):
 print(my_iterable)
 # Output: [2, 3, 4, 5]
 ```
-This example **uses `enumerate` to get both the index and value of each element**, allowing you to modify the original list during iteration.
 
-- **Problem 1:** Print the index and value of each color in `colors = ["red", "green", "blue"]`.
-- **Problem 2:** Use `enumerate()` to multiply each number in `numbers = [1, 2, 3]` by its index and print the result.  (e.g. 1\*0, 2\*1, 3\*2)
+This example uses `enumerate` to get both the index and value of each element, allowing you to modify the original list during iteration.
 
-#### 1.3. Executing Code Multiple Times (range)
-`range()` creates a sequence of numbers, often used with `for` loops.
-
-* `range(stop)`: 0 up to (but not including) `stop`.
-* `range(start, stop)`: `start` up to (but not including) `stop`.
-* `range(start, stop, step)`:  `start` up to (but not including) `stop`, incrementing by `step`.
+#### 1.3. Executing Code Multiple Times
 ```python
-for i in range(5):      print(i)    # 0 1 2 3 4
-for i in range(2, 6):   print(i)    # 2 3 4 5
-for i in range(1, 10, 2): print(i)  # 1 3 5 7 9
-```
+for x in range(5):
+	print(x, end=', ') 
+# Output: 0, 1, 2, 3, 4, 
 
-**`range()`** is usually used in 2 casses:
-- When you need to explicitily create an arithmetic progression: 
-```python
 for x in range(1, 10, 2):
 	print(x, end=', ') 
 # Output: 1, 3, 5, 7, 9, 
 ```
 
-- When you need to repeat some lines of code multiple times:
+The `range` data type creates an immutable sequence of numbers, useful for controlling loop iterations. It follows the syntax: `range(start, stop, step)`, similar to list slicing.
 
+#### **Problems (For Loop):**
 
-- **Problem 1:**  Print the numbers 10, 12, 14, 16, 18 using `range()`.
-- **Problem 2:**  Print the numbers 100, 80, 60,..., 0 using `range()`.
-- **Problem 3:** Use `range()` to print the multiples of 5 (5, 10, 15..) from 5 to 50 (inclusive).
-
-
-### Problems (Mixed): Combining for, enumerate, and range
-
-1. Given the string `text = "hello world"`, use a `for` loop and an `if` statement to count the number of spaces in the string.
-2. Given a list of names `names = ["Alice", "Bob", "Charlie"]`, use a for loop and `enumerate` to greet each person with their index, like this:  "Person 1: Alice", "Person 2: Bob", etc.
-3. **Sum of Even Numbers:**  Write a program that calculates the sum of all even numbers from 1 to 20 using a `for` loop.
-4. **Factorial:**  Calculate the factorial of a given number using a `for` loop. (Factorial of 5 = 5x4x3x2x1)
-5. **List Reversal:** Reverse a list using a `for` loop and store the reversed elements in a new list.
-6. **Pattern Printing:** Print the following pattern using nested `for` loops:
+1. **Sum of Even Numbers:**  Write a program that calculates the sum of all even numbers from 1 to 20 using a `for` loop.
+2. **Factorial:**  Calculate the factorial of a given number using a `for` loop. (Factorial of 5 = 5x4x3x2x1)
+3. **List Reversal:** Reverse a list using a `for` loop and store the reversed elements in a new list.
+4. **Pattern Printing:** Print the following pattern using nested `for` loops:
    ```
-   1
-   12
-   123
-   1234
-   12345
+   SEQUENCE_WORD
+   *
+   **
+   ***
+   ****
+   *****
+   SEQUENCE_WORD
    ```
-7. **Vowel Counter:** Write a program that counts the number of vowels in a given string using a `for` loop.
+5. **Vowel Counter:** Write a program that counts the number of vowels in a given string using a `for` loop. 
 
+### **2. "While" loop**
 
-#🃏/programming/python 
-**Review Questions:**
+The `while` loop repeatedly executes a block of code as long as a given condition remains True.
 
-What is the purpose of the `range()` function, and how is it commonly used with `for` loops?
-?
-`range()` generates a sequence of numbers. It's used with `for` loops to iterate a specific number of times or over a sequence of integers.
-<!--SR:!2024-12-25,4,270-->
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+# Output: 0 1 2 3 4 
+```
 
-How does `enumerate()` enhance `for` loops when working with sequences like lists or strings? What two values does `enumerate()` provide on each iteration?
-?
-`enumerate()` provides both the *index* and the *value* of each item in a sequence, making it very convenient for tasks that require knowledge of the element's position.
-<!--SR:!2024-12-25,4,270-->
+`while` instructions is often used to create eternal loops, which can be interrupted with use of `break` instruction. Some examples of this may include:
+1. Continuous user input:
+```python
+while True: 
+	user_input = input("Enter a command (type 'exit' to quit): ") 
+	if user_input == "exit": 
+		print("Exiting program.") 
+		break
+	else: 
+		print(f"You entered:{user_input}")
+```
+2. Server Listening for Connections:
+```python
+while True: 
+	connection = server_socket.accept() 
+	print(f"Connected to: {connection[1]}") 
+	# Process the connection here 
+	handle_connection(connection) 
+	# Optionally break based on a certain condition
+```
+3. Automated Data Collection:
+```python
+while True:
+	# Collect new data
+	response = requests.get(api_url, params=params) 
+	data = response.json()
+	# Save the data locally using json
+	json.dump(filename, data)
+	
+```
+#### 2.1.  Break and continue
+* **`break`:** Immediately terminates the loop, regardless of the loop's condition.
+* **`continue`:**  Skips the current iteration and jumps to the next iteration of the loop.
 
-In a `for` loop using `range(start, stop, step)`, will the loop iterate up to and including the *stop* value or up to but *not including* it?  If the *start*, *stop*, and *step* values are not specified when calling the `range` function, what default values will Python use for each?
-?
-The loop iterates up to, but *not including*, the *stop* value. `range()` with one argument defaults to starting at 0 and uses a step of 1. So `range(5)` is equivalent to `range(0, 5, 1)`.
-<!--SR:!2024-12-25,4,270-->
+#### **Problems (While Loop):**
 
+1. **Guessing Game:**  Create a number guessing game.  Generate a random number between 1 and 100, and ask the user to guess the number. Provide feedback (higher or lower) after each guess. Use a `while` loop to keep the game running until the user guesses correctly.
+2. **Sum Until Zero:** Write a program that continuously prompts the user to enter numbers until they enter 0. Calculate and print the sum of all entered numbers.
+3. **Collecting Even Numbers:** Write a program that repeatedly asks the user to enter a number. The program should collect all the even numbers in a list and ignore the odd numbers. If the user enters `"done"`, the program should stop asking for numbers and print the list of collected even numbers.
+4. **Password Check:** Create a program that continuously prompts the user to enter a password. The program should check if the password meets the following criteria:
+	- At least 8 characters long
+	- Contains at least one uppercase letter
+	- Contains at least one lowercase letter
+	- Contains at least one number
+	
+	If the password doesn't meet any of these criteria, inform the user which criteria were not met and prompt them to try again. The loop should break when a valid password is entered.
 
+5. **Secret Word Game:** Create a game where the user has to guess a secret word, which is predefined in the code. The word is displayed with star '\*' characters (apple - > \*\*\*\*\*). The user can guess a single character, which will be shown if the guess is lucky (\*pp\*\*), or try to guess a whole word. Each time the user guesses incorrectly, the program should prompt them to guess again. When the user guesses the correct word or types `"quit"`, the loop should break.
 
+6. **Fibonacci Sequence:** Print the Fibonacci sequence up to a given number using a `while` loop.
+
+7.  **Counting Vowels:** Create a program that asks the user to enter a sentence. The program should then count the number of vowels (`a, e, i, o, u`) in the sentence. If the sentence contains any digits, the program should inform the user that digits are not allowed and prompt them to enter a new sentence. The loop should break once a valid sentence is entered and the vowel count is displayed.
