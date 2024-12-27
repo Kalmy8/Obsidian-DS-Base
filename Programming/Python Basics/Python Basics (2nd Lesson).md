@@ -224,9 +224,9 @@ print(status, "Operation completed.")
 # Or using f-string:
 print(f"{status} Operation completed.")
 ```
-<!--SR:!2025-01-27,53,314-->
+<!--SR:!2025-02-01,41,294-->
 
-Print ten variables, each one on the new line, using only one print statement.
+Print two variables, `day` and `month`, separated by a slash `/`.
 ?
 ```python
 day = 22
@@ -236,7 +236,7 @@ print(day, "/", month)
 print(f"{day}/{month}")
 
 ```
-<!--SR:!2025-02-22,63,314-->
+<!--SR:!2025-02-05,45,294-->
 
 Print two variables, `city` and `temperature`, such that the output is `The temperature in [city] is [temperature] degrees.`
 ?
@@ -245,7 +245,7 @@ city = "London"
 temperature = 20
 print(f"The temperature in {city} is {temperature} degrees.")
 ```
-<!--SR:!2025-02-24,65,314-->
+<!--SR:!2025-02-24,64,314-->
 
 Use the input function to get two numbers from the user and print their sum.
 ?
@@ -254,7 +254,7 @@ num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 print("Sum:", num1 + num2)
 ```
-<!--SR:!2025-03-01,72,314-->
+<!--SR:!2025-02-20,60,314-->
 
 Round the float `5.6789` to 1 decimal place.
 ?
@@ -263,7 +263,7 @@ num = 5.6789
 rounded_num = round(num, 1)
 print(rounded_num) # 5.7
 ```
-<!--SR:!2025-02-18,59,314-->
+<!--SR:!2025-01-30,39,294-->
 
 Determine the quotient of `200 // 15`.
 ?
@@ -271,7 +271,7 @@ Determine the quotient of `200 // 15`.
 quotient = 200 // 15
 print(quotient) # 13
 ```
-<!--SR:!2025-01-28,54,314-->
+<!--SR:!2025-02-23,63,314-->
 
 Compute the remainder of `123` divided by `25`.
 ?
@@ -279,7 +279,7 @@ Compute the remainder of `123` divided by `25`.
 remainder = 123 % 25
 print(remainder)  # 23
 ```
-<!--SR:!2025-02-17,60,314-->
+<!--SR:!2025-02-19,59,314-->
 
  Check if the substring `"Python"` exists in the string `"I am learning Python programming."`
 ?
@@ -288,7 +288,7 @@ text = "I am learning Python programming."
 substring = "Python"
 print(substring in text)  # Output: True
 ```
-<!--SR:!2025-02-20,63,314-->
+<!--SR:!2025-02-02,42,294-->
 
  Strip the characters `*` from the string `***important***`.
 ?
@@ -297,7 +297,7 @@ text = "***important***"
 stripped_text = text.strip('*')
 print(stripped_text)  # Output: important
 ```
-<!--SR:!2025-02-27,68,314-->
+<!--SR:!2025-02-28,68,314-->
 
 Get the substring `"Python"` from the string `"I love Python programming."`
 ?
@@ -313,7 +313,7 @@ text = "I love Python programming."
 parts = text.split() # Creates a list of words
 print(parts[2]) #Python
 ```
-<!--SR:!2025-02-12,55,314-->
+<!--SR:!2025-01-03,12,274-->
 
 Retrieve the las character of the string `"Python"`.
 ?
@@ -322,7 +322,7 @@ text = "Python"
 last_char = text[-1]
 print(last_char)  # Output: n
 ```
-<!--SR:!2025-01-29,55,314-->
+<!--SR:!2025-02-11,51,294-->
 
 Use an f-string to show `0.98765` as a percentage with 2 decimal places.
 ?
@@ -330,7 +330,7 @@ Use an f-string to show `0.98765` as a percentage with 2 decimal places.
 number = 0.98765
 print(f"{number:.2%}") # 98.77%
 ```
-<!--SR:!2025-02-20,61,314-->
+<!--SR:!2025-02-16,56,314-->
 
 Format and truncate the string `"Python programming"` to display only the first 7 characters.
 ?
@@ -340,7 +340,7 @@ truncated_text = text[:7]
 print(truncated_text) # Output: Python 
 print(f"{text:.7}")   # Output: Python (using f-string)
 ```
-<!--SR:!2025-02-21,64,314-->
+<!--SR:!2025-03-04,68,314-->
 
 Print the variable `age` right-aligned within a width of 6 characters using an f-string.
 ?
@@ -348,7 +348,7 @@ Print the variable `age` right-aligned within a width of 6 characters using an f
 age = 30
 print(f"{age:>6}")  # Output: "   30"
 ```
-<!--SR:!2025-03-03,72,314-->
+<!--SR:!2025-02-15,55,314-->
 
 Use an f-string to format `7.890123` to 3 decimal places.
 ?
@@ -356,7 +356,7 @@ Use an f-string to format `7.890123` to 3 decimal places.
 number = 7.890123
 print(f"{number:.3f}")  # Output: 7.890
 ```
-<!--SR:!2025-02-10,53,314-->
+<!--SR:!2025-02-12,52,314-->
 
 Pop and print the element at index 1 from the list `cities = ['New York', 'Los Angeles', 'Chicago', 'Houston']`.
 ?
@@ -366,7 +366,7 @@ popped_city = cities.pop(1)  # pop() with index
 print(popped_city)      # Los Angeles
 print(cities)           # ['New York', 'Chicago', 'Houston']
 ```
-<!--SR:!2025-01-27,53,314-->
+<!--SR:!2025-03-11,75,323-->
 
 
 Add the string `"elderberry"` to the list `fruits = ['apple', 'banana', 'cherry']`.
@@ -377,7 +377,7 @@ fruits.append("elderberry")
 print(fruits) # ['apple', 'banana', 'cherry', 'elderberry']
 
 ```
-<!--SR:!2025-02-19,62,314-->
+<!--SR:!2025-02-20,56,303-->
 
 Get the first three elements from the list `colors = ['red', 'green', 'blue', 'yellow']`.
 ?
@@ -386,7 +386,7 @@ colors = ['red', 'green', 'blue', 'yellow']
 first_three = colors[:3]  # slicing
 print(first_three)    # ['red', 'green', 'blue']
 ```
-<!--SR:!2025-02-21,64,314-->
+<!--SR:!2025-01-15,24,303-->
 
 Access the last element in the list `fruits = ['apple', 'banana', 'cherry', 'date']`.
 ?
@@ -395,7 +395,7 @@ fruits = ['apple', 'banana', 'cherry', 'date']
 last_fruit = fruits[-1]
 print(last_fruit)  # date
 ```
-<!--SR:!2025-02-28,69,314-->
+<!--SR:!2025-03-02,70,323-->
 
 Count the number of occurrences of the letter 'o' in the word 'someverylongword'.
 ?
@@ -404,7 +404,7 @@ word = 'someverylongword'
 count = word.count('o')
 print(count)  # 2
 ```
-<!--SR:!2025-10-15,298,310-->
+<!--SR:!2025-01-13,36,270-->
 
 
 

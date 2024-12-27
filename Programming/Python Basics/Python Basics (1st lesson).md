@@ -55,7 +55,7 @@ What are the key differences between interpreted and compiled languages, and how
 - In order to complete the instructions given within the user code Interpreted languages do rely on an interpreter - a program which reads user code line-by-line, converts it into machine code and executes right away.
 - Compiled languages do instead firstly convert all the code into the machinery form, and when execute all the instructions at once.
 - Python is usually referred as an interpreter language, but it actually has a compilation stage (compiles into bytecode `.pyc` files ), so it's not quite accurate.
-<!--SR:!2025-02-23,66,316-->
+<!--SR:!2024-12-29,7,257-->
 
 Describe 4 main stages of the user-code execution process. Which of this processes belong to the compilation stage?
 - Lexical analysis: user-written code is being split into certain tokens: variable names, values, functions, control statements etc.
@@ -65,38 +65,38 @@ Describe 4 main stages of the user-code execution process. Which of this process
 
 What are the `.pyc` files? What role do they play in terms of program execution?
 ?
-`.pyc`  (python-chached) files contain python **bytecode**, which is the result of first 3 stages of python code execution pipeline. This files are being cached into the script directory, and are being updated whenever a script is being modified. If there are no changes, PVM will skip first 3 stages and will interprete the bytecode right away, the **resulting performance boost is the reason why `.pyc` files exist**.
-<!--SR:!2025-02-24,65,316--> 
+`.pyc`  (python-chached) files contain python **bytecode**, which is the result of first 3 stages of python code execution pipeline. This files are being cached into the script directory, and are being updated whenever a script is being modified. If there are no changes, PVM will skip first 3 stages and will interprete the bytecode right away, the **resulting performance boost is the reason why `.pyc` files exist**.![[Pasted image 20241222091837.png]]
+<!--SR:!2025-01-18,27,276--> 
 
 How are python datatypes categorized? Which datatypes fall into each category?
 ?
 - Mutable: set, dict, list
 - Immutable: all the rest ones
-<!--SR:!2025-02-26,69,316-->
+<!--SR:!2025-01-25,34,297-->
 
 How do Python represent objects inside the memory heap? Enumerate all the components or draw a diagram.
 ?
-![[Pasted image 20240807150909.png]]
-<!--SR:!2025-02-14,57,316-->
+![[Pasted image 20241128180525.png]]
+<!--SR:!2025-01-12,21,277-->
 
 Name the output of each piece of the given code: 
-```python
-	x = 5
-	y = x
-	x = 10
-	print(y)
-	 # OUTPUT HERE EQUALS ?#
-	d1 = {'a': [1, 2, 3]}
-	d2 = d1.copy()
-	d1['a'].append(4)
-	print(d2)
-	# OUTPUT HERE EQUALS ?#
-	a = (1, 2, [3, 4])
-	b = a
-	a[2].append(5)
-	print(b)
-	# OUTPUT HERE EQUALS ?#
-	# OUTPUT HERE EQUALS ?#
+```python  
+  x = 5  
+  y = x  
+  x = 10  
+  print(y)  
+   # OUTPUT HERE EQUALS ?#  
+  d1 = {'a': [1, 2, 3]}  
+  d2 = d1.copy()  
+  d1['a'].append(4)  
+  print(d2)  
+  # OUTPUT HERE EQUALS ?#  
+  a = (1, 2, [3, 4])  
+  b = a  
+  a[2].append(5)  
+  print(b)  
+  # OUTPUT HERE EQUALS ?#  
+  # OUTPUT HERE EQUALS ?#  
 ```
 ?
 ```python
