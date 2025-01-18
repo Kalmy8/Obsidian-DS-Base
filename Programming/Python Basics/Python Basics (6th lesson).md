@@ -240,7 +240,7 @@ Create a function `sum_integers` that takes any number of integers and prints th
 	def sum_integers(*integers : int):
 		print sum(integers)
 ```
-<!--SR:!2025-01-06,16,302-->
+<!--SR:!2025-03-26,67,322-->
 
 
 Define a function `print_kwargs` that takes any number of keyword arguments and prints them.
@@ -268,7 +268,7 @@ print_kwargs(country="USA", language="English")
 # country: USA 
 # language: English
 ```
-<!--SR:!2024-12-25,4,284-->
+<!--SR:!2025-02-03,16,304-->
 
 Define a function `create_message` that takes a default greeting and any number of names (`args`), then prints a greeting for each name.
 ?
@@ -295,5 +295,5 @@ create_message("Good morning", "David")
 # Output: 
 # Good morning, David!
 ```
-<!--SR:!2024-12-25,4,284-->
+<!--SR:!2025-02-04,17,304-->
 

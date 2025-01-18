@@ -51,7 +51,7 @@ Prove $P(A\cup B) = P(A) + P(B) - P(A \cap B)$
 >- $A \cap B = {w_{i},i\in B, i\in A }$
 >  $$\underbrace{\sum\limits_{w_{i} \in A \cup B} P(w_{i})}_{P(A\cup B)}=\sum\limits_{w_{i} \in A \setminus B} P(w_{i}) + \sum\limits_{w_{i} \in B \setminus A} P(w_{i})$$
 >  $$=\underbrace{\sum\limits_{w_{i} \in A } P(w_{i})}_{P(A)} + \underbrace{\sum\limits_{w_{i} \in B } P(w_{i})}_{P(B)} - \underbrace{\sum\limits_{w_{i} \in A\cap B } P(w_{i})}_{P(A\cap B)}$$
-<!--SR:!2025-01-14,41,290-->
+<!--SR:!2025-07-02,165,310-->
 
 
 How can you calculate the **probability of the complement** of an event $A$, denoted as $P(\neg{A})$?

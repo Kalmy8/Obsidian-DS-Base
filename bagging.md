@@ -35,4 +35,4 @@ Bias is the same
 ![[bias of bagging.md | 800]]
 variance is decreased by \<number of base models> time, if base models are uncorrelated
 ![[variance of bagging.md | 800]]
-<!--SR:!2024-12-22,1,214-->
+<!--SR:!2025-01-21,3,234-->

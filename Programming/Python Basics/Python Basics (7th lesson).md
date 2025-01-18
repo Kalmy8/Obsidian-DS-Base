@@ -170,7 +170,7 @@ A lambda function is a small anonymous function.
 ```python
 cube = lambda x: x ** 3 
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 How does `map()` work? Write one to square each element in `[1, 2, 3]`.
 ?
@@ -178,7 +178,7 @@ How does `map()` work? Write one to square each element in `[1, 2, 3]`.
 ```python
 squared = list(map(lambda x: x*x, [1, 2, 3]))
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 Explain `functools.reduce()`. Write one to sum the numbers in `[1, 2, 3, 4]`.
 ?
@@ -187,12 +187,12 @@ Explain `functools.reduce()`. Write one to sum the numbers in `[1, 2, 3, 4]`.
 from functools import reduce
 sum_of_elements = reduce(lambda x, y: x + y, [1, 2, 3, 4]) 
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
 What is the purpose of  `functools.singledispatch` and `functools.singledispatchmethod`?
 ?
 It creates a generic function/method that behaves differently based on the first argument's type.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 Using functools.singledispatch, create a function called get_info that returns the following:
 - For an integer, return the square of the integer.
@@ -219,7 +219,7 @@ print(get_info(5))        # Output: 25
 print(get_info("hello"))  # Output: hellohello
 print(get_info(3.14))     # Output: None
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 
 How does `functools.partial` simplify function usage? Make a function that always adds 5 using `partial()`.
@@ -233,14 +233,14 @@ def add(x, y):
 
 add_five = partial(add, 5) 
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
 What is the use of `@lru_cache`. What arguments does lru_cache accept, how do they affect the caching mechanism? Write a function to effectively calculate the factorial using cache
 ?
 - Caches results of expensive function calls, greatly speeding up repeated executions by storing already computed results.
 - Max_size (int): number of last calls which will be memorized
 - Typed (bool): whether to treat **func(3)** and **func(3.0)** calls equal
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 **@lru_cache problem:**
 - Create a function fibonacci(n) that calculates the Nth Fibonacci number recursively (without caching)

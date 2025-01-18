@@ -7,4 +7,4 @@ These design patterns handle the object creation process, optimizing the flexibi
 - **[[Factory pattern]]:** Defines an interface for creating objects, but lets subclasses decide which class to instantiate.
 - **[[Prototype pattern]]:** Specifies the kinds of objects to create using a prototypical instance.
 - **[[Singletone pattern]]:** Ensures a class has only one instance and provides a global point of access to it.
-<!--SR:!2024-12-30,88,310-->
+<!--SR:!2026-01-31,378,330-->

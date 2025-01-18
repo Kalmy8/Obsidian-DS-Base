@@ -118,7 +118,7 @@ Hash is an integer value - a unique identifier of a python object. Hashes are be
 	- For containers (frozensets, tuples) the hash can be calculated only if immutable objects are the inside
 - For user custom-defined functions, classes hash is being calculated using the memory address (`id`) of the object, and is being sustainable only throughout a single interpreter session.
 	- To enhance sustainability, one must provide `__hash__` and `__eq__` magic methods inside the class.
-<!--SR:!2024-12-28,7,270-->
+<!--SR:!2025-02-12,25,290-->
 
 Adding to hashmap/lookup operation complexity
 ?

@@ -66,7 +66,7 @@ where
 - $T(x,\Theta_{i}(Z))$ is the output of the i-th tree classifier on an input vector x;
 - $\sigma^{2}(x)$ is the sample variance of any randomly selected tree $$\large \sigma^2(x) = Var\left[T(x,\Theta(X))\right]$$
 - This formula clearly shows that the total variance term is proportional to both single tree variance and the correlation between two random trees from the forest. No matter how single tree variance is big, if correlation is close to zero the all-together error would also be.
-<!--SR:!2024-12-26,5,237-->
+<!--SR:!2025-02-05,18,257-->
 
 How to tune tree *depth* and *min_samples_leaf* parameters for both classification and regression tasks?
 ?

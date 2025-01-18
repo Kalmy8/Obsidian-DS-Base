@@ -112,12 +112,20 @@ supervisor.renovate()
 
 **Part 3:  Practical Tasks**:
 
-1. **Bank Account:**
-	- **Task:** Create a `BankAccount` class with attributes for `balance` and `account_number`. Implement methods: `deposit()`, `withdraw()`, and `get_balance()`.  Encapsulate the balance so it cannot be directly modified outside the class.
+1. **Soda** 
+   - **Task:** Create a class to represent different types of soda. This class should accept one argument upon initialization to specify the flavor or additive. 
+     
+     Implement a method called **`show_my_drink()`** that prints a message indicating the type of soda.
+     
+     If an additive was specified, it should print "Soda with {ADDITIVE}". Otherwise, it should print "Regular soda".
+<br><br>
 
+3. **Bank Account:**
+	- **Task:** Create a `BankAccount` class with attributes for `balance` and `account_number`. Implement methods: `deposit()`, `withdraw()`, and `get_balance()`.  Encapsulate the balance so it cannot be directly modified outside the class.
+<br><br>
 1. **Simple Rectangle:**
 	- **Task:** Create a `Rectangle` class with attributes `length` and `width`. Implement methods to calculate the `area()` and `perimeter()`.
-
+<br><br>
 1. **Library Book System:** 
 	- **Task:** Begin designing a basic Library system:
 		- Have a `Book` class with attributes `title`, `author`
@@ -139,30 +147,30 @@ Okay, here are key questions designed for spaced repetition, covering the concep
 - Example: A **Dog**:
 	- **Behaviors:** bark, fetch, eat
 	- **Properties:** breed, color, age
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 
 **In OOP, what is a class?**
 ?
 A class is like a blueprint or template for creating objects.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 **In OOP, what is an object?**. How could objects of the same class be different: can they have different methods? Can they have different attributes/attribute values?
 ?
 - An object is a specific instance of a class.
 - All objects do have the same methods
 - Objects are likely to have different attribute values and can even have different attributes (**while not reccomended**)
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
 **What does the `self` keyword represent in a Python class?**
 ?
 It refers to the current instance of the class (the object itself).
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 **What is the purpose of the `__init__` method in a Python class?**
 ?
 It's the constructor, used to initialize the attributes of an object when it's created.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 **What is the difference between a "dataclass" and a "static class" as described in the conspect? Give a brief example of when you might use each one.**
 ?
@@ -170,13 +178,13 @@ It's the constructor, used to initialize the attributes of an object when it's c
 	 - **Examples:** config files, vectors, points
  - **static class** mainly contains only the methods and doesn't have attributes
 	 - **Examples:** a `MathUtils` class with methods like `add()`, `subtract()`, etc.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
 
 **Why is OOP often considered a more natural way to structure complex programs than procedural programming?**
 ?
 OOP allows you to model real-world objects and their interactions more closely, making the code more organized and easier to understand.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 **Programming Task:**
 1. Write the Python code for the Dog class, including the **`__init__`**, **`bark()`** , and **`describe()`** methods.
@@ -203,4 +211,4 @@ dog2 = Dog("Lucy", "Labrador")
 dog1.describe()  # Output: This is Buddy, a Golden Retriever.
 dog2.describe()  # Output: This is Lucy, a Labrador.
 ```
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->

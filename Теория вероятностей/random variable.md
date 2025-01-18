@@ -27,7 +27,7 @@ $$X(i,j)= 3i + 6j, or$$ $$X(i,j)= i*j, or$$ $$X(i,j)= \sqrt{i}, etc$$
 How is a random variable bonded with probability? How can you express the likelihood that some random variable will take a certain  value?
 ?
 Probability is a property of an elementary event. Random variables maps elementary events to certain values, so, for every value the random variable can take, the likelihood will be the sum of corresponding elementary events probabilities. This fact is usually expressed with the usage of [[probability density function]]/[[probability mass function]]/[[cumulative distribution function]].
-<!--SR:!2025-01-09,38,290-->
+<!--SR:!2025-06-20,153,310-->
 
 What are the descriptional statistics of a random variable, why would you need one? Name as much as you can remember
 ?

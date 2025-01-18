@@ -1,4 +1,4 @@
-[[OOP Basics (1st) lesson | <previous]]  |  [[OOP Basics (3rd) lesson]]
+[[OOP Basics (1st) lesson | <previous]]  |  [[OOP Basics (3rd) lesson | next>]]
 **Codewords:** OOP principles: Encapsulation, Abstraction, Getters, Setters
 
 ## 1. Encapsulation:
@@ -104,9 +104,6 @@ del obj.value      # Calls the deleter: "Deleting value"
 3. **`@<attribute>.deleter`:** The `@<attribute>.deleter` decorator defines a method to be called when the attribute is deleted (using `del`).
 
 
-
-
-
 ### Tasks
 
 **Task 1**:
@@ -118,7 +115,16 @@ Create a `BankAccount` class.
 - Encapsulate the balance (`__balance`) as private. 
 - Implement getter and setter methods `get_balance()` and `set_balance()` to access and modify the balance securely.
 - Include validation in `set_balance()` to prevent negative balances. 
-- Implement methods like `deposit()`, `withdraw()`.
+- Implement methods like `deposit()`, `withdraw()`
+
+**Task 3:** 
+Create a `Triangle` class initialized from a given set of side lengths. 
+- The class should take a list of strictly positive numbers as input. Otherwise errors do appear:
+	- **"Negative numbers cannot be used!"**
+	- **"Only numbers can be used!"**
+- You should also check if triangle can be formed with this given lengths. Otherwise an error appears:
+	- **"Unfortunately, a triangle cannot be formed from these sides."**
+
 
 ## 2. Abstraction:
 *   **Definition:** Abstraction focuses on showing essential information about an object while **hiding complex implementation details** from the user. It simplifies interaction with objects.
@@ -156,12 +162,71 @@ Create a `BankAccount` class.
     *   **Flexibility:** Internal implementation can be changed without affecting how users interact with the object.
 
 ### Tasks:
-1. In the `CoffeeMachine` example, what are the essential actions a user needs to perform? What details are hidden from the user?
-2. How does abstraction make the `CoffeeMachine` class easier to use?
-3. Extend the `BankAccount` class: 
-	- Introduce a method `calculate_interest()` that calculates the interest earned based on the current balance and a fixed interest rate. 
-		- The user should not be able to see or modify the interest rate directly. Demonstrate how this exemplifies abstraction.
+**Task 1:**
+- In the `CoffeeMachine` example, what are the essential actions a user needs to perform? What details are hidden from the user?
+- How does abstraction make the `CoffeeMachine` class easier to use?
 
+**Task 2:**
+- Extend the BankAccount class (from the Encapsulation section).
+- Add a private attribute __interest_rate (e.g., set it to 0.05 for 5%).
+- Introduce a method calculate_interest() that calculates the interest earned based on the current balance and the __interest_rate.
+- Add a method apply_interest() that adds the calculated interest to the balance.
+- Explain how these additions demonstrate abstraction.
+
+**Task 3:**
+1. **Create a TV class:**
+    - Include private attributes for __is_on (boolean, initially False), __volume (integer, initially 10), and __channel (integer, initially 1).
+    - Implement private methods:
+        - _change_volume(amount): Increases or decreases the volume by amount, ensuring it stays within the range 0-100.
+        - _change_channel(channel): Changes the channel to the given channel number (assume a valid range of 1-100).
+    - Implement public methods:
+        - power_on(): Turns the TV on.
+        - power_off(): Turns the TV off.
+        - volume_up(): Increases the volume by 1 if the TV is on.
+        - volume_down(): Decreases the volume by 1 if the TV is on.
+        - channel_up(): Goes to the next channel if the TV is on.
+        - channel_down(): Goes to the previous channel if the TV is on.
+2. **Create a RemoteControl class:**
+    - The constructor (__init__) should take a TV object as an argument and store it as an attribute.
+    - Implement methods power_on(), power_off(), volume_up(), volume_down(), channel_up(), and channel_down() that correspond to the TV's methods. These methods should simply call the appropriate methods on the TV object.
+3. **Demonstrate Abstraction:**
+    - Create a TV object.
+    - Create a RemoteControl object associated with the TV.
+    - Use the RemoteControl to turn the TV on, adjust the volume and channel, and then turn the TV off.
+    - Explain how this example demonstrates abstraction.
+
+
+**Task 4:**
+1. **Create an Order class:**
+    - Include an attribute items (a list to store items in the order).
+    - Implement a method add_item(item_name, price, quantity) to add an item to the order.
+    - Implement a method get_total() that calculates and returns the total price of the order.
+        
+2. **Create a PaymentProcessor class:**
+    - Implement a method charge_payment(order, payment_method) that simulates charging a payment.
+    - For now, it can simply print a message like "Processing [payment_method] payment of $[amount]..." (where [amount] is the order total).
+3. **Create an InventoryManager class:**
+    - Implement a method check_stock(order) that simulates checking if items in the order are in stock.
+        - For simplicity, you can assume all items are in stock, or you can add a simple check (e.g., if an item name is "out_of_stock_item", return False).
+    - Implement a method update_stock(order) that simulates updating the stock after an order is processed (e.g., print a message).
+4. **Create a ShippingManager class:**
+    - Implement a method ship_order(order) that simulates shipping the order (e.g., print a message).
+5. **Create an OrderProcessor class:**
+    - The constructor should create instances of PaymentProcessor, InventoryManager, and ShippingManager.
+    - Implement a method process_order(order, payment_method) that does the following:
+        - Checks inventory using InventoryManager.check_stock().
+        - If sufficient stock:
+            - Charges payment using PaymentProcessor.charge_payment().
+            - Updates stock using InventoryManager.update_stock().
+            - Ships the order using ShippingManager.ship_order().
+            - Prints a success message.
+        - If insufficient stock:
+            - Prints an appropriate message.
+6. **Demonstrate Abstraction:**
+    - Create an Order object and add some items to it.
+    - Create an OrderProcessor object.
+    - Call the process_order() method on the OrderProcessor object to process the order.
+    - Explain how this example demonstrates abstraction (what details are hidden from the user of the OrderProcessor?).
 
 #🃏/data-science 
 ## Key questions
@@ -169,28 +234,92 @@ Create a `BankAccount` class.
 **What is encapsulation in OOP, and why is it important?**
 ?
 Encapsulation is bundling data and methods within a class, protecting data integrity and controlling access through methods.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 **What is the purpose of using "private" attributes (using the double underscore `__` prefix) in Python classes?**
 ?
 To prevent direct access and modification of the attribute from outside the class, enforcing encapsulation.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
 **Why is direct access to an object's attributes generally discouraged in OOP?**
 ?
 Direct access can lead to accidental or unauthorized modification of data, potentially corrupting the object's state or violating the intended logic of the class.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-02,15,290-->
 
 **Explain the purpose of "getter" and "setter" methods. Why are they important?**
 ?
 **Getters** provide controlled access to read an object's attributes, while **setters** allow controlled modification, often including validation to ensure data integrity.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-01,14,290-->
 
 **Explain the concept of abstraction in OOP and provide a real-world example.**
 ?
 - Abstraction hides complex implementation details and exposes only essential information to the user.
 - Example: A TV remote control hides the internal electronics but provides buttons for essential actions like changing channels and volume.
-<!--SR:!2024-12-25,4,270-->
+<!--SR:!2025-02-03,16,290-->
 
+**Task:**
+- Create a class Circle with a private attribute radius. 
+- Implement a getter method get_radius() and a setter method set_radius() that validates if the radius is positive.
+?
+```python
+class Circle:
+    def __init__(self, radius):
+        self.__radius = radius  # Private attribute
 
+    def get_radius(self):
+        return self.__radius
 
+    def set_radius(self, radius):
+        if radius > 0:
+            self.__radius = radius
+        else:
+            print("Radius must be positive.")
+
+# Example usage
+my_circle = Circle(5)
+print(my_circle.get_radius())  # Output: 5
+my_circle.set_radius(10)
+print(my_circle.get_radius())  # Output: 10
+my_circle.set_radius(-2)      # Output: Radius must be positive.
+```
+<!--SR:!2025-02-15,30,310-->
+
+**Task:**
+- Create a class Playlist with methods add_song(song_title), remove_song(song_title), and play().
+- Internally, you can store the songs in a list (this is a hidden detail).
+- The play() method should simply print "Playing [song_title]" for each song in the playlist.
+?
+```python
+class Playlist:
+    def __init__(self):
+        self.__songs = []  # Private attribute to store songs
+
+    def add_song(self, song_title):
+        self.__songs.append(song_title)
+        print(f"Added '{song_title}' to the playlist.")
+
+    def remove_song(self, song_title):
+        if song_title in self.__songs:
+            self.__songs.remove(song_title)
+            print(f"Removed '{song_title}' from the playlist.")
+        else:
+            print(f"'{song_title}' not found in the playlist.")
+
+    def play(self):
+        if self.__songs:
+            print("Playing playlist:")
+            for song in self.__songs:
+                print(f"- Playing {song}")
+        else:
+            print("Playlist is empty.")
+
+# Example Usage:
+my_playlist = Playlist()
+my_playlist.add_song("Song A")
+my_playlist.add_song("Song B")
+my_playlist.add_song("Song C")
+my_playlist.play()
+my_playlist.remove_song("Song B")
+my_playlist.play()
+```
+<!--SR:!2025-02-15,30,310-->
