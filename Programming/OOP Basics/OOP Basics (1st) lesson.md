@@ -4,7 +4,7 @@
 ### The intuition behind OOP
 OOP stands for **object-oriented programming**, and this paradigm shines when it comes to creating, managing, modifying some complex **objects**. To start applying this paradigm in first place, the most hardest part is detecting actual **objects** inside your programm. The truth is: Everything can be an object (actually, in Python, all built-in methods, data types and etc are **objects** themselves).
 
-A typical object in OOP would have some **data** (attributes/properties) and some **operations on it** (methods/functions). 
+A typical object in OOP would have some **data** (attributes/properties/fields) and some **operations on it** (methods). 
 Let's give you an intuition about OOP by using some real-world Analogies:
 
  Car:
@@ -32,7 +32,7 @@ Whenever you are dealing with a new task, to actually DESCRIBE and write all the
 
 Example: 
 Let's say you want to make a renovation in your new flat. What are the required steps to take? Let's write a recipe:
-> In order to make the renovation, I firstly will hire a **supervisor: a man**, who will *find and communicate* proper specialists for me. First, he will hire a **measurer** *to make a complete measurement* and *pass all the data back to the supervisor*. When, a **designer** will *make a project of the flat*, with respect to all the measurements, and *return a list of the reqired furniture and it's parameters*. **Supervisor** *buys* all the furniture*. Lastly, the **worker**  *places all the furniter to the corresponding positions* .
+> In order to make the renovation, I firstly will hire a **supervisor: a man**, who will *find and communicate* proper specialists for me. First, he will hire a **measurer** *to make a complete measurement* and *pass all the data back to the supervisor*. When, a **designer** will *make a project of the flat*, with respect to all the measurements, and *return a list of the reqired furniture and it's parameters*. **Supervisor** *buys* all the furniture. Lastly, the **worker**  *places all the furniter to the corresponding positions*  .
 ```python
 class Supervisor:
     def __init__(self):
@@ -110,33 +110,31 @@ supervisor.renovate()
      ```
    - **Key Point:** Focus on the `self` parameter: It refers to the current object. 
 
-**Part 3:  Practical Tasks**:
+####  Practical Tasks:
+**Soda:** 
+- Create a class to represent different types of soda. This class should accept one argument upon initialization to specify the flavor or additive
+- Implement a method called **`show_my_drink()`** that prints a message indicating the type of soda.
+- If an additive was specified, it should print "Soda with {ADDITIVE}". Otherwise, it should print "Regular soda".
 
-1. **Soda** 
-   - **Task:** Create a class to represent different types of soda. This class should accept one argument upon initialization to specify the flavor or additive. 
-     
-     Implement a method called **`show_my_drink()`** that prints a message indicating the type of soda.
-     
-     If an additive was specified, it should print "Soda with {ADDITIVE}". Otherwise, it should print "Regular soda".
-<br><br>
+**Bank Account:**
+- Create a `BankAccount` class with attributes for `balance` and `account_number`. 
+- Implement methods: `deposit()`, `withdraw()`, and `get_balance()`.  
+- Encapsulate the balance so it cannot be directly modified outside the class.
 
-3. **Bank Account:**
-	- **Task:** Create a `BankAccount` class with attributes for `balance` and `account_number`. Implement methods: `deposit()`, `withdraw()`, and `get_balance()`.  Encapsulate the balance so it cannot be directly modified outside the class.
-<br><br>
-1. **Simple Rectangle:**
-	- **Task:** Create a `Rectangle` class with attributes `length` and `width`. Implement methods to calculate the `area()` and `perimeter()`.
-<br><br>
-1. **Library Book System:** 
-	- **Task:** Begin designing a basic Library system:
-		- Have a `Book` class with attributes `title`, `author`
-		-  Create a `Member` class with attributes `First Name`, `Last Name` that can `borrow()` and `return_book()`
-		- Create a `Library` class that keeps track of:
-			- Available books
-			- Borrowed books
-				- How long are they borrowed?
-				- Which member did borrow the book?
+**Simple Rectangle:**
+- Create a `Rectangle` class with attributes `length` and `width`. 
+- Implement methods to calculate the `area()` and `perimeter()`
 
-Okay, here are key questions designed for spaced repetition, covering the concepts from your "OOP Basics (1st lesson)" conspect, keeping in mind the system instructions and the need for concise, focused questions:
+**Library Book System:** 
+- Begin designing a basic Library system:
+- Have a `Book` class with attributes `title`, `author`
+-  Create a `Member` class with attributes `First Name`, `Last Name` that can `borrow()` and `return_book()`
+- Create a `Library` class that keeps track of:
+	- Available books
+	- Borrowed books
+		- How long are they borrowed?
+		- Which member did borrow the book?
+
 
 #🃏/data-science 
 ## Key questions:
