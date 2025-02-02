@@ -41,4 +41,3 @@ goblin2 = spawn_monster("goblin")
 print(goblin1)  # Output: Goblin (Health: 20, Attack: 5)
 print(goblin2)  # Output: Goblin (Health: 20, Attack: 5)
 ```
-<!--SR:!2025-07-08,235,330-->

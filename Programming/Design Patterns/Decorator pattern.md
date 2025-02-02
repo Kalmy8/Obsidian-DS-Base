@@ -1,8 +1,8 @@
 #🃏/programming
 What is a **Decorator** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from python @decorator syntaxis? Provide some mock-code example of a class designed within a **Decorator** paradigm.
 ?
-[[Decorator.mhtml]]
-The **Decorator pattern** is a [[Structural patterns | structural pattern]], which allows you to **extend some method/class behavior without actually modifying it or creating any subclasses**. It sort of  **wraps** the inner class with some additional logic, executed **before or after the inner class logic**, the wrapped class is called a **wrappee**. It is yet simple and useful, allowing you to change any function's behaviour on fly, and even **stack a few decorators together, if needed**. Some usage examples may include:
+[Decorator.mhtml](../../📁%20files/Decorator.mhtml)
+The **Decorator pattern** is a [structural pattern](Structural%20patterns.md), which allows you to **extend some method/class behavior without actually modifying it or creating any subclasses**. It sort of  **wraps** the inner class with some additional logic, executed **before or after the inner class logic**, the wrapped class is called a **wrappee**. It is yet simple and useful, allowing you to change any function's behaviour on fly, and even **stack a few decorators together, if needed**. Some usage examples may include:
 1. Building pipelines. As every decorator and the base class share the same interface, you can implement some **transform** method in them and stack decorators as you need: `Imputer(Scaler((Standartizer())))`
 1. Logging and evaluating ML models, so you can compare them easily with no need to create any extensive code.
 3. Timing measurement, applying some timer decorator, which allow you to evaluate your code perfomance.
@@ -11,7 +11,7 @@ The **Decorator pattern** is a [[Structural patterns | structural pattern]], whi
 ##### Decorator pattern structure
 In python, the decorator can be constructed as a function recieving an other function, and the language itself has some nice syntaxis sugar (the '@decorator') for convinient usage. However, the general decorator pattern is more complex than that and can be represented as rather a whole class.
 The pattern itself consists of **4 main parts**:
-![[Pasted image 20240830172425.png]]
+![Pasted image 20240830172425.png](../../📁%20files/Pasted%20image%2020240830172425.png)
 1. **"Interface" Component**: an abstract class, defining some shared interface for all of the decorators and the decorated class, allowing for chaining and interchanging them.
 2. **Concrete Component**: a class implementing some basic methods/behavior, which then could be extended with decorators.
 3. **Basic Decorator**: an abstract class, extending the **"Interface" \[1]** class by adding some pointer (field, attribute) to actually refrence a wrapped object and invoke operations within it when being called.
@@ -88,4 +88,3 @@ full_evaluator = PrecisionEvaluator(accuracy_evaluator)  # Chaining decorators
 
 full_evaluator.evaluate(model, X_test, y_test) 
 ```
-<!--SR:!2025-10-14,297,310-->

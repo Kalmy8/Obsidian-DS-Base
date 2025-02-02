@@ -1,4 +1,4 @@
-Must know: [[Iterable and Iterator classes]]
+Must know: [Iterable and Iterator classes](Programming/Iterable%20and%20Iterator%20classes.md)
 
 We can think of generators as of advanced Iterators. Conceptually, an Iterator is an object responsible for traversing some collection. Generator, on other hand, does not only traverse a collection, but can modify or even create new returned values by itself.
 
@@ -27,13 +27,13 @@ Let's break down what's happening here into several steps:
 - `for` statement uses the `iter()` function under the hood accessing the `__iter__` method of the generator object
 - `__iter__` method returns the generator itself, the `__next__` method is invoked
 - when the `__next__` method is called, we are falling inside the generator function and get "1" as the output:
-  ![[Pasted image 20241128125816.png]]
-  ![[Pasted image 20241128125846.png]]
-  ![[Pasted image 20241128125855.png]]
+  ![Pasted image 20241128125816.png](📁%20files/Pasted%20image%2020241128125816.png)
+  ![Pasted image 20241128125846.png](📁%20files/Pasted%20image%2020241128125846.png)
+  ![Pasted image 20241128125855.png](📁%20files/Pasted%20image%2020241128125855.png)
 - when the `__next__` method is called again, we are falling inside the generator function **to the place we have left previously**, execute further code and get "2" as the output:
-  ![[Pasted image 20241128130036.png]]
-  ![[Pasted image 20241128130046.png]]
-  ![[Pasted image 20241128130058.png]]
+  ![Pasted image 20241128130036.png](📁%20files/Pasted%20image%2020241128130036.png)
+  ![Pasted image 20241128130046.png](📁%20files/Pasted%20image%2020241128130046.png)
+  ![Pasted image 20241128130058.png](📁%20files/Pasted%20image%2020241128130058.png)
 - when the `__next__` method is called again, we are falling inside the generator function **to the place we have left previously**, execute further code and print "end". No value is returned, so `for` cycle got no `i` and does not execute the loop anymore
 
 The resulting output is:
@@ -53,7 +53,7 @@ What are the generator expressions? Why are they used, how are they benefitial f
 (i for i in range(10000000))
 ```
 Are used for the collections lazy-creation. Here, we are not creating a whole collection of numbers, but rather create objects one by one. That's so simple yet convinient
-<!--SR:!2025-02-21,62,310--> 
+ 
 
 ### Yield from
 Is used to build nested generators. This statement transfer the program flow to the underlaying generator or iterator object and fetches returned values from there. 
@@ -83,7 +83,7 @@ for i in outer_gen():
 Conceptually, what is a generator, how is it different from a iterator?
 ?
 Both of them must implement `__next__` and `__iter__` methods. The difference is: the iterator is only responsible for traversing some collection, while generators can create their own values or modify values they extract
-<!--SR:!2025-02-10,53,310-->
+
 
 What is the purpose of the yield keyword? What if I call a `__next__` method multiple times on a generator created by yield-containing function?
 ?
@@ -91,7 +91,7 @@ What is the purpose of the yield keyword? What if I call a `__next__` method mul
 	- Whenever you call the `__next__` method on this generator, the function will be executed, from the starting point and all the way up to the `yield` keyword
 	- Next time you call `__next__`, the same function will be executed, but not from the beginning, rather than from the point you have hit the `yield` keyword last time
 	- This behaviour continues up to the point when the function has completed it's execution and now `yield` keyword is met. When the generator returns no value, and stops it's execution
-<!--SR:!2025-02-25,66,310-->
+
 
 What is the usage of `yield from` method?
 ?
@@ -106,7 +106,7 @@ def outer_gen():
     yield from 'abc'  
     yield from base_gen()
 ```
-<!--SR:!2025-02-16,57,310-->
+
 
 
 

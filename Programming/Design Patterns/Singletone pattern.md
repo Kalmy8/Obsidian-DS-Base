@@ -2,7 +2,7 @@
 
 What is a **Singletone** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How does the **singletone** pattern utilizes **\__new\__** and  **\__init\__** methods in python? Provide some mock-code example of a class designed within a **singletone** paradigm.
 ?
-Singletone is a [[Creational patterns | creational]] desing pattern forces the chosen class to have only one instance all over your application and to have one global entrypoint to that instance. This pattern is particularly useful when:
+Singletone is a [creational](Creational%20patterns.md) desing pattern forces the chosen class to have only one instance all over your application and to have one global entrypoint to that instance. This pattern is particularly useful when:
 1. Your object operates with some shared resources, like the database connection. This is the most common use-case
 2. You need one shared object and thruth-source across your application, let's say some sort of configuration class or logging class.
 ------------------------------------------------------------
@@ -23,4 +23,3 @@ class Singleton:
 		# Ensure __init__ is not called again
 ```
 Note: **\__init\__** method is called only once, when the first instance of Singleton class is created. However, there is an additional security step in this example, in case that **\__init\__** method is called manually.
-<!--SR:!2025-04-12,148,310-->

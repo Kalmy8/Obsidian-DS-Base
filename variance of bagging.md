@@ -9,7 +9,7 @@ tags: [excalidraw]
 
 # Excalidraw Data
 ## Text Elements
-[[assumption of independence and identical distribution (i.i.d.)]] ^ovULX2hg
+[assumption of independence and identical distribution (i.i.d.)](assumption%20of%20independence%20and%20identical%20distribution%20(i.i.d.).md) ^ovULX2hg
 
 %%
 ## Drawing

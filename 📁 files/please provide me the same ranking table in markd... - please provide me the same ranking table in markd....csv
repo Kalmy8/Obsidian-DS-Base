@@ -1,6 +1,0 @@
-Model,Complexity,Bias,Variance,Stability
-Linear Regression,Low,High,Low,High
-Polynomial Regression,Medium,Low to High,High,Low
-Decision Trees,Medium,Low to High,High,Low
-Support Vector Machines (SVM),Medium to High,Low to High,Medium,Medium
-Neural Networks,High,Low,High,Low

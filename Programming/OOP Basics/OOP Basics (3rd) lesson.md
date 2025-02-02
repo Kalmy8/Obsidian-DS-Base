@@ -1,4 +1,4 @@
-[[OOP Basics (2nd) lesson | <previous]]  |  [[OOP Basics (4th) lesson|next>]]
+[\<previous](OOP%20Basics%20(2nd)%20lesson.md)  |  [next\>](OOP%20Basics%20(4th)%20lesson.md)
 **Codewords:** OOP principles: **Inheritance and Polymorphism**
 
 ## Inheritance:
@@ -84,7 +84,7 @@
 #### Practical Tasks:
 
 **Task 1:**
-- Create a base class Shape with a method area() that returns 0.0.
+- Create a base class Shape with an abstract method area() 
 - Create subclasses Circle (with radius) and Rectangle (with length and width).
 - Override the area() method in each subclass to calculate the area correctly.
 - Create a list containing instances of both Circle and Rectangle.
@@ -95,7 +95,7 @@
 - Iterate through the list and call the speak() method on each animal, demonstrating polymorphism.
 
 **Task 3:**
-- Create a base class PaymentMethod with a method process_payment(amount) that raises a NotImplementedError.
+- Create a base abstract class PaymentMethod with an abstract method process_payment(amount) 
 - Create subclasses CreditCard and PayPal that inherit from PaymentMethod.
 - Override process_payment() in each subclass to print a message indicating how the payment is being processed (e.g., "Processing credit card payment of $..." or "Processing PayPal payment of $...").
 - Create a list of different payment method objects.

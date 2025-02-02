@@ -3,7 +3,7 @@ What is a dependency injection principle? When is it being benefitial and reccom
 ?
 A code-writing principle that suggest you to provide all the needed dependencies right to the classes methods/initializer instead of hardcoding them into your class. Using dependency injection is a preffered way to code because:
 - Class are being **decoupled**, so they are being more independent from each other. When hardcoding one class functional to the other class, the second one relies strongly on the first one. This means that the second class just won't work if the first one is being deleted/heavily refactored.
-- You can pass some different implementations using dependency injection (like in a [[Strategy pattern]]), rather then hardcoding one pre-defined implementation.
+- You can pass some different implementations using dependency injection (like in a [Strategy pattern](Design%20Patterns/Strategy%20pattern.md)), rather then hardcoding one pre-defined implementation.
 - All the dependencies are defined explicitly, so it is much easier for you to observe and understand class-between interactions.
 ------------------------------------------------------------
 **Mock-code example:**
@@ -35,4 +35,4 @@ class HomeTheater:
 		self.audio_system.on()
 		...
 ```
-<!--SR:!2025-05-09,170,310-->
+

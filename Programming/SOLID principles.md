@@ -56,11 +56,13 @@ Adding new shapes requires modifying the `calculate_area` method.
 			 pass
 			 
 	class Rectangle(Shape):
-		# ... (implements calculate_area)
+		def calculate_area(self):
+			 # (implements calculate_area)
 		
 	class Circle(Shape):
-		# ... (implements calculate_area)
-		
+		def calculate_area(self):
+			 # (implements calculate_area)
+				
 	class AreaCalculator:
 		def calculate_area(self, shape: Shape):
 			return shape.calculate_area()
@@ -195,4 +197,3 @@ The `Switch` class is tightly coupled to the `LightBulb` class.
 ```
 Both `Switch` and `LightBulb` depend on the `Switchable` abstraction.
 **Remember:**  SOLID principles are guidelines, not rules.  Use them to make your code more maintainable, but don't be afraid to make trade-offs based on the complexity of your project.
-<!--SR:!2025-06-08,169,310-->

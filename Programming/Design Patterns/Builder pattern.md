@@ -76,4 +76,3 @@ print(luxury_house)  # House with 10 windows, 5 doors, a garden, a garage, a poo
 print(simple_house)  # House with 4 windows, 2 doors, and all the comforts of home.
 
 ```
-<!--SR:!2025-02-25,132,310-->

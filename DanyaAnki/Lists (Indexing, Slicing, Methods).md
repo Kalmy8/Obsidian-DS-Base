@@ -10,4 +10,3 @@
 3. `numbers.append(40)`
 4. `words.remove("banana")`
 5. `data.reverse()`
-<!--SR:!2025-09-11,236,330-->

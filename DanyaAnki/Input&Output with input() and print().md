@@ -28,4 +28,3 @@ num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
 print(num1 * num2) 
 ```
-<!--SR:!2025-08-25,219,330-->

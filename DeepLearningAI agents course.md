@@ -10,7 +10,7 @@ The example below uses external GPT-4o reference and pass the conversation histo
 But! The model is capable of asking for some information from as, saying **Thought** (reason) and **Action** (the desired action it wants from us)
 When we provide our answer with the **Observation** keyword, and the model can come back with the **Answer**
 
-![[Pasted image 20241212134059.png]]
+![Pasted image 20241212134059.png](📁%20files/Pasted%20image%2020241212134059.png)
 
 ### Create an Agent
 ```python
@@ -137,17 +137,17 @@ from langchain.prompts import PromptTemplate
 ```
 
 Generally speaking, **the PromptTemplate is an f-string**, which can look smth like this:
-![[Pasted image 20241212135223.png]]
+![Pasted image 20241212135223.png](📁%20files/Pasted%20image%2020241212135223.png)
 The community has came up with all kinds of useful prompts, gathered here:[LangSmith](https://smith.langchain.com/hub)
 
 #### Creating a tool with langchain_community.tools
 They act just like ordinary user-defined tools mentioned above, but, as well as with prompts, **there are a bunch of useful tools already developed by community** available inside the `langchain_community.tools` library
 
 Some of the examples might include **Tavile web-search tool**, which can be binded to the model like:
-![[Pasted image 20241212135456.png]]
+![Pasted image 20241212135456.png](📁%20files/Pasted%20image%2020241212135456.png)
 
 ### Creating a Graph instead of a loop
-**Most part of the designed agentic workflows include multiple agent-tool and agent-agent interactions**, which is a [[Retrieval Augmented Generation (RAG) | RAG mechanism]], meaning that some additional information is added to the user's prompt
+**Most part of the designed agentic workflows include multiple agent-tool and agent-agent interactions**, which is a [RAG mechanism](Retrieval%20Augmented%20Generation%20(RAG).md), meaning that some additional information is added to the user's prompt
 
 **The LangGraph uses graphs to represent those interactions**, so we should present a few core entities used for such representation
 
@@ -155,34 +155,58 @@ Some of the examples might include **Tavile web-search tool**, which can be bind
 One of the most important conception within LangGraph usage
 
 **State is a custom user-defined object, representing the information within the graph**. 
-![[Pasted image 20241212140935.png | 400]]
+![400](📁%20files/Pasted%20image%2020241212140935.png)
 
 You should decide which information you would like to keep track of while executing the graph. For the simple REACT workflow, such as we designed manually above, the state can be defined simply as:
-![[Pasted image 20241212141003.png]]
+![Pasted image 20241212141003.png](📁%20files/Pasted%20image%2020241212141003.png)
 
 This means that we do only keep track of the conversation history.
 **Annotated** keyword means that we are applying some operation to the incoming data, **operator.add** here denotes that new messages are being added to the history, and do not override old one.
 
 If we want to have a more covering representation of our graph, we can implement some other state like:
-![[Pasted image 20241212141134.png]]
+![Pasted image 20241212141134.png](📁%20files/Pasted%20image%2020241212141134.png)
 
 Note, how `input`, `chat_history`, `agent_outcome` variables are **not annotated** here, meaning that they will be simply overwritten with the new data
 
 `intermediate_steps` **is annotated** with **operator.add**, meaning that the model could use multiple loop executions to use different tools thus **accumulate more information before giving the final answer**
 
 ##### Graph overall structure
-![[Pasted image 20241212135827.png]]
+![Pasted image 20241212135827.png](📁%20files/Pasted%20image%2020241212135827.png)
 Data is flowing from the entry point to the end point, possibly looping around for a while, to achieve greater results
 
 In-code graph implementation may look smth like follows
- ![[LangGraph REACT model | 10000]]
+```python
+class ReflexionAgentGraph:  
+    def __init__(self,  
+                 model: BaseChatModel = None,  
+                 tools: list[tool] = None,  
+                 system_prompt: str = ""):  
+  
+        self.system = system_prompt  
+        self.tools = tools or []  
+  
+        if model:  
+            self.model = model.bind_tools(self.tools)  
+  
+        # Build Graph  
+        self.graph = StateGraph(ReflexionAgentGraphState)  
+        self.graph.add_node("llm", self.some_method)  
+        self.graph.add_node("tools", ToolNode(self.tools))  
+        self.graph.set_entry_point("llm")  
+        self.graph.add_conditional_edges("llm", self.should_continue, {True: "tools", False: END})  
+        self.graph.add_edge("tools", "llm")  
+	
+	def some_method(...):
+		...
+  
+```
 
 LangGraph has built-in tool for visualizing compiled graphs:
- ![[Pasted image 20241213121253.png]]
+ ![Pasted image 20241213121253.png](📁%20files/Pasted%20image%2020241213121253.png)
 
 ##### Launching a graph
 In order to launch a graph, we should **create an initial message, and run the invoke** command
-![[Pasted image 20241213121816.png]]
+![Pasted image 20241213121816.png](📁%20files/Pasted%20image%2020241213121816.png)
 Here we use HumanMessage standard template to create the initial message
 
 **The result of  `invoke()` method is the final model state:**
@@ -207,7 +231,7 @@ Agentic search tools are used for processing complex queries.
 	- The LLM could not provide any source references, which leads to greater hallucinations and less trust
 
 
-![[Pasted image 20241213122649.png]]
+![Pasted image 20241213122649.png](📁%20files/Pasted%20image%2020241213122649.png)
 Implementation of a typical agentic search-tool includes several steps:
 1. Query is being split down to the subqueries. This is necessary for processing complex, nested questions like "Who was the winner of the last-night football match? Where does that team originates from? What was the weather state?"
 2. For each subquery, agent decides which tool should it use to fetch corresponding data (sport-source API, weather API, wikipedia...)
@@ -257,15 +281,15 @@ Streaming in LangChain refers to the real-time flow of generated data, such as o
 
 ## Implementing persistence
 1.  Create a checkpointer (supports many External Databases):
- ![[Pasted image 20241217134908.png]]
+ ![Pasted image 20241217134908.png](📁%20files/Pasted%20image%2020241217134908.png)
 2. Compile the graph using the checkpointer:
-![[Pasted image 20241217140233.png]]
+![Pasted image 20241217140233.png](📁%20files/Pasted%20image%2020241217140233.png)
 
 ## Implementing streaming with persistence
 1. Create a "thread" dictionary and configure a thread with a thread ID
-![[Pasted image 20241217140622.png]]
+![Pasted image 20241217140622.png](📁%20files/Pasted%20image%2020241217140622.png)
 1. Use **`stream()`** method instead of **`ivoke()`** and pass the created thread to it:
-   ![[Pasted image 20241217140746.png]]
+   ![Pasted image 20241217140746.png](📁%20files/Pasted%20image%2020241217140746.png)
 
 **An output of the  `stream()` method is the history of all State  changes which happened during the execution**:
 - **Purpose**: Executes the graph while **streaming intermediate results** as they are generated.
@@ -277,8 +301,8 @@ Streaming in LangChain refers to the real-time flow of generated data, such as o
     - Displaying progress to a user as the graph executes.
 
 As long as we keep the consistent thread id, we can ask any amount of follow up questions. If model's graph was compiled with use of the checkpointer, it will remember all the past conversation:
-![[Pasted image 20241217141428.png]]
-![[Pasted image 20241217141521.png]]
+![Pasted image 20241217141428.png](📁%20files/Pasted%20image%2020241217141428.png)
+![Pasted image 20241217141521.png](📁%20files/Pasted%20image%2020241217141521.png)
 
 
 ## Implementing all of that asyncrhonously
@@ -286,7 +310,7 @@ As long as we keep the consistent thread id, we can ask any amount of follow up 
 We can replace used methods with asyncrhonous analogues, pursuing several goals at once:
 
 1.  **Handle multiple requests simultaneously without blocking the event loop**, ideal for scenarios with many simultaneous tasks (e.g., streaming tokens from multiple users in real-time).
-2. **Dealing with I/O-bound tasks:** e.g., querying databases, fetching data from APIs [[python multiprocessing, multithreading, asyncio]]
+2. **Dealing with I/O-bound tasks:** e.g., querying databases, fetching data from APIs [python multiprocessing, multithreading, asyncio](python%20multiprocessing,%20multithreading,%20asyncio.md)
 3. **Resource efficency:** avoid tying up threads for tasks waiting on I/O, conserving CPU and memory resources.
 4. **Convinient output:** Asynchronous streaming lets you process partial responses from the model (e.g., token-by-token) and respond dynamically.
 
@@ -375,7 +399,7 @@ for event in abot.graph.stream(None, thread):
 
 # State memory
 LangGraph do have in-built memory mechanism, which makes snapshots as the graph state changes
-![[Pasted image 20241218124354.png]]
+![Pasted image 20241218124354.png](📁%20files/Pasted%20image%2020241218124354.png)
 This snapshots include:
 	- The state itself
 	- Additional configurational info, including **thread_id** and **thead_ts**
@@ -385,15 +409,15 @@ We can use memory in a variaty of ways:
 ##### 1. Accessing current state
 
 **`get_state(thread)`** graph method is used to retrieve current state for a certain thread
-![[Pasted image 20241218124701.png]]
+![Pasted image 20241218124701.png](📁%20files/Pasted%20image%2020241218124701.png)
 
 ##### 2. Access the iterator of all states
-![[Pasted image 20241218124734.png]]
+![Pasted image 20241218124734.png](📁%20files/Pasted%20image%2020241218124734.png)
 
 **`get_state_history(thread)`** graph method is used to retrieve all states from new to the old ones for a certain thread
 
 ##### 3. Execute from the point (Time Travel)
-![[Pasted image 20241218124816.png]]
+![Pasted image 20241218124816.png](📁%20files/Pasted%20image%2020241218124816.png)
 
 This one is called "Time travel" in the official documentation
 We can use both **`stream()`** and **`invoke()`** methods, passing **{thread, thread_ts}** as parameters, which allows you to launch exact thread from the exact point in a history
@@ -401,7 +425,7 @@ We can use both **`stream()`** and **`invoke()`** methods, passing **{thread, th
 ##### 4. Modifying the state (update_state)
 [**`update_state()`**](https://langchain-ai.github.io/langgraph/how-tos/human_in_the_loop/time-travel/) is a method which allows you to modify/replace the selected state, selecting with **{thread, thread_ts}** parameters
 
-![[Pasted image 20241218125920.png]]
+![Pasted image 20241218125920.png](📁%20files/Pasted%20image%2020241218125920.png)
 
 Here we do:
 - Access the past state
@@ -423,20 +447,20 @@ branch_and_add = abot.graph.update_state(
 
 ##### Multi-agent workflow
 When multiple agents modify the shared state
-![[Pasted image 20241219134443.png]]
+![Pasted image 20241219134443.png](📁%20files/Pasted%20image%2020241219134443.png)
 
 ##### Supervisor workflow
 Basically same idea without the shared state
 Is often used with great LLM as a supervisor, because reasoning and planning requires a lot of intelligence
-![[Pasted image 20241219134620.png]]
+![Pasted image 20241219134620.png](📁%20files/Pasted%20image%2020241219134620.png)
 
 ##### Flow engineering
 This is basically a graph, which could have some cycles within it
-![[Pasted image 20241219134746.png]]
+![Pasted image 20241219134746.png](📁%20files/Pasted%20image%2020241219134746.png)
 
 ##### Plan and execute
 Allows for the agent itself decide when to output the result to the user. One model is responsible for task-generation, woker models are responsible for solving them
-![[Pasted image 20241219134949.png]]
+![Pasted image 20241219134949.png](📁%20files/Pasted%20image%2020241219134949.png)
 
 ##### Language Agent Tree Search
-![[Pasted image 20241219135435.png]]
+![Pasted image 20241219135435.png](📁%20files/Pasted%20image%2020241219135435.png)

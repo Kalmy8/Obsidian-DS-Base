@@ -1,4 +1,4 @@
-one of the [[statistical sampling techniques]], which can be formally described as follows:
+one of the [statistical sampling techniques](statistical%20sampling%20techniques.md), which can be formally described as follows:
 
 Let's say we have some dataset $D$ size of $N$ observations. For $M$ times, we will pick $N$ observations from the $D$ dataset, with return. This way we will get $M$ subsamples of the original data, which can be denoted like $X_{1},X_{2},..,X_{M}$.
 
@@ -23,4 +23,3 @@ How can the bootstrap sampling technique be described? What is the chance for ev
 ?
 - From the dataset size $N$, we pick $N$ samples with return.
 - Every observation chance to be included $\approx 64\%$
-<!--SR:!2025-02-14,55,310-->

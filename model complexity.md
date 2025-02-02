@@ -19,4 +19,4 @@ Some classic ML model's estimated complexity:
 **General Trend:**
 
 - **Simple models** (like linear regression) are generally more stable but can suffer from high bias, leading to underfitting.
-- **Complex models** (like neural networks) are usually longer/more expensive to train and inference, and they are prone to overfitting, meaning that they do often require some [[variance-reducing techniques]].
+- **Complex models** (like neural networks) are usually longer/more expensive to train and inference, and they are prone to overfitting, meaning that they do often require some [variance-reducing techniques](variance-reducing%20techniques.md).

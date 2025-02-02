@@ -53,7 +53,7 @@ p ^94ReNhCh
 
 
 # Embedded files
-8fb69d571ed501cac3562b4a7343898382bd1e31: [[Pasted Image 20240116154127_764.png]]
+8fb69d571ed501cac3562b4a7343898382bd1e31: [Pasted Image 20240116154127\_764.png](📁%20files/Pasted%20Image%2020240116154127_764.png)
 
 %%
 # Drawing

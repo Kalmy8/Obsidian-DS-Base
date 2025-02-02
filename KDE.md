@@ -51,8 +51,8 @@ tags: [excalidraw]
      ^0Bulx8pe
 
 ## Embedded Files
-62927a6596fa1991cdd94dfda6d566ac45cc2e98: [[Pasted Image 20231228011310_713.png]]
-bfef03817b1d622c9f33176a040fdb6b4bd8dff6: [[Pasted Image 20231228011341_759.png]]
+62927a6596fa1991cdd94dfda6d566ac45cc2e98: [Pasted Image 20231228011310\_713.png](📁%20files/Pasted%20Image%2020231228011310_713.png)
+bfef03817b1d622c9f33176a040fdb6b4bd8dff6: [Pasted Image 20231228011341\_759.png](📁%20files/Pasted%20Image%2020231228011341_759.png)
 
 %%
 ## Drawing

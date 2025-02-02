@@ -2,15 +2,15 @@
 is an average weighted outcome of a given random variable.
 
 ##### Definition
-For [[discrete variable]] it is defined as 
+For [discrete variable](../discrete%20variable.md) it is defined as 
 $$E(X)=\sum\limits_{w_k \in \Omega} X(w_{k})P(X = X(w_{k})),\ or$$
 $$E(X)=\sum\limits_{i = 1}^N x_{i} p_{i},$$
-where $x_{i}$ is an [[elementary event, fundamental probability set and an event#^f482b1| elementary event]] (same as $X(w_{k})$);
-$p_{i}$ is the [[probability]] of this event (same as $P(X = x)$).
+where $x_{i}$ is an [elementary event](elementary%20event,%20fundamental%20probability%20set%20and%20an%20event.md#^f482b1) (same as $X(w_{k})$);
+$p_{i}$ is the [probability](../probability.md) of this event (same as $P(X = x)$).
 
-For [[continuous variable]] is is defined as 
+For [continuous variable](../continuous%20variable.md) is is defined as 
 $$E(X)=\int\limits_{-\infty}^{\infty} x f(x) dx, $$
-where $x$ is an random variable function outcome, $f(x)$ is simply the probability of the outcome $x$  ([[probability density function]] applied to outcome $x$).
+where $x$ is an random variable function outcome, $f(x)$ is simply the probability of the outcome $x$  ([probability density function](probability%20density%20function.md) applied to outcome $x$).
 
 >[!Note]
 >Mathematical expectation is often denoted as $\mu$
@@ -64,11 +64,11 @@ where $x$ is an random variable function outcome, $f(x)$ is simply the probabili
 $$E[X] = E_Y[E[X|Y]]$$
 
 #### Key questions
-Give the intuitive definition of a mathematical expectation, provide formal mathematical definitions for both [[discrete variable | discrete]] and [[continuous variable | continuous]] random variable
+Give the intuitive definition of a mathematical expectation, provide formal mathematical definitions for both [discrete](../discrete%20variable.md) and [continuous](../continuous%20variable.md) random variable
 ?
 Mathematical expectation is an average weighted outcome of a given random variable. For discrete case, the formula would be:
 $$E[X]=\sum\limits_{w_{i}\in \Omega}X(w_{i})P(X = X(w_{i})) = \sum\limits_{i=1}^{N}x_{i}p_{i}$$
 For continuous case, the formula would be:
 $$E[X]=\int\limits_{w\in \Omega}X(w)dP(w)= \int\limits_{-\inf}^{\inf}xf(x)dx$$
-<!--SR:!2025-02-07,64,310-->
+
 

@@ -1,10 +1,10 @@
 #🃏/programming
 What is a **Proxy** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Proxy** paradigm.
 ?
-[[Proxy.mhtml]]
-The **Proxy pattern** is a [[Structural patterns | structural pattern]] used to wrap some base object with a **proxy object**, which will disguise itself as an original object. **Proxy object usually fully manages the wrappee object lifecycle**, and is used to add some caching, logging, access restrictions, initialization, and, possibly, any additional logic that should happen before or after calling the original object (just like the [[Decorator pattern | decorator]] does).
+[Proxy.mhtml](../../📁%20files/Proxy.mhtml)
+The **Proxy pattern** is a [structural pattern](Structural%20patterns.md) used to wrap some base object with a **proxy object**, which will disguise itself as an original object. **Proxy object usually fully manages the wrappee object lifecycle**, and is used to add some caching, logging, access restrictions, initialization, and, possibly, any additional logic that should happen before or after calling the original object (just like the [decorator](Decorator%20pattern.md) does).
 ##### Proxy structure
-![[Pasted image 20240903090807.png]]
+![Pasted image 20240903090807.png](../../📁%20files/Pasted%20image%2020240903090807.png)
 The pattern itself consists of **3 main parts**:
 1. **Interface:** abstract class, which defines all the functions that should be avaliable to the client (e.g. supported by a **Service \[2]**).
 2. **Service (wrappee):** a base **Interface \[1] subclass** which objects do execute all the real work and are being controlled by the **proxy objects \[3]**
@@ -12,7 +12,7 @@ The pattern itself consists of **3 main parts**:
 ##### Proxy usage scenarios
 You can benefit from using the pattern in following situations:
 1. You need to operate a large heavy object, which should be initialized only when needed and possibly cached to be re-used later.
-2. You need to wrapp some object with remote access, logging, access policy, caching, or any other logic without modyfing the underlaying code. The [[Decorator pattern]] serves the same purpose, however, the main difference between this patterns in such scenario is the fact that **Proxy object usually fully manages the wrappee object lifecycle**.
+2. You need to wrapp some object with remote access, logging, access policy, caching, or any other logic without modyfing the underlaying code. The [Decorator pattern](Decorator%20pattern.md) serves the same purpose, however, the main difference between this patterns in such scenario is the fact that **Proxy object usually fully manages the wrappee object lifecycle**.
 ##### Proxy pattern mock-code example
 ```python
 from abc import ABC, abstractmethod
@@ -92,4 +92,3 @@ if __name__ == "__main__":
     proxy = Proxy(real_subject)
     client_code(proxy)
 ```
-<!--SR:!2025-11-04,290,290-->

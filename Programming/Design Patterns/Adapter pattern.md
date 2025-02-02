@@ -31,4 +31,4 @@ class European2AmericanAdapter(AmericanSocket):
 		print("Adapter: Converting to American socket.")
 		self.european_socket.plug_in()
 ```
-<!--SR:!2025-04-08,144,310-->
+

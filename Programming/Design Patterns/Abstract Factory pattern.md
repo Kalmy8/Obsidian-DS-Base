@@ -1,7 +1,7 @@
 #🃏/programming
-What is an **Abstract Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [[Factory pattern]]? Provide some mock-code example of a class designed within a **Abstract Factory** paradigm.
+What is an **Abstract Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [Factory pattern](Factory%20pattern.md)? Provide some mock-code example of a class designed within a **Abstract Factory** paradigm.
 ?
-An **Abstract Factory** is a [[Creational patterns | creational]] pattern, which allows you to produce multiple [[Factory pattern | Factories]]. Each factory then is responsible for some **family** creation. **Family** is just a set of tight-binded related objects, which are meant to be created and used together. So the main purpose of using this pattern is creating a whole set of object, rather then just creating one object, as in a typical [[Factory pattern | factory pattern]].
+An **Abstract Factory** is a [creational](Creational%20patterns.md) pattern, which allows you to produce multiple [Factories](Factory%20pattern.md). Each factory then is responsible for some **family** creation. **Family** is just a set of tight-binded related objects, which are meant to be created and used together. So the main purpose of using this pattern is creating a whole set of object, rather then just creating one object, as in a typical [Factory pattern](Factory%20pattern.md).
 An **Abstract Factory** consists of **4 main parts**:
 1. Abstract object classes (Products), which will be created using factories.
 2. Concrete object implementations (Products).
@@ -86,4 +86,4 @@ macos_factory = MacOSFactory()
 create_ui(macos_factory)
 
 ```
-<!--SR:!2025-05-18,165,270-->
+

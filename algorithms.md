@@ -6,7 +6,7 @@ It's calculated **as the number of atomic elementary operations** which interpre
 
 The notation is $O(N)$ and it means the approximate upper estimate of complexity if value $N$ is enormous. 
 
-![[Pasted image 20241202183217.png]]
+![Pasted image 20241202183217.png](📁%20files/Pasted%20image%2020241202183217.png)
 Since it's a rough estimate, some weird stuff is happening here, but you will eventually get used to it:
 - $O(constant\times N + constant)$ roughly equals to $O(N)$, even if the constant is huge (like $1e10$). That's because $N$ is considered to approach the infinity, so even $1e10\times N$ is far better than $N\ log(N)$
 
@@ -17,6 +17,6 @@ Since it's a rough estimate, some weird stuff is happening here, but you will ev
 	- **Data structures**: How much space do additional lists, sets, dictionaries, etc., require?
 	- **Function call stack**: Recursive functions use space for each level of recursion.
 
-[[neetcode algorithms tasks]]
-[[yandex algorithms lections]]
-[[yandex algorithms practicum]]
+[neetcode algorithms tasks](neetcode%20algorithms%20tasks.md)
+[yandex algorithms lections](yandex%20algorithms%20lections.md)
+[yandex algorithms practicum](yandex%20algorithms%20practicum.md)

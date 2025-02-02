@@ -12,7 +12,7 @@ What are the OOP principles? Enumerate them and highlight the key idea, 1-2 bene
      class BankAccount:
          def __init__(self, balance=0):
              self._balance = balance  # Private attribute
-<!--SR:!2025-02-03,16,290-->
+
              
          def deposit(self, amount):
              if amount > 0:
@@ -91,4 +91,3 @@ Users don't need to know the internal complexities of the engine, transmission, 
  ```
 The `animal_sounds()` function can take any object of type `Animal` and will call the correct `make_sound()` method based on the object's actual type. 
 **Remember:** These principles work together to create robust, flexible, and maintainable object-oriented code! 
-<!--SR:!2024-12-08,4,270-->

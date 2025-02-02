@@ -29,7 +29,7 @@ In real-world scenarios, a perfect dependency, is, of course, not possible. Howe
 *w_true[1]*,*w_true[2]* are the weights assigned to the almost linear-dependent features, and the sum of the weights is somewhere near *-1.64*. 
 
 We could use analytic solution to find optimal weights for this problem:
-![[Pasted image 20241126112637.png]]
+![Pasted image 20241126112637.png](📁%20files/Pasted%20image%2020241126112637.png)
 ... and we end up with weights equal to *-186*, *+184*. Note, that their sum is somewhat near *-1.64*
 
 On practice, if you were to repeatedly re-calculate the solution again, you would get all the possible combinations of weights like *-1002/+1000* or *-152/+150* and so on. 
@@ -50,7 +50,7 @@ where
 As you can see now, **we have introduced some bias to our model (as we now are solving a different problem)**, so our solution won't be no more optimal according to the Gauss-Markov theorem. What do we get instead?
 
 Adding the regularization term breaks the linear dependency between original $X$ matrix rows and columns:
-![[Pasted image 20241126121100.png]]
+![Pasted image 20241126121100.png](📁%20files/Pasted%20image%2020241126121100.png)
 
 This means that the determinant of the matrix will take greater distance from zero, and that means that our inverse operation won't explode model's weights anymore, providing a more stable, low-variance solution.
 

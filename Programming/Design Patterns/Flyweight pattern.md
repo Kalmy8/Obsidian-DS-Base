@@ -1,18 +1,20 @@
+[Flyweight pattern](Flyweight%20pattern.md)
+
 #🃏/programming
 What is a **Flyweight** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Flyweight** paradigm.
 ?
-[[Flyweight pattern]]
-The **Flyweight pattern** is a [[Structural patterns | structural pattern]] used to share some data between as much created class instances as possible, potentially saving a lot of RAM.
+[Flyweight pattern](Flyweight%20pattern.md)
+The **Flyweight pattern** is a [structural pattern](Structural%20patterns.md) used to share some data between as much created class instances as possible, potentially saving a lot of RAM.
 >Note: that this pattern is nowadays is not popular across the data science sphere, because most libraries do have their own optimisations for conscious memory-usage.
 However, if you want to make use of it, you have to define:
 - **Immutable repeating (intrisinc) state:** object data which stays the same across practically all of the created objects.
 - **Mutable (extrisinc) state:** frequently changing object data which is unique across most part of the created objects.
 The Flyweight pattern suggests that you **stop storing the extrinsic state inside the object**. Instead, you should pass this state to specific methods which rely on it. Only the intrinsic state stays within the object, letting you reuse it in different contexts. As a result, **you’d need fewer of objects since they only differ in the intrisinc state, which has much fewer variations** than the extrisinc. **This objects are called flyweights**, they are created and initalized only once and when re-used as much times as needed.
 ##### Flywheight pattern structure
-![[Pasted image 20240902214444.png]]
+![Pasted image 20240902214444.png](../../📁%20files/Pasted%20image%2020240902214444.png)
 The pattern itself consists of **3 main parts**:
-1. **Flywheight:** concrete class, which object are being intialized once with some heavy intrisinc data and re-used further. Some implementations are assume that this should be a [[Dataclass | dataclass]]
-2. **Flywheight factory:** a [[Factory pattern | factory]] class, responsible for Flywheight objects creation and re-usage. It is likely to accept some intrisinc data as keys, and return an existing instance if it is already presented in RAM.
+1. **Flywheight:** concrete class, which object are being intialized once with some heavy intrisinc data and re-used further. Some implementations are assume that this should be a [Dataclass](../Dataclass.md)
+2. **Flywheight factory:** a [factory](Factory%20pattern.md) class, responsible for Flywheight objects creation and re-usage. It is likely to accept some intrisinc data as keys, and return an existing instance if it is already presented in RAM.
 3. **Context class:** a class providing some interface for client and doing all the work. It's objects are being initialized based on some **Flywheight** object and adding some **extricing** data above. When this data is used alltogether by methods containing in context class.
 ##### Flyweight pattern usage scenarios
 You can benefit from using the pattern in following situations:
@@ -72,4 +74,3 @@ if __name__ == "__main__":
         tree.draw()
 
 ```
-<!--SR:!2025-02-10,87,270-->

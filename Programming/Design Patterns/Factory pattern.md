@@ -1,11 +1,11 @@
 #🃏/programming
-What is a **Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [[Strategy pattern]]? Provide some mock-code example of a class designed within a **Factory** paradigm.
+What is a **Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [Strategy pattern](Strategy%20pattern.md)? Provide some mock-code example of a class designed within a **Factory** paradigm.
 ?
-**Factory** is a [[Creational patterns | creational]] desing pattern allows you to create similar objects, hiding the creation implementation details and providing an convinient interface for you. It includes three main elements, just like the [[Strategy pattern]]:
+**Factory** is a [creational](Creational%20patterns.md) desing pattern allows you to create similar objects, hiding the creation implementation details and providing an convinient interface for you. It includes three main elements, just like the [Strategy pattern](Strategy%20pattern.md):
 1. **Abstract Class** defines one single interface to share between child classes, so they indeed will have one shared type.
 2. **Concrete Classes** defining concrete objects to create.
 3. **Factory class** implementing the varying creation process.
-> Note! The [[Strategy pattern]] is indeed very similar to the **Factory pattern**, but they do pursue two different main goals:
+> Note! The [Strategy pattern](Strategy%20pattern.md) is indeed very similar to the **Factory pattern**, but they do pursue two different main goals:
 - **Strategy pattern** is used to vary some **single method behaviour** by providing him some **strategy** (class or some submethod). This is needed when you need to perform one **OPERATION** and vary implementation (e.g. do **PREPROCESSING** using GaussianSmoothing or Blurring..)
 - **Factory pattern** is used to **CREATE** different objects, which could be used further in any way you would want, so you do not have a concrete **OPERATION** to perform right away, you are just willing to create some object with convinience.
 <br>
@@ -54,4 +54,3 @@ class StrategyContextParse:
 		return parser.parse
 ```
 In this example we actually have combined **Factory** and **Strategy** patterns, as they are often used together. Factory pattern handles conditional creation logic, and Strategy pattern is used to actually perform the parsing itself, utilizing creater preprocessors as strategies.
-<!--SR:!2025-05-14,180,310-->

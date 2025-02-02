@@ -40,8 +40,8 @@ Cross Entropy/LogLoss).
 
 
 # Embedded files
-5b59952af4155ae29d56e6459b31a4a2389c2940: [[Pasted Image 20231213111510_239.png]]
-1a9686a897f135aa71f348b2d4b392cd9d21c3d7: [[Pasted Image 20231213111657_193.png]]
+5b59952af4155ae29d56e6459b31a4a2389c2940: [Pasted Image 20231213111510\_239.png](📁%20files/Pasted%20Image%2020231213111510_239.png)
+1a9686a897f135aa71f348b2d4b392cd9d21c3d7: [Pasted Image 20231213111657\_193.png](📁%20files/Pasted%20Image%2020231213111657_193.png)
 
 %%
 # Drawing

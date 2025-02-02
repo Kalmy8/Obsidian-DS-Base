@@ -1,6 +1,6 @@
 are the fancy word for a **HashMap/HashTable** - a common data structure popular across many different programming languages.
 
-[[python HashMaps (dictionaries)]]
+[python HashMaps (dictionaries)](python%20HashMaps%20(dictionaries).md)
 ## First view
 
 From the first view, HashMap is just a `key : value` - like structure, allowing you to access elements using hashcodes (instead of using indexes, like you do with a list)
@@ -33,7 +33,7 @@ To achieve a consistent hash from the custom class, one should define both `__ha
 ### Adding an element to a set
 How is the obtained hash used?
 Adding new element can be described with an image:
-![[Pasted image 20241127140845.png]]
+![Pasted image 20241127140845.png](📁%20files/Pasted%20image%2020241127140845.png)
 
 To make thing even simpler, let's provide an actual example of what's happening under the hood when we are trying to do
 ```python
@@ -42,7 +42,7 @@ myset = {'Mon', 'Tue', 'Wed', 'Thu', 'Fri'}
 
 #### Step 0: Initializing an empty hash table
 Whenever new empty set or dictionary is created, python creates a **HashTable** size of 8 looking as follows:
-![[Pasted image 20241127135419.png]]
+![Pasted image 20241127135419.png](📁%20files/Pasted%20image%2020241127135419.png)
 Rows are called `buckets`, and their size is fixed. Each bucket has it's unique **hash**, and the stored **pointer to one single** element. 
 
 Python automatically tracks the number of empty buckets, and it doubles the size of the hashtable if 2/3 of it becomes filled. It is done due to the optimizations reasons: if hashmap is almost full, all occuring collisions will likely result in a linear search with time complexity O(n), which neglects the main benefit of using hashmaps.
@@ -66,7 +66,7 @@ The index is calculated as the modulus by the size of the hashtable.
 
 #### Step 3: Place the pointer inside 
 Given the calculated index, we check if we do have an empty bucket, and if so, we add the new entry to the table:
-![[Pasted image 20241127151535.png]]
+![Pasted image 20241127151535.png](📁%20files/Pasted%20image%2020241127151535.png)
 
 #### Step 4: Repeat and process collisions
 The described process is repeated for every new value added to the set, with some additional complexity. 
@@ -81,7 +81,7 @@ Whenever one of the situation occures, python handles it with the same logic:
 myset = {'Mon', 'Tue', 'Wed', 'Thu', 'Fri'}
 myset.add('Mon')
 ```
-2. If elements are not the same, the index is being incremented by one, and the element is being placed in the next bucket:![[Pasted image 20241127152807.png]]
+2. If elements are not the same, the index is being incremented by one, and the element is being placed in the next bucket:![Pasted image 20241127152807.png](📁%20files/Pasted%20image%2020241127152807.png)
 
 > Note: Incrementing the index by 1 every time the collision occurs results into an unefficient structure, when hashtable is being sparse with local chains of filled buckets. So, from time to time, python rearranges items inside the hashtable.
 
@@ -107,8 +107,8 @@ The lookup logic is practically the same as the adding logic, so we will just na
 What is a HashMap? What is it's structure?
 ?
 HashMap is a table containing rows (**buckets**). Each bucket does have the same size, the index, the hash code and the corresponding pointer to some object
-![[Pasted image 20241127135419.png]]
-<!--SR:!2025-02-23,64,310-->
+![Pasted image 20241127135419.png](📁%20files/Pasted%20image%2020241127135419.png)
+
 
 What is hash? How is it calculated for different objects in python.
 ?
@@ -118,12 +118,12 @@ Hash is an integer value - a unique identifier of a python object. Hashes are be
 	- For containers (frozensets, tuples) the hash can be calculated only if immutable objects are the inside
 - For user custom-defined functions, classes hash is being calculated using the memory address (`id`) of the object, and is being sustainable only throughout a single interpreter session.
 	- To enhance sustainability, one must provide `__hash__` and `__eq__` magic methods inside the class.
-<!--SR:!2025-02-12,25,290-->
+
 
 Adding to hashmap/lookup operation complexity
 ?
 Both operations have O(1) complexity
-<!--SR:!2025-02-16,59,310-->
+
 
 How are new elements added to a HashMap? Describe the full process, accounting for the possible hash/index collisions
 ?
@@ -133,7 +133,7 @@ How are new elements added to a HashMap? Describe the full process, accounting f
 	- If there are the collision, check if objects stored in a bucket is equal to your object
 		- If they are equal, do nothing (your element is already presented in a hashtable)
 		- If they are unequal, increment the index and move on to the next bucket. Repeat the process
-<!--SR:!2025-02-22,63,310--> 
+ 
 
 How are the element being looked up in a hashtable?
 ?
@@ -145,13 +145,13 @@ How are the element being looked up in a hashtable?
 		1. If elements are equal, return `True`
 		2. If not, increment the index and move up to the next bucket. Repeat the process once again
 			1. If next bucket is empty (which means that element is not presented anywhere within a hashtable), return `False`
-<!--SR:!2025-02-20,61,310-->
+
 
 When and how does python increase the size of the hashmap?
 ?
 - Python keeps track of amount of empty buckets, taking care so there will be at least 1/3 of them in a hashmap.
 	- Whenever the number of empty buckets lowers to this limit, python doubles the size of the hashmap and copies all the data from the old one to the new one.
 		- This is done to performance reasons, otherwise collisions will be processes in O(n) times, which will reduce the speed of the hashmap a lot
-<!--SR:!2025-02-13,56,310-->
+
 
 

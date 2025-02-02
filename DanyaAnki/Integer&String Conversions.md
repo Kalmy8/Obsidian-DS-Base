@@ -10,4 +10,3 @@
 3. `text = "The price is: 10.99" parts = text.split(": ") price = float(parts[1])`
 4. `num_str = input("Enter a number: ") num = float(num_str) print(num ** 2)`
 5. A `ValueError` will occur because "hello" cannot be converted to an integer.
-<!--SR:!2025-07-25,218,330-->
