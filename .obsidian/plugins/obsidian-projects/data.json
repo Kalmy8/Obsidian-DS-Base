@@ -1,0 +1,140 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {
+        "Tags": {
+          "options": []
+        }
+      },
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "🗃 projects/Теория вероятностей",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "orderFields": [
+              "name",
+              "path"
+            ]
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "bc520250-21e0-4504-b335-d49b476127f2",
+          "name": "Table",
+          "type": "table"
+        }
+      ],
+      "id": "508e7fbd-e8f9-45a3-bccf-209060a91e1b",
+      "name": "Теория вероятностей"
+    },
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "🗃 projects/Programming/Python Basics",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {
+            "fieldConfig": {
+              "path": {
+                "width": 265
+              },
+              "name": {
+                "width": 240
+              }
+            }
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "12295028-dd4c-43ad-8f94-641fa31e970f",
+          "name": "Table",
+          "type": "table"
+        }
+      ],
+      "id": "2fb42e35-c374-45c6-97ac-a7a9f9676a6f",
+      "name": "Python Basics"
+    },
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "🗃 projects/EntangleLabs",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {},
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "a7674b65-c2c5-41e6-96c6-7b40317f3baf",
+          "name": "Table",
+          "type": "table"
+        }
+      ],
+      "id": "29508cfb-3bbc-4e07-aece-5d37a49ef626",
+      "name": "EntangleLabs"
+    }
+  ],
+  "archives": [],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "locale": {
+      "firstDayOfWeek": "default"
+    },
+    "commands": [],
+    "linkBehavior": "open-editor"
+  }
+}

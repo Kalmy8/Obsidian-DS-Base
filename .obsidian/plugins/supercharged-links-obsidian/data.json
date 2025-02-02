@@ -1,0 +1,66 @@
+{
+  "targetAttributes": [
+    "type",
+    "cssclass",
+    "kanban-plugin"
+  ],
+  "targetTags": true,
+  "getFromInlineField": true,
+  "enableTabHeader": true,
+  "activateSnippet": true,
+  "enableEditor": true,
+  "enableFileList": true,
+  "enableBacklinks": true,
+  "enableQuickSwitcher": true,
+  "enableSuggestor": true,
+  "selectors": [
+    {
+      "type": "attribute",
+      "name": "type",
+      "value": "book",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "3606-c2e1",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "type",
+      "value": "article",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "6fe6-d347",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "type",
+      "value": "video",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "8898-1602",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "type",
+      "value": "course",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "7098-3b77",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    }
+  ]
+}

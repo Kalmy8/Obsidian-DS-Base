@@ -1,0 +1,14 @@
+{
+  "accentColor": "#478ae1",
+  "theme": "moonstone",
+  "baseFontSize": 21,
+  "enabledCssSnippets": [
+    "dashboard",
+    "dashboard-ReadLineLength",
+    "supercharged-links-gen",
+    "properties",
+    "mermaid"
+  ],
+  "showViewHeader": true,
+  "showRibbon": true
+}

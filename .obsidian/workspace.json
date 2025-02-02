@@ -1,0 +1,324 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "43e0b12dcd97899b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d5d63c2d3e8abf8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "python slots.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "python slots"
+            }
+          },
+          {
+            "id": "77b7a70cdf370edf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "OOP Basics (5th) lesson"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bc435464d52e9e09",
+    "type": "split",
+    "children": [
+      {
+        "id": "39c77dc339a6e828",
+        "type": "tabs",
+        "dimension": 74.42455242966753,
+        "children": [
+          {
+            "id": "5fe1617fc2ef98ab",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Support Vector Machines (SVM).md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Support Vector Machines (SVM)"
+            }
+          },
+          {
+            "id": "a4d4c1653786cb6e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "72ecaacb6fbcc745",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f3c521c33acca68b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "082d06227a93f08a",
+        "type": "tabs",
+        "dimension": 25.575447570332482,
+        "children": [
+          {
+            "id": "73bf99aeecdb96dd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from OOP Basics (5th) lesson"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 278.5
+  },
+  "right": {
+    "id": "092405b26105e8c0",
+    "type": "split",
+    "children": [
+      {
+        "id": "eaa613a8aac1583b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e8548cac07862f97",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": false,
+                  "colorGroups": [],
+                  "collapse-display": false,
+                  "showArrow": false,
+                  "textFadeMultiplier": -2.3,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": false,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.700516114563712,
+                  "close": true
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Graph of OOP Basics (5th) lesson"
+            }
+          },
+          {
+            "id": "809e85323951beb2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b7e524355a7ccff2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "79dd528fffcfd12a",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "DeepLearningAI agents course.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for DeepLearningAI agents course"
+            }
+          },
+          {
+            "id": "9f3a8d918e2d11d8",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ac5a31ca883de739",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d800a962c1dc8663",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of OOP Basics (5th) lesson"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 430.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "daily-notes:Open today's daily note": false,
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": true,
+      "command-palette:Open command palette": true,
+      "audio-recorder:Start/stop recording": true,
+      "obsidian-excalidraw-plugin:Create new drawing": true,
+      "zk-prefixer:Create new unique note": true,
+      "obsidian-spaced-repetition:Review flashcards": false,
+      "graph:Open graph view": true,
+      "table-editor-obsidian:Advanced Tables Toolbar": true
+    }
+  },
+  "active": "77b7a70cdf370edf",
+  "lastOpenFiles": [
+    "Programming/OOP Basics/OOP Basics (6th) lesson 1.md",
+    "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+    "Programming/OOP Basics/OOP Basics (5th) lesson 1.md",
+    "Programming/OOP Basics/OOP Basics (2nd) lesson.md",
+    "2025-02-02.md",
+    "python slots.md",
+    "Programming/OOP Basics/OOP Basics (4th) lesson.md",
+    "Programming/OOP Basics/OOP Basics (3rd) lesson.md",
+    "Programming/OOP Basics/OOP Basics (1st) lesson.md",
+    "Programming/Python Basics/Python Basics (3rd lesson).md",
+    "Programming/Python Basics/Python Basics (2nd Lesson).md",
+    "Programming/SOLID principles.md",
+    "random forest algorithm.md",
+    "python multiprocessing, multithreading, asyncio.md",
+    "python managing context.md",
+    "python lists.md",
+    "python ideas.md",
+    "OOP Basics (3th) lesson.md",
+    "Programming/Python Basics/Python Basics (7th lesson).md",
+    "DeepLearningAI agents course.md",
+    "Programming/Dataclass.md",
+    "Programming/Design Patterns/Flyweight pattern.md",
+    "Programming/Design Patterns/Bridge pattern.md",
+    "Теория вероятностей/bias and variance tradeoff.md",
+    "Programming/Python Ideas.md",
+    "Programming/Design Patterns/Singletone pattern.md",
+    "📁 files/Flyweight.mhtml",
+    "📁 files/Bridge.mhtml",
+    "Bridge.mhtml",
+    "Flyweight.mhtml",
+    "📁 files/Screenshot_2024-01-10-23-41-38-79_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-23-31-32-46_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-37-13-33_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-34-53-40_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-34-53-40_e2d5b3f32b79de1d45acd1fad96fbb0f 1.jpg",
+    "📁 files/Screenshot_2024-01-10-19-30-46-66_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-28-02-96_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-19-51-40_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Screenshot_2024-01-10-19-19-51-40_e2d5b3f32b79de1d45acd1fad96fbb0f 1.jpg",
+    "📁 files/Screenshot_2024-01-10-19-14-31-81_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
+    "📁 files/Recording 20240529170111.webm",
+    "📁 files/Recording 20240529165615.webm",
+    "📁 files/Recording 20240529165204.webm",
+    "📁 files (2)/Recording 20240529170111.webm",
+    "📁 files (2)/Recording 20240529165615.webm",
+    "📁 files (2)/Recording 20240529165204.webm"
+  ]
+}
