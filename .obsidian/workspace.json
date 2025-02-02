@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
-                "mode": "preview",
+                "file": "Programming/Python Basics/Python Basics (3rd lesson).md",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "OOP Basics (5th) lesson"
+              "title": "Python Basics (3rd lesson)"
             }
           }
         ],
@@ -50,7 +50,7 @@
       {
         "id": "39c77dc339a6e828",
         "type": "tabs",
-        "dimension": 74.42455242966753,
+        "dimension": 74.42455242966751,
         "children": [
           {
             "id": "5fe1617fc2ef98ab",
@@ -125,12 +125,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+                "file": "Programming/Python Basics/Python Basics (3rd lesson).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from OOP Basics (5th) lesson"
+              "title": "Outgoing links from Python Basics (3rd lesson)"
             }
           }
         ]
@@ -274,8 +274,10 @@
   },
   "active": "77b7a70cdf370edf",
   "lastOpenFiles": [
-    "Programming/OOP Basics/OOP Basics (6th) lesson 1.md",
+    "Programming/Python Basics/Python Basics (2nd Lesson).md",
+    "Programming/Python Basics/Python Basics (1st lesson).md",
     "Programming/OOP Basics/OOP Basics (5th) lesson.md",
+    "Programming/OOP Basics/OOP Basics (6th) lesson 1.md",
     "Programming/OOP Basics/OOP Basics (5th) lesson 1.md",
     "Programming/OOP Basics/OOP Basics (2nd) lesson.md",
     "2025-02-02.md",
@@ -284,7 +286,6 @@
     "Programming/OOP Basics/OOP Basics (3rd) lesson.md",
     "Programming/OOP Basics/OOP Basics (1st) lesson.md",
     "Programming/Python Basics/Python Basics (3rd lesson).md",
-    "Programming/Python Basics/Python Basics (2nd Lesson).md",
     "Programming/SOLID principles.md",
     "random forest algorithm.md",
     "python multiprocessing, multithreading, asyncio.md",
@@ -299,7 +300,6 @@
     "Programming/Design Patterns/Bridge pattern.md",
     "Теория вероятностей/bias and variance tradeoff.md",
     "Programming/Python Ideas.md",
-    "Programming/Design Patterns/Singletone pattern.md",
     "📁 files/Flyweight.mhtml",
     "📁 files/Bridge.mhtml",
     "Bridge.mhtml",

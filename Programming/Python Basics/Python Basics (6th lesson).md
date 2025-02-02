@@ -203,7 +203,7 @@ def order_food(food: str = "Pizza", *toppings: str, **special_instructions) -> N
 order_food("Burger", "Cheese", "Bacon", extra_sauce=True, no_pickles=True)
 ```
 
-#🃏/data-science
+#🃏/python-basics
 ### Key Questions:
 
 Define a function `multiply` that takes two integers and returns their product. Use type hints.

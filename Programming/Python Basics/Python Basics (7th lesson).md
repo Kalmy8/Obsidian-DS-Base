@@ -161,7 +161,7 @@ print(f"Time taken (with cache): {end_time - start_time:.6f} seconds")
 ```
 
 
-#🃏/data-science 
+#🃏/python-basics
 ## Key questions
 
 What is a lambda function? Write one that cubes a number.

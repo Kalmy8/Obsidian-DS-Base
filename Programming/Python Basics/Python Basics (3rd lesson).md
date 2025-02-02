@@ -130,7 +130,7 @@ print(set_a.difference(set_b))
 - Create a set containing the numbers 1, 2, 3, 4, and 5. Then, remove the number 3 from the set and print the updated set.
 - Given two sets of numbers: `set_a = {1, 2, 3, 4, 5}` and `set_b = {4, 5, 6, 7, 8}`, find the difference between `set_a` and `set_b` (i.e., elements that are in `set_a` but not in `set_b`). Print the result.
 
-#🃏/data-science
+#🃏/python-basics
 ## Review Questions:
 Create a dictionary to store the names and ages of three people: "Alice" (25), "Bob" (30), and "Charlie" (35). Then, retrieve and print Bob's age.
 ?

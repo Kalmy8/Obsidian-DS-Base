@@ -87,7 +87,7 @@ for x in range(1, 10, 2):
 7. **Vowel Counter:** Write a program that counts the number of vowels in a given string using a `for` loop.
 
 
-#🃏/programming/python 
+#🃏/python-basics
 **Review Questions:**
 
 What is the purpose of the `range()` function, and how is it commonly used with `for` loops?

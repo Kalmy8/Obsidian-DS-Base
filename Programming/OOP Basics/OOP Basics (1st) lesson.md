@@ -136,7 +136,7 @@ supervisor.renovate()
 		- Which member did borrow the book?
 
 
-#🃏/data-science 
+#🃏/oop-basics
 ## Key questions:
 
 **What is the main idea behind Object-Oriented Programming (OOP)? **What are the two main components of an object in OOP? Provide a real world example

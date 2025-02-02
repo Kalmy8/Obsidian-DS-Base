@@ -48,7 +48,7 @@ The last thing to say, it is helpful to know that some of the objects are alread
 - False, True and None objects
 - Some other stuff...
 
-#🃏/data-science
+#🃏/python-basics
 **Review Questions:**
 What are the key differences between interpreted and compiled languages, and how does Python fit into this classification?
 ?

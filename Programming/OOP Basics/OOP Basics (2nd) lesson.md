@@ -228,7 +228,7 @@ Create a `Triangle` class initialized from a given set of side lengths.
     - Call the process_order() method on the OrderProcessor object to process the order.
     - Explain how this example demonstrates abstraction (what details are hidden from the user of the OrderProcessor?).
 
-#🃏/data-science 
+#🃏/oop-basics
 ## Key questions
 
 **What is encapsulation in OOP, and why is it important?**

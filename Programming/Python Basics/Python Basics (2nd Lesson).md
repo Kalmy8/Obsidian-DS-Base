@@ -214,7 +214,7 @@ print(new_list.count(1))  # 3
 - Remove and print the last element from the list `animals = ['cat', 'dog', 'rabbit', 'hamster']`.
 - Count the number of occurrences of the letter 's' in the word 'mississippi'.
 
-#🃏/data-science
+#🃏/python-basics
 ## Review Questions
 Print the variable `status` followed by a message `Operation completed.` on the same line.
 ?
