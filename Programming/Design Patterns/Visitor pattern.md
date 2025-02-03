@@ -128,3 +128,4 @@ print("It allows the same client code to work with \
 visitor2 = ConcreteVisitor2()
 client_code(components, visitor2)
 ```
+<!--SR:!2025-02-09,116,290-->

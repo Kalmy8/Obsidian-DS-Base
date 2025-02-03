@@ -21,3 +21,4 @@ What is the intuitive definition of variance? Write down the formal mathematical
 - Variance is a descriptive statistic showing how far "in average" are random variable outcomes distributed around it's mathematical expectation
 - The original formula is $$\sigma^{2}=E(X-E(X))^{2}=E(X-\mu)^{2}$$
 - The simplified version useful for calculus is $$\sigma^{2}=E(X^{2})-E(X)^{2}$$
+<!--SR:!2025-05-03,105,310-->

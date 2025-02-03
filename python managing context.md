@@ -111,7 +111,7 @@ with X as Y:
 # Net connections: with socket.socket(..) as socket:
 # Thread locks: with threading.Lock() as lock:
 ```
-
+<!--SR:!2025-03-19,60,310-->
 
 
 How to make custom class work with the context manager? How to use context manager with asyncio coroutines?
@@ -124,3 +124,4 @@ How to make custom class work with the context manager? How to use context manag
   async with aX as Y:
       # Do asynchronous stuff...
   ```
+<!--SR:!2025-03-15,56,310-->

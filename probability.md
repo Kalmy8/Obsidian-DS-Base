@@ -60,5 +60,9 @@ $$P(\Omega) = 1,$$
 $$\Omega = \{A\cup\neg{A}\},$$
 $$P(\Omega)=P(A)+P(\neg{A}),$$
 $$P(\neg{A})= P(\Omega)- P(A) = 1 - P(A)$$
+<<<<<<< HEAD
+<!--SR:!2025-08-31,218,330-->
+=======
 
+>>>>>>> main
 

@@ -8,6 +8,13 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
+      "query": "tag:#Психология  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    },
+    {
       "query": "",
       "color": {
         "a": 1,

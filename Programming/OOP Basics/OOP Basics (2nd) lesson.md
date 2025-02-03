@@ -228,34 +228,34 @@ Create a `Triangle` class initialized from a given set of side lengths.
     - Call the process_order() method on the OrderProcessor object to process the order.
     - Explain how this example demonstrates abstraction (what details are hidden from the user of the OrderProcessor?).
 
-#🃏/oop-basics
+#🃏/data-science 
 ## Key questions
 
 **What is encapsulation in OOP, and why is it important?**
 ?
 Encapsulation is bundling data and methods within a class, protecting data integrity and controlling access through methods.
-
+<!--SR:!2025-02-01,14,290-->
 
 **What is the purpose of using "private" attributes (using the double underscore `__` prefix) in Python classes?**
 ?
 To prevent direct access and modification of the attribute from outside the class, enforcing encapsulation.
-
+<!--SR:!2025-02-03,16,290-->
 
 **Why is direct access to an object's attributes generally discouraged in OOP?**
 ?
 Direct access can lead to accidental or unauthorized modification of data, potentially corrupting the object's state or violating the intended logic of the class.
-
+<!--SR:!2025-02-02,15,290-->
 
 **Explain the purpose of "getter" and "setter" methods. Why are they important?**
 ?
 **Getters** provide controlled access to read an object's attributes, while **setters** allow controlled modification, often including validation to ensure data integrity.
-
+<!--SR:!2025-02-01,14,290-->
 
 **Explain the concept of abstraction in OOP and provide a real-world example.**
 ?
 - Abstraction hides complex implementation details and exposes only essential information to the user.
 - Example: A TV remote control hides the internal electronics but provides buttons for essential actions like changing channels and volume.
-
+<!--SR:!2025-02-03,16,290-->
 
 **Task:**
 - Create a class Circle with a private attribute radius. 
@@ -282,7 +282,7 @@ my_circle.set_radius(10)
 print(my_circle.get_radius())  # Output: 10
 my_circle.set_radius(-2)      # Output: Radius must be positive.
 ```
-
+<!--SR:!2025-02-15,30,310-->
 
 **Task:**
 - Create a class Playlist with methods add_song(song_title), remove_song(song_title), and play().
@@ -322,3 +322,4 @@ my_playlist.play()
 my_playlist.remove_song("Song B")
 my_playlist.play()
 ```
+<!--SR:!2025-02-15,30,310-->

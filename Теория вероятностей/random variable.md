@@ -22,16 +22,16 @@ What is a random variable? Define several of them given the set $\Omega = \{(i,j
 ?
 A random variable is **a function** which maps elementary events from the fundamental probability set to real values. Given this set, we can define many random variables like:
 $$X(i,j)= 3i + 6j, or$$ $$X(i,j)= i*j, or$$ $$X(i,j)= \sqrt{i}, etc$$
- 
+<!--SR:!2025-01-29,56,310--> 
 
 How is a random variable bonded with probability? How can you express the likelihood that some random variable will take a certain  value?
 ?
 Probability is a property of an elementary event. Random variables maps elementary events to certain values, so, for every value the random variable can take, the likelihood will be the sum of corresponding elementary events probabilities. This fact is usually expressed with the usage of [probability density function](probability%20density%20function.md)/[probability mass function](probability%20mass%20function.md)/[cumulative distribution function](cumulative%20distribution%20function.md).
-
+<!--SR:!2025-06-20,153,310-->
 
 What are the descriptional statistics of a random variable, why would you need one? Name as much as you can remember
 ?
 Descriptional statistics describe the set of values which a random variable can take, so they allow you to make useful assumptions about the variable even not looking on the distribution. Popular statistics are:
 - [mathematical expectation](mathematical%20expectation.md)
 - [variance](variance.md)
-
+<!--SR:!2025-02-02,60,310-->

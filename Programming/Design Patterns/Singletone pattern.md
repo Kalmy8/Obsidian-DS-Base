@@ -23,3 +23,4 @@ class Singleton:
 		# Ensure __init__ is not called again
 ```
 Note: **\__init\__** method is called only once, when the first instance of Singleton class is created. However, there is an additional security step in this example, in case that **\__init\__** method is called manually.
+<!--SR:!2025-04-12,148,310-->

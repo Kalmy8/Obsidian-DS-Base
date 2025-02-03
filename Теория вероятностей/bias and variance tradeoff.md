@@ -101,7 +101,7 @@ $$E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}] + E_D[(\bar{\hat{f}}(x) - f(x))^{
 $$\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance} + \underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^2}$$
 >Resulting equation:
 $$\text{Error} = E_X[\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance}] + E_x[\underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^{2}}]+\underbrace{\sigma^2}_{Irreducable\  error}$$
-
+<!--SR:!2025-01-23,40,290-->
 
 
 What is the bias-variance tradeoff, why does it occur? How is it bonded with definitions of overfitting and underfitting?
@@ -109,10 +109,10 @@ What is the bias-variance tradeoff, why does it occur? How is it bonded with def
 - Bias and variance tradeoff is a common problem when bias and variance error components form an inverse relationship between each other: decreasing one error component results into increasing the other one
 - Overfitting is a state when the bias term is relatively small, but the variance term is high, meaning that the model relies too much on the exact training data distributions and observations, making it less valid for further predictions ^4e8203
 - Underfitting is a state when the bias term is relatively high, and the variance term is low. This usually means that your model isn't complex enough to extract meaningful dependencies from the training data (like when applying linear regression to describe non-linear dependency).
-
+<!--SR:!2025-02-11,54,310-->
 
 What are the "strong" and "weak" learners? How to pick an optimal ML model for your task in terms of bias-variance balance?
 ?
 - Strong learners are complex models, which are powerful in capturing dependencies between variables inside the training data. Weak learners are more simple models, which do not dig so deep down into the training data so can miss some dependencies.
 - Model must be strong enough to capture dependencies from the training data, so the bias term would not go high. On the other hand, it must be somewhat restricted to not rely on the training data too much, so it could extract some general meaning and apply it further.
-
+<!--SR:!2025-02-12,55,310-->

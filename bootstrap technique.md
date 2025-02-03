@@ -23,3 +23,4 @@ How can the bootstrap sampling technique be described? What is the chance for ev
 ?
 - From the dataset size $N$, we pick $N$ samples with return.
 - Every observation chance to be included $\approx 64\%$
+<!--SR:!2025-02-14,55,310-->

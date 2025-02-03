@@ -203,7 +203,7 @@ def order_food(food: str = "Pizza", *toppings: str, **special_instructions) -> N
 order_food("Burger", "Cheese", "Bacon", extra_sauce=True, no_pickles=True)
 ```
 
-#🃏/python-basics
+#🃏/data-science
 ### Key Questions:
 
 Define a function `multiply` that takes two integers and returns their product. Use type hints.
@@ -212,7 +212,7 @@ Define a function `multiply` that takes two integers and returns their product. 
 	def multiply(num1: int, num2: int)->int:
 		return num1*num2
 ```
-
+<!--SR:!2025-02-11,52,310-->
 
 Define a function `power` that takes a number and raises it to a power. The power should have a default value of 2.
 ?
@@ -220,7 +220,7 @@ Define a function `power` that takes a number and raises it to a power. The powe
 	def power(num1: int, num2: int = 2)->int:
 		return num1**num2
 ```
-
+<!--SR:!2025-02-18,59,310-->
 
 Define a function `greet` that takes the name of the user, and, optionally, takes the weather state. When it greets the user and also prints the weather state if it's given
 ?
@@ -231,7 +231,7 @@ Define a function `greet` that takes the name of the user, and, optionally, take
 		if weather: 
 			print(f"The weather today is {weather}")
 ```
-
+<!--SR:!2025-02-13,54,310-->
 
 
 Create a function `sum_integers` that takes any number of integers and prints their sum?
@@ -240,7 +240,7 @@ Create a function `sum_integers` that takes any number of integers and prints th
 	def sum_integers(*integers : int):
 		print sum(integers)
 ```
-
+<!--SR:!2025-03-26,67,322-->
 
 
 Define a function `print_kwargs` that takes any number of keyword arguments and prints them.
@@ -268,7 +268,7 @@ print_kwargs(country="USA", language="English")
 # country: USA 
 # language: English
 ```
-
+<!--SR:!2025-02-03,16,304-->
 
 Define a function `create_message` that takes a default greeting and any number of names (`args`), then prints a greeting for each name.
 ?
@@ -295,5 +295,5 @@ create_message("Good morning", "David")
 # Output: 
 # Good morning, David!
 ```
-
+<!--SR:!2025-02-04,17,304-->
 

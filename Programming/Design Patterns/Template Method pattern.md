@@ -125,3 +125,4 @@ print("")
 print("Same client code can work with different subclasses:")
 client_code(ConcreteClass2())
 ```
+<!--SR:!2025-03-30,148,310-->

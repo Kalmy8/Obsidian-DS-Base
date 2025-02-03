@@ -12,3 +12,4 @@ These patterns deal with how objects interact and how responsibilities are assig
 * **[Strategy pattern](Strategy%20pattern.md):** Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
 * **[Template Method pattern](Template%20Method%20pattern.md):** Defines the skeleton of an algorithm in a method, deferring some steps to subclasses.
 * **[Visitor pattern](Visitor%20pattern.md):** Represents an operation to be performed on the elements of an object structure.
+<!--SR:!2025-05-05,107,210-->

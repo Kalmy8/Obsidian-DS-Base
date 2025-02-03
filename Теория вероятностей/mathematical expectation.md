@@ -70,5 +70,5 @@ Mathematical expectation is an average weighted outcome of a given random variab
 $$E[X]=\sum\limits_{w_{i}\in \Omega}X(w_{i})P(X = X(w_{i})) = \sum\limits_{i=1}^{N}x_{i}p_{i}$$
 For continuous case, the formula would be:
 $$E[X]=\int\limits_{w\in \Omega}X(w)dP(w)= \int\limits_{-\inf}^{\inf}xf(x)dx$$
-
+<!--SR:!2025-02-07,64,310-->
 

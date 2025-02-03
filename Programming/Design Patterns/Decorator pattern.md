@@ -88,3 +88,4 @@ full_evaluator = PrecisionEvaluator(accuracy_evaluator)  # Chaining decorators
 
 full_evaluator.evaluate(model, X_test, y_test) 
 ```
+<!--SR:!2025-10-14,297,310-->

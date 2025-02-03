@@ -68,3 +68,4 @@ myaudio = AudioSystem()
 mytheater = HomeTheater(mytv, mydvd, myaudio)
 mytheater.watch_movie(dvd_cartridge)
 ```
+<!--SR:!2025-04-24,160,310-->

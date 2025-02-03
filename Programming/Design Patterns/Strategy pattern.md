@@ -35,6 +35,6 @@ class ContextClass:
 	def preprocess(np_image : np.ndarray) -> np.ndarray:
 		return self.strategy.preprocess(np_image)
 ```
-
+<!--SR:!2025-05-26,192,310-->
 
 

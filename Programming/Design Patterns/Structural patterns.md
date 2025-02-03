@@ -9,3 +9,4 @@ These patterns deal with how classes and objects are composed into larger struct
 * **[Facade pattern](Facade%20pattern.md):** Provides a simplified interface to a complex subsystem.
 * **[Flyweight pattern](Flyweight%20pattern.md):** Shares objects to support large numbers of fine-grained objects efficiently.
 * **[Proxy pattern](Proxy%20pattern.md):** Provides a surrogate or placeholder for another object to control access to it.
+<!--SR:!2025-03-27,96,230-->

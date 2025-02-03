@@ -15,7 +15,7 @@ class SomeClass:
 ```
 Notice! The **super()** method is used to call the parent class. As we have not defined our SomeClass to be someone's child explicitly, it is being a child of a general built-in Python **object** class.
 `class SomeClass:` equals `class SomeClass(object):`
-
+<!--SR:!2025-04-07,143,310-->
 
 ##### Imagine you have a custom class object:
 ```python
@@ -41,3 +41,4 @@ You need to specify **\_\_str\_\_** or **\_\_repr\_\_** magic method inside your
 def __repr__(self) -> str:
 	return f"{type(self).__name__}(x={self.x}, y={self.y})"
 ```
+<!--SR:!2025-07-08,235,330-->

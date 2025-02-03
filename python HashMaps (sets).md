@@ -108,7 +108,11 @@ What is a HashMap? What is it's structure?
 ?
 HashMap is a table containing rows (**buckets**). Each bucket does have the same size, the index, the hash code and the corresponding pointer to some object
 ![Pasted image 20241127135419.png](📁%20files/Pasted%20image%2020241127135419.png)
+<<<<<<< HEAD
+<!--SR:!2025-02-23,64,310-->
+=======
 
+>>>>>>> main
 
 What is hash? How is it calculated for different objects in python.
 ?
