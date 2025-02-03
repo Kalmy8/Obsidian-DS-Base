@@ -1,7 +1,7 @@
 **Codewords:** Compiled and Interpretered programming languages, Python Objects, Immutable and Mutable Data types
 
 ## 1. Python
-Python is a programming language, thus it has a purpose to translate human-readable commands (e.g. ```print("Hello world")```) to some 0/1 digit mess, which can be executed by a computer.
+Тестовое  изменение
 
 There are a numerous amount of programming languages, and they are often being divided into 2 groups: **interpreted** and **compiled** ones
 
