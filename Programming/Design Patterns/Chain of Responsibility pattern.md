@@ -1,7 +1,7 @@
 #🃏/programming
 What is a **Chain of Responsibility pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? What are the concrete usage examples of CoR pattern applied to data science sphere? How CoR is different from stacking a few [decorators](Decorator%20pattern.md)?  Provide some mock-code example of a class designed within a **Chain of Responsibility pattern** paradigm.
 ?
-[Chain of Responsibility.mhtml](../../📁%20files/Chain%20of%20Responsibility.mhtml)
+[Chain of Responsibility.mhtml](Chain%20of%20Responsibility.mhtml)
 The **Chain pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to define some multi-stage processing pipeline, where each handler can either process the request and/or pass it further, truncate the request if it is invalid. Constructed chain can be called from whatever node you need, and all of the handlers do share the common interface for client's usage.
 The CoR pattern is a relatively popular among data scienctists as it deals **great with handling pipelines**:
 1. Data Validation and Preprocessing (MissingValueHandler -> ScalingHandler -> EncodingHandler -> NormalizationHandler)
@@ -10,7 +10,7 @@ The CoR pattern is a relatively popular among data scienctists as it deals **gre
 4. Feature selection (VarianceThresholdHandler -> RFEHandler -> LassoHandler.)
 5. Model stacking (BaseModel1Handler -> BaseModel2Handler -> MetaModelHandler.)
 ##### Chain structure
-![Pasted image 20240903093940.png](../../📁%20files/Pasted%20image%2020240903093940.png)
+![Pasted image 20240903093940.png](Pasted%20image%2020240903093940.png)
 The pattern itself consists of **3 main parts**:
 1. **Handler interface (ABC):** abstract class, which defines only methods which are shared among all the handlers and being called in a chain (like `process()` method).
 2. **BaseHandler anstract class :** a base **Handler interface \[1] subclass** extends it with the method responsible for handlers chaining. It can be an explicit method like `set_next(next_node: Handler)` or it can be implemented via initalization like `__init__(self, next_node: Handler)`. It also **contains all the methods for request redirection**: so methods to truncate, send further or process the request.

@@ -1,88 +1,141 @@
 {
   "main": {
-    "id": "5324373015726ba8",
+    "id": "1c49f48d72bd9771",
     "type": "split",
     "children": [
       {
-        "id": "43e0b12dcd97899b",
+        "id": "843cf3134051c9ea",
         "type": "tabs",
         "children": [
           {
-            "id": "4d5d63c2d3e8abf8",
+            "id": "bbbc1e20e3358e60",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "python slots.md",
+                "file": "Programming/Python Basics/Python Basics (1st lesson).md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "python slots"
+              "title": "Python Basics (1st lesson)"
             }
           },
           {
-            "id": "77b7a70cdf370edf",
+            "id": "9cb42edb37a68cc3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programming/Python Basics/Python Basics (3rd lesson).md",
+                "file": "Programming/Python Basics/Python Basics (1st lesson).md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Python Basics (3rd lesson)"
+              "title": "Python Basics (1st lesson)"
+            }
+          },
+          {
+            "id": "ed6478e3a80f2af6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/OOP Basics/OOP Basics (2nd) lesson.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "OOP Basics (2nd) lesson"
+            }
+          },
+          {
+            "id": "4935998fe004bd81",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/Python Basics/Python Basics (4th lesson).md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Python Basics (4th lesson)"
+            }
+          },
+          {
+            "id": "7abd535dbdbed6e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/Python Basics/Python Basics (7th lesson).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Python Basics (7th lesson)"
+            }
+          },
+          {
+            "id": "7de393659904ff9f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/Design Patterns/Bridge pattern.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Bridge pattern"
+            }
+          },
+          {
+            "id": "f12e636a92920103",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "bc435464d52e9e09",
+    "id": "f9a322edb7fb0e58",
     "type": "split",
     "children": [
       {
-        "id": "39c77dc339a6e828",
+        "id": "4dd566acc099bf74",
         "type": "tabs",
-        "dimension": 74.42455242966751,
         "children": [
           {
-            "id": "5fe1617fc2ef98ab",
+            "id": "3112ae19acab80ab",
             "type": "leaf",
             "state": {
-              "type": "backlink",
+              "type": "file-explorer",
               "state": {
-                "file": "Support Vector Machines (SVM).md",
-                "collapseAll": true,
-                "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "autoReveal": false
               },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Support Vector Machines (SVM)"
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
-            "id": "a4d4c1653786cb6e",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
-            }
-          },
-          {
-            "id": "72ecaacb6fbcc745",
+            "id": "8de07a73d1956ad7",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -99,106 +152,79 @@
             }
           },
           {
-            "id": "f3c521c33acca68b",
+            "id": "e8c85abad7278533",
             "type": "leaf",
             "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
-          }
-        ],
-        "currentTab": 3
-      },
-      {
-        "id": "082d06227a93f08a",
-        "type": "tabs",
-        "dimension": 25.575447570332482,
-        "children": [
-          {
-            "id": "73bf99aeecdb96dd",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Programming/Python Basics/Python Basics (3rd lesson).md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Python Basics (3rd lesson)"
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 278.5
+    "width": 300
   },
   "right": {
-    "id": "092405b26105e8c0",
+    "id": "dc534ad1d1749a6d",
     "type": "split",
     "children": [
       {
-        "id": "eaa613a8aac1583b",
+        "id": "fc9122264b5f9bc4",
         "type": "tabs",
         "children": [
           {
-            "id": "e8548cac07862f97",
+            "id": "a9f5ee14864f2d95",
             "type": "leaf",
             "state": {
-              "type": "localgraph",
+              "type": "backlink",
               "state": {
-                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md",
-                "options": {
-                  "collapse-filter": false,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": false,
-                  "colorGroups": [],
-                  "collapse-display": false,
-                  "showArrow": false,
-                  "textFadeMultiplier": -2.3,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": false,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 0.700516114563712,
-                  "close": true
-                }
+                "file": "Programming/Python Basics/Python Basics (1st lesson).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
               },
-              "icon": "lucide-git-fork",
-              "title": "Graph of OOP Basics (5th) lesson"
+              "icon": "links-coming-in",
+              "title": "Backlinks for Python Basics (1st lesson)"
             }
           },
           {
-            "id": "809e85323951beb2",
+            "id": "abebbfd20b9cab86",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Programming/Python Basics/Python Basics (1st lesson).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Python Basics (1st lesson)"
+            }
+          },
+          {
+            "id": "2b630faf850b05c3",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "b7e524355a7ccff2",
+            "id": "8ec9a2bbdce929b5",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -212,113 +238,52 @@
             }
           },
           {
-            "id": "79dd528fffcfd12a",
-            "type": "leaf",
-            "state": {
-              "type": "file-properties",
-              "state": {
-                "file": "DeepLearningAI agents course.md"
-              },
-              "icon": "lucide-info",
-              "title": "File properties for DeepLearningAI agents course"
-            }
-          },
-          {
-            "id": "9f3a8d918e2d11d8",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
-            }
-          }
-        ]
-      },
-      {
-        "id": "ac5a31ca883de739",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d800a962c1dc8663",
+            "id": "2c38300e46f995a3",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Programming/OOP Basics/OOP Basics (5th) lesson.md"
+                "file": "Programming/Python Basics/Python Basics (1st lesson).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of OOP Basics (5th) lesson"
+              "title": "Outline of Python Basics (1st lesson)"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 430.5,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "daily-notes:Open today's daily note": false,
       "switcher:Open quick switcher": false,
-      "canvas:Create new canvas": true,
-      "command-palette:Open command palette": true,
-      "audio-recorder:Start/stop recording": true,
-      "obsidian-excalidraw-plugin:Create new drawing": true,
-      "zk-prefixer:Create new unique note": true,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "command-palette:Open command palette": false,
+      "zk-prefixer:Create new unique note": false,
+      "audio-recorder:Start/stop recording": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-spaced-repetition:Review flashcards": false,
-      "graph:Open graph view": true,
-      "table-editor-obsidian:Advanced Tables Toolbar": true
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "77b7a70cdf370edf",
+  "active": "f12e636a92920103",
   "lastOpenFiles": [
-    "Programming/Python Basics/Python Basics (2nd Lesson).md",
-    "Programming/Python Basics/Python Basics (1st lesson).md",
-    "Programming/OOP Basics/OOP Basics (5th) lesson.md",
-    "Programming/OOP Basics/OOP Basics (6th) lesson 1.md",
-    "Programming/OOP Basics/OOP Basics (5th) lesson 1.md",
-    "Programming/OOP Basics/OOP Basics (2nd) lesson.md",
-    "2025-02-02.md",
-    "python slots.md",
-    "Programming/OOP Basics/OOP Basics (4th) lesson.md",
-    "Programming/OOP Basics/OOP Basics (3rd) lesson.md",
-    "Programming/OOP Basics/OOP Basics (1st) lesson.md",
-    "Programming/Python Basics/Python Basics (3rd lesson).md",
-    "Programming/SOLID principles.md",
-    "random forest algorithm.md",
-    "python multiprocessing, multithreading, asyncio.md",
-    "python managing context.md",
-    "python lists.md",
-    "python ideas.md",
-    "OOP Basics (3th) lesson.md",
-    "Programming/Python Basics/Python Basics (7th lesson).md",
-    "DeepLearningAI agents course.md",
-    "Programming/Dataclass.md",
-    "Programming/Design Patterns/Flyweight pattern.md",
     "Programming/Design Patterns/Bridge pattern.md",
-    "Теория вероятностей/bias and variance tradeoff.md",
-    "Programming/Python Ideas.md",
-    "📁 files/Flyweight.mhtml",
-    "📁 files/Bridge.mhtml",
-    "Bridge.mhtml",
-    "Flyweight.mhtml",
-    "📁 files/Screenshot_2024-01-10-23-41-38-79_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-23-31-32-46_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-37-13-33_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-34-53-40_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-34-53-40_e2d5b3f32b79de1d45acd1fad96fbb0f 1.jpg",
-    "📁 files/Screenshot_2024-01-10-19-30-46-66_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-28-02-96_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-19-51-40_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Screenshot_2024-01-10-19-19-51-40_e2d5b3f32b79de1d45acd1fad96fbb0f 1.jpg",
-    "📁 files/Screenshot_2024-01-10-19-14-31-81_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg",
-    "📁 files/Recording 20240529170111.webm",
-    "📁 files/Recording 20240529165615.webm",
-    "📁 files/Recording 20240529165204.webm",
-    "📁 files (2)/Recording 20240529170111.webm",
-    "📁 files (2)/Recording 20240529165615.webm",
-    "📁 files (2)/Recording 20240529165204.webm"
+    "Programming/OOP Basics/OOP Basics (2nd) lesson.md",
+    "Programming/OOP Basics/OOP Basics (1st) lesson.md",
+    "Programming/OOP Basics/OOP Basics (3rd) lesson.md",
+    "Programming/OOP Basics/OOP Basics (4th) lesson.md",
+    "Programming/Python Basics/Python Basics (7th lesson).md",
+    "Programming/Python Basics/Python Basics (4th lesson).md",
+    "Programming/Python Basics/Python Basics (3rd lesson).md",
+    "Programming/Python Basics/Python Basics (1st lesson).md",
+    "python new file.md"
   ]
 }

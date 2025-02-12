@@ -59,7 +59,7 @@ Bias-variance equation shows that our model's **mean error** can be decomposed i
 **High variance** means that our model is too sensitive to the pertubarations in our training data (in how we choose the $D$ dataset). This typically shows that **our model relies too much on the specific of the original training dataset**, and such situation is called **underfitting**
 
 ##### Bias-variance tradeoff
-![Pasted image 20241111113132.png](../📁%20files/Pasted%20image%2020241111113132.png)
+![Pasted image 20241111113132.png](Pasted%20image%2020241111113132.png)
 While bias and variance do not directly depend on each other in theory, in practice they do often form an inverse relationship.
 
 You see: high bias usually means that the [model complexity](../model%20complexity.md) is too low, and the model fails to catch the relationships in data properly. You do increase the complexity (by making a [polynomial regression](../polynomial%20regression.md) instead of a [linear](../linear%20regression.md) one), and the bias reduces.
@@ -101,7 +101,7 @@ $$E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}] + E_D[(\bar{\hat{f}}(x) - f(x))^{
 $$\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance} + \underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^2}$$
 >Resulting equation:
 $$\text{Error} = E_X[\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance}] + E_x[\underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^{2}}]+\underbrace{\sigma^2}_{Irreducable\  error}$$
-<!--SR:!2025-01-23,40,290-->
+<!--SR:!2025-07-19,161,310-->
 
 
 What is the bias-variance tradeoff, why does it occur? How is it bonded with definitions of overfitting and underfitting?

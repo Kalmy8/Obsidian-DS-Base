@@ -1,7 +1,7 @@
 #🃏/programming
 What is a **Observer** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Observer** paradigm.
 ?
-[Observer.mhtml](../../📁%20files/Observer.mhtml)
+[Observer.mhtml](Observer.mhtml)
 The **Observer pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to hande **one-to-many** dependencies, when you have a lot of dependent (subscribers/observers) and one independent (subject) objects in your application. Observers keep track of the subject, by some pull requests, or get notified by a subject with some sort of a push request. This way, when something important happens in the subject, changing it's state, observers which are subscribed on this event get a notification and do react on it in a desired way.
 > You can think of an Observer pattern as of a callback-technique, but being more formal and general. You just subscribe created objects to react automatically on specific events.
 ##### Observer pattern usage scenarios
@@ -9,7 +9,7 @@ The **Observer pattern** is a [behavioral pattern](Behavioral%20patterns.md) use
 2. Callback mechanisms (accepting new users connections on a webserver, saving checkpoints while teaching an ML model) can also be realised as a special implementation of an Observer pattern.
 3. Live auto-updated data dashboards.
 ##### Observer pattern structure
-![Pasted image 20240906084655.png](../../📁%20files/Pasted%20image%2020240906084655.png)
+![Pasted image 20240906084655.png](Pasted%20image%2020240906084655.png)
 The pattern itself consists of **4 main parts**:
 1. **Subject interface (ABC):** class implementing at least **attach, detach and notify** methods for the subject, so it will be ready for working with observers.
 2. **Subject:**  a subclass of **Subject interface \[1]**, the working object of the application, which state is changing somehow (that's called an ***event***) and which has to notify the subscribers when it happens. It usually contains some business logic itself.

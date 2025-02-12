@@ -55,4 +55,4 @@ Rolling 2 dices at once: $\Omega=\{w : [a,b]\text{ for } a,b \in (⚀⚁⚂⚃�
 Definition of an event in probability. Example of how it can be represented using subsets of a fundamental probability set
 ?
 Event is just an arbitrary subspace of the fundamental probability set. So given the set $\Omega = \{w_{1},w_{2},..,w_{6}\}$ an event can be defined as  $A = \{w_{1}\}$ or $B = \{w_{4},w_{5},w_{6}\}$.
-<!--SR:!2025-02-01,59,310-->
+<!--SR:!2025-10-19,253,330-->

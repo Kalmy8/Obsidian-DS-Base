@@ -1,10 +1,10 @@
 #🃏/programming
 What is a **Memento pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Memento** paradigm.
 ?
-[Memento.mhtml](../../📁%20files/Memento.mhtml)
+[Memento.mhtml](Memento.mhtml)
 The **Memento pattern** is a [behavioral pattern](Behavioral%20patterns.md) which **special purpose is to save, store and revert some object's state** in a safe way (without exposing it's private fields).
 ##### Memento pattern structure
-![Pasted image 20240904122535.png](../../📁%20files/Pasted%20image%2020240904122535.png)
+![Pasted image 20240904122535.png](Pasted%20image%2020240904122535.png)
 The pattern itself consists of **4 main parts**:
 1. **Originator:** the original object which state we do want to save and revert. So, the originator has to implement `save()` and `restore(memento)` methods which will create the **Concrete Memento \[3]** and restore it's state from the memento when needed.
 2. **Memento (ABC):** abstract class declaring an interface for **only Memento-Caretaker\[2]** relationships, so the client won't be able to obtain hidden state which is stored inside a Memento, but will be able to use all other merhods returning additional information like `get_name(self)`, `get_date(self)`...
@@ -153,4 +153,4 @@ caretaker.undo()
 print("\nClient: Once more!\n")
 caretaker.undo()
 ```
-<!--SR:!2025-01-30,76,270-->
+<!--SR:!2025-11-22,287,290-->

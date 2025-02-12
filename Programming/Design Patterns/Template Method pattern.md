@@ -1,14 +1,14 @@
 #🃏/programming
 What is a **Template Method** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Template Method** paradigm.
 ?
-[Template Method.mhtml](../../📁%20files/Template%20Method.mhtml)
+[Template Method.mhtml](Template%20Method.mhtml)
 The **Template Method pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to define some skeleton step-divised algorthim (a pipeline) while giving you an instrument to override some (or all) of it's steps, but not the pipeline itself. These one are actually very popular in data science sphere. Imagine that you are willing to preprocess some data, which includes Dropping Duplicates, Feature Selection, Missing values imputing and Scaling. Some of this steps can be implemented differently (you have multiple Imputing and scaling techniques), some of the steps are almost always implemented uniformally (like Dropping duplicates, which is just using pandas `dropna()` function).
 ##### Template pattern usage scenarios
 1. ML models build, optimization, evaluation pipelines.
 1. Preprocessing pipelines.
 2. Report Generation Pipelines: You need to generate reports from data, involving steps like data retrieval, aggregation, formatting, and rendering. Different reports can have their own data sources, aggregation methods, formatting rules, and output formats while still adhering to the same report generation process.
 ##### Template pattern structure
-![Pasted image 20240906105012.png](../../📁%20files/Pasted%20image%2020240906105012.png)
+![Pasted image 20240906105012.png](Pasted%20image%2020240906105012.png)
 The pattern itself consists of **2 main parts**:
 1. **Template:** abstact or non-abstract class implementing all the default methods and defining the sequence they are meant to be used (a pipeline). The pipeline is defined with just one method usually called `process()`. This class also can have some empty optional methods which are invoked before or after certain steps in the pipeline, they are usually called **hooks**. Concrete implementations can override this hooks also, including additional steps to the algorithm.
 2. **Concrete implementations:**  a subclass of **Template**, overriding the default methods, but not the main `process()` method.

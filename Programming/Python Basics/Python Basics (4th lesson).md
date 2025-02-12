@@ -93,17 +93,17 @@ for x in range(1, 10, 2):
 What is the purpose of the `range()` function, and how is it commonly used with `for` loops?
 ?
 `range()` generates a sequence of numbers. It's used with `for` loops to iterate a specific number of times or over a sequence of integers.
-<!--SR:!2025-02-02,15,290-->
+<!--SR:!2025-04-08,59,310-->
 
 How does `enumerate()` enhance `for` loops when working with sequences like lists or strings? What two values does `enumerate()` provide on each iteration?
 ?
 `enumerate()` provides both the *index* and the *value* of each item in a sequence, making it very convenient for tasks that require knowledge of the element's position.
-<!--SR:!2025-02-01,14,290-->
+<!--SR:!2025-04-05,56,310-->
 
 In a `for` loop using `range(start, stop, step)`, will the loop iterate up to and including the *stop* value or up to but *not including* it?  If the *start*, *stop*, and *step* values are not specified when calling the `range` function, what default values will Python use for each?
 ?
 The loop iterates up to, but *not including*, the *stop* value. `range()` with one argument defaults to starting at 0 and uses a step of 1. So `range(5)` is equivalent to `range(0, 5, 1)`.
-<!--SR:!2025-02-03,16,290-->
+<!--SR:!2025-04-13,64,310-->
 
 
 

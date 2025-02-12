@@ -12,7 +12,7 @@ What are the OOP principles? Enumerate them and highlight the key idea, 1-2 bene
      class BankAccount:
          def __init__(self, balance=0):
              self._balance = balance  # Private attribute
-<!--SR:!2025-02-03,16,290-->
+<!--SR:!2025-04-16,67,310-->
              
          def deposit(self, amount):
              if amount > 0:

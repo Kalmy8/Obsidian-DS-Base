@@ -2,7 +2,7 @@
 **Codewords:** OOP principles: Encapsulation, Abstraction, Getters, Setters
 
 ## 1. Encapsulation:
-*   **Definition:** Encapsulation is bundling data (variables) and the methods (functions) that operate on that data within a single unit—a class. **This protects the data by restricting direct access from outside the class and allows controlled access through defined methods.**
+*   **Definition:** Encapsulation is bundling data (variables, attributes, fields) and the methods (functions) that operate on that data within a single unit—a class. **This protects the data by restricting direct access from outside the class and allows controlled access through defined methods.**
 *   **Illustration:** Imagine a car. The engine, fuel tank, and braking system are all encapsulated within the car's body. You interact with the car through its controls (steering wheel, pedals) without directly manipulating the internal engine components.
 
     ```python
@@ -234,28 +234,28 @@ Create a `Triangle` class initialized from a given set of side lengths.
 **What is encapsulation in OOP, and why is it important?**
 ?
 Encapsulation is bundling data and methods within a class, protecting data integrity and controlling access through methods.
-<!--SR:!2025-02-01,14,290-->
+<!--SR:!2025-04-03,54,310-->
 
 **What is the purpose of using "private" attributes (using the double underscore `__` prefix) in Python classes?**
 ?
 To prevent direct access and modification of the attribute from outside the class, enforcing encapsulation.
-<!--SR:!2025-02-03,16,290-->
+<!--SR:!2025-04-13,64,310-->
 
 **Why is direct access to an object's attributes generally discouraged in OOP?**
 ?
 Direct access can lead to accidental or unauthorized modification of data, potentially corrupting the object's state or violating the intended logic of the class.
-<!--SR:!2025-02-02,15,290-->
+<!--SR:!2025-04-08,59,310-->
 
 **Explain the purpose of "getter" and "setter" methods. Why are they important?**
 ?
 **Getters** provide controlled access to read an object's attributes, while **setters** allow controlled modification, often including validation to ensure data integrity.
-<!--SR:!2025-02-01,14,290-->
+<!--SR:!2025-04-05,56,310-->
 
 **Explain the concept of abstraction in OOP and provide a real-world example.**
 ?
 - Abstraction hides complex implementation details and exposes only essential information to the user.
 - Example: A TV remote control hides the internal electronics but provides buttons for essential actions like changing channels and volume.
-<!--SR:!2025-02-03,16,290-->
+<!--SR:!2025-04-12,63,310-->
 
 **Task:**
 - Create a class Circle with a private attribute radius. 

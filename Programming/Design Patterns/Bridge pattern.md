@@ -1,5 +1,5 @@
 #🃏/programming
-[Bridge.mhtml](../../📁%20files/Bridge.mhtml)
+[Bridge.mhtml](Bridge.mhtml)
 
 What is a Bridge design pattern? When is it useful, and how would you know if you will benefit from utilizing it? Provide a mock-code example of a class designed within a Bridge paradigm.
 ?
@@ -17,10 +17,10 @@ The **Bridge** design pattern decouples an object's **abstraction** from its **i
 .
 The separation is done to manage complex relationships between classes and avoid the explosion of subclasses when you have multiple dimensions of variation.
 **Example:** Imagine an "Electronics" system with various Devices (TV, Radio, Speaker) and Controllers (Remote, Voice, App).  Without the Bridge pattern, you'd need a separate class for each combination (RemoteTV, VoiceRadio, AppSpeaker, etc.). Introducing the Bridge pattern instead utilizes **implemented methods to serve abstract features**.
-![Pasted image 20240829150657.png](../../📁%20files/Pasted%20image%2020240829150657.png)
+![Pasted image 20240829150657.png](Pasted%20image%2020240829150657.png)
 **Bridge Pattern Components:**
 1. **Abstraction:** Holds a reference to a Concrete Implementation. It delegates operations to the Implementation and defines the features available to the client.  It *may* be an abstract class.
-   ![300](../../📁%20files/Pasted%20image%2020240829153332.png)
+   ![300](Pasted%20image%2020240829153332.png)
 2. **Refined Abstraction (Optional):** Subclasses of the Abstraction that extend its functionality in specific ways.  They still delegate the core implementation to the chosen Implementation.
 3. **Implementor:** An interface or abstract class that defines the operations required by the Abstraction. It ensures that all Concrete Implementations provide a consistent interface.
 4. **Concrete Implementations:**  Concrete classes implementing the Implementor interface. They provide the actual code for the operations defined by the Implementor.

@@ -54,6 +54,7 @@ What restrictions and benefits does the usage of `__slots__` class attribute pro
 - Benefits:
 	- 20-30% increase of speed while accessing the attributes
 	- 3+ times less memory consumption by the class instances
+<!--SR:!2025-02-12,4,270-->
 
 
 How do slots work with the simple inheritance and multi-inheritance?
@@ -61,3 +62,4 @@ How do slots work with the simple inheritance and multi-inheritance?
 - Simple inheritance: `__slots__` are automatically inherited from the parent object. Can provide additional attributes like
    `__slots__ = ('additional attribute')`
 - Multi inheritance: is not possible, leads to an error
+<!--SR:!2025-02-12,4,270-->

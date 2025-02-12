@@ -13,7 +13,7 @@ Frankly speaking, there is no much sense of relating any modern programming lang
 Nowadays, there are so much more ways to perform such a task that you **should prioritize understanding a whole process** rather then understand what the termin "interpreted" is. 
 Let's compare the typical "compiled" language, such as C#, with Python (CPython - the most popular implementation) 
 <br>
-![Pasted image 20241117172425.png](../../📁%20files/Pasted%20image%2020241117172425.png) [Take a look at the explained whole process](../Interpreted%20and%20Compiled%20pipeline.md)
+![Pasted image 20241117172425.png](Pasted%20image%2020241117172425.png) [Take a look at the explained whole process](../Interpreted%20and%20Compiled%20pipeline.md)
 
 According to the given figure, it is hard to tell the difference between interpreted and compiled languages, and that is true! 
 
@@ -30,7 +30,7 @@ So, let's say, *string* object is defined with quote symbols ('str' or "str") an
 'str' + 'banana' = 'strbanana')
 
 It is helpful to think about all of our programm variables as of some kind of **objects** in computer memory. In fact, you often can come up into phrase that **everything in python is an object, and that's true**.
-![Pasted image 20240807150909.png](../../📁%20files/Pasted%20image%2020240807150909.png)
+![Pasted image 20240807150909.png](Pasted%20image%2020240807150909.png)
 
 
 Data types can be either **mutable** or **immutable**, defyining if the related **objects** can or can not be changed in the memory heap.
@@ -76,7 +76,7 @@ How are python datatypes categorized? Which datatypes fall into each category?
 
 How do Python represent objects inside the memory heap? Enumerate all the components or draw a diagram.
 ?
-![Pasted image 20240807150909.png](../../📁%20files/Pasted%20image%2020240807150909.png)
+![Pasted image 20240807150909.png](Pasted%20image%2020240807150909.png)
 <!--SR:!2025-02-14,57,316-->
 
 Name the output of each piece of the given code: 

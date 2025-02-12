@@ -1,12 +1,12 @@
 #🃏/programming
 What is a **Command pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Command** paradigm.
 ?
-[Command.mhtml](../../📁%20files/Command.mhtml)
+[Command.mhtml](Command.mhtml)
 The **Command pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to inroduce some mid **Command** layer which is responsible for  delivering user requests to some real worker (reciever). Remember the [Bridge pattern](Bridge%20pattern.md). Bridge pattern separates abstraction from the implementation. Every Abstraction has a set of features avaliable for a client (user interface), each feature is bonded and served with some methods which are implemented in concrete implementations (business logic). Now the Abstraction **(Invoker) is only responsible for pushing binded commands**, not invoking the implementation directly. **Every feature avaliable to user can be represented as a parametrized Command**. These commands are being initialized, binded to invokers and executed by **implementators (recievers)** then pushed. This complex structure is benefitial because:
 1. Just like the bridge pattern, it decouples the business logic from the user interface, allowing both to develop independently. The recievers only need to provide some `execute(command)` method to be good to go with commands.
 2. Commands are acting as a mid-layer, which is benefitial over the bridge pattern, because they can be treated as a separate object, **so be logged/un-done/re-done/queued and scheduled.**
 ##### Command pattern structure
-![Pasted image 20240903110828.png](../../📁%20files/Pasted%20image%2020240903110828.png)
+![Pasted image 20240903110828.png](Pasted%20image%2020240903110828.png)
 The pattern itself consists of **4 main parts**:
 1. **Invoker:** a class which purpose is to invoke (send) binded commands, so they should have a field for referencing binded command/commands and a method to actually bind/unbind the command to themselves.
 2. **Command (ABC):** an abstract class which usually defines the single method (e.g. `execute(self)`) for all of the concrete commands.

@@ -322,7 +322,7 @@ text = "Python"
 last_char = text[-1]
 print(last_char)  # Output: n
 ```
-<!--SR:!2025-01-29,55,314-->
+<!--SR:!2025-10-05,239,334-->
 
 Use an f-string to show `0.98765` as a percentage with 2 decimal places.
 ?

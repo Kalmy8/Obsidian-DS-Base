@@ -46,7 +46,7 @@ class MyIterable(Iterable):
 	def __contains__(self, item): 
 		return item in self._data
 ```
-<!--SR:!2025-02-08,85,290-->
+<!--SR:!2026-01-17,343,310-->
 
 **ITERATOR** - a Python **object** with a special **`__next__()`** method, enabling iteration through a sequence.
 
