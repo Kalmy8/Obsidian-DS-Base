@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/oop-basics 
 What are the OOP principles? Enumerate them and highlight the key idea, 1-2 benefits they offer. Provide a code example as a demonstration.
 ?
 **1. Encapsulation**

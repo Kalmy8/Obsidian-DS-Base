@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Decorator** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from python @decorator syntaxis? Provide some mock-code example of a class designed within a **Decorator** paradigm.
 ?
 [Decorator.mhtml](../../📁%20files/Decorator.mhtml)

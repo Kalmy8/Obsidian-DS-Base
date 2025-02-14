@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Prototype** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Prototype** paradigm.
 ?
 The **Prototype** desing pattern allows you to create some class instances by using no common initialization techniques, but instead by copying from some base (prototype) instance. This might be useful if:
@@ -41,3 +41,9 @@ goblin2 = spawn_monster("goblin")
 print(goblin1)  # Output: Goblin (Health: 20, Attack: 5)
 print(goblin2)  # Output: Goblin (Health: 20, Attack: 5)
 ```
+
+## Practical tasks:
+
+1. **Game NPC Spawner**
+    - Define a `NPC` class with `health`, `attack`, and `ai_behavior`.
+    - Use a prototype registry to clone pre-configured NPCs (e.g., "Archer", "Mage") instead of reinitializing.

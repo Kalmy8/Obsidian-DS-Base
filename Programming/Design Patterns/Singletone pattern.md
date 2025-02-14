@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 
 What is a **Singletone** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How does the **singletone** pattern utilizes **\__new\__** and  **\__init\__** methods in python? Provide some mock-code example of a class designed within a **singletone** paradigm.
 ?
@@ -23,3 +23,7 @@ class Singleton:
 		# Ensure __init__ is not called again
 ```
 Note: **\__init\__** method is called only once, when the first instance of Singleton class is created. However, there is an additional security step in this example, in case that **\__init\__** method is called manually.
+## Practical tasks:
+
+1. **App Config Manager**
+    - Create a `ConfigManager` singleton that loads settings from a file once and provides read-only access globally.

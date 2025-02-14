@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What are the **Behavioral patterns**? Why are they called so, and what exact patterns do fit this category?
 ?
 These patterns deal with how objects interact and how responsibilities are assigned. Examples include:

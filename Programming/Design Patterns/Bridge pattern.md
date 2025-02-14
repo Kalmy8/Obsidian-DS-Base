@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 [Bridge.mhtml](../../📁%20files/Bridge.mhtml)
 
 What is a Bridge design pattern? When is it useful, and how would you know if you will benefit from utilizing it? Provide a mock-code example of a class designed within a Bridge paradigm.

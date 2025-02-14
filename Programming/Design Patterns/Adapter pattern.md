@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is an **Adapter** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Adapter** paradigm.
 ?
 An **Adapter** design pattern allows you to make incompatible interfaces works together. Imagine you are going to visit the USA, riding from Europe, and take your power socket with you. You won't be able to plug it into an American nest, because they are incompatible, so you have to buy **an adapter**. Just like that, you can adapt one class to work with the desired interface.

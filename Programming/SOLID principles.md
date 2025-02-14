@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/oop-basics 
 Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/commitement
 ?
 Let's break down each SOLID principle, exploring their benefits and illustrating both violations and good practices with simple Python examples:
@@ -102,7 +102,7 @@ The `Penguin` subclass breaks the expectation set by the `Bird` base class.
 			
 	class Penguin(Bird):
 		def move(self):
-		print("Waddling!") 
+			print("Waddling!") 
 		
 	def make_bird_move(bird: Bird):
 		bird.move()
@@ -160,18 +160,24 @@ Interfaces are more focused, and classes only implement what they need.
    - **Violation Example:**
 ```python
 	class LightBulb:
+		def __init__(self):
+			self.is_on = False
+			
 		def turn_on(self):
 			print("Lightbulb ON")
-
+			
 		def turn_off(self):
 			print("Lightbulb OFF")
-
+			
 	class Switch:
 		def __init__(self, bulb: LightBulb):
 			self.bulb = bulb
-
-	def flip(self):
-		# ...
+			
+		def flip(self):
+			if self.bulb.is_on:
+				self.bulb.turn_off() 
+			elif not self.bulb.is_on: 
+				self.bulb.turn_on()
 ```
 The `Switch` class is tightly coupled to the `LightBulb` class.
    - **Commitment Example:**
@@ -185,7 +191,7 @@ The `Switch` class is tightly coupled to the `LightBulb` class.
 		def turn_off(self):
 			pass
 			
-	class LightBulb(Switchable):
+	class LightBulb(Switchable): 
 		# ... (implementation)
 		
 	class Switch:

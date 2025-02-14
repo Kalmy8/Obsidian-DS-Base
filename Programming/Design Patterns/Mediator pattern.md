@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Mediator pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Mediator** paradigm.
 ?
 [Mediator.mhtml](../../📁%20files/Mediator.mhtml)

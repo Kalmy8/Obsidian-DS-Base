@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Observer** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Observer** paradigm.
 ?
 [Observer.mhtml](../../📁%20files/Observer.mhtml)
