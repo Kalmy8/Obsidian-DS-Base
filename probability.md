@@ -34,13 +34,13 @@ Probabilities do have properties, which are obvious from the definition:
 How is the probability of an elementary event within a fundamental probability set defined, and what is the condition for the sum of these probabilities?
 ?
 The probability is a number assigned to each of the elementary events, showing how likely you are to get this event from a probability experiment. It is required that $\sum\limits_{w\in\Omega} P(w)=1$
-<!--SR:!2025-02-12,4,278-->
+<!--SR:!2025-03-09,14,298-->
 
 
 How is the probability of an event $A$ calculated if you know the probabilities of the elementary events in $A$?
 ?
 $P(A) = \sum\limits_{w\in A}(P(w))$
-<!--SR:!2025-02-12,4,278-->
+<!--SR:!2025-03-11,16,298-->
 
 
 Prove $P(A\cup B) = P(A) + P(B) - P(A \cap B)$
@@ -53,7 +53,7 @@ Prove $P(A\cup B) = P(A) + P(B) - P(A \cap B)$
 >- $A \cap B = {w_{i},i\in B, i\in A }$
 >  $$\underbrace{\sum\limits_{w_{i} \in A \cup B} P(w_{i})}_{P(A\cup B)}=\sum\limits_{w_{i} \in A \setminus B} P(w_{i}) + \sum\limits_{w_{i} \in B \setminus A} P(w_{i})$$
 >  $$=\underbrace{\sum\limits_{w_{i} \in A } P(w_{i})}_{P(A)} + \underbrace{\sum\limits_{w_{i} \in B } P(w_{i})}_{P(B)} - \underbrace{\sum\limits_{w_{i} \in A\cap B } P(w_{i})}_{P(A\cap B)}$$
-<!--SR:!2025-02-12,4,278-->
+<!--SR:!2025-03-10,15,298-->
 
 
 

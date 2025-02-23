@@ -258,7 +258,7 @@ Direct access can lead to accidental or unauthorized modification of data, poten
 <!--SR:!2025-04-12,63,310-->
 
 **Task:**
-- Create a class Circle with a private attribute radius. 
+- Create a class Circle with a private attribute radius.
 - Implement a getter method get_radius() and a setter method set_radius() that validates if the radius is positive.
 ?
 ```python
@@ -282,7 +282,7 @@ my_circle.set_radius(10)
 print(my_circle.get_radius())  # Output: 10
 my_circle.set_radius(-2)      # Output: Radius must be positive.
 ```
-<!--SR:!2025-02-15,30,310-->
+<!--SR:!2025-07-02,129,330-->
 
 **Task:**
 - Create a class Playlist with methods add_song(song_title), remove_song(song_title), and play().
@@ -322,4 +322,4 @@ my_playlist.play()
 my_playlist.remove_song("Song B")
 my_playlist.play()
 ```
-<!--SR:!2025-02-15,30,310-->
+<!--SR:!2025-07-01,128,330-->

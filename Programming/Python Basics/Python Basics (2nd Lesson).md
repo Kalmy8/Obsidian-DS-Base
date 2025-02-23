@@ -236,7 +236,7 @@ print(day, "/", month)
 print(f"{day}/{month}")
 
 ```
-<!--SR:!2025-02-22,63,314-->
+<!--SR:!2025-11-24,274,334-->
 
 Print two variables, `city` and `temperature`, such that the output is `The temperature in [city] is [temperature] degrees.`
 ?
@@ -263,7 +263,7 @@ num = 5.6789
 rounded_num = round(num, 1)
 print(rounded_num) # 5.7
 ```
-<!--SR:!2025-02-18,59,314-->
+<!--SR:!2025-11-06,256,334-->
 
 Determine the quotient of `200 // 15`.
 ?
@@ -279,7 +279,7 @@ Compute the remainder of `123` divided by `25`.
 remainder = 123 % 25
 print(remainder)  # 23
 ```
-<!--SR:!2025-02-17,60,314-->
+<!--SR:!2025-11-11,261,334-->
 
  Check if the substring `"Python"` exists in the string `"I am learning Python programming."`
 ?
@@ -288,7 +288,7 @@ text = "I am learning Python programming."
 substring = "Python"
 print(substring in text)  # Output: True
 ```
-<!--SR:!2025-02-20,63,314-->
+<!--SR:!2025-11-23,273,334-->
 
  Strip the characters `*` from the string `***important***`.
 ?
@@ -313,7 +313,7 @@ text = "I love Python programming."
 parts = text.split() # Creates a list of words
 print(parts[2]) #Python
 ```
-<!--SR:!2025-02-12,55,314-->
+<!--SR:!2025-10-20,239,334-->
 
 Retrieve the las character of the string `"Python"`.
 ?
@@ -330,7 +330,7 @@ Use an f-string to show `0.98765` as a percentage with 2 decimal places.
 number = 0.98765
 print(f"{number:.2%}") # 98.77%
 ```
-<!--SR:!2025-02-20,61,314-->
+<!--SR:!2025-11-15,265,334-->
 
 Format and truncate the string `"Python programming"` to display only the first 7 characters.
 ?
@@ -340,7 +340,7 @@ truncated_text = text[:7]
 print(truncated_text) # Output: Python 
 print(f"{text:.7}")   # Output: Python (using f-string)
 ```
-<!--SR:!2025-02-21,64,314-->
+<!--SR:!2025-11-28,278,334-->
 
 Print the variable `age` right-aligned within a width of 6 characters using an f-string.
 ?
@@ -356,7 +356,7 @@ Use an f-string to format `7.890123` to 3 decimal places.
 number = 7.890123
 print(f"{number:.3f}")  # Output: 7.890
 ```
-<!--SR:!2025-02-10,53,314-->
+<!--SR:!2025-10-11,230,334-->
 
 Pop and print the element at index 1 from the list `cities = ['New York', 'Los Angeles', 'Chicago', 'Houston']`.
 ?
@@ -377,7 +377,7 @@ fruits.append("elderberry")
 print(fruits) # ['apple', 'banana', 'cherry', 'elderberry']
 
 ```
-<!--SR:!2025-02-19,62,314-->
+<!--SR:!2025-11-19,269,334-->
 
 Get the first three elements from the list `colors = ['red', 'green', 'blue', 'yellow']`.
 ?
@@ -386,7 +386,7 @@ colors = ['red', 'green', 'blue', 'yellow']
 first_three = colors[:3]  # slicing
 print(first_three)    # ['red', 'green', 'blue']
 ```
-<!--SR:!2025-02-21,64,314-->
+<!--SR:!2025-11-27,277,334-->
 
 Access the last element in the list `fruits = ['apple', 'banana', 'cherry', 'date']`.
 ?

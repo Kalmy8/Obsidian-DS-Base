@@ -9,7 +9,7 @@ Talking about CPython (which is the most popular implementation), lists are the 
 How is a python list different from the standard C array? What is the reallocate operation? How does it work?
 ?
 Python does provide the **reallocate method**, which allows it to **dynamically change the amount of allocated memory**, if it runs out of space. while adding new elements. The operation is simple: python does creates a new array of bigger size and just copies all of the old array content there.
-<!--SR:!2025-02-18,59,310-->
+<!--SR:!2025-11-01,251,330-->
 
 What are the algorithm complexity for methods:
 - Append
@@ -19,6 +19,6 @@ What are the algorithm complexity for methods:
 ?
 - Append/pop: O(1)
 - Insert/remove: O(n)
-<!--SR:!2025-02-14,57,310-->
+<!--SR:!2025-10-26,245,330-->
 
 

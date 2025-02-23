@@ -71,4 +71,4 @@ fire_button = Button(Fire())
 left_button.execute_command()
 # Output: "I have leaned to the left"
 ```
-<!--SR:!2025-02-13,120,290-->
+<!--SR:!2026-02-06,348,290-->

@@ -27,7 +27,7 @@ What is the core idea of a bagging technique, how can it be described? What bene
 ?
 - Bagging techniques includes changing from a single estimator to a set of estimators and averaging their predictions
 - In an ideal scenario, when base estimators are independent from each other, **bagging decreases the variance term of the model by k times where k is the number of estimators**
-<!--SR:!2025-02-19,62,310-->
+<!--SR:!2025-11-16,266,330-->
 
 How are ensemble variance and bias different from the single estimator variance and bias? Provide a mathematical formula
 ?
@@ -35,4 +35,4 @@ Bias is the same
 ![800](bias%20of%20bagging.md)
 variance is decreased by \<number of base models> time, if base models are uncorrelated
 ![800](variance%20of%20bagging.md)
-<!--SR:!2025-02-15,7,234-->
+<!--SR:!2025-03-17,22,254-->

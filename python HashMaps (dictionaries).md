@@ -47,7 +47,7 @@ hash('Mon') % len(indices)
 		2. If they are the same, this may be a hash collision. Then you should also compare key objects themselves (that's why the keys should have the `__eq__` method implemented)
 			1. If key objects are the same, you are trying to add an existing key inside a dictionary. In python, dictionaries are being updated, so the old value is replaced with the new one.
 			2. If they are different, increment the index and search for the next empty bucket.
-<!--SR:!2025-02-12,4,270-->
+<!--SR:!2025-03-09,14,290-->
 
 
 
@@ -73,7 +73,7 @@ Now, **all different instances do only store compact value arrays.**
 What is the size of a single bucket inside a dictionary HashMap?
 ?
 24 bytes (196 bits)
-<!--SR:!2025-02-12,4,270-->
+<!--SR:!2025-03-11,16,290-->
 
 
 What are the indexes array and the entry table? What are their relative lengths? What are their memory consumption? How do they save memory storing dictionaries compared to the classical HashMap?
@@ -83,7 +83,7 @@ What are the indexes array and the entry table? What are their relative lengths?
 - Entry table length can be no more than 1/3 of the indexes array, when it reaches it's limit, the indexes array is being doubled.
 - Each bucket inside the indexes array consume 8 bits (1 byte) and inside the entry table consume 196 bits (24 bytes).
 - **Entry table does not contain blank lines**, like in the classical hashmap, and that's the trick. Indexes array points either to an existing bucket inside the entry table, or holds "-1" value (meaning that the bucket is empty and free to fill).
-<!--SR:!2025-02-12,4,274-->
+<!--SR:!2025-03-10,15,294-->
 
 
 What are the splitted tables introduced for classes in python? How do they save memory? What if some instance has a unique attribute (assigned after initialization, for example)
@@ -91,7 +91,7 @@ What are the splitted tables introduced for classes in python? How do they save 
 - Splitted tables are used to keep  `attribute:value` pairs for python classes. The class itself stores the index array and the entry table, and it's being shared across all the instances. Instances do only store actual values:
   ![Pasted image 20241128105713.png](Pasted%20image%2020241128105713.png)
 - If some instance do has a unique attribute, a classical HashMap will be used for storing it's information instead, which is unefficient. That's why initializing all the attributes inside the `__init__` is highly reccomended.
-<!--SR:!2025-02-12,4,274-->
+<!--SR:!2025-03-09,14,294-->
 
 
 

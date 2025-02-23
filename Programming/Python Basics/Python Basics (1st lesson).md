@@ -55,7 +55,7 @@ What are the key differences between interpreted and compiled languages, and how
 - In order to complete the instructions given within the user code Interpreted languages do rely on an interpreter - a program which reads user code line-by-line, converts it into machine code and executes right away.
 - Compiled languages do instead firstly convert all the code into the machinery form, and when execute all the instructions at once.
 - Python is usually referred as an interpreter language, but it actually has a compilation stage (compiles into bytecode `.pyc` files ), so it's not quite accurate.
-<!--SR:!2025-02-23,66,316-->
+<!--SR:!2025-12-08,288,336-->
 
 Describe 4 main stages of the user-code execution process. Which of this processes belong to the compilation stage?
 - Lexical analysis: user-written code is being split into certain tokens: variable names, values, functions, control statements etc.
@@ -77,7 +77,7 @@ How are python datatypes categorized? Which datatypes fall into each category?
 How do Python represent objects inside the memory heap? Enumerate all the components or draw a diagram.
 ?
 ![Pasted image 20240807150909.png](Pasted%20image%2020240807150909.png)
-<!--SR:!2025-02-14,57,316-->
+<!--SR:!2025-10-29,248,336-->
 
 Name the output of each piece of the given code: 
 ```python
