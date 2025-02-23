@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Facade** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Facade** paradigm.
 ?
 [Facade.mhtml](Facade.mhtml)
@@ -69,3 +69,8 @@ mytheater = HomeTheater(mytv, mydvd, myaudio)
 mytheater.watch_movie(dvd_cartridge)
 ```
 <!--SR:!2025-04-24,160,310-->
+
+## Practical tasks:
+1. **Smart Home System**
+    - Create subsystems: `LightSystem`, `Thermostat`, `SecurityAlarm`.
+    - Build a `SmartHomeFacade` with methods like `leave_home()` (turns off lights, sets thermostat to eco mode, activates alarm).

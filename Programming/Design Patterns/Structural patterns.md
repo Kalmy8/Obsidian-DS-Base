@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What are the **Structural patterns**? Why are they called so, and what exact patterns do fit this category?
 ?
 These patterns deal with how classes and objects are composed into larger structures. Examples include:

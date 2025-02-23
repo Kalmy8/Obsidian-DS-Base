@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Chain of Responsibility pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? What are the concrete usage examples of CoR pattern applied to data science sphere? How CoR is different from stacking a few [decorators](Decorator%20pattern.md)?  Provide some mock-code example of a class designed within a **Chain of Responsibility pattern** paradigm.
 ?
 [Chain of Responsibility.mhtml](Chain%20of%20Responsibility.mhtml)

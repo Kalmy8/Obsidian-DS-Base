@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Strategy** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **strategy** paradigm.
 ?
 **Strategy** is a [behavioral](Behavioral%20patterns.md) that pattern allows you to change functions behavior dynamically by providing a "strategy" argument. It consists of 3 main parts:
@@ -37,4 +37,13 @@ class ContextClass:
 ```
 <!--SR:!2025-05-26,192,310-->
 
+
+## Practical tasks:
+1. **Payment Gateway**
+    - Define strategies: `CreditCardPayment`, `PayPalPayment`, `CryptoPayment`.
+    - Use a `PaymentProcessor` context class to switch payment methods at runtime.
+        
+2. **Image Filter App**
+    - Implement strategies for filters (`BlackAndWhite`, `Sepia`, `Blur`).
+    - Let users apply filters dynamically to an image.
 

@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [Strategy pattern](Strategy%20pattern.md)? Provide some mock-code example of a class designed within a **Factory** paradigm.
 ?
 **Factory** is a [creational](Creational%20patterns.md) desing pattern allows you to create similar objects, hiding the creation implementation details and providing an convinient interface for you. It includes three main elements, just like the [Strategy pattern](Strategy%20pattern.md):
@@ -55,3 +55,11 @@ class StrategyContextParse:
 ```
 In this example we actually have combined **Factory** and **Strategy** patterns, as they are often used together. Factory pattern handles conditional creation logic, and Strategy pattern is used to actually perform the parsing itself, utilizing creater preprocessors as strategies.
 <!--SR:!2025-05-14,180,310-->
+
+## Practical tasks:
+1. **Document Parser Factory**
+    - Create a `DocumentFactory` that returns `PDFDocument`, `WordDocument`, or `MarkdownDocument` based on file extension.
+    - Each document type implements a `parse()` method.
+        
+2. **UI Widget Factory**
+    - Build a `WidgetFactory` to create platform-specific UI elements (e.g., `WindowsButton`, `MacOSButton`) using a `create_button()` method.

@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **Builder** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Builder** paradigm.
 ?
 A **Builder** desing pattern allows you to create complex objects usining chaining methods technique, which simplifies the process and makes the object creation process much more convinient, especially for comples classes with many optional attributes. The design pattern includes **2 main parts**:
@@ -77,3 +77,9 @@ print(simple_house)  # House with 4 windows, 2 doors, and all the comforts of ho
 
 ```
 <!--SR:!2025-02-25,132,310-->
+
+## Practical tasks:
+1. **Pizza Builder**
+    - Create a `Pizza` class with properties: `size` (str), `crust_type` (str), `toppings` (list).
+    - Implement a `PizzaBuilder` with methods like `set_size()`, `set_crust()`, `add_topping()`, and `build()`.
+    - Allow chaining: `PizzaBuilder().set_size("Large").set_crust("Thin").add_topping("Mushrooms").build()`.

@@ -1,4 +1,4 @@
-#🃏/programming
+#🃏/design_patterns
 What is a **State** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **State** paradigm. Why is it similar and how is is it different from the [Strategy pattern](Strategy%20pattern.md)?
 ?
 [State.mhtml](State.mhtml)

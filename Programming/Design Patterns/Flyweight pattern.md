@@ -1,6 +1,6 @@
 [Flyweight pattern](Flyweight%20pattern.md)
 
-#🃏/programming
+#🃏/design_patterns
 What is a **Flyweight** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Flyweight** paradigm.
 ?
 [Flyweight pattern](Flyweight%20pattern.md)

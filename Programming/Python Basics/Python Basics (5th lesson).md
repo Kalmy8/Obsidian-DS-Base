@@ -46,7 +46,7 @@ while True:
 * **`break`:** Immediately terminates the loop, regardless of the loop's condition.
 * **`continue`:**  Skips the current iteration and jumps to the next iteration of the loop.
 
-#### **Problems (While Loop):**
+#### Problems (While Loop):
 1. **Guessing Game:**  Create a number guessing game.  Generate a random number between 1 and 100, and ask the user to guess the number. Provide feedback (higher or lower) after each guess. Use a `while` loop to keep the game running until the user guesses correctly.
 2. **Sum Until Zero:** Write a program that continuously prompts the user to enter numbers until they enter 0. Calculate and print the sum of all entered numbers.
 3. **Collecting Even Numbers:** Write a program that repeatedly asks the user to enter a number. The program should collect all the even numbers in a list and ignore the odd numbers. If the user enters `"done"`, the program should stop asking for numbers and print the list of collected even numbers.

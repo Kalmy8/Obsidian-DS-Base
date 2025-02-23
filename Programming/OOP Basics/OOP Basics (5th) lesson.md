@@ -190,13 +190,18 @@ read_only_doc.open()
 **Task 1:**
 
 ```python
-class AllInOnePrinter:
+
+class AllInOnePrinter(ABC):
+	@abstractmethod
     def print_document(self, document):
         pass
+	@abstractmethod
     def scan_document(self, document):
         pass
+    @abstractmethod
     def fax_document(self, document):
         pass
+    @abstractmethod
     def staple_document(self, document):
         pass
 ```
@@ -506,7 +511,7 @@ class Report:
 > Introduce an abstraction for report generators and inject the dependency.
 
 ```python
-class ReportGenerator: #Interface
+class ReportGenerator: 
     def generate_report(self, data):
         raise NotImplementedError
 
