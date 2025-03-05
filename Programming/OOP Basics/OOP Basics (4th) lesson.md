@@ -1,4 +1,4 @@
-[\<previous](OOP%20Basics%20(3rd)%20lesson.md)  |  [next\>](OOP%20Basics%20(5th)%20lesson%201.md)
+[\<previous](OOP%20Basics%20(3rd)%20lesson.md)  |  [[OOP Basics (5th) lesson | next >]]
 **Codewords:** SOlid principles
 
 **Theory:** [SOLID principles](../SOLID%20principles.md)

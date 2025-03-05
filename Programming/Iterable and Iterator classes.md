@@ -1,5 +1,11 @@
-#🃏/programming/python
-#🌱
+#🃏/python
+
+- **ITERATOR** - a Python **object** with a special **`__next__()`** method, enabling iteration through a sequence.
+
+- **ITERABLE** - a Python **object** with either a **`__iter__()`** method (returning an **ITERATOR**) or a **`__getitem__()`** method (not reccomended)
+	- If an object has **`__getitem__`** but no **`__iter__`**, Python will attempt to create a default iterator that accesses elements sequentially by index using **` __getitem__`**, 
+- Basic Python iterables are **lists, sets, tuples, dictionaries, ranges, str**.  
+
 What are the **Iterable and Iterator** python built-in classes? What methods should they implement and what are their usage?
 ?
 Both classes can be used to created some data collections avaliable for traversing (iterating) through. Let's observe and describe them:
@@ -48,6 +54,3 @@ class MyIterable(Iterable):
 ```
 
 
-**ITERATOR** - a Python **object** with a special **`__next__()`** method, enabling iteration through a sequence.
-
-**ITERABLE** - a Python **object** with either a **`__iter__()`** method (returning an **ITERATOR**) or a **`__getitem__()`** method. Basic Python iterables are **lists, sets, tuples, dictionaries, ranges, str**.  The use of **`__getitem__`** for iteration is primarily for backward compatibility with older code or specialized cases. If an object has **`__getitem__`** but no **`__iter__`**, Python will attempt to create a default iterator that accesses elements sequentially by index using **` __getitem__`**. However, this is not the preferred or recommended approach for new code.

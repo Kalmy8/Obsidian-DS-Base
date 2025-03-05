@@ -1,4 +1,4 @@
-#🃏/data-science #🌱 
+ 
 #####  Definition
 By definition, the **curse of dimensionality** describes a problem when **the amount of data (observations) required to extract some meaningful knowledge increases exponentially while new features (dimensions) occur**.
 
@@ -14,7 +14,7 @@ Looking on such illustration, one would say that **the amount of required data w
 Adding more features means even more data is required for machine learning, so eventually several problems will occur:
 
 ##### 1. Empty space problem
- This problems refers to the situation when your data can no more cover all possible N-dimensional features space that you have created, so any ML algorithm you choose won't be able to discover true relationships between your variables and will only learn some frequent combinations inside your data, so it **will be overfitted on your exact features distributions**. 
+ This problems refers to the situation when your data can no more cover all possible N-dimensional features space that you have created, so any ML algorithm you choose won't be able to discover true relationships between your variables and will only learn some frequent combinations inside your data, so it **will be overfitted on your exact subsample features distributions**. 
 
 #####  2. Non-meaningful distances problem
 As new dimensions are added, the data becomes more sparse and the distances between data points will increase:
@@ -54,10 +54,53 @@ For 10D (which can not be drawn really), the calculated ratio is about 0.001
 So every new dimension multiplies the ratio by $1/2$. meaning that in **high-dimensional spaces most part of the n-ball volume will be concentrated closer to the shell**. 
 Now imagine that the center of the n-ball is one of your data points, and you are willing to calculate the closest and the farthest neighbour distances inside the $R$ radius. **Even in 10D space 99.9% of your data will be concentrated close to the n-ball surface, so they all will be the equidistantly far**.
 
-##### Positive effects
-As we can see now, euclidian-distance-based algorithms will probably fail to learn any general knowledge from your high-dimensional data. Despite that, there are some cons within high-dimeshional spaces:
-1. Datapoints often become linear-separably. [Support Vector Machines (SVM)](Support%20Vector%20Machines%20(SVM).md) utilize this phenomena by using kernel-trick. 
-2. Neural Networks do not rely on distance between the points at all, dealing very well with highly-dimensional data, extracting relationships between all the features and the target variable
+##### Dealing with the curse
 
+**Choose more robust algorithms:**
+
+✅ **SVMs** (with kernels) and **Neural Networks** do handle high-D well, cause they do not rely on pure distances
+✅ **Tree-based methods** will also do well thanks to the same reasons
+❌ **Pure distance-based methods** (K-means, DBSCAN) will suffer the most
+
+**Apply Dimensionality Reduction (PCA, t-SNE)**
+
+**Consider spending more time doing a proper [[feature selection]]**
+
+
+#🃏/data-science 
 #### Key questions:
+
+What is the fundamental problem described by the curse of dimensionality? **Illustrate that problem:** assume you need 30 data observations for some binary classification problem with a single binary descriptive and a single binary target feature. How many data points will you require for 2 descriptive features? 3 features? How do continuous features affect this situation?
+?  
+- The exponential increase in required data volume as features/dimensions are added, making ML models struggle to find meaningful patterns.
+- 2 features do create 4 possible combinations (0/0; 0/1; 1/0; 1/1), 3 featured do create 8 ($2^3$) combinations, generally $k$ features create at least $2^{k}$ combinations
+- Situation is getting worse with continuous features, as they do have much more than 2 possible values, so the data requirement grows more like $m^{k}$, where $m$ is an average amount of unique values contained by features
+
+What is the **empty space problem**? Why it leads to overfitting?
+?  
+- Empty space problem is a situation when your data covers only few common areas of the N-dimensional fields 
+- Models start relying on common feature combinations rather on  learning general relationships
+
+How does maximum Euclidean distance change with added dimensions? What's the maximum euclidian distance for 1D and 10D spaces? 
+?  
+-  It grows as $\sqrt{n}$ (for n features)
+- $\sqrt{1} = 1$ and $\sqrt{10} = 3.16$
+
+Why do distance metrics become unreliable in high dimensions?
+?  
+- Minimum and maximum distances converge - all points become roughly equidistant, making nearest neighbor searches meaningless.
+![Pasted image 20241108183934.png](📁%20files/Pasted%20image%2020241108183934.png)
+
+What's the volume ratio formula for inner n-ball? What percentage of a 10D, 2D and 1D n-ball's volume lies in its outer shell?
+?  
+- $(1/2)^{n}$ in $n$-dimentional space
+- ~99.9% (only 0.1% in the inner sphere), compared to 50% in 1D and 25% in 2D.
+- ![300](📁%20files/Pasted%20image%2020241108192550.png)
+
+Which two ML methods handle high dimensionality well? Why?
+?  
+   - SVMs: Exploit linear separability in high-D spaces via kernel trick  
+   - Neural Networks: Learn feature interactions directly without distance metrics
+
+
 

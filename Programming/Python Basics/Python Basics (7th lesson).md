@@ -1,4 +1,4 @@
-**Codewords**:  Lambda Functions, `functools` Library
+**Codewords**:  Lambda Functions, `functools` library, `map()`, `sorted()`
 
 ### Lambda Functions
 Lambda functions are small, anonymous functions defined using the `lambda` keyword.  They are especially useful for short, simple operations.
@@ -22,8 +22,78 @@ print(list(squared))  # Output: [1, 4, 9, 16] (Convert the map object to a list 
 
 **In-Lecture Problem 2:**  Use `map()` and a lambda function to convert the list of strings `["1", "2", "3"]` to a list of integers.
 
+### `sorted()`
+- Returns a **new sorted object** without modifying the original collection
+- Uses [[OOP Basics (6th) lesson | magic methods]] `__lt__` (less than) and `__eq__` (equals). 
+	- **Minimum requirement** is implemented `__lt__` descriptor
+
+**Example:**
+```python
+words = ["banana", "apple", "cherry"]
+sorted_words = sorted(words)
+print(sorted_words)  # ['apple', 'banana', 'cherry']
+```
+-   `sorted()` allows for **custom sorting logic** by supporting the `key` parameter 
+	- `key` parameter must be a **function of element**, returning the rank
+
+```
+# Sort by string length
+words = ["Python", "is", "awesome"]
+words.sort(key=lambda x: len(x))
+print(words)  # ['is', 'Python', 'awesome']
+
+```
+- `key` parameter could accept a function returning several values (in form of collection). **This would allow for sorting collections based on several criteria** (from higher to lower priority)
+
+```python
+eople = [
+    {"name": "Alice", "age": 25},
+    {"name": "Bob", "age": 30},
+    {"name": "Charlie", "age": 25}
+]
+
+# Sort by age, then by name
+people.sort(key=lambda x: (x["age"], x["name"]))
+print(people)
+# Output:
+# [{'name': 'Alice', 'age': 25}, {'name': 'Charlie', 'age': 25}, {'name': 'Bob', 'age': 30}]
+```
+
+**Practical Problems:**
+
+- Sort positive and negative numbers by their absolute value:
+```python
+numbers = [-3, 2, -1, 4]
+numbers.sort(key = lambda x: abs(x))
+print(numbers)  # [-1, 2, -3, 4]
+```
+
+- Sort a list of strings by their last character:
+```python
+words = ["apple", "banana", "kiwi", "cherry"]
+words.sort(key=lambda x: x[-1])
+print(words)  # ['banana', 'kiwi', 'apple', 'cherry']
+```
+
+- Sort a list of students by math grade, then by science grade:
+```python
+students = [
+    {"name": "Alice", "grades": {"math": 90, "science": 85}},
+    {"name": "Bob", "grades": {"math": 80, "science": 95}},
+    {"name": "Charlie", "grades": {"math": 90, "science": 80}}
+]
+
+students.sort(key=lambda x: (x["grades"]["math"], x["grades"]["science"]))
+print(students)
+
+# Output:
+# [{'name': 'Bob', 'grades': {'math': 80, 'science': 95}},
+#  {'name': 'Charlie', 'grades': {'math': 90, 'science': 80}},
+#  {'name': 'Alice', 'grades': {'math': 90, 'science': 85}}]
+```
+
 ### `functools.reduce()`
-#🌱 
+
 `reduce()` applies a function of two arguments cumulatively to the items of a sequence, from left to right, so as to reduce the sequence to a single value.
 
 ```python
@@ -200,24 +270,24 @@ Using functools.singledispatch, create a function called get_info that return
 - For any other type, return None.
 ?
 ```python
-from functools import singledispatch
-
-@singledispatch
-def get_info(data):
-    return None
-
-@get_info.register(int)
-def _(data):
-    return data * data
-
-@get_info.register(str)
-def _(data):
-    return data + data
-
-# Example Usage:
-print(get_info(5))        # Output: 25
-print(get_info("hello"))  # Output: hellohello
-print(get_info(3.14))     # Output: None
+	from functools import singledispatch
+	
+	@singledispatch
+	def get_info(data):
+	    return None
+	
+	@get_info.register(int)
+	def _(data):
+	    return data * data
+	
+	@get_info.register(str)
+	def _(data):
+	    return data + data
+	
+	# Example Usage:
+	print(get_info(5))        # Output: 25
+	print(get_info("hello"))  # Output: hellohello
+	print(get_info(3.14))     # Output: None
 ```
 
 
@@ -259,5 +329,16 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
     
     print(fibonacci(5))
     print(fibonacci(5))  # Much faster now!
-    ```
+```
 
+How many comparison methods need to be implemented for sorting?
+?  
+-  Only one (usually `__lt__`) is required. Python can infer other comparisons automatically
+
+What's the output of the **`sorted()`** method?
+?
+- A newly created collection with re-ordered elements
+
+Sort this list of tuples, using the tuple's second element, then first element: data = [(1, 3), (2, 1), (3, 2)]
+?
+- sorted_data = sorted(data, key=lambda x: (x[1], x[0]))

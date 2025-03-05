@@ -284,7 +284,7 @@ my_circle.set_radius(-2)      # Output: Radius must be positive.
 ```
 
 
-**Task:**
+**Task 4:**
 - Create a class Playlist with methods add_song(song_title), remove_song(song_title), and play().
 - Internally, you can store the songs in a list (this is a hidden detail).
 - The play() method should simply print "Playing [song_title]" for each song in the playlist.
