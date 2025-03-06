@@ -23,8 +23,6 @@ df.loc[0]
 
 # Select multiple rows and columns by label
 df.loc[0:2, ['name', 'age']]
-
-
 ```
 
 **Practice Problem: loc Indexing**
@@ -169,24 +167,10 @@ mask = df['age'] > 20
 print("Boolean mask:")
 print(mask)
 
-# A boolean mask is a Series with the same index as the DataFrame
-print("\nType of mask:", type(mask))
-print("Shape of mask:", mask.shape)
-print("Index of mask:", mask.index.tolist())
-
-# Examining values in the mask
-print("\nCount of True values:", mask.sum())
-print("Count of False values:", (~mask).sum())
-
 # Using the mask to filter the DataFrame
 filtered_df = df[mask]  # Equivalent to df.loc[mask]
 print("\nFiltered DataFrame:")
 print(filtered_df)
-
-# You can also view the mask visually alongside the data
-print("\nOriginal data with mask:")
-result = pd.concat([df, mask.rename('age > 20')], axis=1)
-print(result)
 ```
 
 **Practice Problem: Working with Boolean Masks**

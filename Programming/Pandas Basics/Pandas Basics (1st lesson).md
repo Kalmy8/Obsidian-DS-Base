@@ -9,23 +9,24 @@ import pandas as pd
 
 # Load .csv with comprehensive parameters
 df = pd.read_csv('data.csv', 
-                 sep=',',                # Delimiter 
-                 header=0,               # Row to use as column names
-                 index_col='id',         # Column to set as index
-                 usecols=['col1', 'col2'],  # Only read specific columns
-                 nrows=100,              # Read only first 100 rows
-                 skiprows=[0, 2],        # Skip specific rows
-                 na_values=['NA', 'Missing'],  # Custom NA values
-                 converters={'col1': lambda x: x.upper()},  # Convert values in col1 to uppercase
-                 true_values=['yes'],    # Values to consider as True
-                 false_values=['no'],    # Values to consider as False
-                 skipinitialspace=True,  # Skip spaces after delimiter
-                 parse_dates=['date_col'],  # Parse date columns
-                 chunksize=50,           # Read file in chunks of 50 rows
-                 # Return TextFileReader object for iteration
-                 encoding='utf-8',       # File encoding
-                 on_bad_lines='skip')    # Skip lines with errors
+                 sep=',',                       # Column delimiter in the CSV file
+                 header=0,                      # Which row to use for column names (0-based)
+                 index_col='id',                # Column to use as DataFrame index
+                 usecols=['col1', 'col2'],     # List of columns to read (others will be ignored)
+                 nrows=100,                     # Number of rows to read from the file
+                 skiprows=[0, 2],               # List of row indices to skip
+                 na_values=['NA', 'Missing'],   # Values to treat as NaN
+                 true_values=['yes'],           # Values to interpret as True
+                 false_values=['no'],           # Values to interpret as False
+                 skipinitialspace=True,         # Remove leading spaces after delimiter
+                 parse_dates=['date_col'],      # Columns to parse as datetime
+                 encoding='utf-8',              # File encoding (always use UTF-8)
+                 converters={'col1': lambda x: x.upper()},  # Custom value conversions per column
+                 on_bad_lines='skip',           # How to handle lines with parsing errors
+                 chunksize=50)                  # Read file in chunks of this size
+                                               # Returns TextFileReader for iteration
 ```
+
 
 **Practice Problem: Grouping and Indexing**
 - **Mock CSV Entry**:
@@ -41,12 +42,12 @@ df = pd.read_csv('data.csv',
   ```
 - **Tasks**:
   1. Load the CSV file using `pd.read_csv()` with the following parameters:
-     - Set `header` to 1 to use the second row as column names.
-     - Set `index_col` to 'id'.
-     - Use `usecols` to read only 'name', 'age', and 'date_joined'.
+     - Use the second row as column names.
+     - Set 'id' as the index column.
+     - Read only 'name', 'age', and 'date_joined' columns.
      - Limit the data to the first 5 rows using `nrows`.
-     - Skip the first row using `skiprows`.
-     - Parse 'date_joined' as a date using `parse_dates`.
+     - Skip the first row.
+     - Parse 'date_joined' as a date.
 
 **Practice Problem: Handling Boolean and NA Values**
 - **Mock CSV Entry**:
@@ -60,7 +61,7 @@ df = pd.read_csv('data.csv',
   6,Emma,yes,Missing
   ```
 - **Tasks**:
-  1. Load the CSV file using `pd.read_csv()` with the following parameters:
+  1. Load the CSV file with the following settings:
      - Define `true_values` as ['yes'] and `false_values` as ['no'] for the 'active' column.
      - Define `na_values` as ['NA', 'Missing'] for missing data.
 
@@ -76,9 +77,9 @@ df = pd.read_csv('data.csv',
   6,Emma,22,91
   ```
 - **Tasks**:
-  1. Load the CSV file using `pd.read_csv()` with the following parameters:
-     - Use `converters` to convert the 'name' column to uppercase.
-     - Load the data in chunks of 2 rows using `chunksize`.
+  1. Load the CSV file using `pd.read_csv()` with the following settings:
+     - Convert the 'name' column to uppercase.
+     - Load the data in chunks of 2 rows.
 
 **Practice Problem: Handling Special Cases**
 - **Mock CSV Entry**:
@@ -95,10 +96,10 @@ df = pd.read_csv('data.csv',
   9|  Incomplete|  Row
   ```
 - **Tasks**:
-  1. Load the CSV file using `pd.read_csv()` with the following parameters:
-     - Use custom `sep` for pipe-delimited data.
-     - Set `skipinitialspace=True` to handle extra spaces.
-     - Handle bad lines using `on_bad_lines='warn'`.
+  1. Load the CSV file with the following settings:
+     - Use custom separator for pipe-delimited data.
+     - Handle unnecessary spaces.
+     - Show warning on bad lines using.
 
 ### Other Data Formats
 
@@ -172,7 +173,7 @@ df.describe(percentiles=[0.05, 0.5, 0.95])
 ```
 
 **Practice Problem: Statistical Summary**
-# Create a sample DataFrame
+Create a sample DataFrame
 ```python
 data = {
     'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael'],
@@ -221,6 +222,8 @@ df.tail()
 # Sample random rows
 df.sample(n=3)  # 3 random rows
 df.sample(frac=0.1)  # 10% of rows
+df.sample(frac=1)  # Often used for dataset shuffling
+
 ```
 
 **Practice Problem: Data Exploration**
@@ -262,4 +265,6 @@ What `read_csv()` parameters can help you solving them?
 ?
 - Basic attributes of DataFrame and Series objects include `shape`, `size`, and `dtypes`. The `shape` attribute returns a tuple representing the dimensionality, `size` returns the number of elements, and `dtypes` returns the data types of each column. These can be accessed using `df.shape`, `df.size`, and `df.dtypes` for a DataFrame, and similarly for a Series.
 
-
+4. Why would you use `df.sample(frac=1)` line?
+?
+- It is often used to shuffle dataframe, as it returns all the same rows in a random ord
