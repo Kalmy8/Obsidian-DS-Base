@@ -11,7 +11,7 @@ However, if you want to make use of it, you have to define:
 - **Mutable (extrisinc) state:** frequently changing object data which is unique across most part of the created objects.
 The Flyweight pattern suggests that you **stop storing the extrinsic state inside the object**. Instead, you should pass this state to specific methods which rely on it. Only the intrinsic state stays within the object, letting you reuse it in different contexts. As a result, **you’d need fewer of objects since they only differ in the intrisinc state, which has much fewer variations** than the extrisinc. **This objects are called flyweights**, they are created and initalized only once and when re-used as much times as needed.
 ##### Flywheight pattern structure
-![Pasted image 20240902214444.png](Pasted%20image%2020240902214444.png)
+![Pasted image 20240902214444.png](../../📁%20files/Pasted%20image%2020240902214444.png)
 The pattern itself consists of **3 main parts**:
 1. **Flywheight:** concrete class, which object are being intialized once with some heavy intrisinc data and re-used further. Some implementations are assume that this should be a [Dataclass](../Dataclass.md)
 2. **Flywheight factory:** a [factory](Factory%20pattern.md) class, responsible for Flywheight objects creation and re-usage. It is likely to accept some intrisinc data as keys, and return an existing instance if it is already presented in RAM.

@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Decorator** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from python @decorator syntaxis? Provide some mock-code example of a class designed within a **Decorator** paradigm.
 ?
-[Decorator.mhtml](Decorator.mhtml)
+[Decorator.mhtml](../../📁%20files/Decorator.mhtml)
 The **Decorator pattern** is a [structural pattern](Structural%20patterns.md), which allows you to **extend some method/class behavior without actually modifying it or creating any subclasses**. It sort of  **wraps** the inner class with some additional logic, executed **before or after the inner class logic**, the wrapped class is called a **wrappee**. It is yet simple and useful, allowing you to change any function's behaviour on fly, and even **stack a few decorators together, if needed**. Some usage examples may include:
 1. Building pipelines. As every decorator and the base class share the same interface, you can implement some **transform** method in them and stack decorators as you need: `Imputer(Scaler((Standartizer())))`
 1. Logging and evaluating ML models, so you can compare them easily with no need to create any extensive code.

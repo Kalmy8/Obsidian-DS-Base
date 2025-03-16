@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Observer** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Observer** paradigm.
 ?
-[Observer.mhtml](Observer.mhtml)
+[Observer.mhtml](../../📁%20files/Observer.mhtml)
 The **Observer pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to hande **one-to-many** dependencies, when you have a lot of dependent (subscribers/observers) and one independent (subject) objects in your application. Observers keep track of the subject, by some pull requests, or get notified by a subject with some sort of a push request. This way, when something important happens in the subject, changing it's state, observers which are subscribed on this event get a notification and do react on it in a desired way.
 > You can think of an Observer pattern as of a callback-technique, but being more formal and general. You just subscribe created objects to react automatically on specific events.
 ##### Observer pattern usage scenarios

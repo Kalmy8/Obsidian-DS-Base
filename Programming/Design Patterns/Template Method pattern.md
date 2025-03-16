@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Template Method** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Template Method** paradigm.
 ?
-[Template Method.mhtml](Template%20Method.mhtml)
+[Template Method.mhtml](../../📁%20files/Template%20Method.mhtml)
 The **Template Method pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to define some skeleton step-divised algorthim (a pipeline) while giving you an instrument to override some (or all) of it's steps, but not the pipeline itself. These one are actually very popular in data science sphere. Imagine that you are willing to preprocess some data, which includes Dropping Duplicates, Feature Selection, Missing values imputing and Scaling. Some of this steps can be implemented differently (you have multiple Imputing and scaling techniques), some of the steps are almost always implemented uniformally (like Dropping duplicates, which is just using pandas `dropna()` function).
 ##### Template pattern usage scenarios
 1. ML models build, optimization, evaluation pipelines.

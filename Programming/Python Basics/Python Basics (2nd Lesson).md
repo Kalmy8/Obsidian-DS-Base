@@ -245,7 +245,7 @@ city = "London"
 temperature = 20
 print(f"The temperature in {city} is {temperature} degrees.")
 ```
-<!--SR:!2025-02-24,65,314-->
+<!--SR:!2025-12-23,282,334-->
 
 Use the input function to get two numbers from the user and print their sum.
 ?
@@ -254,7 +254,7 @@ num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 print("Sum:", num1 + num2)
 ```
-<!--SR:!2025-03-01,72,314-->
+<!--SR:!2026-01-23,313,334-->
 
 Round the float `5.6789` to 1 decimal place.
 ?
@@ -297,7 +297,7 @@ text = "***important***"
 stripped_text = text.strip('*')
 print(stripped_text)  # Output: important
 ```
-<!--SR:!2025-02-27,68,314-->
+<!--SR:!2026-01-05,295,334-->
 
 Get the substring `"Python"` from the string `"I love Python programming."`
 ?
@@ -348,7 +348,7 @@ Print the variable `age` right-aligned within a width of 6 characters using an f
 age = 30
 print(f"{age:>6}")  # Output: "   30"
 ```
-<!--SR:!2025-03-03,72,314-->
+<!--SR:!2026-01-22,312,334-->
 
 Use an f-string to format `7.890123` to 3 decimal places.
 ?
@@ -395,7 +395,7 @@ fruits = ['apple', 'banana', 'cherry', 'date']
 last_fruit = fruits[-1]
 print(last_fruit)  # date
 ```
-<!--SR:!2025-02-28,69,314-->
+<!--SR:!2026-01-10,300,334-->
 
 Count the number of occurrences of the letter 'o' in the word 'someverylongword'.
 ?

@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Proxy** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Proxy** paradigm.
 ?
-[Proxy.mhtml](Proxy.mhtml)
+[Proxy.mhtml](../../📁%20files/Proxy.mhtml)
 The **Proxy pattern** is a [structural pattern](Structural%20patterns.md) used to wrap some base object with a **proxy object**, which will disguise itself as an original object. **Proxy object usually fully manages the wrappee object lifecycle**, and is used to add some caching, logging, access restrictions, initialization, and, possibly, any additional logic that should happen before or after calling the original object (just like the [decorator](Decorator%20pattern.md) does).
 ##### Proxy structure
 ![Pasted image 20240903090807.png](Pasted%20image%2020240903090807.png)

@@ -4,7 +4,7 @@
 What is a python lists work under the hood?
 ?
 Talking about CPython (which is the most popular implementation), lists are the **arrays of pointers**, each pointer leads to some object in memory.
-<!--SR:!2025-02-25,66,310--> 
+<!--SR:!2025-12-24,283,330-->
 
 How is a python list different from the standard C array? What is the reallocate operation? How does it work?
 ?

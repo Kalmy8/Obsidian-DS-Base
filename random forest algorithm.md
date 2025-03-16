@@ -54,7 +54,7 @@ How is random forest different from just bagging over the decision trees? What i
 - This helps trees in the forest to be uncorrelated with each other, by not only training them on different bootstrap samples, but also on different features.
 - For regression problems, starting from $m = \frac{1}{3}$ is optimal, because regression tasks are generally harder and require more data to be solved with low bias.
 - For classification problems, starting point is $m = \sqrt{\text{Total number of features}}$
-<!--SR:!2025-03-09,14,290-->
+<!--SR:!2025-05-09,54,310-->
 
 
 How does the total random forest variance is related with the individual tree variance? Provide a math equation and an intuition
@@ -67,7 +67,7 @@ where
 - $T(x,\Theta_{i}(Z))$ is the output of the i-th tree classifier on an input vector x;
 - $\sigma^{2}(x)$ is the sample variance of any randomly selected tree $$\large \sigma^2(x) = Var\left[T(x,\Theta(X))\right]$$
 - This formula clearly shows that the total variance term is proportional to both single tree variance and the correlation between two random trees from the forest. No matter how single tree variance is big, if correlation is close to zero the all-together error would also be.
-<!--SR:!2025-03-11,16,290-->
+<!--SR:!2025-05-18,63,310-->
 
 
 How to tune tree *depth* and *min_samples_leaf* parameters for both classification and regression tasks?
@@ -75,6 +75,6 @@ How to tune tree *depth* and *min_samples_leaf* parameters for both classificati
 - Depth parameter does usually stay unlimited, because tree's variance does not bother us too much when using bagging. So this way our trees will have the lowest bias possible
 - Min_samples_leaf parameter is usually set to 1 for classification tasks, resulting into fully-grown tree, for the same purpose
 - Min_samples_leaf parameter is usually set to 5-6 for regression tasks, because continuous data do always contain some noise, and we would like to sort of "bin" this data by increasing min_samples_leaf. This way, our tree won't remember each and every observation and won't be so overfitted.
-<!--SR:!2025-03-10,15,290-->
+<!--SR:!2025-05-15,60,310-->
 
 

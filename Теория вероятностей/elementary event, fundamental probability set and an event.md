@@ -39,7 +39,7 @@ $$A = \{(Tails, Tails)\}.$$
 What is an elementary event in the context of probability experiment such as rolling one/two dice(s) experiment? How is it usually denoted?
 ?
 Elementary event is a single outcome of a probability experiment. If you roll a single dice, you can get 6 possible outcomes, each outcome will be called an elementary event and will be denoted like $w_{1},w_{2},..,w_{6}$. If you roll 2 dices at once, there are 36 possible outcomes and they will be denoted like $w_{1},w_{2},..,w_{36}$.
-<!--SR:!2025-03-01,70,310-->
+<!--SR:!2026-01-09,299,330-->
 
 What is a fundamental probability set? How would you define a fundamental probability set for rolling two dice?
 ?

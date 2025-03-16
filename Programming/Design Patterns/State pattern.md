@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **State** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **State** paradigm. Why is it similar and how is is it different from the [Strategy pattern](Strategy%20pattern.md)?
 ?
-[State.mhtml](State.mhtml)
+[State.mhtml](../../📁%20files/State.mhtml)
 The **State pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to **switch some object's behavior depending on it's internal state**. Do you remember a classical finite-state machines, where the system has a defined number of states and some possible transitions between them? The state pattern looks just like that machine. Imagine that you are operating a smartphone. Your phone has a volume button on the edge, however, when the **phone is locked, this button just turns on a display**. **If the phone is already unlocked, it actually edit's the volume**. And **if you have entered a photo application, the volume button now acts like a shutter**. Of course, you always can hardcode all of this conditions right into your "VolumeButtonClass", but with such an approach things are likely to get messy as soon as you need to change the transition logic: that will involve changing ALL the defined if-else statements. Now Imagine that you are having several such classes, changing the transition logic then becomes a nightmare.
 ##### State pattern usage scenarios
 1. **Order Processing:** An order goes through various states: Pending, Processing, Shipped, Delivered, Cancelled. Each state has different actions and transitions and would handle actions like updating the order status, sending notifications, or processing payments.

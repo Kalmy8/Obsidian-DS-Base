@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Visitor** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Visitor** paradigm.
 ?
-[Visitor.mhtml](Visitor.mhtml)
+[Visitor.mhtml](../../📁%20files/Visitor.mhtml)
 The **Visitor pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to handle some method invocation in all objects in some complex data structure like tree/graph/etc.
 Let's say you need to add a new feature for all components inside your complex data structure, maybe for nodes in a tree. Let's say, each node now should print how many children it has, or print nothing if it is a **Leaf** subclass node. You have to modify each class inside your tree to have this `special_print(object)` method and apply all the real logic there, and hope that you won't accidently override something. Instead of doing this, you introduсe a **Visitor object** and implement the `special_print()` method there for each object using overriding. If your language does not support overriding, you can instead create a bunch of `print_leaf()`, `print_node()` methods. Your tree subclasses also need to implement one single `accept_visit()` method. This way, all the new feature implementation is included in a single visitor object, and all the old objects inside the tree need to implement just a single accept method, invoking new developed logic.
 ##### Visitor pattern structure

@@ -1,10 +1,10 @@
 #🃏/design_patterns
 What is a **Iterator pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Iterator** paradigm.
 ?
-[Iterator.mhtml](Iterator.mhtml)
+[Iterator.mhtml](../../📁%20files/Iterator.mhtml)
 The **Iterator pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to introduce a special **Iterator** object responsible for retrieving entities of some **collection** (a list, a tree, a dictionary and so on). Sometimes you have your complex data structure and is willing to iterate through it using some special strategy, with trees, for example, you can use depth-first or breadth-first strategies, or even return all elements in a random order. Moreover, you don't want to implement all of this strategies for each iterable object you have, so you should introduce some common iterable and iterator interfaces to **make multiple iteration strategies compatible with multiple data structures you have**.
 ##### Iterator pattern structure
-![Pasted image 20240903124237.png](Pasted%20image%2020240903124237.png)
+![Pasted image 20240903124237.png](../../📁%20files/Pasted%20image%2020240903124237.png)
 The pattern itself consists of **4 main parts**:
 1. **Iterable interface (ABC):** a common interface for your iterables,  declares one or multiple methods for getting iterators compatible with the collection `get_iterator(self)` .
 2. **Iterator interface (ABC):** a common interface for your iterators,  declares the operations required for traversing a collection: fetching the next element, retrieving the current position, restarting iteration, etc.

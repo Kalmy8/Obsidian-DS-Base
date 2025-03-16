@@ -1,7 +1,7 @@
 #🃏/design_patterns
 What is a **Mediator pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Mediator** paradigm.
 ?
-[Mediator.mhtml](Mediator.mhtml)
+[Mediator.mhtml](../../📁%20files/Mediator.mhtml)
 The **Mediator pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to introduce a special **Mediator** object responsible for in-between objects communication. Imagine that you have some complex  set of classes, referencing each other and invoking each other's methods. Whole system when is quite a mess, the elements are tight-coupled, introducing new features and refactoring become a huge problem, because small changes in one class can cause all other classes to stop working. Instead of classes communicating directly, you use a Mediator object, so all the classes now only communicate with him, and he handles all of requests traffic. You can imagine yourself a conductor in an orchestra, who organises all musicians together and keeps them synchronized with each other. Without a conductor, an orchestra would fail to keep the required pace.
 ##### Iterator pattern structure
 ![Pasted image 20240904111221.png](Pasted%20image%2020240904111221.png)

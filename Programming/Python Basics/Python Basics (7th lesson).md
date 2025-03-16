@@ -260,4 +260,4 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
     print(fibonacci(5))
     print(fibonacci(5))  # Much faster now!    
 ```
-<!--SR:!2025-03-12,17,319-->
+<!--SR:!2025-05-30,75,339-->

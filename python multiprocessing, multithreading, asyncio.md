@@ -3,7 +3,7 @@ What is a process? What is a thread?
 ?
 - Process - a launched program, which do operates some allocated resources, such as memory and computation time.
 - Every process has one or more threads (threads are also called lightweight processes). These threads share resources with each other but operate independently.
-<!--SR:!2025-03-11,16,290-->
+<!--SR:!2025-05-19,64,310-->
 
 
 ### CPU and I/O - bounded tasks
@@ -15,7 +15,7 @@ What are the CPU and I/O-bounded tasks? How to execute these tasks efficiently/f
 	- If we have to complete such a task faster, **we recruit more computational power** by using distributed computing frameworks like Dask, Spark, or multiprocessing parallel computations.
 - I/O tasks are tasks related from input/output of some data, for example tasks like reading/writing from a web-server, from a remote database, from a user and etc. This tasks themselves are not expensive, but have to wait for some data exchange to run off. Some of such tasks may run infinitely (accepting new users connections on a web-server).
 	- With such tasks, we should make sure that awaiting for new data exchange does not suspect the whole application, so we use concurrency/asynchronous execution.
-<!--SR:!2025-03-10,15,290-->
+<!--SR:!2025-05-16,61,310-->
 
 
 ### Physical, logical cores
@@ -166,7 +166,7 @@ What is a blocking operation? Can they be used with asyncio corutines?
 ?
 >[!quote] Definition
 > Blocking operation is the operation which stops the entire thread when waiting for execution. `time.sleep()/input()/requests.get()` all are blocking operations, thus they **can not be used as asyncio corutines**, and require multithreading to be handled efficiently.
-<!--SR:!2025-03-09,14,290-->
+<!--SR:!2025-05-12,57,310-->
  
 
 
@@ -188,14 +188,14 @@ What are the 3 possible states of running multiple processes/threads? Provide a 
 		- Then it's being swapped out of the core, another thread is being loaded
 		- This process is controlled by OS
 		- Swapping causes a great overhead, so should be avoided, if possible
-<!--SR:!2025-03-11,16,290-->
+<!--SR:!2025-05-18,63,310-->
 
 
 What is GIL? How does it limit the parallel running possibilities in python? How do multiple threads interact with GIL?
 ?
 - Global Interpreter Lock - a mechanism allowing only one thread to be executed at a time. Thus, running multiple threads within one CPython process is not possible
 - Multiple threads are trying to capture the GIL, prompting each other to release the GIL every 5 milliseconds. Whenever GIL is released, OS scheduler gives it to some thread
-<!--SR:!2025-03-10,15,290-->
+<!--SR:!2025-05-13,58,310-->
 
 
 How do multiprocessing, threading and asyncio libraries allow for efficient multiple task execution?
@@ -203,7 +203,7 @@ How do multiprocessing, threading and asyncio libraries allow for efficient mult
 - multiprocessing allows for creation of multiple processes, utilizing the amount of physical cores on your machine, allowing to deal with CPU-bond tasks
 - threading allows for creation of multiple threads, utilizing the amount of logical cores on the machine. While not being able to run at the same time (due to the GIL), they might help you if you have some I/O-bonded task (even the blocking one, like `requests.get()`), because the "frozen" thread will be paused, and the resources will be used by another thread.
 - asyncio allows for concurrent running of multiple coroutines within a single thread, thanks to the event-loop mechanism. This will work only with non-blocking operations. The advantage is: the number of such coroutines might be much more, than the number of logical cores (there may be thousands of I/O bonded operations).
-<!--SR:!2025-03-09,14,290-->
+<!--SR:!2025-05-11,56,310-->
 
 
 
