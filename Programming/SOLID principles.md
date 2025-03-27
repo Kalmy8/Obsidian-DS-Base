@@ -1,9 +1,9 @@
 #🃏/oop-basics 
-Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/commitement
+Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/comitement
 ?
 Let's break down each SOLID principle, exploring their benefits and illustrating both violations and good practices with simple Python examples:
 **1. Single Responsibility Principle (SRP)**
-   - **Description:** A class should have one, and only one, reason to change.  In other words, a class should have only one job or responsibility.
+   - **Description:** A class/module/function/service should have one, and only one, reason to change. In other words, a class should have only one job or responsibility.
    - **Benefits:**
       - **Increased Cohesion:** Makes classes more focused and understandable.
       - **Reduced Coupling:**  Minimizes dependencies between classes, making them easier to change independently.
@@ -21,15 +21,15 @@ class Employee:
 The `Employee` class has multiple responsibilities (salary calculation, report generation, email sending).
    - **Commitment Example:**
 ```python
-	class SalaryCalculator:
-		def calculate_salary(self):
-		 # ...
-	class ReportGenerator:
-		def generate_report(self):
-		 # ...
-	class EmailSender:
-		def send_email(self):
-		 # ... 
+class SalaryCalculator:
+	def calculate_salary(self):
+	 # ...
+class ReportGenerator:
+	def generate_report(self):
+	 # ...
+class EmailSender:
+	def send_email(self):
+	 # ... 
 ```
 Responsibilities are separated into distinct classes.
 **2. Open/Closed Principle (OCP)**
