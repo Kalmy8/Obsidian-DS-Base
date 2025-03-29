@@ -108,7 +108,7 @@ What is a HashMap? What is it's structure?
 ?
 HashMap is a table containing rows (**buckets**). Each bucket does have the same size, the index, the hash code and the corresponding pointer to some object
 ![Pasted image 20241127135419.png](Pasted%20image%2020241127135419.png)
-<!--SR:!2025-03-20,4,293-->
+<!--SR:!2025-04-12,16,313-->
 
 =======
 <!--SR:!2025-11-25,275,330-->

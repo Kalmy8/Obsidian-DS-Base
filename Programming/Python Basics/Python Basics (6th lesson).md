@@ -240,7 +240,7 @@ Create a function `sum_integers` that takes any number of integers and prints th
 	def sum_integers(*integers : int):
 		print sum(integers)
 ```
-<!--SR:!2025-03-26,67,322-->
+<!--SR:!2026-01-19,298,342-->
 
 
 Define a function `print_kwargs` that takes any number of keyword arguments and prints them.

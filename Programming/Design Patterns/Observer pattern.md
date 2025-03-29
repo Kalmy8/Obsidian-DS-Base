@@ -151,4 +151,4 @@ subject.detach(observer_a)
 subject.some_business_logic()
 # Output: Observer_B could have reacted
 ```
-<!--SR:!2025-03-18,123,290-->
+<!--SR:!2026-03-19,357,290-->
