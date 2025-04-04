@@ -1,4 +1,4 @@
-ch**Instructions:**  Answer the following questions and complete the programming tasks to the best of your ability. Show your code and output where applicable. 
+**Instructions:**  Answer the following questions and complete the programming tasks to the best of your ability. Show your code and output where applicable. 
 
 ### Part 1: Theory (30 points)
 

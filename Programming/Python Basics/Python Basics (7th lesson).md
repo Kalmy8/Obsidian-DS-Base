@@ -46,14 +46,14 @@ print(words)  # ['is', 'Python', 'awesome']
 - `key` parameter could accept a function returning several values (in form of collection). **This would allow for sorting collections based on several criteria** (from higher to lower priority)
 
 ```python
-eople = [
+people = [
     {"name": "Alice", "age": 25},
     {"name": "Bob", "age": 30},
     {"name": "Charlie", "age": 25}
 ]
 
 # Sort by age, then by name
-people.sort(key=lambda x: (x["age"], x["name"]))
+people.sort(key= lambda x: (x["age"], x["name"]))
 print(people)
 # Output:
 # [{'name': 'Alice', 'age': 25}, {'name': 'Charlie', 'age': 25}, {'name': 'Bob', 'age': 30}]
