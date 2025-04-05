@@ -234,7 +234,7 @@ Create a `Triangle` class initialized from a given set of side lengths.
 **What is encapsulation in OOP, and why is it important?**
 ?
 Encapsulation is bundling data and methods within a class, protecting data integrity and controlling access through methods.
-<!--SR:!2025-04-03,54,310-->
+<!--SR:!2025-11-21,231,330-->
 
 **What is the purpose of using "private" attributes (using the double underscore `__` prefix) in Python classes?**
 ?

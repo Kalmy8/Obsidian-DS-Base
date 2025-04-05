@@ -151,7 +151,7 @@ supervisor.renovate()
 **In OOP, what is a class?**
 ?
 A class is like a blueprint or template for creating objects.
-<!--SR:!2025-04-04,55,310-->
+<!--SR:!2025-11-29,239,330-->
 
 **In OOP, what is an object?**. How could objects of the same class be different: can they have different methods? Can they have different attributes/attribute values?
 ?
@@ -209,4 +209,4 @@ dog2 = Dog("Lucy", "Labrador")
 dog1.describe()  # Output: This is Buddy, a Golden Retriever.
 dog2.describe()  # Output: This is Lucy, a Labrador.
 ```
-<!--SR:!2025-04-03,54,310-->
+<!--SR:!2025-11-20,230,330-->
