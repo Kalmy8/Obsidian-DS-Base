@@ -170,7 +170,7 @@ A lambda function is a small anonymous function.
 ```python
 cube = lambda x: x ** 3 
 ```
-<!--SR:!2025-04-09,60,310-->
+<!--SR:!2025-12-22,257,330-->
 
 How does `map()` work? Write one to square each element in `[1, 2, 3]`.
 ?
@@ -219,7 +219,7 @@ print(get_info(5))        # Output: 25
 print(get_info("hello"))  # Output: hellohello
 print(get_info(3.14))     # Output: None
 ```
-<!--SR:!2025-04-06,57,310-->
+<!--SR:!2025-12-10,245,330-->
 
 
 How does `functools.partial` simplify function usage? Make a function that always adds 5 using `partial()`.
@@ -240,7 +240,7 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
 - Caches results of expensive function calls, greatly speeding up repeated executions by storing already computed results.
 - Max_size (int): number of last calls which will be memorized
 - Typed (bool): whether to treat **func(3)** and **func(3.0)** calls equal
-<!--SR:!2025-04-09,60,310-->
+<!--SR:!2025-12-21,256,330-->
 
 **@lru_cache problem:**
 - Create a function fibonacci(n) that calculates the Nth Fibonacci number recursively (without caching)

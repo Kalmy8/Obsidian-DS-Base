@@ -1,6 +1,6 @@
 #🃏/programming/python 
 
-#####  What are the purpose of **\__init\__** and **\__new\__** methods? What are their usage cases? In what order and then are they invoked? Write an example of a custom **\__new\__** method in some class.
+What are the purpose of **\__init\__** and **\__new\__** methods? What are their usage cases? In what order and then are they invoked? Write an example of a custom **\__new\__** method in some class.
 ?
 The **\__new\__** method creates an empty class instance, which is being later filled/configured with a help of  **\__init\__** method. So overriding the first method in my custom class can add some additional logic on the first stage, which is often used in [Singletone pattern](Design%20Patterns/Singletone%20pattern.md), or to apply different creation logic based on creation method (e.g. ***_from_file***,  ***_from_dict***).
 Both methods are invoked automatically when you define a new class instance `instance = MyClass()`.
@@ -15,7 +15,7 @@ class SomeClass:
 ```
 Notice! The **super()** method is used to call the parent class. As we have not defined our SomeClass to be someone's child explicitly, it is being a child of a general built-in Python **object** class.
 `class SomeClass:` equals `class SomeClass(object):`
-<!--SR:!2025-04-07,143,310-->
+<!--SR:!2026-12-13,613,330-->
 
 ##### Imagine you have a custom class object:
 ```python

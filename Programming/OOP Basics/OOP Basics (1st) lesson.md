@@ -168,7 +168,7 @@ It refers to the current instance of the class (the object itself).
 **What is the purpose of the `__init__` method in a Python class?**
 ?
 It's the constructor, used to initialize the attributes of an object when it's created.
-<!--SR:!2025-04-06,57,310-->
+<!--SR:!2025-12-11,246,330-->
 
 **What is the difference between a "dataclass" and a "static class" as described in the conspect? Give a brief example of when you might use each one.**
 ?
@@ -182,7 +182,7 @@ It's the constructor, used to initialize the attributes of an object when it's c
 **Why is OOP often considered a more natural way to structure complex programs than procedural programming?**
 ?
 OOP allows you to model real-world objects and their interactions more closely, making the code more organized and easier to understand.
-<!--SR:!2025-04-09,60,310-->
+<!--SR:!2025-12-20,255,330-->
 
 **Programming Task:**
 1. Write the Python code for the Dog class, including the **`__init__`**, **`bark()`** , and **`describe()`** methods.
