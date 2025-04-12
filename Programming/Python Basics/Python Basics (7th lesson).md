@@ -192,7 +192,7 @@ sum_of_elements = reduce(lambda x, y: x + y, [1, 2, 3, 4])
 What is the purpose of  `functools.singledispatch` and `functools.singledispatchmethod`?
 ?
 It creates a generic function/method that behaves differently based on the first argument's type.
-<!--SR:!2025-04-11,62,310-->
+<!--SR:!2026-01-03,266,330-->
 
 Using functools.singledispatch, create a function called get_info that returns the following:
 - For an integer, return the square of the integer.

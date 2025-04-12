@@ -255,7 +255,7 @@ Direct access can lead to accidental or unauthorized modification of data, poten
 ?
 - Abstraction hides complex implementation details and exposes only essential information to the user.
 - Example: A TV remote control hides the internal electronics but provides buttons for essential actions like changing channels and volume.
-<!--SR:!2025-04-12,63,310-->
+<!--SR:!2026-01-07,270,330-->
 
 **Task:**
 - Create a class Circle with a private attribute radius.

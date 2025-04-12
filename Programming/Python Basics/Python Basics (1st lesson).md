@@ -79,7 +79,7 @@ How do Python represent objects inside the memory heap? Enumerate all the compon
 ![Pasted image 20240807150909.png](../../📁%20files/Pasted%20image%2020240807150909.png)
 <!--SR:!2025-10-29,248,336-->
 
-Name the output of each piece of the given code: 
+Name the output of each piece of the given code:
 ```python
 	x = 5
 	y = x
@@ -116,4 +116,4 @@ Name the output of each piece of the given code:
 	print(b)
 	# OUTPUT HERE EQUALS (1, 2, [3, 4, 5])#
 ```
-<!--SR:!2025-04-10,176,310-->
+<!--SR:!2027-05-07,755,330-->

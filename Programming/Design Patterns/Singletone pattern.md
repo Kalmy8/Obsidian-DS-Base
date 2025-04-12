@@ -23,8 +23,9 @@ class Singleton:
 		# Ensure __init__ is not called again
 ```
 Note: **\__init\__** method is called only once, when the first instance of Singleton class is created. However, there is an additional security step in this example, in case that **\__init\__** method is called manually.
-<!--SR:!2025-04-12,148,310-->
+
 ## Practical tasks:
+<!--SR:!2027-01-07,635,330-->
 
 1. **App Config Manager**
     - Create a `ConfigManager` singleton that loads settings from a file once and provides read-only access globally.

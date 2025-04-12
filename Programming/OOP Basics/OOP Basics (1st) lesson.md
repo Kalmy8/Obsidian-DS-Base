@@ -2,7 +2,7 @@
 **Codewords:** OOP intuition, motivation behind it's usage
 
 ### The intuition behind OOP
-OOP stands for **object-oriented programming**, and this paradigm shines when it comes to creating, managing, modifying some complex **objects**. To start applying this paradigm in first place, the most hardest part is detecting actual **objects** inside your programm. The truth is: Everything can be an object (actually, in Python, all built-in methods, data types and etc are **objects** themselves).
+OOP stands for **object-oriented programming**, and this paradigm shines when it comes to creating, managing, modifying some complex **objects**. To start applying this paradigm in first place, the most hardest part is detecting actual **objects** inside your program. The truth is: Everything can be an object (actually, in Python, all built-in methods, data types and etc are **objects** themselves).
 
 A typical object in OOP would have some **data** (attributes/properties/fields) and some **operations on it** (methods). 
 Let's give you an intuition about OOP by using some real-world Analogies:
@@ -135,7 +135,6 @@ supervisor.renovate()
 		- How long are they borrowed?
 		- Which member did borrow the book?
 
-
 #🃏/data-science 
 ## Key questions:
 
@@ -145,7 +144,7 @@ supervisor.renovate()
 - Example: A **Dog**:
 	- **Behaviors:** bark, fetch, eat
 	- **Properties:** breed, color, age
-<!--SR:!2025-04-10,61,310-->
+<!--SR:!2025-12-30,262,330-->
 
 
 **In OOP, what is a class?**
@@ -163,7 +162,7 @@ A class is like a blueprint or template for creating objects.
 **What does the `self` keyword represent in a Python class?**
 ?
 It refers to the current instance of the class (the object itself).
-<!--SR:!2025-04-11,62,310-->
+<!--SR:!2026-01-04,267,330-->
 
 **What is the purpose of the `__init__` method in a Python class?**
 ?
