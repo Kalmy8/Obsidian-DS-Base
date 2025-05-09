@@ -569,3 +569,5 @@ df = pd.DataFrame(data)
 6. How does data type conversion affect memory usage in pandas?
 7. What is the difference between `fillna()` and `interpolate()`?
 8. Why is it important to check for duplicates and what are the best practices for handling them? 
+
+# TODO нормальные вопросы

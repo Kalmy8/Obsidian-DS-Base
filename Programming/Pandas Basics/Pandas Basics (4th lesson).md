@@ -29,23 +29,6 @@ df_long = pd.DataFrame(data_long)
 ```
 
 ## 2. Reshaping with pivot
-### Basic Pivot
-```python
-# Convert long to wide format
-df_wide = df_long.pivot(
-    index='student',
-    columns='subject',
-    values='grade'
-)
-
-# Multiple values
-df_wide = df_long.pivot(
-    index='student',
-    columns=['subject', 'year'],
-    values='grade'
-)
-```
-
 ### pivot_table
 More flexible than pivot, handles duplicate values:
 ```python
