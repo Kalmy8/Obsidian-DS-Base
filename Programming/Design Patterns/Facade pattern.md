@@ -68,7 +68,7 @@ myaudio = AudioSystem()
 mytheater = HomeTheater(mytv, mydvd, myaudio)
 mytheater.watch_movie(dvd_cartridge)
 ```
-<!--SR:!2025-04-24,160,310-->
+<!--SR:!2027-03-26,686,330-->
 
 ## Practical tasks:
 1. **Smart Home System**

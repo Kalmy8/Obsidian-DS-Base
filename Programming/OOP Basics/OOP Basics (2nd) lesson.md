@@ -239,7 +239,7 @@ Encapsulation is bundling data and methods within a class, protecting data integ
 **What is the purpose of using "private" attributes (using the double underscore `__` prefix) in Python classes?**
 ?
 To prevent direct access and modification of the attribute from outside the class, enforcing encapsulation.
-<!--SR:!2025-04-13,64,310-->
+<!--SR:!2026-02-07,274,330-->
 
 **Why is direct access to an object's attributes generally discouraged in OOP?**
 ?

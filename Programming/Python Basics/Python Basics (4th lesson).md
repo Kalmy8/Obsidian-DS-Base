@@ -103,7 +103,7 @@ How does `enumerate()` enhance `for` loops when working with sequences like list
 In a `for` loop using `range(start, stop, step)`, will the loop iterate up to and including the *stop* value or up to but *not including* it?  If the *start*, *stop*, and *step* values are not specified when calling the `range` function, what default values will Python use for each?
 ?
 The loop iterates up to, but *not including*, the *stop* value. `range()` with one argument defaults to starting at 0 and uses a step of 1. So `range(5)` is equivalent to `range(0, 5, 1)`.
-<!--SR:!2025-04-13,64,310-->
+<!--SR:!2026-02-09,276,330-->
 
 
 

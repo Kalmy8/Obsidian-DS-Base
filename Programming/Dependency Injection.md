@@ -1,5 +1,5 @@
 #🃏/programming
-What is a dependency injection principle? When is it being benefitial and reccomended? What are the cons of dependency injection?
+What is a dependency injection principle? When is it being benefitial and reccomended? What are the pros of dependency injection?
 ?
 A code-writing principle that suggest you to provide all the needed dependencies right to the classes methods/initializer instead of hardcoding them into your class. Using dependency injection is a preffered way to code because:
 - Class are being **decoupled**, so they are being more independent from each other. When hardcoding one class functional to the other class, the second one relies strongly on the first one. This means that the second class just won't work if the first one is being deleted/heavily refactored.
@@ -35,4 +35,4 @@ class HomeTheater:
 		self.audio_system.on()
 		...
 ```
-<!--SR:!2025-05-09,170,310-->
+<!--SR:!2027-05-08,729,330-->

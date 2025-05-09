@@ -157,7 +157,7 @@ A class is like a blueprint or template for creating objects.
 - An object is a specific instance of a class.
 - All objects do have the same methods
 - Objects are likely to have different attribute values and can even have different attributes (**while not reccomended**)
-<!--SR:!2025-04-14,65,310-->
+<!--SR:!2026-02-11,278,330-->
 
 **What does the `self` keyword represent in a Python class?**
 ?
@@ -175,7 +175,7 @@ It's the constructor, used to initialize the attributes of an object when it's c
 	 - **Examples:** config files, vectors, points
  - **static class** mainly contains only the methods and doesn't have attributes
 	 - **Examples:** a `MathUtils` class with methods like `add()`, `subtract()`, etc.
-<!--SR:!2025-04-15,66,310-->
+<!--SR:!2026-02-16,283,330-->
 
 
 **Why is OOP often considered a more natural way to structure complex programs than procedural programming?**

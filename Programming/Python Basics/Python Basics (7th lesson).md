@@ -187,7 +187,7 @@ Explain `functools.reduce()`. Write one to sum the numbers in `[1, 2, 3, 4]`.
 from functools import reduce
 sum_of_elements = reduce(lambda x, y: x + y, [1, 2, 3, 4]) 
 ```
-<!--SR:!2025-04-13,64,310-->
+<!--SR:!2026-02-08,275,330-->
 
 What is the purpose of  `functools.singledispatch` and `functools.singledispatchmethod`?
 ?
@@ -233,7 +233,7 @@ def add(x, y):
 
 add_five = partial(add, 5) 
 ```
-<!--SR:!2025-04-14,65,310-->
+<!--SR:!2026-02-12,279,330-->
 
 What is the use of `@lru_cache`. What arguments does lru_cache accept, how do they affect the caching mechanism? Write a function to effectively calculate the factorial using cache
 ?

@@ -51,4 +51,4 @@ class ConvertGray:
 	def make_gray(np_image: np.array) -> np.array:
 		...
 ```
-<!--SR:!2025-04-16,152,310-->
+<!--SR:!2027-02-20,652,330-->
