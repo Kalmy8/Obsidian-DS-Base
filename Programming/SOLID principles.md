@@ -1,5 +1,5 @@
 #🃏/oop-basics 
-Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/comitement
+Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/commitment 
 ?
 Let's break down each SOLID principle, exploring their benefits and illustrating both violations and good practices with simple Python examples:
 **1. Single Responsibility Principle (SRP)**

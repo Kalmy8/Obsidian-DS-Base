@@ -1,313 +1,292 @@
-**Codewords:** GroupBy, Aggregation, Transform, Rolling Windows, Custom Aggregations
+**Codewords:** DataFrame Modifications, Views vs. Copies, apply/map Methods, DataFrame Structure Alterations
 
-## 1. GroupBy Operations
-### Basic Grouping
+
+## 5. Modifying DataFrame Values
+### Direct Assignment
 ```python
-# Group by single column
-grouped = df.groupby('city')
+# Modify single value
+df.loc[0, 'age'] = 25
 
-# Group by multiple columns
-grouped = df.groupby(['city', 'grade_level'])
+# Modify multiple values
+df.loc[df['age'] < 20, 'status'] = 'junior'
 
-# Basic aggregations
-city_means = df.groupby('city')['grade'].mean()
-city_stats = df.groupby('city')['grade'].agg(['mean', 'std', 'count'])
+# Conditional modifications
+df.loc[df['grade'] >= 90, 'grade_letter'] = 'A'
+df.loc[(df['grade'] >= 80) & (df['grade'] < 90), 'grade_letter'] = 'B'
 
-# Iterating through groups
-for name, group in df.groupby('city'):
-    print(f"City: {name}, Count: {len(group)}")
-    print(group.head())
+# Hint: often used to create a new column
+df.loc[:, "new_column_name"] = 0
 ```
 
-### Multiple Aggregations
+### Using apply() for Series or DataFrame
 ```python
-# Different aggregations for different columns
-agg_dict = {
-    'grade': ['mean', 'max'],
-    'age': 'mean',
-    'attendance': 'sum'
-}
-result = df.groupby('city').agg(agg_dict)
+# Apply to a series
+df['name'] = df['name'].apply(str.upper)
 
-# Named aggregations
-result = df.groupby('city').agg(
-    avg_grade=('grade', 'mean'),
-    max_grade=('grade', 'max'),
-    avg_age=('age', 'mean')
-)
+# Apply to entire DataFrame
+df = df.apply(pd.to_numeric, errors='ignore')
 
-# Custom column names
-result.columns = ['_'.join(col).strip() for col in result.columns.values]
+# Apply with lambda
+df['full_name'] = df.apply(lambda row: f"{row['first_name']} {row['last_name']}", axis=1)
+
+# Apply with custom function
+def calculate_score(row):
+    return row['exam'] * 0.7 + row['homework'] * 0.3
+
+df['final_score'] = df.apply(calculate_score, axis=1)
+
+# Apply to columns (axis=0)
+df.apply(lambda x: x.max() - x.min(), axis=0)
 ```
 
-**Practice Problem 1: Basic GroupBy Operations**
+### Using map() for DataFrame
+```python
+# Apply function to every element
+df = df.map(str.strip)  # Remove whitespace from all string elements
+
+# Format all numeric values
+df = df.map(lambda x: f"${x:.2f}" if isinstance(x, (int, float)) else x)
+```
+
+**Practice Problem 2: Apply Challenge**
 ```python
 data = {
-    'student': ['John', 'Anna', 'Peter', 'Sarah', 'Mike', 'Emma', 'David', 'Linda'],
-    'city': ['New York', 'Boston', 'New York', 'Boston', 'Chicago', 'Chicago', 'New York', 'Boston'],
-    'grade': [85, 92, 78, 95, 88, 84, 90, 86],
-    'attendance': [0.9, 0.95, 0.85, 0.92, 0.88, 0.91, 0.94, 0.87],
-    'gender': ['M', 'F', 'M', 'F', 'M', 'F', 'M', 'F']
+    'name': ['John Smith', 'Anna Johnson', 'Peter Brown'],
+    'scores': [[85, 90, 88], [92, 95, 89], [78, 82, 80]]
+}
+df = pd.DataFrame(data)
+```
+Tasks (using apply):
+- Extract first and last names into separate columns
+- Categorize names by first letter (A-M: Group 1, N-Z: Group 2)
+- Calculate the average score for each student using 
+- Return the highest score for each student
+
+## 6. Understanding Views vs. Copies
+### Chain Assignment Warning
+```python
+# This will raise a warning
+df[df['age'] > 20]['grade'] = 90  # Wrong!
+
+# Correct way
+df.loc[df['age'] > 20, 'grade'] = 90
+```
+
+### Creating Copies
+```python
+# Create a deep copy
+df_copy = df.copy()
+
+# Create a view
+df_view = df.loc[:]  # This is a view, modifications will affect original
+
+# When slicing creates a copy vs view
+subset = df[['name', 'age']]  # Copy
+subset = df.loc[:, ['name', 'age']]  # View
+
+# Demonstrate the difference
+df_copy = df.copy()
+df_view = df.loc[:]
+df_copy.loc[0, 'age'] = 100  # Original df not affected
+df_view.loc[0, 'age'] = 100  # Original df is modified
+```
+
+### SettingWithCopyWarning
+```python
+# Common scenarios that trigger the warning
+subset = df[df['age'] > 20]  # This creates a copy
+subset['status'] = 'adult'   # Warning: may not modify original
+
+# How to properly modify a subset
+df.loc[df['age'] > 20, 'status'] = 'adult'  # Correct way
+
+# Using .copy() to explicitly create a copy
+subset = df[df['age'] > 20].copy()  # No warning when modifying
+subset['status'] = 'adult'  # This is fine, clearly modifying a copy
+```
+
+**Practice Problem 3: Views vs. Copies Challenge**
+```python
+data = {
+    'id': [1, 2, 3, 4, 5],
+    'value': [10, 20, 30, 40, 50]
+}
+original_df = pd.DataFrame(data)
+```
+Tasks:
+- Create a copy of the DataFrame and a view of the DataFrame
+- Modify a value in both the copy and the view
+- Show how the original DataFrame is affected in each case
+- Create a situation where chained assignment would raise a warning
+- Show the correct way to modify values in a filtered DataFrame
+
+## 7. Structural Modifications
+### Renaming Columns
+```python
+# Rename specific columns
+df = df.rename(columns={'old_name': 'new_name'})
+
+# Rename using a function
+df.columns = df.columns.str.replace(' ', '_')
+
+# Apply formatting to all column names
+df.columns = [col.lower() for col in df.columns]
+
+# Rename with pattern
+df = df.rename(columns=lambda x: f"col_{x}" if not x.startswith('col_') else x)
+```
+
+### Adding/Removing Columns
+```python
+# Add new column
+df['new_column'] = values
+
+# Add multiple columns
+df = df.assign(
+    new_col1 = df['col1'] * 2,
+    new_col2 = lambda x: x['col2'].str.upper()
+)
+
+# Drop columns
+df = df.drop(['column1', 'column2'], axis=1)
+
+# Drop columns inplace
+df.drop(['column1', 'column2'], axis=1, inplace=True)
+
+# Drop by position
+df = df.drop(df.columns[2], axis=1)  # Drop third column
+```
+
+### Index Operations
+```python
+# Set index
+df = df.set_index('id')
+
+# Reset index
+df = df.reset_index()
+
+# Multi-level index
+df = df.set_index(['category', 'subcategory'])
+
+# Change index name
+df.index.name = 'student_id'
+
+# Access levels of a MultiIndex
+df.index.get_level_values(0)
+```
+
+## 8. Advanced DataFrame Modifications
+### Conditional Column Creation
+```python
+# Using numpy.where
+import numpy as np
+df['status'] = np.where(df['age'] >= 18, 'Adult', 'Minor')
+
+# Multiple conditions with numpy.select
+conditions = [
+    df['grade'] >= 90,
+    df['grade'] >= 80,
+    df['grade'] >= 70
+]
+choices = ['A', 'B', 'C']
+df['letter_grade'] = np.select(conditions, choices, default='F')
+```
+
+### Using the replace Method
+```python
+# Replace specific values
+df['status'] = df['status'].replace('inactive', 'disabled')
+
+# Replace multiple values
+df = df.replace({'yes': True, 'no': False})
+
+# Replace using regex
+df['text'] = df['text'].replace(r'^old_', 'new_', regex=True)
+```
+
+### Working with Dates and Times
+```python
+# Format datetime columns
+df['date'] = df['date'].dt.strftime('%Y-%m-%d')
+
+# Extract components
+df['year'] = df['date'].dt.year
+df['month'] = df['date'].dt.month
+df['day'] = df['date'].dt.day
+
+# Add/subtract time periods
+from datetime import timedelta
+df['next_week'] = df['date'] + timedelta(days=7)
+```
+
+**Practice Problem 4: DataFrame Modification Practice**
+```python
+data = {
+    'name': ['John Smith', 'Anna Johnson', 'Peter Brown', 'Maria Rodriguez'],
+    'age': [20, 22, 21, 25],
+    'grade': [85, 92, 78, 95],
+    'email': [' john@email.com ', 'anna@email.com', ' peter@email.com', 'maria@email.com']
 }
 df = pd.DataFrame(data)
 ```
 Tasks:
-- Calculate the average grade and attendance by city
-- Add columns for: city_avg_grade, grade_diff_from_city_avg
-- Find cities where the average grade is above 85
-- Calculate the percentage of students in each city with grades above 90
-- Determine if there are significant grade differences by gender in each city
+- Clean all email addresses (remove whitespace)
+- Create a new column with last names only
+- Create an 'age_group' column: '18-20', '21-23', '24+'
+- Rename all columns to be lowercase and replace spaces with underscores
+- Create a 'grade_letter' column with the appropriate letter grade
 
-## 2. Transform Operations
-### Basic Transforms
+**Practice Problem 5: Advanced Structural Modifications**
 ```python
-# Add mean grade by city
-df['city_mean_grade'] = df.groupby('city')['grade'].transform('mean')
-
-# Multiple transforms
-transforms = {
-    'grade': ['mean', 'std'],
-    'age': 'mean'
-}
-df_transformed = df.groupby('city').transform(transforms)
-
-# Creating multiple columns at once
-df[['grade_mean', 'grade_std']] = df.groupby('city')['grade'].transform(['mean', 'std'])
-
-# Group-wise normalization
-df['grade_normalized'] = df.groupby('city')['grade'].transform(lambda x: (x - x.mean()) / x.std())
-```
-
-### Custom Transforms
-```python
-# Calculate percentile within each group
-def percentile_rank(x):
-    return x.rank(pct=True)
-
-df['grade_percentile'] = df.groupby('city')['grade'].transform(percentile_rank)
-
-# Z-score within groups
-df['grade_zscore'] = df.groupby('city')['grade'].transform(lambda x: (x - x.mean()) / x.std())
-
-# Calculate deviation from group median
-df['grade_dev_from_median'] = df.groupby('city')['grade'].transform(lambda x: x - x.median())
-```
-
-**Practice Problem 2: Transform vs. Aggregation Challenge**
-```python
+# Create a DataFrame with multi-level columns
 import pandas as pd
 import numpy as np
 
-# Create student data with multiple tests
 np.random.seed(42)
-students = ['S' + str(i).zfill(3) for i in range(1, 31)]
-classes = ['Math', 'Physics', 'Chemistry'] * 10
-tests = np.random.randint(60, 100, size=30)
-absences = np.random.randint(0, 10, size=30)
-
 data = {
-    'student_id': students,
-    'class': classes,
-    'test_score': tests,
-    'absences': absences
+    ('Math', 'Midterm'): np.random.randint(70, 100, 5),
+    ('Math', 'Final'): np.random.randint(70, 100, 5),
+    ('Science', 'Midterm'): np.random.randint(70, 100, 5),
+    ('Science', 'Final'): np.random.randint(70, 100, 5)
 }
-df = pd.DataFrame(data)
+df = pd.DataFrame(data, index=['Student_1', 'Student_2', 'Student_3', 'Student_4', 'Student_5'])
 ```
 Tasks:
-- Calculate each student's test score relative to their class average
-- Identify which students scored above their class average
-- For each class, add columns showing:
-  - Class average score
-  - Student's percentile within the class
-  - Normalized score (z-score)
-- Calculate a weighted final score that accounts for absences
-- Create a grading curve where the top 10% get A, next 20% get B, etc.
+- Create a new column for each subject showing the average of Midterm and Final
+- Add a row showing the class average for each exam
+- Create a new DataFrame showing only the Final scores
+- Reset the index and rename it to 'student_name'
+- Create a function that calculates a weighted score (70% Final, 30% Midterm) and apply it to the DataFrame
 
-## 3. Rolling Window Operations
-### Basic Rolling
+## 5. Exporting Data
 ```python
-# Simple moving average
-df['3_day_avg'] = df['value'].rolling(window=3).mean()
+# Export to CSV
+df.to_csv('output.csv', index=False)
 
-# Rolling with min_periods
-df['3_day_avg'] = df['value'].rolling(window=3, min_periods=1).mean()
+# Export to Excel
+df.to_excel('output.xlsx', sheet_name='Sheet1', index=False)
 
-# Different window functions
-df['rolling_sum'] = df['value'].rolling(window=3).sum()
-df['rolling_max'] = df['value'].rolling(window=3).max()
-df['rolling_std'] = df['value'].rolling(window=3).std()
+# Export to JSON
+df.to_json('output.json')
+
+# Export to SQL
+df.to_sql('table_name', engine, if_exists='replace', index=False)
 ```
 
-### Rolling with GroupBy
-```python
-# Rolling average by group
-df['rolling_avg'] = df.groupby('city')['value'].rolling(3).mean().reset_index(0, drop=True)
+**Practice Problem: Data Export**
+- **Tasks**:
+  - Export a DataFrame to CSV, Excel, and JSON formats.
+  - Customize the output by excluding the index and specifying a different delimiter for the CSV file.
+  - Verify the exported files by loading them back into Pandas and checking their contents.
 
-# Complex example with multiple steps
-def rolling_by_group(df, group_col, value_col, window):
-    # Group the dataframe
-    grouped = df.groupby(group_col)
-    # Apply rolling mean to each group
-    rolling_means = grouped[value_col].rolling(window=window).mean()
-    # Reset the index to align with original dataframe
-    result = rolling_means.reset_index(level=0, drop=True)
-    return result
-
-df['rolling_avg_by_city'] = rolling_by_group(df, 'city', 'value', 3)
-```
-
-**Practice Problem 3: Time Series Rolling Windows**
-```python
-import numpy as np
-import pandas as pd
-from datetime import datetime
-
-# Create a date range
-dates = pd.date_range('2023-01-01', periods=20)
-
-# Create synthetic time series data
-data = {
-    'date': dates,
-    'value': [10, 12, 15, 14, 16, 18, 17, 20, 22, 21, 19, 23, 25, 24, 26, 28, 27, 30, 32, 31],
-    'group': ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B']
-}
-df = pd.DataFrame(data)
-df['date'] = pd.to_datetime(df['date'])
-df.set_index('date', inplace=True)
-```
-Tasks:
-- Calculate 3-day and 7-day rolling averages for each group
-- Find the maximum value in each group's rolling window
-- Compare each value to its group's moving average (as a percentage difference)
-- Identify trends by calculating the rolling correlation between values and time
-- Create a summary showing min, max, and mean values by month for each group
-
-## 4. Advanced Aggregation Techniques
-### Custom Aggregation Functions
-```python
-def iqr(x):
-    return x.quantile(0.75) - x.quantile(0.25)
-
-# Use custom function in aggregation
-df.groupby('city')['grade'].agg(iqr)
-
-# Multiple custom functions
-def grade_summary(x):
-    return pd.Series({
-        'mean': x.mean(),
-        'above_90': (x >= 90).sum(),
-        'below_60': (x < 60).sum()
-    })
-
-df.groupby('city')['grade'].apply(grade_summary)
-
-# Custom function that returns a DataFrame
-def comprehensive_stats(group):
-    stats = {
-        'count': len(group),
-        'mean_grade': group['grade'].mean(),
-        'pass_rate': (group['grade'] >= 60).mean(),
-        'top_student': group.loc[group['grade'].idxmax()]['name']
-    }
-    return pd.Series(stats)
-
-df.groupby('city').apply(comprehensive_stats)
-```
-
-### Filter Groups
-```python
-# Filter groups with more than 5 students
-def filter_size(x):
-    return len(x) > 5
-
-filtered = df.groupby('city').filter(filter_size)
-
-# Filter based on mean grade
-def filter_mean_grade(x):
-    return x['grade'].mean() > 80
-
-filtered = df.groupby('city').filter(filter_mean_grade)
-
-# Combining filter with aggregation
-high_performing_groups = (
-    df.groupby('city')
-    .filter(lambda x: x['grade'].mean() > 85)
-    .groupby('city')
-    .agg({
-        'grade': ['mean', 'min', 'max'],
-        'name': 'count'
-    })
-)
-```
-
-**Practice Problem 4: Custom Aggregations Challenge**
-```python
-data = {
-    'store': ['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C'],
-    'product': ['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z'],
-    'sales': [100, 120, 90, 80, 95, 110, 120, 140, 100],
-    'returns': [5, 8, 3, 4, 7, 6, 8, 10, 5],
-    'stock': [50, 60, 45, 40, 50, 55, 60, 70, 50]
-}
-df = pd.DataFrame(data)
-```
-Tasks:
-- Calculate net sales (sales - returns) for each store-product combination
-- Find the return rate (returns/sales) by store
-- Create a custom aggregation function that computes:
-  - Total sales
-  - Average return rate
-  - Stock turnover (sales/stock)
-  - Best-selling product
-- Create a "performance score" combining sales performance and return rates
-- Rank stores based on overall performance
-
-## 5. Combining GroupBy with Other Operations
-### Groupby and Join
-```python
-# Create group statistics
-city_stats = df.groupby('city').agg(
-    avg_grade=('grade', 'mean'),
-    student_count=('name', 'count')
-)
-
-# Join back to original DataFrame
-df_with_stats = df.join(city_stats, on='city')
-
-# Alternative approach using transform
-df['avg_grade'] = df.groupby('city')['grade'].transform('mean')
-df['student_count'] = df.groupby('city')['name'].transform('count')
-```
-
-### Hierarchical Grouping
-```python
-# Groupby with hierarchical index
-hierarchical = df.groupby(['city', 'grade_level']).agg({
-    'grade': ['mean', 'count'],
-    'attendance': 'mean'
-})
-
-# Access specific group
-nyc_high_school = hierarchical.loc[('New York', 'High School')]
-
-# Unstack to reshape
-reshaped = hierarchical.unstack(level='grade_level')
-
-# Create hierarchical column index
-df.columns = pd.MultiIndex.from_tuples([
-    ('student', 'name'), ('student', 'age'), 
-    ('performance', 'grade'), ('performance', 'attendance')
-])
-grouped = df.groupby(('student', 'age')).mean()
-```
-
+  
 #🃏/pandas-basics
 **Review Questions:**
-1. What is the difference between `transform()` and `agg()`?
-2. How can you apply different aggregation functions to different columns?
-3. When would you use `rolling()` operations, and what are their key parameters?
-4. How can you create custom aggregation functions?
-5. What is the difference between `filter()` and `transform()` in groupby operations?
-6. How do you handle hierarchical group structures?
-7. What are the advantages and limitations of the `transform()` method?
-8. How can you optimize groupby operations for large datasets? 
+1. What is the difference between `map()`, `apply()`, and `applymap()`?
+2. Why does pandas raise a warning about chained assignments? How can you avoid it?
+3. When does pandas create a view vs. a copy of the data?
+4. What is the difference between `df = df.drop()` and `df.drop(inplace=True)`?
+5. How can you efficiently rename multiple columns in a DataFrame?
+6. When should you use `np.where()` vs. `df.loc[]` for conditional assignments?
+7. What is the performance difference between various DataFrame modification methods?
+8. How can you modify values in a filtered DataFrame without triggering a SettingWithCopyWarning? 

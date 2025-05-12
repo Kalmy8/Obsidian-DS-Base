@@ -1,6 +1,7 @@
 **Codewords:** DataFrame, Series, CSV Loading, DataFrame Information Methods, Data Import
 
 ## 1. Loading Data with Pandas
+
 Pandas is a powerful data manipulation library that makes it easy to work with structured data. There are multiple ways to load data:
 
 ### CSV Files
@@ -27,20 +28,19 @@ df = pd.read_csv('data.csv',
                                                # Returns TextFileReader for iteration
 ```
 
+**Mock CSV Entry for Practice Problems:**
 
-**Practice Problem: Grouping and Indexing**
-- **Mock CSV Entry**:
   ```plaintext
-  student_id,student_name,student_age,student_grade,student_city,enrollment_date
-  id,name,age,grade,city,date_joined
-  1,John,20,85,New York,2023-01-01
-  2,Anna,22,92,Boston,2023-01-15
-  3,Peter,21,78,Chicago,2023-02-01
-  4,Sarah,19,95,Boston,2023-03-01
-  5,Michael,20,88,Chicago,2023-04-01
-  6,Emma,22,91,New York,2023-05-01
+  id,name,age,grade,city,date_joined,active
+  1,John,20,85,New York,2023-01-01,yes
+  2,Anna,22,NA,Boston,2023-01-15,no
+  3,Peter,21,Missing,Chicago,2023-02-01,yes
+  4,Sarah,19,95,Boston,2023-03-01,yes
+  5,Michael,20,88,Chicago,2023-04-01,NA
+  6,Emma,22,Missing,New York,2023-05-01,yes
   ```
-- **Tasks**:
+
+**Task 1**:
   1. Load the CSV file using `pd.read_csv()` with the following parameters:
      - Use the second row as column names.
      - Set 'id' as the index column.
@@ -49,40 +49,19 @@ df = pd.read_csv('data.csv',
      - Skip the first row.
      - Parse 'date_joined' as a date.
 
-**Practice Problem: Handling Boolean and NA Values**
-- **Mock CSV Entry**:
-  ```plaintext
-  id,name,active,grade
-  1,John,yes,85
-  2,Anna,no,NA
-  3,Peter,Missing,78
-  4,Sarah,yes,95
-  5,Michael,NA,88
-  6,Emma,yes,Missing
-  ```
-- **Tasks**:
+**Task 2: Handling Boolean and NA Values**
   1. Load the CSV file with the following settings:
      - Define `true_values` as ['yes'] and `false_values` as ['no'] for the 'active' column.
      - Define `na_values` as ['NA', 'Missing'] for missing data.
 
-**Practice Problem: Converters and Chunking**
-- **Mock CSV Entry**:
-  ```plaintext
-  id,name,age,grade
-  1,John,20,85
-  2,Anna,22,92
-  3,Peter,21,78
-  4,Sarah,19,95
-  5,Michael,20,88
-  6,Emma,22,91
-  ```
-- **Tasks**:
+**Task 3: Converters and Chunking**
   1. Load the CSV file using `pd.read_csv()` with the following settings:
      - Convert the 'name' column to uppercase.
      - Load the data in chunks of 2 rows.
 
-**Practice Problem: Handling Special Cases**
-- **Mock CSV Entry**:
+**Task 4: Handling Special Cases**
+
+For this task, use another CSV Mock:
   ```plaintext
   id|  name|  age|  grade|  city
   1|  John|  20|  85|  New York
@@ -95,7 +74,6 @@ df = pd.read_csv('data.csv',
   8|  Bad,Line,Format
   9|  Incomplete|  Row
   ```
-- **Tasks**:
   1. Load the CSV file with the following settings:
      - Use custom separator for pipe-delimited data.
      - Handle unnecessary spaces.
@@ -103,16 +81,14 @@ df = pd.read_csv('data.csv',
 
 ### Other Data Formats
 
-While we'll focus primarily on CSV files in our practice, Pandas can also load data from many other formats:
-
+While we'll focus primarily on CSV files, Pandas can also load data from many other formats:
 1. Excel files: `pd.read_excel('data.xlsx')`
 2. JSON files: `pd.read_json('data.json')`
 3. SQL databases: `pd.read_sql('SELECT * FROM table', connection)`
 
-
 ## 2. DataFrame and Series Objects
 ### DataFrame
-A DataFrame is a 2-dimensional labeled data structure. Think of it as an Excel spreadsheet:
+A DataFrame is a **2-dimensional labeled data structure**. Think of it as an Excel spreadsheet:
 - Columns can have different types (int, float, string, etc.)
 - Both rows and columns have labels/indexes
 - Size-mutable: you can add/remove rows and columns
@@ -132,14 +108,9 @@ print(df.size)         # Total number of elements
 print(df.dtypes)       # Data types of each column
 ```
 
-
-**Practice Problem: DataFrame Creation**
-- **Tasks**:
-  - Create a DataFrame from a dictionary and print its shape, size, and data types.
-
-  
 ### Series
-A Series is a 1-dimensional labeled array that can hold data of any type:
+
+A Series is a **1-dimensional labeled array** that can hold data of any type:
 ```python
 # Creating a Series
 ages = pd.Series([28, 22, 35], name='age')
@@ -153,13 +124,50 @@ print(ages.size)      # Length of Series
 print(ages.dtype)     # Data type
 ```
 
-**Practice Problem: Series Exploration**
-- **Tasks**:
-  - Create a Series with a custom index and print its attributes.
-  - Add a constant value to each element in the Series and print the result.
+Series objects have many useful methods not directly available on DataFrames (or that work differently):
 
+```python
+# Example Series (imagine this came from df['column_name'])
+s = pd.Series(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'], name='fruits')
 
-## 3. Basic Information Methods
+# Count occurrences of each unique value
+print("\nValue Counts:")
+print(s.value_counts())
+# apple     3
+# banana    2
+# orange    1
+# Name: fruits, dtype: int64
+
+# Get unique values
+print("\nUnique Values:")
+print(s.unique()) # ['apple' 'banana' 'orange']
+
+# Get the number of unique values
+print("\nNumber of Unique Values:")
+print(s.nunique()) # 3
+
+# Check for membership
+print("\nIs 'apple' in Series?")
+print(s.isin(['apple']))
+# 0     True
+# 1    False
+# 2     True
+# 3    False
+# 4    False
+# 5     True
+# Name: fruits, dtype: bool
+
+# String operations (using .str accessor)
+string_series = pd.Series(['First Last', 'John Doe', 'Jane Smith'], name='full_names')
+print("\nString Operations (First Word):")
+print(string_series.str.split(' ').str[0])
+# 0    First
+# 1     John
+# 2     Jane
+# Name: full_names, dtype: object
+```
+
+## 3. Basic Information Methods (both for DF and Series)
 ### describe()
 Provides statistical summary of numerical columns:
 ```python
@@ -171,27 +179,6 @@ df.describe(include='all')
 # Specific statistics
 df.describe(percentiles=[0.05, 0.5, 0.95])
 ```
-
-**Practice Problem: Statistical Summary**
-Create a sample DataFrame
-```python
-data = {
-    'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael'],
-    'age': [25, None, 28, 19, 23],
-    'city': ['New York', 'Boston', None, 'Boston', 'New York'],
-    'salary': [50000, 45000, 65000, None, 55000],
-    'experience': [2, 1, None, 0, 3],
-    'department': ['Sales', 'Marketing', 'Engineering', None, 'Marketing'],
-    'is_manager': [True, False, True, None, False],
-    'performance_rating': ['Good', 'Excellent', None, 'Good', 'Excellent']
-}
-df = pd.DataFrame(data)
-```
-
-- **Tasks**:
-  - Use `describe()` to obtain a statistical summary of a DataFrame.
-  - Include non-numeric columns in the summary and interpret the results.
-  - Calculate the 10th and 90th percentiles of a numeric column.
 
 ### info()
 Shows DataFrame information including:
@@ -207,12 +194,6 @@ df.info()
 df.info(verbose=True, memory_usage='deep')
 ```
 
-**Practice Problem: DataFrame Info**
-- **Tasks**:
-  - Use `info()` to display detailed information about a DataFrame.
-  - Analyze the memory usage
-  - Identify columns with missing values
-
 ### Other Useful Methods
 ```python
 # First/last 5 rows
@@ -226,17 +207,83 @@ df.sample(frac=1)  # Often used for dataset shuffling
 
 ```
 
-**Practice Problem: Data Exploration**
-- **Tasks**:
-  - Use `head()`, `tail()`, and `sample()` to explore a DataFrame.
-  - Count the number of missing values in each column
+### Practice Problems:
+
+#####  Task 1: Dataframe
+
+Create a sample DataFrame from a python dictionary: 
+```python
+data = {
+    'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael'],
+    'age': [25, None, 28, 19, 23],
+    'city': ['New York', 'Boston', None, 'Boston', 'New York'],
+    'salary': [50000, 45000, 65000, None, 55000],
+    'experience': [2, 1, None, 0, 3],
+    'department': ['Sales', 'Marketing', 'Engineering', None, 'Marketing'],
+    'is_manager': [True, False, True, None, False],
+    'performance_rating': ['Good', 'Excellent', None, 'Good', 'Excellent']
+}
+```
+
+Given this dataframe:
+- Observe:
+	- shape, 
+	- number of entries,
+	- memory usage,
+	- number of missing values for each column,
+	- data types,
+	- few first and last entries,
+	- descriptive statistics
+- Count the number of missing values in each column
+- Retrieve a shuffled version of a dataset
+
+
+##### Task 2: Series
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+    'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael'],
+    'age': [25, np.nan, 28, 19, 23],
+    'city': ['New York', 'Boston', np.nan, 'Boston', 'New York'],
+    'salary': [50000, 45000, 65000, np.nan, 55000],
+    'experience': [2, 1, np.nan, 0, 3],
+    'department': ['Sales', 'Marketing', 'Engineering', np.nan, 'Marketing'],
+    'is_manager': [True, False, True, np.nan, False],
+    'performance_rating': ['Good', 'Excellent', np.nan, 'Good', 'Excellent']
+}
+df_practice = pd.DataFrame(data)
+print("Original Practice DataFrame for Series Operations:")
+print(df_practice)
+```
+
+**City Analysis**:
+-   Select the 'city' column as a Series 
+  (hint: `df_practice.loc[:, 'city']`)
+-   How many unique cities are there? (Print the number)
+-   What are the unique city names? (Print the array of unique names)
+-   What is the frequency of each city? (Print the counts)
+
+ **Department Analysis**:
+  -   Select the 'department' column as a Series.
+    (hint: `df_practice.loc[:, 'department']`)
+  -   What is the most frequent department?
+  -   How many employees are in the 'Marketing' department?
+ 
+ **Performance Rating Transformation**:
+  -   Select the 'performance_rating' column as a Series
+    (hint: `df_practice.loc[:, 'performance_rating']`).
+  -   Convert all performance ratings to lowercase and print the resulting Series.
+  -   Check which original ratings were 'Excellent' (resulting in a boolean Series).
 
 
 #🃏/pandas-basics
 
 **Key Questions:**
 
-1. When loading CSV files with pandas, several problems may occur:
+When loading CSV files with pandas, several problems may occur:
 - Selective file upload (delimiters, headers, column selection, index columns)
 - Data volume (large files, partial loading)
 - Data cleaning (missing values, transformations, redundant spaces, boolean values)
@@ -250,21 +297,40 @@ What `read_csv()` parameters can help you solving them?
   - `parse_dates`, `encoding`: These parameters handle special data types by parsing dates and specifying file encoding.
   - `on_bad_lines`: This parameter manages lines with errors, such as skipping or warning.
 
-2. How do the `info()` and `describe()` methods differ in terms of the information they provide about a DataFrame?
+How to create a DataFrame of a python dictionary?
+?
+- By passing that dictionary inside `pd.DataFrame()` method
+
+How do the `info()` and `describe()` methods differ in terms of the information they provide about a DataFrame?
 ?
 - The `info()` method provides a concise summary of a DataFrame, including the number of non-null entries, data types, and memory usage. 
 - The `describe()` method, on the other hand, provides a statistical summary of numerical columns (count, mean, percentiles...)
 
-3. What are the main differences between a DataFrame and a Series in Pandas?
+What are the main differences between a DataFrame and a Series in Pandas?
 ?
 - A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types, similar to a spreadsheet or SQL table. 
 - A Series is a 1-dimensional labeled array capable of holding any data type. 
 - Essentially, a DataFrame is a collection of Series.
+- Series and DataFrame has different methods
 
-4. What are some basic attributes of DataFrame and Series objects, such as size and shape, and how can they be accessed?
+What are some common Series methods which are not available for DataFrame?
+- To get frequency counts of unique values
+- To get the count of unique values
+- To check for membership
+- For vectorized string operations (switching case, splitting)
+- For datetime operations
 ?
-- Basic attributes of DataFrame and Series objects include `shape`, `size`, and `dtypes`. The `shape` attribute returns a tuple representing the dimensionality, `size` returns the number of elements, and `dtypes` returns the data types of each column. These can be accessed using `df.shape`, `df.size`, and `df.dtypes` for a DataFrame, and similarly for a Series.
+- s.value_counts()
+- s.nunique() 
+- s.isin([...])
+- .str accessor 
+- .dt accessor
 
-4. Why would you use `df.sample(frac=1)` line?
+What are the `.size`, `.shape` attributes of a DataFrame and Series objects, such as size and shape, and how can they be accessed?
 ?
-- It is often used to shuffle dataframe, as it returns all the same rows in a random ord
+- The `shape` attribute returns a tuple representing the dimensionality, 
+- `size` returns the number of elements
+
+Why would you use `df.sample(frac=1)` line?
+?
+- It is often used to shuffle dataframe, as it returns all the same rows in a random order

@@ -22,13 +22,13 @@ class User:
         self.name = name
         self.email = email
         self.address = address
-
+        
     def change_email(self, new_email):
         if "@" in new_email:
             self.email = new_email
         else:
             print("Invalid email format.")
-
+            
     def save_to_database(self):
         # Code to connect to database and save user data...
         print(f"Saving {self.name}'s data to database...")
