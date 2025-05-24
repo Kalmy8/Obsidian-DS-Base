@@ -80,7 +80,7 @@ New shapes can be added by creating new subclasses of `Shape` without modifying 
 			 print("Flying!")
 			 
 	class Penguin(Bird): 
-		def fly(self):
+		№def fly(self):
 			raise NotImplementedError("Penguins can't fly")
 			
 	def make_bird_fly(bird: Bird):

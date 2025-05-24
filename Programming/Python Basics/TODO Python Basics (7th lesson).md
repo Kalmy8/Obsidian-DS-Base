@@ -24,7 +24,7 @@ print(list(squared))  # Output: [1, 4, 9, 16] (Convert the map object to a list 
 
 ### `sorted()`
 - Returns a **new sorted object** without modifying the original collection
-- Uses [[OOP Basics (6th) lesson | magic methods]] `__lt__` (less than) and `__eq__` (equals). 
+- Uses [[OOP Basics (6th) lesson|magic methods]] `__lt__` (less than) and `__eq__` (equals). 
 	- **Minimum requirement** is implemented `__lt__` descriptor
 
 **Example:**

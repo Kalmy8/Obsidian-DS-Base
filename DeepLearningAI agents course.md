@@ -252,15 +252,12 @@ Implementation of a typical agentic search-tool includes several steps:
 Persistence in LangChain refers to storing intermediate data or conversational state so it can be reused later. This concept is essential for enabling applications to maintain context across sessions or allow later analysis of interactions. Key use cases and methods for persistence include:
 
 - **Chat History Persistence**:
-    
     - Storing conversations for context-aware agents or chatbots.
     - Commonly stored in databases (like SQLite, MongoDB) or file systems.
 - **Vector Store Persistence**:
-    
     - Storing embeddings (vector representations of text) for retrieval-augmented generation (RAG).
     - Example: Using tools like **Pinecone**, **Weaviate**, or **FAISS** to store and query vectors.
 - **Pipeline or State Persistence**:
-    
     - Saving the state of a chain or task execution for reproducibility.
     - Used to resume a partially completed workflow or analyze past runs.
 

@@ -1,4 +1,4 @@
-[[OOP Basics (5th) lesson | < previous]]
+[[TODO OOP Basics (5th) lesson|< previous]]
 **Codewords:** Magic Methods (Descriptors)
 
 ## Introduction

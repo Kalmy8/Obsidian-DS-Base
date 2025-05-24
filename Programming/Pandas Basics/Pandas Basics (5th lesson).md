@@ -1,46 +1,98 @@
-**Codewords:** GroupBy, Aggregation, Transform, Rolling Windows, Custom Aggregations
+**Codewords:** GroupBy, Aggregation, Transform, Rolling Windows
 
-## 1. GroupBy Operations
-### Basic Grouping
+# General Principle: split-apply-combine
+
+The "split-apply-combine" strategy is a powerful way to perform complex data analysis:
+1.  **Split:** The data is grouped based on some criteria (e.g., by course, by semester)
+2.  **Apply:** A function is applied to each group independently. This could be:
+    - aggregation (like `sum()`, `mean()`), 
+    - transformation (like standardizing data within the group),
+    - filtration (like discarding entire groups),
+    - custom function 
+3.  **Combine:** The results of these operations are then combined into a new DataFrame or Series
+
+Let's define a reusable mock DataFrame for our examples. This DataFrame contains student grades and related information for various courses.
+
 ```python
-# Group by single column
-grouped = df.groupby('city')
+import pandas as pd
+import numpy as np
 
-# Group by multiple columns
-grouped = df.groupby(['city', 'grade_level'])
-
-# Basic aggregations
-city_means = df.groupby('city')['grade'].mean()
-city_stats = df.groupby('city')['grade'].agg(['mean', 'std', 'count'])
-
-# Iterating through groups
-for name, group in df.groupby('city'):
-    print(f"City: {name}, Count: {len(group)}")
-    print(group.head())
-```
-
-### Multiple Aggregations
-```python
-# Different aggregations for different columns
-agg_dict = {
-    'grade': ['mean', 'max'],
-    'age': 'mean',
-    'attendance': 'sum'
+# Reusable Mock DataFrame for GroupBy examples
+np.random.seed(42) # for reproducibility
+data_grades = {
+    'student_id': range(1001, 1021),
+    'student_name': [f'Student_{i}' for i in range(20)],
+    'course_name': np.random.choice(['Algebra Basics', 'Calculus I', 'Physics for Beginners', 'Intro to Programming'], 20),
+    'semester_taken': np.random.choice(['Fall 2023', 'Spring 2024'], 20),
+    'grade_percentage': np.random.randint(60, 101, 20),
+    'attendance_days': np.random.randint(10, 21, 20),
+    'project_score': np.random.randint(0, 101, 20),
+    'total_possible_attendance': 20
 }
-result = df.groupby('city').agg(agg_dict)
-
-# Named aggregations
-result = df.groupby('city').agg(
-    avg_grade=('grade', 'mean'),
-    max_grade=('grade', 'max'),
-    avg_age=('age', 'mean')
-)
-
-# Custom column names
-result.columns = ['_'.join(col).strip() for col in result.columns.values]
+df_grades = pd.DataFrame(data_grades)
 ```
 
-**Practice Problem 1: Basic GroupBy Operations**
+# 1. Split: GroupBy Operations
+
+```python
+# Group by single column (e.g., by course_name)
+grouped_by_course = df_grades.groupby('course_name')
+
+# Iterating through groups (e.g., by course_name)
+print("Iterating through groups by course_name:")
+for name, group in grouped_by_course:
+    print(name, '\n\n')
+    print(group[['student_name', 'grade_percentage', 'course_name']].head(2)) 
+    print("-" * 30)
+```
+
+```python
+# Group by multiple columns (e.g., by course_name and semester_taken)
+
+grouped_by_course_and_semester = df_grades.groupby(['course_name', 'semester_taken'])
+
+# Iterating through groups (e.g., by course_name)
+print("Iterating through groups by course_name:")
+for name, group in grouped_by_course_and_semester:
+    print(name, '\n\n')
+    print(group[['student_name', 'grade_percentage', 'course_name']].head(2)) 
+    print("-" * 30)
+```
+# 2. Apply
+
+### 1. Aggregation
+
+```python
+# Example: Mean grade_percentage per course_name
+df_grades.groupby('course_name')['grade_percentage'].mean()
+
+# Example: Multiple stats for grade_percentage per course_name
+df_grades.groupby('course_name')['grade_percentage'].agg(['mean', 'std', 'count'])
+
+ # Example: Different aggregations for different columns in df_grades
+df_grades.groupby('course_name').agg(
+    avg_grade=('grade_percentage', 'mean'),
+    total_attendance=('attendance_days', 'sum'),
+    avg_project_score=('project_score', 'mean')
+)
+```
+
+```python
+# Example: Aggregating with multiple column groups 
+df_grades.groupby(['course_name', 'semester_taken'])['grade_percentage'].mean()
+
+# Example: Multiple stats for grade_percentage per course_name
+df_grades.groupby(['course_name', 'semester_taken'])['grade_percentage'].agg(['mean', 'std', 'count'])
+
+ # Example: Different aggregations for different columns in df_grades
+df_grades.groupby(['course_name', 'semester_taken']).agg(
+    avg_grade=('grade_percentage', 'mean'),
+    total_attendance=('attendance_days', 'sum'),
+    avg_project_score=('project_score', 'mean')
+)
+```
+#### Practice Problem: Basic Aggregation Operations
+
 ```python
 data = {
     'student': ['John', 'Anna', 'Peter', 'Sarah', 'Mike', 'Emma', 'David', 'Linda'],
@@ -52,48 +104,29 @@ data = {
 df = pd.DataFrame(data)
 ```
 Tasks:
-- Calculate the average grade and attendance by city
-- Add columns for: city_avg_grade, grade_diff_from_city_avg
-- Find cities where the average grade is above 85
-- Calculate the percentage of students in each city with grades above 90
-- Determine if there are significant grade differences by gender in each city
+- Calculate the average grade and attendance by city using 
+- Find cities where the average grade is above 85 using  and boolean indexing
+- Calculate the percentage of students in each city with grades above 90 using  with a custom function
+- Determine if there are significant grade differences by gender in each city using with mean and std
 
-## 2. Transform Operations
-### Basic Transforms
+### 2. Transform Operations
+
 ```python
-# Add mean grade by city
-df['city_mean_grade'] = df.groupby('city')['grade'].transform('mean')
+# Add mean grade_percentage for each course_name to each student's row
+df_grades['grade_percentage_mean'] = df_grades.groupby('course_name')['grade_percentage'].transform('mean')
 
-# Multiple transforms
-transforms = {
-    'grade': ['mean', 'std'],
-    'age': 'mean'
-}
-df_transformed = df.groupby('city').transform(transforms)
+# Group-wise normalization (z-score) of grade_percentage within each course_name
+df_grades['grade_percentage_z_score'] = df_grades.groupby('course_name')['grade_percentage'].transform(lambda x: (x - x.mean()) / x.std())
 
-# Creating multiple columns at once
-df[['grade_mean', 'grade_std']] = df.groupby('city')['grade'].transform(['mean', 'std'])
+### Custom Transforms using df_grades
+df_grades['grade_percentage_rank'] = df_grades.groupby('course_name')['grade_percentage'].transform(lambda x: x.rank(pct=True))
 
-# Group-wise normalization
-df['grade_normalized'] = df.groupby('city')['grade'].transform(lambda x: (x - x.mean()) / x.std())
+# Calculate deviation of attendance_days from the median attendance_days in that course_name
+df_grades['attendance_dev_from_course_median'] = df_grades.groupby('course_name')['attendance_days'].transform(lambda x: x - x.median())
+
 ```
 
-### Custom Transforms
-```python
-# Calculate percentile within each group
-def percentile_rank(x):
-    return x.rank(pct=True)
-
-df['grade_percentile'] = df.groupby('city')['grade'].transform(percentile_rank)
-
-# Z-score within groups
-df['grade_zscore'] = df.groupby('city')['grade'].transform(lambda x: (x - x.mean()) / x.std())
-
-# Calculate deviation from group median
-df['grade_dev_from_median'] = df.groupby('city')['grade'].transform(lambda x: x - x.median())
-```
-
-**Practice Problem 2: Transform vs. Aggregation Challenge**
+#### Practice Problem: Transform 
 ```python
 import pandas as pd
 import numpy as np
@@ -123,7 +156,61 @@ Tasks:
 - Calculate a weighted final score that accounts for absences
 - Create a grading curve where the top 10% get A, next 20% get B, etc.
 
-## 3. Rolling Window Operations
+### 3. Filter Operations
+
+Filtration allows you to discard entire groups based on a group-wise computation that evaluates to `True` or `False`. This is useful when you want to focus your analysis on groups that meet certain criteria.
+
+```python
+
+# Example: Keep only courses where the average attendance_days is above 15
+df_grades.groupby('course_name').filter(lambda x: x['attendance_days'].mean() > 1)
+
+# Example: Keep only courses with at least 8 students
+df_popular_courses = df_grades.groupby('course_name').filter(lambda x: len(x) >= 8) 
+
+```
+
+#### Practice Problem: Filtering Student Data
+Using `df_grades`:
+
+1. Filter out `semester_taken` where the average `project_score` is below 70. Store the result in `df_strong_project_semesters`.
+   - Output: A DataFrame containing only rows from semesters where the average project score was >= 70.
+   - Columns: all columns from df_grades.
+
+2. Filter `df_grades` to keep only `course_name` groups where all students have `attendance_days` greater than 12. Store the result in `df_high_attendance_courses`.
+   - Output: A DataFrame containing only rows from courses where every student attended more than 12 days.
+   - Columns: all columns from df_grades.
+
+3. Find `course_name` groups where the range of `grade_percentage` (max - min) is less than 15 points. Store in `df_consistent_grade_courses`.
+   - Output: A DataFrame containing only rows from courses where the difference between the max and min grade is less than 15.
+   - Columns: all columns from df_grades.
+
+
+### 4. Custom Operations with apply
+
+The `.apply()` method is the most flexible GroupBy method. It takes a function and applies it to each group. The function can return a scalar, a Series, or a DataFrame. Pandas will then try to combine the results in a sensible way.
+Use `.apply()` when the desired operation doesn't fit neatly into `agg()`, `transform()`, or `filter()`. However, be mindful that `.apply()` can be slower than the more specific functions for common operations.
+
+```python
+# Example: For each course, return a Series with the range of grade_percentage and average project_score
+
+df_grades.groupby('course_name')['grade_percentage'].apply(lambda x: x.max() - x.min())
+
+# Example: For each semester, select the top 2 students based on grade_percentage
+df_grades.groupby('semester_taken')['grade_percentage'].apply(lambda x : x.nlargest(2))
+
+# Example: Apply a function that returns a DataFrame, modifying the group
+df_grades_with_norm_project = df_grades.groupby('course_name')['project_score'].apply(lambda x: (x - x.mean()) / x.std())
+```
+
+#### Practice Problem: Custom Group-wise Analysis
+
+Using `df_grades`:
+1.  Write a custom apply function that, for each `course_name`, calculates the average `attendance_days` and the number of unique `semester_taken` the course was offered in. The function should return a Pandas Series. Store the result in `course_attendance_semester_info`.
+2.  Write a custom apply function that, for each `semester_taken`, identifies students who scored below the semester's average `grade_percentage` but above the semester's average `project_score`. The function should return a DataFrame containing `student_id`, `student_name`, `grade_percentage`, and `project_score` for these students. Store the result in `df_mixed_performers_per_semester`.
+3.  For each `course_name`, use `.apply()` to add a new column `is_top_project_scorer` which is `True` if the student's `project_score` is equal to the maximum `project_score` in that course, and `False` otherwise.
+
+# Rolling Window Operations
 ### Basic Rolling
 ```python
 # Simple moving average
@@ -142,18 +229,6 @@ df['rolling_std'] = df['value'].rolling(window=3).std()
 ```python
 # Rolling average by group
 df['rolling_avg'] = df.groupby('city')['value'].rolling(3).mean().reset_index(0, drop=True)
-
-# Complex example with multiple steps
-def rolling_by_group(df, group_col, value_col, window):
-    # Group the dataframe
-    grouped = df.groupby(group_col)
-    # Apply rolling mean to each group
-    rolling_means = grouped[value_col].rolling(window=window).mean()
-    # Reset the index to align with original dataframe
-    result = rolling_means.reset_index(level=0, drop=True)
-    return result
-
-df['rolling_avg_by_city'] = rolling_by_group(df, 'city', 'value', 3)
 ```
 
 **Practice Problem 3: Time Series Rolling Windows**
@@ -182,132 +257,33 @@ Tasks:
 - Identify trends by calculating the rolling correlation between values and time
 - Create a summary showing min, max, and mean values by month for each group
 
-## 4. Advanced Aggregation Techniques
-### Custom Aggregation Functions
-```python
-def iqr(x):
-    return x.quantile(0.75) - x.quantile(0.25)
-
-# Use custom function in aggregation
-df.groupby('city')['grade'].agg(iqr)
-
-# Multiple custom functions
-def grade_summary(x):
-    return pd.Series({
-        'mean': x.mean(),
-        'above_90': (x >= 90).sum(),
-        'below_60': (x < 60).sum()
-    })
-
-df.groupby('city')['grade'].apply(grade_summary)
-
-# Custom function that returns a DataFrame
-def comprehensive_stats(group):
-    stats = {
-        'count': len(group),
-        'mean_grade': group['grade'].mean(),
-        'pass_rate': (group['grade'] >= 60).mean(),
-        'top_student': group.loc[group['grade'].idxmax()]['name']
-    }
-    return pd.Series(stats)
-
-df.groupby('city').apply(comprehensive_stats)
-```
-
-### Filter Groups
-```python
-# Filter groups with more than 5 students
-def filter_size(x):
-    return len(x) > 5
-
-filtered = df.groupby('city').filter(filter_size)
-
-# Filter based on mean grade
-def filter_mean_grade(x):
-    return x['grade'].mean() > 80
-
-filtered = df.groupby('city').filter(filter_mean_grade)
-
-# Combining filter with aggregation
-high_performing_groups = (
-    df.groupby('city')
-    .filter(lambda x: x['grade'].mean() > 85)
-    .groupby('city')
-    .agg({
-        'grade': ['mean', 'min', 'max'],
-        'name': 'count'
-    })
-)
-```
-
-**Practice Problem 4: Custom Aggregations Challenge**
-```python
-data = {
-    'store': ['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C'],
-    'product': ['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z'],
-    'sales': [100, 120, 90, 80, 95, 110, 120, 140, 100],
-    'returns': [5, 8, 3, 4, 7, 6, 8, 10, 5],
-    'stock': [50, 60, 45, 40, 50, 55, 60, 70, 50]
-}
-df = pd.DataFrame(data)
-```
-Tasks:
-- Calculate net sales (sales - returns) for each store-product combination
-- Find the return rate (returns/sales) by store
-- Create a custom aggregation function that computes:
-  - Total sales
-  - Average return rate
-  - Stock turnover (sales/stock)
-  - Best-selling product
-- Create a "performance score" combining sales performance and return rates
-- Rank stores based on overall performance
-
-## 5. Combining GroupBy with Other Operations
-### Groupby and Join
-```python
-# Create group statistics
-city_stats = df.groupby('city').agg(
-    avg_grade=('grade', 'mean'),
-    student_count=('name', 'count')
-)
-
-# Join back to original DataFrame
-df_with_stats = df.join(city_stats, on='city')
-
-# Alternative approach using transform
-df['avg_grade'] = df.groupby('city')['grade'].transform('mean')
-df['student_count'] = df.groupby('city')['name'].transform('count')
-```
-
-### Hierarchical Grouping
-```python
-# Groupby with hierarchical index
-hierarchical = df.groupby(['city', 'grade_level']).agg({
-    'grade': ['mean', 'count'],
-    'attendance': 'mean'
-})
-
-# Access specific group
-nyc_high_school = hierarchical.loc[('New York', 'High School')]
-
-# Unstack to reshape
-reshaped = hierarchical.unstack(level='grade_level')
-
-# Create hierarchical column index
-df.columns = pd.MultiIndex.from_tuples([
-    ('student', 'name'), ('student', 'age'), 
-    ('performance', 'grade'), ('performance', 'attendance')
-])
-grouped = df.groupby(('student', 'age')).mean()
-```
 
 #🃏/pandas-basics
 **Review Questions:**
-1. What is the difference between `transform()` and `agg()`?
-2. How can you apply different aggregation functions to different columns?
-3. When would you use `rolling()` operations, and what are their key parameters?
-4. How can you create custom aggregation functions?
-5. What is the difference between `filter()` and `transform()` in groupby operations?
-6. How do you handle hierarchical group structures?
-7. What are the advantages and limitations of the `transform()` method?
-8. How can you optimize groupby operations for large datasets? 
+
+What is the difference between `agg()`, `transform()`, `filter()` and `apply()`?
+For every operation provide a simple example
+?
+- `agg()` is used to **unite all the group's observations** into a single/several characteristics
+	- Example: divide students by groups and calculate group's mean
+- `transform()` is used to **modify every observation** based on the group's statistics 
+	- Example: calculate ranks given people's heights
+- `filter()` is used to **exclude certain groups** based on their single/several characteristics
+	- Example: divide students by groups and exclude groups where average score <= 40
+- `apply()`  is more general and can be used for everything
+
+`pd.Series` `apply(func...)` method accepts a function. What will be assigned as the first parameter of that `func` function when using:
+- Ordinal pandas dataframe?
+- GroupbyObject?
+?
+- a whole single column/row of the dataframe `pd.Series` object
+- only few within-group observations of that column passed as `pd.Series` object
+
+Why won't we always use `apply()`?
+?
+It is much slower compared to more specific  `agg()`, `transform()`, `filter()`
+
+When would you use `rolling()` operations?
+?
+While calculating statistics for structured data, like calculating mean average for a time series
+
