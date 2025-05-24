@@ -53,7 +53,7 @@ What are the generator expressions? Why are they used, how are they benefitial f
 (i for i in range(10000000))
 ```
 Are used for the collections lazy-creation. Here, we are not creating a whole collection of numbers, but rather create objects one by one. That's so simple yet convinient
-<!--SR:!2025-05-22,67,310-->
+<!--SR:!2026-03-07,287,330-->
  
 
 ### Yield from
@@ -84,7 +84,7 @@ for i in outer_gen():
 Conceptually, what is a generator, how is it different from a iterator?
 ?
 Both of them must implement `__next__` and `__iter__` methods. The difference is: the iterator is only responsible for traversing some collection, while generators can create their own values or modify values they extract
-<!--SR:!2025-05-16,61,312-->
+<!--SR:!2026-02-13,265,332-->
 
 
 What is the purpose of the yield keyword? What if I call a `__next__` method multiple times on a generator created by yield-containing function?
@@ -93,7 +93,7 @@ What is the purpose of the yield keyword? What if I call a `__next__` method mul
 	- Whenever you call the `__next__` method on this generator, the function will be executed, from the starting point and all the way up to the `yield` keyword
 	- Next time you call `__next__`, the same function will be executed, but not from the beginning, rather than from the point you have hit the `yield` keyword last time
 	- This behaviour continues up to the point when the function has completed it's execution and now `yield` keyword is met. When the generator returns no value, and stops it's execution
-<!--SR:!2025-05-12,57,312-->
+<!--SR:!2026-01-25,246,332-->
 
 
 What is the usage of `yield from` method?
@@ -109,7 +109,7 @@ def outer_gen():
     yield from 'abc'  
     yield from base_gen()
 ```
-<!--SR:!2025-05-23,68,312-->
+<!--SR:!2026-03-13,293,332-->
 
 
 

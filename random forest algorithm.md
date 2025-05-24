@@ -67,7 +67,7 @@ where
 - $T(x,\Theta_{i}(Z))$ is the output of the i-th tree classifier on an input vector x;
 - $\sigma^{2}(x)$ is the sample variance of any randomly selected tree $$\large \sigma^2(x) = Var\left[T(x,\Theta(X))\right]$$
 - This formula clearly shows that the total variance term is proportional to both single tree variance and the correlation between two random trees from the forest. No matter how single tree variance is big, if correlation is close to zero the all-together error would also be.
-<!--SR:!2025-05-18,63,310-->
+<!--SR:!2026-02-15,267,330-->
 
 
 How to tune tree *depth* and *min_samples_leaf* parameters for both classification and regression tasks?
@@ -75,6 +75,6 @@ How to tune tree *depth* and *min_samples_leaf* parameters for both classificati
 - Depth parameter does usually stay unlimited, because tree's variance does not bother us too much when using bagging. So this way our trees will have the lowest bias possible
 - Min_samples_leaf parameter is usually set to 1 for classification tasks, resulting into fully-grown tree, for the same purpose
 - Min_samples_leaf parameter is usually set to 5-6 for regression tasks, because continuous data do always contain some noise, and we would like to sort of "bin" this data by increasing min_samples_leaf. This way, our tree won't remember each and every observation and won't be so overfitted.
-<!--SR:!2025-05-15,60,310-->
+<!--SR:!2026-01-30,251,330-->
 
 

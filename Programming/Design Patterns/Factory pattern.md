@@ -54,7 +54,7 @@ class StrategyContextParse:
 		return parser.parse
 ```
 In this example we actually have combined **Factory** and **Strategy** patterns, as they are often used together. Factory pattern handles conditional creation logic, and Strategy pattern is used to actually perform the parsing itself, utilizing creater preprocessors as strategies.
-<!--SR:!2025-05-14,180,310-->
+<!--SR:!2026-12-03,558,310-->
 
 ## Practical tasks:
 1. **Document Parser Factory**

@@ -123,13 +123,13 @@ Hash is an integer value - a unique identifier of a python object. Hashes are be
 	- For containers (frozensets, tuples) the hash can be calculated only if immutable objects are the inside
 - For user custom-defined functions, classes hash is being calculated using the memory address (`id`) of the object, and is being sustainable only throughout a single interpreter session.
 	- To enhance sustainability, one must provide `__hash__` and `__eq__` magic methods inside the class.
-<!--SR:!2025-05-21,66,316-->
+<!--SR:!2026-03-08,288,336-->
 
 
 Adding to hashmap/lookup operation complexity
 ?
 Both operations have O(1) complexity
-<!--SR:!2025-05-17,62,316-->
+<!--SR:!2026-02-19,271,336-->
 
 
 How are new elements added to a HashMap? Describe the full process, accounting for the possible hash/index collisions
@@ -140,7 +140,7 @@ How are new elements added to a HashMap? Describe the full process, accounting f
 	- If there are the collision, check if objects stored in a bucket is equal to your object
 		- If they are equal, do nothing (your element is already presented in a hashtable)
 		- If they are unequal, increment the index and move on to the next bucket. Repeat the process
-<!--SR:!2025-05-13,58,316-->
+<!--SR:!2026-02-01,253,336-->
  
 
 How are the element being looked up in a hashtable?
@@ -153,7 +153,7 @@ How are the element being looked up in a hashtable?
 		1. If elements are equal, return `True`
 		2. If not, increment the index and move up to the next bucket. Repeat the process once again
 			1. If next bucket is empty (which means that element is not presented anywhere within a hashtable), return `False`
-<!--SR:!2025-05-20,65,316-->
+<!--SR:!2026-03-03,283,336-->
 
 
 When and how does python increase the size of the hashmap?
@@ -161,7 +161,7 @@ When and how does python increase the size of the hashmap?
 - Python keeps track of amount of empty buckets, taking care so there will be at least 1/3 of them in a hashmap.
 	- Whenever the number of empty buckets lowers to this limit, python doubles the size of the hashmap and copies all the data from the old one to the new one.
 		- This is done to performance reasons, otherwise collisions will be processes in O(n) times, which will reduce the speed of the hashmap a lot
-<!--SR:!2025-05-17,62,316-->
+<!--SR:!2026-02-17,269,336-->
 
 
 
