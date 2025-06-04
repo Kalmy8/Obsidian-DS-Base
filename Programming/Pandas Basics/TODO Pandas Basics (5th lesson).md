@@ -1,5 +1,5 @@
 **Codewords:** GroupBy, Aggregation, Transform, Rolling Windows
-
+	TODO joins with ',' join and tolist
 # General Principle: split-apply-combine
 
 The "split-apply-combine" strategy is a powerful way to perform complex data analysis:

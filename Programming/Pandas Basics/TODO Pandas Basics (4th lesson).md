@@ -1,5 +1,6 @@
 **Codewords:** Merge, Join, Concatenate, SQL-style Joins, Combining DataFrames
 
+todo simplify last task
 ## Mock Dataframes
 
 ```python
@@ -14,7 +15,7 @@ data1 = {
 df1 = pd.DataFrame(data1)
 ```
 
-![[Pasted image 20250518121103.png | 300]]
+![[Pasted image 20250518121103.png|300]]
 
 ```python
 data2 = {
@@ -26,7 +27,7 @@ data2 = {
 df2 = pd.DataFrame(data2)
 ```
 
-![[Pasted image 20250518121202.png | 300]]
+![[Pasted image 20250518121202.png|300]]
 ## 1. Concatenating DataFrames
 
 **Vertical concatenation:**
@@ -37,7 +38,7 @@ df2 = pd.DataFrame(data2)
 df3 = pd.concat([df1, df2], axis=0)
 ```
 
-![[Pasted image 20250518121434.png | 500]]
+![[Pasted image 20250518121434.png|500]]
 
 >[!Note]
 >Resulting DataFrame could have duplicated indexes (like in example above), which may be counterintuitive
@@ -52,7 +53,7 @@ df3 = pd.concat([df1, df2], axis=0)
 # Keep only common columns
 df3 = pd.concat([df1, df2], join='inner')  
 ```
-![[Pasted image 20250518123803.png| 200]]
+![[Pasted image 20250518123803.png|200]]
 
 
 **Horizontal Concatenation:**
@@ -229,12 +230,12 @@ import pandas as pd
 df_left = pd.DataFrame({'student_names': ['Alex', 'Victor'], 'math_grade': [100, 50]})
 df_right = pd.DataFrame({'names':  ['Alex', 'Victor'], 'history_grade': [56, 78]})
 ```
-![[Pasted image 20250518132831.png | 250]]
-![[Pasted image 20250518132846.png | 250]]
+![[Pasted image 20250518132831.png|250]]
+![[Pasted image 20250518132846.png|250]]
 ```python
 pd.merge(df_left, df_right, left_on='student_names', right_on='names', how='inner')
 ```
-![[Pasted image 20250518132813.png | 500]]
+![[Pasted image 20250518132813.png|500]]
 
 #### Duplicated columns
 If DataFrames share non-key column names, `suffixes` helps distinguish them.
@@ -253,7 +254,7 @@ df_system_B_contacts = pd.DataFrame({
 })
 ```
 
-![[Pasted image 20250518134308.png | 350]]
+![[Pasted image 20250518134308.png|350]]
 ```python
 pd.merge(df_system_A_contacts, df_system_B_contacts, on='student_id', how='outer', suffixes=['_systemA', '_systemB'])
 ```
@@ -275,14 +276,14 @@ df_enrollments = pd.DataFrame({
 })
 ```
 
-![[Pasted image 20250518134533.png | 270]]
+![[Pasted image 20250518134533.png|270]]
 
 ```python
 # One-to-many merge: student details will be duplicated for each course enrollment
 pd.merge(df_students, df_enrollments, on='student_id', how='left')
 ```
 
-![[Pasted image 20250518134550.png | 400]]
+![[Pasted image 20250518134550.png|400]]
 
 >[!Warning]
 >Unexpected duplication (due to hidden 1:M relationships) cause many problems which are hard to detect later!
@@ -372,7 +373,7 @@ df_final_eval = pd.DataFrame({
 ```
 *   **Your Goal:** Combine the midterm and final evaluations for students into a single DataFrame. It is crucial that the `general_feedback` from the midterm is clearly distinguishable from the `general_feedback` from the final evaluation.
 
-**3. Task: Listing Faculty by Department 
+**3. Task: Listing Faculty by Department** 
 
 ```python
 df_university_departments = pd.DataFrame({

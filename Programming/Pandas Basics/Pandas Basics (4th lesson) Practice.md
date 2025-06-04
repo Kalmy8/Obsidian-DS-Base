@@ -31,7 +31,7 @@ df_course_catalog = pd.DataFrame({
 	'credits_hours': [3, 4, 4, 3, 3, 4, 3, 4],
 	'related_major_code': ['CS', 'ENG', 'CS', 'PSY', 'JRN', 'ENG', 'ART', 'BIO'] # Note: MAT101 related to CS, PHY101 to ENG for this example
 })
-    ```
+```
 **Tasks:**
     1.  **Master Student Report:** Create a single DataFrame that combines student registry information with their full department name (from `df_program_details`). Then, merge this with their Fall 2023 course grades and full course titles. The final report should show `student_name`, `department_name`, `enrollment_year`, `course_full_title`, and `grade_numeric_percent` for all recorded grades.
     2.  **High Achievers in CS:** From the master report (or by re-merging), filter to find all students majoring in 'Computer Science' who scored 90% or higher in any of their Fall 2023 courses. Display their `student_name`, `course_full_title`, and `grade_numeric_percent`.
@@ -73,7 +73,7 @@ df_customer_details = pd.DataFrame({
 	'registration_date': pd.to_datetime(['2022-01-15', '2022-03-20', '2023-02-10', '2023-05-01']),
 	'city_shipping': ['New York', 'Los Angeles', 'Chicago', 'Houston']
 })
-    ```
+```
 **Tasks:**
     1.  **Total Book Inventory:** Use `melt` to transform `df_books_inventory` so that warehouse stock quantities are in a long format (columns: `book_isbn13`, `warehouse_id`, `stock_quantity`). Then, calculate the total stock quantity for each book across all warehouses.
     2.  **Detailed Order Report:** Create a report that combines customer orders with book details (title, price, full genre name) and customer details (name, city). Calculate the total price for each item in an order (quantity * unit price).
@@ -178,7 +178,7 @@ df_book_loans_records = pd.DataFrame({
 	'date_loaned_out': pd.to_datetime(['2023-10-01', '2023-10-03', '2023-10-05', '2023-10-10', '2023-10-12', '2023-10-15', '2023-10-18', '2023-10-20']),
 	'date_returned_actual': pd.to_datetime(['2023-10-15', '2023-10-17', '2023-10-19', '2023-10-24', '2023-10-26', '2023-10-30', None, None]) # Some books not yet returned
 })
-    ```
+```
 **Tasks:**
     1.  **Loan Activity Report:** Create a detailed report by merging the three DataFrames. The report should include `member_name_registered`, `title_primary` of the book, `author_full_name`, `date_loaned_out`, and `date_returned_actual`.
     2.  **Loan Duration:** For all returned books, calculate the duration of each loan in days. Add this as a new column `loan_duration_days` to the loan activity report. Filter out books that haven't been returned yet for this calculation.
