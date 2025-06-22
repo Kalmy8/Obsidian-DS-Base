@@ -30,9 +30,14 @@ We are all used to some procedure programming from schools and universities, bec
 
 Whenever you are dealing with a new task, to actually DESCRIBE and write all the processes going. 
 
-Example: 
+**Example:** 
 Let's say you want to make a renovation in your new flat. What are the required steps to take? Let's write a recipe:
-> In order to make the renovation, I firstly will hire a **supervisor: a man**, who will *find and communicate* proper specialists for me. First, he will hire a **measurer** *to make a complete measurement* and *pass all the data back to the supervisor*. When, a **designer** will *make a project of the flat*, with respect to all the measurements, and *return a list of the reqired furniture and it's parameters*. **Supervisor** *buys* all the furniture. Lastly, the **worker**  *places all the furniter to the corresponding positions*  .
+> In order to make the renovation: 
+> - I firstly will hire a **supervisor: a man**, who will *find and communicate* proper specialists for me
+> - First, he will hire a **measurer** *to make a complete measurement* and *pass all the data back to the supervisor*. 
+> - When, a **designer** will *make a project of the flat*, with respect to all the measurements, and *return a list of the reqired furniture and it's parameters*. 
+> - **Supervisor** *buys* all the furniture. 
+> - Lastly, the **worker**  *places all the furniter to the corresponding positions*.
 ```python
 class Supervisor:
     def __init__(self):

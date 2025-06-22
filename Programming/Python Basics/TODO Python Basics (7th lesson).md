@@ -1,4 +1,5 @@
-**Codewords**:  Lambda Functions, `functools` library, `map()`, `sorted()`, `zip()`
+**Codewords**:  Lambda Functions, `functools` library, `map()`
+TODO zip, sorted, join
 
 ### Lambda Functions
 Lambda functions are small, anonymous functions defined using the `lambda` keyword.  They are especially useful for short, simple operations.
