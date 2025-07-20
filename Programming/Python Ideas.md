@@ -41,4 +41,4 @@ You need to specify **\_\_str\_\_** or **\_\_repr\_\_** magic method inside your
 def __repr__(self) -> str:
 	return f"{type(self).__name__}(x={self.x}, y={self.y})"
 ```
-<!--SR:!2025-07-08,235,330-->
+<!--SR:!2026-07-20,365,350-->

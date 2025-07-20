@@ -50,7 +50,7 @@ What is the difference between denoting elementary events as sequences vs. colle
 ?
 Tossing a coin 2 times in a row: $\Omega=\{w : (a,b)\text{ for } a,b \in (Heads, Tails)\}$
 Rolling 2 dices at once: $\Omega=\{w : [a,b]\text{ for } a,b \in (⚀⚁⚂⚃⚄⚅)\}$
-<!--SR:!2025-06-07,104,310-->
+<!--SR:!2026-07-20,365,330-->
 
 Definition of an event in probability. Example of how it can be represented using subsets of a fundamental probability set
 ?
