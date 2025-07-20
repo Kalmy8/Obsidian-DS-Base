@@ -127,7 +127,7 @@ supervisor.renovate()
 - Encapsulate the balance so it cannot be directly modified outside the class.
 
 **Simple Rectangle:**
-- Create a `Rectangle` class with attributes `length` and `width`. 
+- Create a `Rectangle` class with attributes `length` and `width` 
 - Implement methods to calculate the `area()` and `perimeter()`
 
 **Library Book System:** 

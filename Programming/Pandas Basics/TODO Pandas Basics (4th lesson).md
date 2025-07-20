@@ -1,6 +1,6 @@
 **Codewords:** Merge, Join, Concatenate, SQL-style Joins, Combining DataFrames
 
-todo simplify last task
+todo simplify last task (NO GROUPBY )
 ## Mock Dataframes
 
 ```python
@@ -396,6 +396,7 @@ df_department_faculty = pd.DataFrame({
 
 **4. Task: Advanced relationship modeling:**
 ```python
+TODO BROKEN TASK CAN NOT SOLVE WITHOUT GROUPBY
 # Authors
 authors = pd.DataFrame({
     'author_id': [1, 2, 3, 4, 5],
@@ -404,22 +405,22 @@ authors = pd.DataFrame({
 
 # Books
 books = pd.DataFrame({
-    'book_id': [101, 102, 103, 104, 105, 106],
-    'title': ['Book A', 'Book B', 'Book C', 'Book D', 'Book E', 'Book F'],
-    'genre': ['Fiction', 'Science', 'Fiction', 'Biography', 'Science', 'History']
+    'book_id': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    'title': ['Book A', 'Book B', 'Book C', 'Book D', 'Book E', 'Book F', 'Book G', 'Book H', 'Book I', 'Book J'],
+    'genre': ['Fiction', 'Science', 'Fiction', 'Biography', 'Science', 'History', 'Fiction', 'Science', 'Fiction', 'Science']
 })
 
 # Authorship (mapping authors to books, including co-authorship)
 authorship = pd.DataFrame({
-    'author_id': [1, 2, 2, 3, 4, 4, 5, 5],
-    'book_id': [101, 101, 102, 103, 104, 105, 105, 106]
+    'author_id': [1, 2, 2, 3, 4, 4, 5, 5, 1, 3, 2, 4, 2, 4],
+    'book_id': [101, 101, 102, 103, 104, 105, 105, 106, 107, 107, 108, 109, 110, 110]
 })
 
 # Book sales
 sales = pd.DataFrame({
-    'book_id': [101, 102, 103, 104, 105, 106],
-    'copies_sold': [5000, 7500, 3000, 8000, 6000, 4500],
-    'revenue': [50000, 90000, 30000, 120000, 72000, 54000]
+    'book_id': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    'copies_sold': [5000, 7500, 3000, 8000, 6000, 4500, 4000, 9000, 2500, 12000],
+    'revenue': [50000, 90000, 30000, 120000, 72000, 54000, 48000, 110000, 25000, 150000]
 })
 ```
 Tasks:

@@ -1,5 +1,9 @@
 **Codewords:** Pivot, Melt, Stack, Unstack, Reshape Operations, Wide vs. Long Format
 
+TODO make pivot and melt methods to make table "more wide" or "more long" format
+
+TODO объяснить что таблица полностью задается пересечением 
+индекса, колонки и значения
 ## 1. Understanding Data Formats
 ### Wide (Unstacked/Spreadsheet) Format
 

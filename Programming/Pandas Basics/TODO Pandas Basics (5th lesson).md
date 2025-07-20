@@ -10,6 +10,7 @@ The "split-apply-combine" strategy is a powerful way to perform complex data ana
     - custom function 
 3.  **Combine:** The results of these operations are then combined into a new DataFrame or Series
 
+TODO examples with apply and cross-column interactions
 # Mock DataFrame
 Let's define a reusable mock DataFrame for our examples. This DataFrame contains student grades and related information for various courses.
 
@@ -131,6 +132,8 @@ Tasks:
 - Determine if there are significant grade differences by gender in each city by calculating the mean and standard deviation of grades.
 
 ### 2. Transform Operations
+todo description
+Sequence[N] --> Sequence[N]
 
 ```python
 # Add mean grade_percentage for each course_name to each student's row
@@ -144,7 +147,6 @@ df_grades['grade_percentage_rank'] = df_grades.groupby('course_name')['grade_per
 
 # Calculate deviation of attendance_days from the median attendance_days in that course_name
 df_grades['attendance_dev_from_course_median'] = df_grades.groupby('course_name')['attendance_days'].transform(lambda x: x - x.median())
-
 ```
 
 #### Practice Problem: Transform 
@@ -174,7 +176,6 @@ Tasks:
   - Class average score
   - Student's percentile within the class
   - Normalized score (z-score)
-- Calculate a weighted final score that accounts for absences
 - Create a grading curve where the top 10% get A, next 20% get B, etc.
 
 ### 3. Filter Operations
@@ -330,6 +331,7 @@ Fill the gaps:
 - `filter` maps Sequence[N] -> Sequence[M<=N]
 - `apply` maps Sequence[N] -> Sequence[M], where `M` can be arbitrary
 
+TODO ITS NOT TRUE I GUESS
 Crucial distinguish:
 - `agg()`, `transform()`, `filter()` can hold functions, which take ... as their parameter
 - `apply()` can hold functions, which take ... as their parameter

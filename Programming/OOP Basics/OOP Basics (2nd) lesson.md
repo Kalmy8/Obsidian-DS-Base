@@ -2,8 +2,9 @@
 **Codewords:** OOP principles: Encapsulation, Abstraction, Getters, Setters
 
 ## 1. Encapsulation:
-*   **Definition:** Encapsulation is bundling data (variables) and the methods (functions) that operate on that data within a single unit—a class. **This protects the data by restricting direct access from outside the class and allows controlled access through defined methods.**
-*   **Illustration:** Imagine a car. The engine, fuel tank, and braking system are all encapsulated within the car's body. You interact with the car through its controls (steering wheel, pedals) without directly manipulating the internal engine components.
+
+* **Definition:** Encapsulation is bundling data (variables) and the methods (functions) that operate on that data within a single unit—a class. **This protects the data by restricting direct access from outside the class and allows controlled access through defined methods.**
+* **Illustration:** Imagine a car. The engine, fuel tank, and braking system are all encapsulated within the car's body. You interact with the car through its controls (steering wheel, pedals) without directly manipulating the internal engine components.
 
     ```python
     class Car:
@@ -52,27 +53,28 @@
   - **Getters:** Methods that allow you to *retrieve* the value of a private attribute.
 ```python
 def get_fuel_level(self):  # Getter method
-            return self.__fuel_level
+	return self.__fuel_level
 ```
   - **Setters:** Methods that allow you to *modify* the value of a private attribute, often with validation to ensure data integrity.
 ```python
 def set_fuel_level(self, fuel_amount):  # Setter method
-            if 0 <= fuel_amount <= 50:
-                self.__fuel_level = fuel_amount
-                print(f"Fuel level set to: {self.__fuel_level}L")
-            else:
-                print("Invalid fuel amount."))
+	if 0 <= fuel_amount <= 50:
+		self.__fuel_level = fuel_amount
+		print(f"Fuel level set to: {self.__fuel_level}L")
+	else:
+		print("Invalid fuel amount."))
 ```
 
 #### @property 
+
 We should mention that Python has built-in instruments for creating getters and setters.
 
 > I prefer not to use them, as it seems less obvious and clear for me. But knowing them is required to have no issues reading some other's code
 
 ```python
 class MyClass:
-    def __init__(self, value):
-        self._value = value  # Using single underscore to indicate "protected"
+    def __init__(self, smth):
+        self._value = smth  # Using single underscore to indicate "protected"
 
     @property
     def value(self):  # Getter
@@ -80,10 +82,10 @@ class MyClass:
         return self._value
 
     @value.setter
-    def value(self, new_value):  # Setter
+    def value(self, new_smth):  # Setter
         print(f"Setting value to {new_value}")
         if new_value > 0:
-            self._value = new_value
+            self._value = new_smth
         else:
             raise ValueError("Value must be positive")
 
@@ -102,7 +104,6 @@ del obj.value      # Calls the deleter: "Deleting value"
 1. **`@property`:**  The `@property` decorator above a method makes that method act like a "getter" for an attribute.
 2. **`@<attribute>.setter`:** The `@<attribute>.setter` decorator above a method makes that method act like a "setter" for the attribute. The attribute name must match the name used with `@property`.
 3. **`@<attribute>.deleter`:** The `@<attribute>.deleter` decorator defines a method to be called when the attribute is deleted (using `del`).
-
 
 ### Tasks
 
