@@ -11,6 +11,9 @@ The "split-apply-combine" strategy is a powerful way to perform complex data ana
 3.  **Combine:** The results of these operations are then combined into a new DataFrame or Series
 
 TODO examples with apply and cross-column interactions
+TODO say that without agg you do not need groupby: transform and filter 
+are just syntax sugar
+
 # Mock DataFrame
 Let's define a reusable mock DataFrame for our examples. This DataFrame contains student grades and related information for various courses.
 
@@ -131,7 +134,7 @@ Tasks:
 - Calculate the percentage of students in each city with grades above 90 using a custom function with `.agg()`.
 - Determine if there are significant grade differences by gender in each city by calculating the mean and standard deviation of grades.
 
-### 2. Transform Operations
+### 2. Transform Operations TODO убрать насовсем?
 todo description
 Sequence[N] --> Sequence[N]
 
@@ -178,7 +181,7 @@ Tasks:
   - Normalized score (z-score)
 - Create a grading curve where the top 10% get A, next 20% get B, etc.
 
-### 3. Filter Operations
+### 3. Filter Operations TODO убрать насовсем?
 
 Filtration allows you to discard entire groups based on a group-wise computation that evaluates to `True` or `False`. This is useful when you want to focus your analysis on groups that meet certain criteria.
 
@@ -192,7 +195,7 @@ df_popular_courses = df_grades.groupby('course_name').filter(lambda x: len(x) >=
 
 ```
 
-#### Practice Problem: Filtering Student Data
+#### Practice Problem: Filtering Student Data 
 Using `df_grades`:
 
 1. Filter out `semester_taken` where the average `project_score` is below 70. Store the result in `df_strong_project_semesters`.

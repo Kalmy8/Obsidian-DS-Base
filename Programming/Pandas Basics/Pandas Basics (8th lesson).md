@@ -1,319 +1,280 @@
-**Codewords:** Time Series, Visualization, Memory Optimization, String Methods, Categorical Data
+**Codewords:** Seaborn visualization
 
-## 1. Time Series Data
-### Working with Dates and Times
+### 0. Where do different type of plots come?
+
+Generally speaking, there are only 2 types of variables you can observe in a dataset:
+- [[discrete variable]]: school grade, blood type, color
+- [[continuous variable]]: age, height, weight
+
+All the plots in the world do only answer 2 questions:
+- What is the relationship between some several (2 or more) variables?
+- What are the characteristics of a single given variable?
+
+Thus, every different plot covers up some combination above:
+1) Lineplot/scatterplot shows the **relationship** between 2 **continuous** variables
+2) Histogram shows the **distribution** of a given **continuous or discrete variable**
+
+### Mock DataFrame
 ```python
-# Creating datetime objects
-import pandas as pd
-from datetime import datetime
-
-# Create a series of dates
-dates = pd.date_range(start='2023-01-01', end='2023-01-31', freq='D')
-dates = pd.date_range(start='2023-01-01', periods=31, freq='D')
-
-# Create a DataFrame with date index
-df = pd.DataFrame({'value': range(31)}, index=dates)
-
-# Convert string columns to datetime
-df['date_col'] = pd.to_datetime(df['string_date_col'])
-df['date_col'] = pd.to_datetime(df['string_date_col'], format='%Y-%m-%d')
-df['date_col'] = pd.to_datetime(df['string_date_col'], errors='coerce')  # Invalid dates become NaT
-```
-
-### Date Components and Properties
-```python
-# Access date components
-df['year'] = df['date_col'].dt.year
-df['month'] = df['date_col'].dt.month
-df['day'] = df['date_col'].dt.day
-df['weekday'] = df['date_col'].dt.weekday  # 0 = Monday, 6 = Sunday
-df['day_name'] = df['date_col'].dt.day_name()
-
-# Date properties
-df['is_weekend'] = df['date_col'].dt.weekday >= 5
-df['quarter'] = df['date_col'].dt.quarter
-df['is_month_end'] = df['date_col'].dt.is_month_end
-```
-
-### Resampling Time Series
-```python
-# Set a datetime index
-df.set_index('date_col', inplace=True)
-
-# Downsample to monthly frequency
-monthly_mean = df.resample('M').mean()
-monthly_sum = df.resample('M').sum()
-
-# Upsample to daily frequency (with fill method)
-daily = monthly_mean.resample('D').ffill()  # Forward fill
-daily = monthly_mean.resample('D').bfill()  # Backward fill
-daily = monthly_mean.resample('D').interpolate()  # Interpolation
-
-# Common frequencies
-# 'D': calendar day
-# 'B': business day
-# 'W': weekly (default Sunday)
-# 'M': month end
-# 'Q': quarter end
-# 'A': year end
-# 'H': hourly
-# 'T' or 'min': minute
-# 'S': second
-```
-
-### Shifting and Lagging
-```python
-# Shift data (time lag)
-df['previous_day'] = df['value'].shift(1)  # Shift 1 day back
-df['next_day'] = df['value'].shift(-1)  # Shift 1 day forward
-
-# Calculate differences
-df['daily_change'] = df['value'].diff()  # Current value - previous value
-df['pct_change'] = df['value'].pct_change()  # Percentage change
-
-# Rolling calculations with time-based windows
-df['7d_avg'] = df['value'].rolling('7D').mean()  # 7-day rolling average
-df['30d_std'] = df['value'].rolling('30D').std()  # 30-day rolling standard deviation
-```
-
-## 2. Pandas Visualization
-### Basic Plotting
-```python
-# Plot a Series
-s = pd.Series(range(10))
-s.plot()
-
-# Plot a DataFrame
-df = pd.DataFrame({
-    'A': range(10),
-    'B': [x*2 for x in range(10)],
-    'C': [x**2 for x in range(10)]
-})
-df.plot()
-
-# Common plot types
-df.plot(kind='line')
-df.plot(kind='bar')
-df.plot(kind='barh')
-df.plot(kind='hist')
-df.plot(kind='box')
-df.plot(kind='area')
-df.plot(kind='scatter', x='A', y='B')
-df.plot(kind='pie', y='A')
-```
-
-### Customizing Plots
-```python
-# Plot customization
-df.plot(
-    figsize=(10, 6),
-    title='My Plot',
-    grid=True,
-    legend=True,
-    alpha=0.7,
-    color=['r', 'g', 'b'],
-    style=['-', '--', ':']
-)
-
-# Multiple subplots
-fig, axes = plt.subplots(2, 2, figsize=(12, 8))
-df['A'].plot(ax=axes[0, 0], title='A')
-df['B'].plot(ax=axes[0, 1], title='B')
-df['C'].plot(ax=axes[1, 0], title='C')
-(df['A'] / df['B']).plot(ax=axes[1, 1], title='A/B')
-
-# Save figure
-plt.savefig('my_plot.png', dpi=300, bbox_inches='tight')
-```
-
-### Statistical Visualizations
-```python
-# Distribution visualization
-df['A'].plot(kind='hist', bins=20)
-df.plot(kind='box')
-df.plot(kind='density')
-
-# Correlation visualization
-correlation = df.corr()
-import matplotlib.pyplot as plt
-import seaborn as sns
-plt.figure(figsize=(10, 8))
-sns.heatmap(correlation, annot=True, cmap='coolwarm')
-
-# Grouped bar chart
-grouped = df.groupby('category').mean()
-grouped.plot(kind='bar')
-```
-
-## 5. Categorical Data
-### Creating and Using Categories
-```python
-# Convert to categorical
-df['category_col'] = df['category_col'].astype('category')
-
-# Create with ordered categories
-df['size'] = pd.Categorical(
-    df['size'],
-    categories=['small', 'medium', 'large'],
-    ordered=True
-)
-
-# Working with categories
-print(df['category_col'].cat.categories)  # Get categories
-print(df['category_col'].cat.codes)  # Get underlying codes
-
-# Modify categories
-df['category_col'] = df['category_col'].cat.add_categories(['new_category'])
-df['category_col'] = df['category_col'].cat.remove_categories(['old_category'])
-df['category_col'] = df['category_col'].cat.rename_categories({'old': 'new'})
-df['category_col'] = df['category_col'].cat.reorder_categories(['c', 'b', 'a'], ordered=True)
-```
-
-### Memory Benefits
-```python
-# Check memory usage before
-before = df['text_col'].memory_usage(deep=True)
-
-# Convert to category
-df['text_col'] = df['text_col'].astype('category')
-
-# Check memory usage after
-after = df['text_col'].memory_usage(deep=True)
-print(f"Memory reduction: {(1 - after/before)*100:.2f}%")
-```
-
-#🃏/pandas-basics
-**In-conspect Problems:**
-1. Time Series Analysis:
-```python
-# Stock price data
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Create date range
-dates = pd.date_range(start='2023-01-01', end='2023-12-31', freq='B')  # Business days
-
-# Create stock price data
 np.random.seed(42)
-stock_data = pd.DataFrame({
-    'price': 100 + np.cumsum(np.random.normal(0, 1, len(dates)))
-}, index=dates)
-
-# Add some missing days
-stock_data = stock_data.drop(stock_data.index[10:20])
-stock_data = stock_data.drop(stock_data.index[150:155])
+df = pd.DataFrame({
+    'city': np.random.choice(['Moscow', 'London', 'Paris'], 100),
+    'year': np.random.choice([2022, 2023], 100),
+    'sales': np.random.normal(1000, 200, 100).astype(int),
+    'profit': np.random.normal(200, 50, 100).astype(int),
+    'category': np.random.choice(['A', 'B', 'C'], 100)
+})
 ```
-Tasks:
-- Calculate daily returns and annualized volatility
-- Fill in missing dates using appropriate methods
-- Create monthly and quarterly summaries of the stock performance
-- Calculate a 10-day and 30-day moving average
-- Compare the performance in different quarters and months
-- Create a visualization showing the stock price, moving averages, and highlighting the best and worst months
 
-2. Data Visualization Challenge:
+# Plotting Relationships
+
+## Relationship Visualization Table
+
+| Plot Type         | X         | Y         | Use Case                        | Seaborn Function      |
+|-------------------|-----------|-----------|----------------------------------|-----------------------|
+| Scatter           | Continuous| Continuous| Relationship between 2 continuous variables | sns.scatterplot       |
+| Line              | Discrete/Continuous| Continuous| Trend over time/group         | sns.lineplot          |
+| Bar               | Discrete  | Continuous| Compare means/totals by group   | sns.barplot           |
+| Swarm/Strip       | Discrete  | Continuous| Show all points by group        | sns.swarmplot/stripplot|
+| Heatmap           | Discrete  | Discrete  | Crosstab relationships          | sns.heatmap           |
+
+## Relationship Plot Examples
+
+### 1. Scatterplot (two continuous variables)
 ```python
-# Sales data by region and product
-data = {
-    'region': ['North', 'North', 'North', 'South', 'South', 'South', 'East', 'East', 'East', 'West', 'West', 'West'],
-    'product': ['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C'],
-    'sales': [100, 120, 90, 80, 95, 110, 120, 140, 100, 90, 110, 105],
-    'profit': [20, 25, 15, 15, 20, 22, 25, 30, 18, 18, 22, 21],
-    'year': [2021, 2021, 2021, 2021, 2021, 2021, 2022, 2022, 2022, 2022, 2022, 2022]
-}
-df = pd.DataFrame(data)
+sns.scatterplot(data=df, x='sales', y='profit')
+plt.title('Sales vs. Profit Relationship')
+plt.show()
 ```
-Tasks:
-- Create a bar chart showing sales by region
-- Create a grouped bar chart comparing sales for different products within each region
-- Create a scatter plot of sales vs. profit with different colors for each region
-- Create a heatmap showing the correlation between numerical variables
-- Create a pie chart showing the proportion of sales by product
-- Create a composite visualization with multiple subplots showing different aspects of the data
 
-3. Memory Optimization:
+### 2. Lineplot (trend over time/group)
 ```python
-# Function to create a large dummy dataset
-def create_large_df(rows=1000000, cols=10):
-    import numpy as np
-    import pandas as pd
-    import string
-    
-    # Create a large DataFrame
-    data = {}
-    
-    # Numeric columns
-    for i in range(5):
-        data[f'int_col_{i}'] = np.random.randint(0, 1000, rows)
-        data[f'float_col_{i}'] = np.random.normal(100, 25, rows)
-    
-    # Categorical columns with repeating values
-    categories = ['cat_' + c for c in string.ascii_lowercase[:10]]
-    for i in range(3):
-        data[f'cat_col_{i}'] = np.random.choice(categories, rows)
-    
-    # Date column
-    data['date_col'] = pd.date_range(start='2020-01-01', periods=rows, freq='s')
-    
-    # Text column
-    phrases = [
-        'Lorem ipsum dolor sit amet',
-        'consectetur adipiscing elit',
-        'sed do eiusmod tempor incididunt',
-        'ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam'
-    ]
-    data['text_col'] = np.random.choice(phrases, rows)
-    
-    return pd.DataFrame(data)
-
-# Create a sample DataFrame
-large_df = create_large_df(100000)  # 100,000 rows
+df_grouped = df.groupby('year')['sales'].mean().reset_index()
+sns.lineplot(data=df_grouped, x='year', y='sales')
+plt.title('Sales Trend by Year')
+plt.show()
 ```
-Tasks:
-- Analyze the memory usage of the dataset by column and data type
-- Apply type conversion strategies to reduce memory usage 
-- Convert appropriate columns to categorical type
-- Design a function that automatically optimizes a DataFrame's memory usage
-- Compare the performance (speed) of the original vs. optimized DataFrames for common operations
-- Create a visualization showing memory usage before and after optimization
 
-4. Text Data Processing:
+### 3. Barplot (discrete + continuous)
 ```python
-# Product reviews data
+sns.barplot(data=df, x='city', y='sales', estimator=np.mean)
+plt.title('Average Sales by City')
+plt.show()
+```
+
+### 4. Swarmplot (all points by group)
+```python
+sns.swarmplot(data=df, x='city', y='sales')
+plt.title('Sales Distribution by City')
+plt.show()
+```
+
+### 5. Heatmap (two discrete variables)
+```python
+ct = pd.crosstab(df['city'], df['category'])
+sns.heatmap(ct, annot=True, fmt='d', cmap='Blues')
+plt.title('City vs. Category Relationship')
+plt.show()
+```
+
+## Practice Problems: Relationship Visualization
+
+**Practice Problem: Relationship Analysis**
+
+You have a dataset with student performance data:
+
+```python
 import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-data = {
-    'product_id': ['A001', 'A001', 'A002', 'A002', 'A003', 'A003', 'A004', 'A004'],
-    'rating': [4, 5, 2, 1, 5, 4, 3, 4],
-    'review_text': [
-        "This product is great and works as expected.",
-        "Love this! Best purchase I've made in 2023.",
-        "Disappointed with the quality, broke after 2 weeks of use.",
-        "Terrible product, doesn't work at all. Waste of money.",
-        "Excellent product, highly recommend for all users.",
-        "Very good performance and easy to use interface.",
-        "Average product, nothing special but gets the job done.",
-        "Good value for money, happy with my purchase."
-    ]
-}
-reviews = pd.DataFrame(data)
+np.random.seed(42)
+students_df = pd.DataFrame({
+    'student_id': range(1, 101),
+    'study_hours': np.random.normal(15, 5, 100).round(1),
+    'exam_score': np.random.normal(75, 15, 100).round(1),
+    'attendance_rate': np.random.normal(85, 10, 100).round(1),
+    'major': np.random.choice(['Computer Science', 'Mathematics', 'Physics', 'Chemistry'], 100),
+    'year': np.random.choice([1, 2, 3, 4], 100),
+    'gpa': np.random.normal(3.2, 0.5, 100).round(2)
+})
 ```
-Tasks:
-- Extract word counts from each review
-- Identify common positive and negative words
-- Categorize reviews as positive (4-5), neutral (3), or negative (1-2)
-- Create a function to check if reviews contain specific keywords
-- Calculate the average rating when specific words appear in reviews
-- Visualize the relationship between review length and rating
-- Create a summary of top positive and negative phrases for each product
 
-**Review Questions:**
-1. What are the differences between `pd.date_range()`, `pd.to_datetime()`, and `pd.Timestamp()`?
-2. How can you resample time series data, and what options do you have for filling missing values?
-3. What are the advantages of converting string columns to categorical type?
-4. How would you identify columns that could benefit from memory optimization?
-5. What are the key differences between pandas' built-in plotting functions and using matplotlib directly?
-6. How can you handle very large datasets that don't fit in memory?
-7. What string methods are most useful when cleaning and processing text data in pandas?
-8. When working with time series data, how do you calculate period-over-period changes? 
+**Tasks:**
+
+1. Show how average GPA changes over the years. What pattern do you see?
+
+2. Visualize the relationship between major and year (how many students of each major are in each year). Which year has the most Computer Science students?
+
+3. Create a visualization showing the relationship between study hours and exam scores. What type of relationship do you observe?
+
+4. Compare average exam scores across different majors. Which major has the highest average score?
+
+5. Show how study hours vary across different majors. Which major has students with the highest study hours?
+
+**Expected Outputs:**
+- 5 different plots showing relationships between variables
+- Brief interpretation of each relationship pattern
+- Identification of key insights from each visualization
+
+---
+
+### Remaining Plot Types
+
+| Category          | Plot Type         | X         | Y         | Use Case                        | Seaborn Function      |
+|-------------------|-------------------|-----------|-----------|----------------------------------|-----------------------|
+| **Counts**        | Countplot         | Discrete  | –         | Frequency of categories         | sns.countplot         |
+| **Proportions**   | Pie               | Discrete  | –         | Proportions                     | pandas .plot.pie      |
+| **Distributions** | Box/Violin        | Discrete  | Continuous| Distribution by group           | sns.boxplot/violinplot|
+|                   | Histogram/KDE     | Continuous| –         | Distribution                    | sns.histplot/kdeplot  |
+|                   | Jointplot         | Continuous| Continuous| Distribution of 2 variables     | sns.jointplot         |
+
+# Counts, Proportions, and Distributions
+
+## Countplot (discrete frequency)
+```python
+sns.countplot(data=df, x='city')
+plt.title('City Frequency')
+plt.show()
+```
+
+## Pie chart (proportions, pandas)
+```python
+df['category'].value_counts().plot.pie(autopct='%1.1f%%')
+plt.title('Category Proportions')
+plt.ylabel('')
+plt.show()
+```
+
+## Distribution Plot Types
+
+Distribution plots show the characteristics of variables. The choice between them is often a matter of preference:
+
+- **Histogram**: Most honest representation of data
+- **KDE**: Smoother, more visually appealing version of histogram
+- **Box plot**: Simplified summary showing median, quartiles, and outliers
+- **Violin plot**: Compromise between box plot and full distribution shape
+
+## Histogram (distribution)
+```python
+sns.histplot(df['sales'], bins=20)
+plt.title('Sales Distribution')
+plt.show()
+```
+
+## KDE plot (smooth distribution)
+```python
+sns.kdeplot(df['sales'])
+plt.title('Sales Distribution (KDE)')
+plt.show()
+```
+
+## Boxplot (discrete + continuous)
+```python
+sns.boxplot(data=df, x='city', y='sales')
+plt.title('Sales by City')
+plt.show()
+```
+
+## Violinplot (discrete + continuous)
+```python
+sns.violinplot(data=df, x='city', y='sales')
+plt.title('Sales by City (Violin)')
+plt.show()
+```
+
+## Jointplot (distribution of 2 variables)
+```python
+sns.jointplot(data=df, x='sales', y='profit', kind='scatter')
+plt.suptitle('Sales vs. Profit Distribution', y=1.02)
+plt.show()
+```
+
+## Practice Problems: Counts, Proportions, and Distributions
+
+**Practice Problem: Comprehensive Analysis**
+
+Using the students dataset:
+
+**Tasks:**
+
+1. Show the distribution of exam scores. What's the most common score range?
+
+2. Show how many students are in each major. Which major has the most students?
+
+3. Show the distribution of GPA by year. Do students improve their GPA over time?
+
+4. Visualize the relationship between study hours and exam scores with a distribution plot. What pattern do you observe?
+
+5. Show the proportion of students in each year. What percentage of students are in year 2?
+
+6. Compare the distribution of study hours across different majors. Which major has the most consistent study hours?
+
+**Expected Outputs:**
+- Countplot showing student counts by major
+- Pie chart showing year proportions
+- Histogram or KDE of exam scores
+- Box plot or violin plot of study hours by major
+- Box plot of GPA by year
+- Joint plot of study hours vs exam scores
+- Interpretation of all patterns and trends
+
+---
+
+
+#🃏/pandas-basics
+
+**Key Questions:**
+
+1. What are the two main questions that all plots answer?
+?
+- What is the relationship between variables?
+- Or what are the characteristics of a variable?
+
+2. When would you use a line plot instead of a scatter plot?
+?
+- When showing trends over time or ordered categories
+- When X-axis represents a sequence or progression
+
+3. What's the difference between a bar plot and a swarm plot for discrete vs continuous data?
+?
+- Bar plot shows aggregated values (means/totals)
+- Swarm plot shows individual data points distributed by group
+
+5. How do you create a heatmap to show relationships between two discrete variables?
+?
+- Use pd.crosstab() to create a contingency table
+- Pass the result to sns.heatmap()
+
+---
+
+# Bonus: Pairplot (All Pairwise Relationships)
+
+## Pairplot Overview
+
+Pairplot is a powerful tool that shows all pairwise relationships in your dataset at once. It creates a matrix of plots where each variable is plotted against every other variable.
+
+## Pairplot Example
+```python
+sns.pairplot(df, hue='city')
+plt.suptitle('All Pairwise Relationships', y=1.02)
+plt.show()
+```
+
+**What it shows:**
+- Diagonal: Distribution of each variable (histogram or KDE)
+- Off-diagonal: Scatter plots between all variable pairs
+- Color coding: Can use `hue` parameter to color by categorical variable
+
+**When to use:**
+- Exploratory data analysis
+- Quick overview of all relationships
+- Identifying patterns across multiple variables
+
+

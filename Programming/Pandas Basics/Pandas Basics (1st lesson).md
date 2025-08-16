@@ -192,6 +192,9 @@ df.info()
 
 # Customize display
 df.info(verbose=True, memory_usage='deep')
+
+# Explicit memory usage by columns
+df.memory_usage()
 ```
 
 ### Other Useful Methods

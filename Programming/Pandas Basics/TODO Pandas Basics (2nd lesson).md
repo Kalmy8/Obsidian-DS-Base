@@ -1,5 +1,6 @@
 **Codewords:** Boolean Indexing, Advanced loc/iloc, Multiple Conditions, Sorting, Filter Method
 
+TODO logical indexing with columns
 ###  Mock DataFrame for further examples and problems
 
 ```python
@@ -225,6 +226,36 @@ print(midterm_grades.head())
   4. Use `filter(regex)` to select all midterm and lab columns.
      - Expected output: A DataFrame with all rows containing grade_math_midterm, grade_physics_midterm, and grade_chemistry_lab columns
 
+### Automatic dtype inference and selection
+
+#### 1. Automatically convert columns to best dtypes
+```python
+# Convert all columns to the best possible dtypes (e.g., string, Int64, boolean, category)
+df = df.convert_dtypes()
+print(df.dtypes)
+```
+- This makes your DataFrame more memory efficient and enables use of modern pandas features (like nullable types and better string handling).
+
+#### 2. Select columns by dtype
+```python
+# Select all numeric columns
+df_numeric = df.select_dtypes(include='number')
+print(df_numeric.head())
+
+# Select all string columns
+df_string = df.select_dtypes(include='string')
+print(df_string.head())
+
+# Select all boolean columns
+df_bool = df.select_dtypes(include='boolean')
+print(df_bool.head())
+
+# Select all categorical columns (if any)
+df_cat = df.select_dtypes(include='category')
+print(df_cat.head())
+```
+- This is useful for quickly filtering columns for analysis, plotting, or further processing.
+
 ## More Practice Problems
 
 **Practice Problem 1: Combining Multiple Techniques**
@@ -232,13 +263,15 @@ print(midterm_grades.head())
 Use the same DataFrame provided at the beginning of the lesson:
 
 - **Tasks**:
-  1. Select all students who are either from Boston or have a math grade above 90, then sort them by age.
+  1. Use `convert_dtypes()` on the DataFrame and print the resulting dtypes.
+  3. Select all string columns using and print the result.
+  5. Select all students who are either from Boston or have a math grade above 90, then sort them by age.
      - Expected output: A sorted DataFrame with Anna, Sarah, and Michael (meeting the condition)
-  2. Select all grade columns using the filter method, then calculate the average of each student across all subjects.
+  6. Select all grade columns using the filter method, then calculate the average of each student across all subjects.
      - Expected output: A Series with the average grades for each student
-  3. Find students whose math grade is higher than their physics grade, and display only their name and both grades.
+  7. Find students whose math grade is higher than their physics grade, and display only their name and both grades.
      - Expected output: A DataFrame with John, Peter, and Sarah (who have higher math than physics grades)
-  4. Find students whose name starts with 'P' or 'S'.
+  8. Find students whose name starts with 'P' or 'S'.
      - Expected output: A DataFrame with Peter and Sarah
 
 #🃏/pandas-basics
@@ -285,3 +318,11 @@ How does the `filter()` method work and what are its different approaches?
 ?
 - `filter(like='string')`: Selects columns containing the specified substring
 - `filter(regex='pattern')`: Selects columns matching the regular expression pattern
+
+What does `convert_dtypes()` do in pandas? Why is it useful?
+?
+- It automatically converts columns to the best possible dtype (e.g., string, Int64, boolean, category), making the DataFrame more memory efficient and enabling modern pandas features.
+
+How do you select all columns of a specific dtype (e.g., numeric, string, boolean, category) in a DataFrame?
+?
+- Use `df.select_dtypes(include='number')` for numeric, `include='string'` for string, `include='boolean'` for boolean, and `include='category'` for categorical columns.
