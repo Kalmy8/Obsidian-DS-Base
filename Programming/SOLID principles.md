@@ -35,37 +35,38 @@ Responsibilities are separated into distinct classes.
 **2. Open/Closed Principle (OCP)**
    - **Description:** Software entities (classes, modules, functions) should be open for extension, but closed for modification.
    - **Benefits:**
-     - **Flexibility:** You can add new features or behaviors without changing existing code.
-     - **Stability:** Reduces the risk of introducing bugs in existing code when extending functionality.
+     - **Flexibility:** You can add new features or behaviors without changing existing code
+     - **Stability:** Reduces the risk of introducing bugs in existing code when extending functionality
    - **Violation Example:**
 ```python
-	class AreaCalculator:
-		def calculate_area(self, shape):
-			if isinstance(shape, Rectangle):
-				return shape.width * shape.height
-			elif isinstance(shape, Circle):
-				return 3.14 * shape.radius**2
-			# Add more if-else for new shapes 
+class AreaCalculator:
+
+	def calculate_area(self, shape):
+		if isinstance(shape, Rectangle):
+			return shape.width * shape.height
+		elif isinstance(shape, Circle):
+			return 3.14 * shape.radius**2
+		# Add more if-else for new shapes 
 ```
 Adding new shapes requires modifying the `calculate_area` method.
    - **Commitment Example:**
 ```python
-	class Shape(ABC):
-		@abstractmethod
-		def calculate_area(self):
-			 pass
-			 
-	class Rectangle(Shape):
-		def calculate_area(self):
-			 # (implements calculate_area)
-		
-	class Circle(Shape):
-		def calculate_area(self):
-			 # (implements calculate_area)
-				
-	class AreaCalculator:
-		def calculate_area(self, shape: Shape):
-			return shape.calculate_area()
+class Shape(ABC):
+	@abstractmethod
+	def calculate_area(self):
+		 pass
+		 
+class Rectangle(Shape):
+	def calculate_area(self):
+		 return self.width * self.height
+	
+class Circle(Shape):
+	def calculate_area(self):
+		 return 3.14 * shape.radius**2
+			
+class AreaCalculator:
+	def calculate_area(self, shape: Shape):
+		return shape.calculate_area()
 ```
 New shapes can be added by creating new subclasses of `Shape` without modifying `AreaCalculator`.
 **3. Liskov Substitution Principle (LSP)**
@@ -75,18 +76,20 @@ New shapes can be added by creating new subclasses of `Shape` without modifying 
       - **Polymorphism:** Allows you to use subtypes interchangeably without introducing errors.
    - **Violation Example:**
 ```python
-	class Bird:
+	class Bird(ABC):
+		@abstractmethod
 		def fly(self):
-			 print("Flying!")
+			 pass
 			 
 	class Penguin(Bird): 
-		№def fly(self):
+		def fly(self):
 			raise NotImplementedError("Penguins can't fly")
 			
 	def make_bird_fly(bird: Bird):
 		bird.fly()
-		penguin = Penguin()
-		make_bird_fly(penguin) # Raises an error!
+	
+	penguin = Penguin()
+	make_bird_fly(penguin) # Raises an error!
 ```
 The `Penguin` subclass breaks the expectation set by the `Bird` base class.
    - **Commitment Example:**
@@ -164,9 +167,11 @@ Interfaces are more focused, and classes only implement what they need.
 			self.is_on = False
 			
 		def turn_on(self):
+			self.is_on = True
 			print("Lightbulb ON")
 			
 		def turn_off(self):
+			self.is_on = False
 			print("Lightbulb OFF")
 			
 	class Switch:
