@@ -168,7 +168,7 @@ except TypeError as e:
 
 - Implement comparison (`>, >=, <, <=, ==, ...)` logic for custom objects
 - which is also useful when using `sort()` function
-- If some operators are missing, python will raise a corresponding error if you'll try to compare elemenes using that operator
+- If some operators are missing, python will raise a corresponding error if you'll try to compare elements using that operator
 - You could define only `__eq__` and `__le__` comparison operator, and python will auto-complete all the others if you use `from functools import total_ordering`
 
 
