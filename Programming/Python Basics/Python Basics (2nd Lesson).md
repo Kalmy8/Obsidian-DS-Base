@@ -224,7 +224,7 @@ print(status, "Operation completed.")
 # Or using f-string:
 print(f"{status} Operation completed.")
 ```
-<!--SR:!2025-09-15,230,334-->
+<!--SR:!2026-10-03,365,354-->
 
 Print ten variables, each one on the new line, using only one print statement.
 ?
@@ -271,7 +271,7 @@ Determine the quotient of `200 // 15`.
 quotient = 200 // 15
 print(quotient) # 13
 ```
-<!--SR:!2025-09-19,234,334-->
+<!--SR:!2026-10-03,365,354-->
 
 Compute the remainder of `123` divided by `25`.
 ?
@@ -366,7 +366,7 @@ popped_city = cities.pop(1)  # pop() with index
 print(popped_city)      # Los Angeles
 print(cities)           # ['New York', 'Chicago', 'Houston']
 ```
-<!--SR:!2025-09-14,229,334-->
+<!--SR:!2026-10-03,365,354-->
 
 
 Add the string `"elderberry"` to the list `fruits = ['apple', 'banana', 'cherry']`.

@@ -22,6 +22,7 @@ what does the assumption of independence and identical distribution (i.i.d.) sta
 ?
 Datapoints you are working with were brought from the **same** (static, not dynamically changing) general population **independently** (meaning that they are fetched truly randomly)
 <<<<<<< HEAD
-<!--SR:!2025-08-28,215,330-->
+
 =======
 >>>>>>> main
+<!--SR:!2026-10-03,365,350-->

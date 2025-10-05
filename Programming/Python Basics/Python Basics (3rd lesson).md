@@ -147,7 +147,7 @@ data = {"a": 1, "b": 2, "c": 3}
 keys = data.keys()
 print(keys) #Output dict_keys(['a', 'b', 'c'])
 ```
-<!--SR:!2025-09-08,223,330-->
+<!--SR:!2026-10-03,365,350-->
 
 Implement a **frequency counter** with a dictionary `counts` where keys are characters in the string "abracadabra" and values are the count of each character.
 ?
@@ -198,7 +198,7 @@ unique_numbers = set(numbers)
 difference = unique_numbers.difference({20, 30})  
 print(difference)  # Output: {40, 10, 50} (order may vary)
 ```
-<!--SR:!2025-09-01,219,330-->
+<!--SR:!2026-10-03,365,350-->
 
 
 

@@ -44,7 +44,7 @@ Elementary event is a single outcome of a probability experiment. If you roll a 
 What is a fundamental probability set? How would you define a fundamental probability set for rolling two dice?
 ?
 Fundamental probability set is a mathematical set containing all possible outcomes of a probability experiment. For rolling 2 dices, we can define it like $\Omega=\{(i,j):i,j = 1,2..,6\}$
-<!--SR:!2025-09-21,236,330-->
+<!--SR:!2026-10-03,365,350-->
 
 What is the difference between denoting elementary events as sequences vs. collections? Give a real-world example of each.
 ?
