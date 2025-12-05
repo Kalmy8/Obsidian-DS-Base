@@ -6,7 +6,7 @@ import re
 # Paths to the files involved in the merge
 ancestor_file = sys.argv[1]
 current_file = sys.argv[2]
-  other_file = sys.argv[3]
+other_file = sys.argv[3]
 
 # Read the contents of the files
 with open(ancestor_file, 'r') as f:
