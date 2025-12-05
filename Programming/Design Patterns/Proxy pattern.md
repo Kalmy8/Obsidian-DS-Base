@@ -92,4 +92,4 @@ if __name__ == "__main__":
     proxy = Proxy(real_subject)
     client_code(proxy)
 ```
-<!--SR:!2025-11-04,290,290-->
+<!--SR:!2026-11-28,365,310-->

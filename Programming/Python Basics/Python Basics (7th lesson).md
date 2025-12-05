@@ -178,7 +178,7 @@ How does `map()` work? Write one to square each element in `[1, 2, 3]`.
 ```python
 squared = list(map(lambda x: x*x, [1, 2, 3]))
 ```
-<!--SR:!2025-11-26,236,330-->
+<!--SR:!2026-11-28,365,350-->
 
 Explain `functools.reduce()`. Write one to sum the numbers in `[1, 2, 3, 4]`.
 ?

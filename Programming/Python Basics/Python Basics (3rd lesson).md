@@ -138,7 +138,7 @@ Create a dictionary to store the names and ages of three people: "Alice" (25), "
 people = {"Alice": 25, "Bob": 30, "Charlie": 35}
 print(people["Bob"])  # Output: 30
 ```
-<!--SR:!2025-10-30,249,330-->
+<!--SR:!2026-11-28,365,350-->
 
 Given this dictionary:  `data = {"a": 1, "b": 2, "c": 3}`, print all the keys of this dictionary.
 ?
@@ -158,7 +158,7 @@ for char in text:
     counts[char] = counts.get(char, 0) + 1 # Nice way to add occurances in one line.
 print(counts)  # Output: {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}
 ```
-<!--SR:!2025-11-02,252,330-->
+<!--SR:!2026-11-28,365,350-->
 
 You have a tuple representing a date: `(2024, 8, 21)`. Extract the year, month, and day into separate variables and print them.
 ?
@@ -188,7 +188,7 @@ grades = {"Alice": [85, 90], "Bob": [78]}
 grades.setdefault("Charlie", []).append(92) 
 print(grades)  # Output: {'Alice': [85, 90], 'Bob': [78], 'Charlie': [92]}
 ```
-<!--SR:!2025-10-21,240,330-->
+<!--SR:!2026-11-28,365,350-->
 
 You have a list of numbers with some duplicates: `[10, 20, 10, 30, 40, 30, 50]`. Convert this list to a set to eliminate duplicates, and then find the difference between the resulting set and the set `{20, 30}`. Print the final result.
 ?

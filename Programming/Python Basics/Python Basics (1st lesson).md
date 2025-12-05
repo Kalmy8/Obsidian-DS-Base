@@ -77,7 +77,7 @@ How are python datatypes categorized? Which datatypes fall into each category?
 How do Python represent objects inside the memory heap? Enumerate all the components or draw a diagram.
 ?
 ![Pasted image 20240807150909.png](../../📁%20files/Pasted%20image%2020240807150909.png)
-<!--SR:!2025-10-29,248,336-->
+<!--SR:!2026-11-28,365,356-->
 
 Name the output of each piece of the given code:
 ```python

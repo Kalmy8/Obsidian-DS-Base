@@ -212,7 +212,7 @@ Define a function `multiply` that takes two integers and returns their product. 
 	def multiply(num1: int, num2: int)->int:
 		return num1*num2
 ```
-<!--SR:!2025-10-04,223,330-->
+<!--SR:!2026-11-28,365,350-->
 
 Define a function `power` that takes a number and raises it to a power. The power should have a default value of 2.
 ?
@@ -220,7 +220,7 @@ Define a function `power` that takes a number and raises it to a power. The powe
 	def power(num1: int, num2: int = 2)->int:
 		return num1**num2
 ```
-<!--SR:!2025-11-03,253,330-->
+<!--SR:!2026-11-28,365,350-->
 
 Define a function `greet` that takes the name of the user, and, optionally, takes the weather state. When it greets the user and also prints the weather state if it's given
 ?
@@ -231,7 +231,7 @@ Define a function `greet` that takes the name of the user, and, optionally, take
 		if weather: 
 			print(f"The weather today is {weather}")
 ```
-<!--SR:!2025-10-13,232,330-->
+<!--SR:!2026-11-28,365,350-->
 
 
 Create a function `sum_integers` that takes any number of integers and prints their sum?

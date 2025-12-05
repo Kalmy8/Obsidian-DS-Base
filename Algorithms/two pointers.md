@@ -139,19 +139,20 @@ nums_2 = [-7, -3, 2, 3, 11]
 
 **Key Questions:**
 
-1. What is the main advantage of using the Two Pointers technique?
-?
-- It can significantly improve the time complexity of solving problems on arrays and linked lists, typically reducing it from O(n^2) to O(n). It also often uses O(1) space, as it modifies the data structure in-place.
-
 2. What are the two primary patterns of the Two Pointers technique?
 ?
 - **Opposite Ends:** One pointer starts at the beginning and the other at the end, and they move towards each other.
 - **Fast and Slow:** Both pointers start at the beginning, but one moves faster than the other.
+<!--SR:!2025-11-29,1,230-->
 
 3. For which type of problems is the "Opposite Ends" pattern most suitable?
 ?
 - It is most suitable for problems involving **sorted arrays** where you need to find a pair of elements that satisfy a certain condition (e.g., their sum equals a target).
+- TODO examples here (trapping rain etc)
+<!--SR:!2025-11-29,1,228-->
 
 4. What is a classic example of the "Fast and Slow" pointers pattern?
 ?
 - A classic example is **detecting a cycle in a linked list**. Another common example is removing duplicates from a sorted array in-place.
+- TODO examples here (?)
+<!--SR:!2025-11-29,1,228-->

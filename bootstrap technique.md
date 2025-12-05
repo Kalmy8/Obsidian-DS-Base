@@ -22,5 +22,6 @@ As you can see, even for $N\geq 10$ the calculated chance is practically the sam
 How can the bootstrap sampling technique be described? What is the chance for every observation to be picked into a subsample?
 ?
 - From the dataset size $N$, we pick $N$ samples with return.
-- Every observation chance to be included $\approx 64\%$
-<!--SR:!2025-10-17,236,330-->
+- $(1-\frac{1}{N})^{N}$
+	- This one converges to $\approx 64\%$ pretty quick (from $N\geq 10$ difference is 2%)
+<!--SR:!2026-11-28,365,350-->

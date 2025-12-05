@@ -101,7 +101,7 @@ $$E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}] + E_D[(\bar{\hat{f}}(x) - f(x))^{
 $$\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance} + \underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^2}$$
 >Resulting equation:
 $$\text{Error} = E_X[\underbrace{E_D[(\hat{f}(x)^{D} - \bar{\hat{f}}(x))^{2}]}_{Variance}] + E_x[\underbrace{(\bar{\hat{f}}(x) - f(x))^{2}}_{Bias^{2}}]+\underbrace{\sigma^2}_{Irreducable\  error}$$
-<!--SR:!2025-07-19,161,310-->
+<!--SR:!2026-02-14,78,290-->
 
 
 What is the bias-variance tradeoff, why does it occur? How is it bonded with definitions of overfitting and underfitting?

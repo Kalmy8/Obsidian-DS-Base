@@ -70,4 +70,4 @@ class Realme(Phone):
 As you can see, state pattern seem to be very similar to the [Strategy pattern](Strategy%20pattern.md), and even the "Context Class" naming is the same. In reality, you can **think of a State pattern as to an extension of the Strategy pattern**, and here's why:
 1. In Strategy Pattern, different strategies do not know each other and do not interact, but are used to implement same operation differently. In State pattern, states do know about each other and may invoke some transitions between them.
 2. Usually, Strategy Pattern is logically binded to some concrete single operation (like Preprocessing an image, Loading a document...). State pattern, on the other side, usually defines a whole set of operations held differently depending of the current state.
-<!--SR:!2025-10-16,271,290-->
+<!--SR:!2026-11-28,365,290-->
