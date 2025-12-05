@@ -7,7 +7,7 @@ Machine Learning (ML) is about enabling computers to learn from data—discoveri
 More formally, it's often reffered as ""
 
 
-**Codewords**: ML pipeline, data quality, feature engineering, overfitting/underfitting, bias-variance tradeoff, regularization, cross-validation  
+
 
 ---
 

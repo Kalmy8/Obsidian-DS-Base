@@ -16,6 +16,8 @@ Random variable can take arbitrary values with certain [probabilities](../probab
 Finally, a random variable has all kinds of **descriptional statistics**: ^0882fd
 - [mathematical expectation](mathematical%20expectation.md)
 - [variance](variance.md)
+- [[skewness]]
+- [[kurtosis]]
 
 #### Key questions
 What is a random variable? Define several of them given the set $\Omega = \{(i,j): i,j = 1,2,3.. \}$

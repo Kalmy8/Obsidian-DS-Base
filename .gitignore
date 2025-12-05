@@ -8,3 +8,16 @@
 .cursor/rules/obsidian-ds-base-course-conspect-template.mdc
 .obsidian/plugins/obsidian-git/manifest.json
 .obsidian/plugins/obsidian-git/styles.css
+
+.DS_Store
+
+.cursor/rules/obsidian-ds-base-course-conspect-template.mdc
+.obsidian/app.json
+.obsidian/graph.json
+.obsidian/workspace.json
+
+.obsidian/plugins/obsidian-git/data.json
+.obsidian/plugins/obsidian-git/main.js
+.obsidian/plugins/obsidian-git/manifest.json
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+.obsidian/plugins/obsidian-git/styles.css

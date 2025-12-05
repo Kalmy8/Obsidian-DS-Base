@@ -1,4 +1,4 @@
-[\<previous](OOP%20Basics%20(3rd)%20lesson.md)  |  [next\>](OOP%20Basics%20(5th)%20lesson%201.md)
+[\<previous](OOP%20Basics%20(3rd)%20lesson.md)  |  [[TODO OOP Basics (5th) lesson|next >]]
 **Codewords:** SOlid principles
 
 **Theory:** [SOLID principles](../SOLID%20principles.md)
@@ -22,13 +22,13 @@ class User:
         self.name = name
         self.email = email
         self.address = address
-
+        
     def change_email(self, new_email):
         if "@" in new_email:
             self.email = new_email
         else:
             print("Invalid email format.")
-
+            
     def save_to_database(self):
         # Code to connect to database and save user data...
         print(f"Saving {self.name}'s data to database...")

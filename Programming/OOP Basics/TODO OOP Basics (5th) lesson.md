@@ -1,7 +1,7 @@
-[\<previous](OOP%20Basics%20(4th)%20lesson.md)  |  [next\>](OOP%20Basics%20(6th)%20lesson%201.md)
+[\<previous](OOP%20Basics%20(4th)%20lesson.md)  |  [[OOP Basics (6th) lesson|next >]]
 **Codewords:** soLID principles
 
-**Theory:** [SOLID principles](../SOLID%20principles.md)
+**Theory:** [SOLID principles](SOLID%20principles.md)
 **Practice:**
 
 For each code snippet:
@@ -130,6 +130,7 @@ penguin.walk()
 **Task 3:**
 
 ```python
+TODO bad example
 class Document:
     def __init__(self, content):
         self.content = content
@@ -155,6 +156,7 @@ class ReadOnlyDocument(Document):
 > Create separate interfaces for readable and writable documents or consider composition instead of inheritance if the behaviors are fundamentally different.
 
 ```python
+TODO bad example
 class ReadableDocument:
     def __init__(self, content):
         self.content = content
@@ -185,12 +187,11 @@ read_only_doc.open()
 
 ### I - Interface Segregation Principle (ISP)
 
-**Clients should not be forced to depend on methods they do not use. Interfaces should be small and specific.**
+**Clients should not be forced to depend on methods they do not use. Interfaces should be small and specific**
 
 **Task 1:**
 
 ```python
-
 class AllInOnePrinter(ABC):
 	@abstractmethod
     def print_document(self, document):
@@ -247,6 +248,7 @@ class AdvancedPrinter(Printer, Scanner):
 **Task 2:**
 
 ```python
+TODO bad example (who is worker?? way too abstract)
 class Worker:
     def work(self):
         pass
@@ -302,7 +304,8 @@ robot.work()
 **Task 3:**
 
 ```python
-class DriverManager:
+TODO bad example: unobvious. I need smth more familiar for each person
+class DriverManager: 
     def manage_files(self):
         pass # e.g. copy, delete, move files
     def manage_cloud_storage(self):
@@ -355,15 +358,22 @@ manager.manage_cloud_storage()
 **Task 4:**
 
 ```python
+TODO bad example: this is probably violation of SRP, bot not I principle
+
+you should instead go for unique shape-related thing (like median for triangle which cant be calculated)
 class Shape:
-    def draw(self):
+    def calculate_median(self):
         pass
+        
+    def calculate_radius(self):
+	    pass
+	    
     def calculate_area(self):
         pass
+        
     def calculate_perimeter(self):
         pass
-    def serialize_to_json(self):
-        pass
+
 ```
 
 > [!note]- Identify the Smell
@@ -421,18 +431,18 @@ circle.serialize_to_json()
 **Task 1:**
 
 ```python
-class LightBulb:
+class LightBulb(SomeBulb):
     def turn_on(self):
         print("LightBulb: ON")
 
     def turn_off(self):
         print("LightBulb: OFF")
-
+        
 class Switch:
-    def __init__(self, bulb):
+    def __init__(self, bulb : SomeBulb):
         self.bulb = bulb
         self.on = False
-
+        
     def operate(self):
         self.on = not self.on
         if self.on:
@@ -544,6 +554,7 @@ report2.generate()
 **Task 3:**
 
 ```python
+TODO way to abstract make smth material, familiar
 class FileSystem:
     def read_file(self, filename):
         # Code to read a file from the file system
@@ -574,6 +585,7 @@ class DataProcessor:
 > Introduce an abstraction for data access and inject the dependency.
 
 ```python
+TODO way to abstract make smth material, familiar
 class DataAccessor:
     def read_data(self, source):
         raise NotImplementedError

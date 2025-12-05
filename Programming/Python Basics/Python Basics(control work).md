@@ -55,7 +55,7 @@
 3. **Simple Calculator:** Create a simple calculator program that can perform basic arithmetic operations (addition, subtraction, multiplication, division).  Use functions for each operation and implement error handling.
 4. **To-Do List Application:** Design a simple to-do list application that allows users to add, view, mark as complete, and delete tasks. You can store tasks in a list or dictionary. 
 5. **Rock, Paper, Scissors Game:** Implement a text-based Rock, Paper, Scissors game that allows a player to play against the computer.
-6. **Random Password Generator:** Write a program that generates strong, random passwords that meet specific criteria (e.g., length, combination of characters). 
+6. **Random Password Generator:** Write a program that generates strong, random passwords that meet specific criteria (length, case special character amount). 
 7. **File Encryption/Decryption:** Create a program that encrypts and decrypts files using a simple encryption algorithm.  (Note: For learning purposes, you can use a basic algorithm. Do not use this for real-world security.)
 8. **Contact Book:** Build a contact book application that allows users to store and manage contact information. 
 

@@ -26,7 +26,7 @@ the main idea of boosting: instead of training one estimator, we could train sev
 More formally, this algorithm can be described as follows:
 
 Let $\mathcal{L}$ – be the derivable loss function, and our complex estimator $a(x)$ is stated as:
-$$\large a(x)=a_{K}(x)=b_{1}(x)+..+b_{k}(x)$$
+$$\large a(x)=a_{k}(x)=b_{1}(x)+..+b_{k}(x)$$
 
 Each next estimator is got from the previous one:
 $$\large a_{k}(x)=a_{k-1}(x)+b_{k}$$
