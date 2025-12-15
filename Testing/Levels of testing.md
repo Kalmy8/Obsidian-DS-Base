@@ -11,5 +11,5 @@
 	- **What to test:** the whole launched system, taking all the technical requirements like speed, latency, etc. into account
 	- **Where are when:** Is usually done on stage and production stands
 - Acceptance
-	- **What to test:** is the system ready to be faced by the real users? Does the system align with the business requirements?
+	- **What to test:** Is the delivered feature/product accepted by the user? Is he satisfied?
 	- **Where are when:** Stage/prod stands

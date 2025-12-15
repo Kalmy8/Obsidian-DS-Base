@@ -1,4 +1,3 @@
-
 ### Main Idea
 
 - are used to set up **an initial state of the system before the test run**
