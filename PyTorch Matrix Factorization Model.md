@@ -1,13 +1,14 @@
 ---
 type: note
 status: done
-tags: [tech/ml/recsys]
+tags:
+- tech/ml/recsys
+- tech/stack/pytorch
 sources:
--
+- null
 authors:
-- "[[Recommender Systems Course]]"
+- '[[Recommender Systems Course]]'
 ---
-
  1. Get model predictions (`outputs = model(x)`).
  2. Calculate the difference between predictions and actual ratings (`loss = loss_fn(...)`).
  3. Calculate gradients (`loss.backward()`).

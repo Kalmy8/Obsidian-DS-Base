@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langgraph
 sources:
-- "[[LangGraph Course]]"
+- '[[LangGraph Course]]'
 authors:
--
+- null
 ---
 # **2) Can we use BaseModel or Dataclass instead of TypedDict for state? What are pros/cons?**
 

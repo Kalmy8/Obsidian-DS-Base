@@ -1,13 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/guardrails-ai
 sources:
--
+- null
 authors:
--
+- null
 ---
-
 **Who returns it?**
 Each individual validator (e.g., your LLMValidator, or a built-in like CorrectLanguage).
 

@@ -1,13 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/deepeval
 sources:
--
+- null
 authors:
--
+- null
 ---
-
 # Running DeepEval & Observing Results
 
 ## Core Commands

@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/pytest
 sources:
--
+- null
 authors:
--
+- null
 ---
 #pytest
 

@@ -1,13 +1,14 @@
 ---
 type: note
 status: done
-tags: ['tech/testing']
+tags:
+- tech/stack/pytest
+- tech/testing
 sources:
-- "[[Test and Behavior Driven Development Course]]"
+- '[[Test and Behavior Driven Development Course]]'
 authors:
--
+- null
 ---
-
 **Codewords:** pytest-bdd, Gherkin, feature files, step definitions, scenarios, fixtures
 
 ## Theoretical Material

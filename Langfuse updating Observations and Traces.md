@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langfuse
 sources:
--
+- null
 authors:
--
+- null
 ---
 ### Updating Observations[](https://langfuse.com/docs/observability/sdk/python/instrumentation#updating-observations)
 

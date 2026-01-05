@@ -1,10 +1,11 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langgraph
 sources:
--
-- "[[LangGraph Course]]"
+- null
+- '[[LangGraph Course]]'
 authors:
--
+- null
 ---

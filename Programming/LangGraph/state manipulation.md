@@ -1,12 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langgraph
 sources:
--
-- "[[LangGraph Course]]"
+- null
+- '[[LangGraph Course]]'
 authors:
--
+- null
 ---
 [[Graph State]]
 1) Если в Schema, используемой для компиляции нет ключа - его можно будет добавить, но для этого используются type hints

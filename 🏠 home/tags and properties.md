@@ -64,6 +64,15 @@ tech                    # technology, programming (general)
 ├── tech/algorithms     # algorithms and data structures
 ├── tech/backend        # backend development
 ├── tech/testing        # testing methodologies
+├── tech/stack          # libraries and frameworks
+│   ├── tech/stack/pandas        # Pandas data manipulation library
+│   ├── tech/stack/langgraph     # LangGraph agent framework
+│   ├── tech/stack/deepeval      # DeepEval LLM evaluation library
+│   ├── tech/stack/pytest        # Pytest testing framework
+│   ├── tech/stack/guardrails-ai # GuardRails AI validation library
+│   ├── tech/stack/langfuse      # Langfuse observability platform
+│   ├── tech/stack/sqlalchemy    # SQLAlchemy ORM
+│   └── tech/stack/pytorch       # PyTorch deep learning framework
 
 math                    # statistics and probability theory
 ├── math/statistics

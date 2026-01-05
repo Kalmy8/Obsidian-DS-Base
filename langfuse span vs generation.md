@@ -1,12 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langfuse
 sources:
--
--
+- null
+- null
 authors:
--
+- null
 ---
 In Langfuse terminology, both “span” and “generation” are observation types, but they serve different purposes.[(1)](https://langfuse.com/docs/observability/sdk/python/overview)
 

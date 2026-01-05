@@ -1,12 +1,14 @@
 ---
 type: note
 status: done
-tags: ['tech/python']
+tags:
+- tech/python
+- tech/stack/pandas
 sources:
--
-- "[[Pandas Basics Course]]"
+- null
+- '[[Pandas Basics Course]]'
 authors:
--
+- null
 ---
 #🃏/semantic/pandas #🃏/pandas-basics-course
 

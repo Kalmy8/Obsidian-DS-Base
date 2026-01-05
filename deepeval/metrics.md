@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/deepeval
 sources:
--
+- null
 authors:
--
+- null
 ---
 # DeepEval Metrics Guide
 

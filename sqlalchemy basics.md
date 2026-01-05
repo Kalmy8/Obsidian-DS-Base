@@ -1,13 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/sqlalchemy
 sources:
--
+- null
 authors:
--
+- null
 ---
-
 1) we have database models representing data schema here @models.py , they are btw just python classes 
 2) I can create new objects using that schema anytime I want 
 3) I can then open a TRANSACTION to a database transaction means a Session, right? 

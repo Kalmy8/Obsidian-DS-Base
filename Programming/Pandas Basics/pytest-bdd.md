@@ -1,14 +1,16 @@
 ---
 type: note
 status: done
-tags: ['tech/python']
+tags:
+- tech/python
+- tech/stack/pandas
+- tech/stack/pytest
 sources:
--
-- "[[Pandas Basics Course]]"
+- null
+- '[[Pandas Basics Course]]'
 authors:
--
+- null
 ---
-
 ## Overview
 
 - Is a framework for running automated tests against BDD documents written in Gherkin Syntax, integrated with the Pytest testing framework.

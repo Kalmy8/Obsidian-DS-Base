@@ -1,13 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langfuse
 sources:
--
+- null
 authors:
--
+- null
 ---
-
 ### CallbackHandler
 
 LangChain / LangGraph via `CallbackHandler` (your “default tracing”) 

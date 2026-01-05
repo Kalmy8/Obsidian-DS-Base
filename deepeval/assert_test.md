@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/deepeval
 sources:
--
+- null
 authors:
--
+- null
 ---
 # Understanding `assert_test` in DeepEval
 

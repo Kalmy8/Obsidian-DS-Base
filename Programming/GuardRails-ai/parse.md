@@ -1,11 +1,12 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/guardrails-ai
 sources:
--
+- null
 authors:
--
+- null
 ---
 # 1 Параметры:
 

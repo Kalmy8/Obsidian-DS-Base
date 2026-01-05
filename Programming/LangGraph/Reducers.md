@@ -1,14 +1,14 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langgraph
 sources:
--
-- "[[LangGraph Course]]"
+- null
+- '[[LangGraph Course]]'
 authors:
--
+- null
 ---
-
 # **1) How does `add_messages` reducer work with Annotations?**
 
 ### **Key principle:**

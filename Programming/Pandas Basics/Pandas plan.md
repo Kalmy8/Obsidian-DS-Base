@@ -1,11 +1,13 @@
 ---
 type: note
 status: done
-tags: ['tech/python']
+tags:
+- tech/python
+- tech/stack/pandas
 sources:
-- "[[Pandas Basics Course]]"
+- '[[Pandas Basics Course]]'
 authors:
--
+- null
 ---
 1) загружать и смотреть общую инфу
 2) выбирать колонки/строчки и сортировать

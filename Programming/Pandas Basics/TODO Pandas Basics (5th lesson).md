@@ -1,14 +1,15 @@
 ---
 type: note
 status: inbox
-tags: ['tech/python']
+tags:
+- tech/python
+- tech/stack/pandas
 sources:
--
-- "[[Pandas Basics Course]]"
+- null
+- '[[Pandas Basics Course]]'
 authors:
--
+- null
 ---
-
 #🃏/semantic/pandas #🃏/pandas-basics-course
 
 **Codewords:** GroupBy, Aggregation, Transform, Rolling Windows

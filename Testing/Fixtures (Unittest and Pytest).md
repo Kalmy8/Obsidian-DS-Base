@@ -1,11 +1,13 @@
 ---
 type: note
 status: done
-tags: ['tech/testing']
+tags:
+- tech/stack/pytest
+- tech/testing
 sources:
-- "[[Test and Behavior Driven Development Course]]"
+- '[[Test and Behavior Driven Development Course]]'
 authors:
--
+- null
 ---
 ### Main Idea
 

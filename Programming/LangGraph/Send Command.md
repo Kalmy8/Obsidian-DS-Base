@@ -1,12 +1,13 @@
 ---
 type: note
 status: done
-tags: []
+tags:
+- tech/stack/langgraph
 sources:
--
-- "[[LangGraph Course]]"
+- null
+- '[[LangGraph Course]]'
 authors:
--
+- null
 ---
 # **3) How does the `Send` command work?**
 `Send` is LangGraph’s mechanism for **dynamic fan-out**.
