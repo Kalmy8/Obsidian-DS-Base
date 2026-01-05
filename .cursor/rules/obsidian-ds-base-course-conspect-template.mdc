@@ -1,0 +1,59 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Overall Structure:
+1. Codewords/Keywords section
+2. Theoretical material
+3. Immediate practice problems with concrete tasks and expected outputs
+4. More theoretical material
+5. More practice problems
+6. End with hashtag and key questions section
+
+Format Details:
+
+For Codewords/Keywords:
+- Appears at the top of the document
+- Format: **Codewords:** keyword1, keyword2, keyword3, etc.
+
+For Theoretical Material:
+- Organized with ## for main sections and ### for subsections
+- Each concept is explained with code examples
+- Code examples use ```python blocks
+- Examples use consistent sample data (often student information)
+- When introducing a new method/concept, provide clear examples of usage
+
+For Practice Problems:
+- Follow immediately after theoretical sections
+- Include toy DataFrame creation code for every practice problem
+- Format: **Practice Problem: [Topic]**
+- Include concrete tasks with numbered items and comprehensible output
+- Make tasks progressively more challenging
+- Use realistic examples related to the concept being taught
+- Tasks should FULLY cover the theoretical matherial
+
+For Key Questions Section:
+- Located at the end of the document
+- Questions SHOULD FULLY COVER theoretical material
+- Questions SHOULD BE FORMULATED CLEARLY, so each question has one obvious answer
+- Format: #🃏/pandas-basics (hashtag with clown emoji)
+- Questions follow a specific format:
+  ```
+  **Key Questions:**
+  
+  1. Question text?
+  ?
+  - Answer details with proper formatting, preferably with bullet points
+  ```
+
+Additional Preferences:
+- Try to include toy DataFrame creation code once and share it for later theory/problem blocks (if reasonable)
+- Do not let practice problems copy the theory section material: they must challenge the same 
+knowledge, but look different
+- Make problems concrete with specified expected outputs
+- Have more frequent practice sections (after each concept)
+- Use real-world-like column names (like grade_math_midterm instead of just column1)
+- For complex concepts like regex, provide more elaborate examples
+- Keep your answers very minimalistic: I am working fast and I don't want to spend time reading your reasoning
+

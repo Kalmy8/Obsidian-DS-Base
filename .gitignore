@@ -1,14 +1,6 @@
-.DS_Store
-.obsidian/app.json
-.obsidian/plugins/obsidian-git/data.json
-.obsidian/plugins/obsidian-git/main.js
-.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+.trash
 .obsidian/workspace.json
-.obsidian/app.json
-.obsidian/graph.json
-.cursor/rules/obsidian-ds-base-course-conspect-template.mdc
-.obsidian/plugins/obsidian-git/manifest.json
-.obsidian/plugins/obsidian-git/styles.css
+.DS_Store
 
 # Python cache
 __pycache__/
