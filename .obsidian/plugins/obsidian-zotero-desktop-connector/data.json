@@ -17,7 +17,7 @@
       "outputPathTemplate": "{{citekey}}.md",
       "imageOutputPathTemplate": "📁 files/",
       "imageBaseNameTemplate": "image",
-      "templatePath": "📄 templates/simple book.md"
+      "templatePath": "📄 templates/book.md"
     }
   ],
   "citeSuggestTemplate": "[[{{citekey}}]]",

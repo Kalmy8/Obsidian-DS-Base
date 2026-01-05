@@ -44,12 +44,21 @@
   "command-palette:open": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
       "key": "P"
     }
   ],
-  "global-search:open": [],
+  "global-search:open": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "F"
+    }
+  ],
   "templater-obsidian:create-new-note-from-template": [
     {
       "modifiers": [
@@ -138,5 +147,13 @@
       "key": "."
     }
   ],
-  "app:open-settings": []
+  "app:open-settings": [],
+  "switcher:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ]
 }

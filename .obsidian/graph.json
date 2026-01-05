@@ -3,35 +3,20 @@
   "search": "",
   "showTags": true,
   "showAttachments": false,
-  "hideUnresolved": false,
+  "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [
-    {
-      "query": "tag:#Психология  ",
-      "color": {
-        "a": 1,
-        "rgb": 14048348
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 14069084
-      }
-    }
-  ],
+  "colorGroups": [],
   "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": 0.4,
   "nodeSizeMultiplier": 1.38458799230824,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
-  "centerStrength": 0.516632016632017,
-  "repelStrength": 10.4989604989605,
-  "linkStrength": 1,
-  "linkDistance": 93,
-  "scale": 0.27183165903104417,
-  "close": true
+  "centerStrength": 0.471413721413721,
+  "repelStrength": 9.42827442827443,
+  "linkStrength": 0.779106029106029,
+  "linkDistance": 248,
+  "scale": 0.3492026172125495,
+  "close": false
 }

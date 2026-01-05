@@ -2,13 +2,18 @@
   "obsidian-excalidraw-plugin",
   "obsidian-spaced-repetition",
   "quick-latex",
-  "obsidian-link-converter",
-  "table-editor-obsidian",
+  "tag-wrangler",
+  "obsidian-outliner",
+  "homepage",
+  "templater-obsidian",
+  "calendar",
+  "obsidian-zotero-desktop-connector",
+  "supercharged-links-obsidian",
+  "obsidian-style-settings",
   "obsidian-auto-link-title",
   "link-favicon",
   "lapel",
   "consistent-attachments-and-links",
-  "obsidian-outliner",
-  "oz-clear-unused-images",
-  "obsidian-git"
+  "obsidian-git",
+  "frontmatter-markdown-links"
 ]
