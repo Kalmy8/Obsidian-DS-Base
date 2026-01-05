@@ -1,4 +1,14 @@
-#🃏/code_smells 
+---
+type: note
+status: done
+tags: [tech/python]
+sources:
+- "[[Refactoring Guru - Code Smells]]"
+authors:
+-
+---
+
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What's the "long parameter list" codesmell about? How can it be detected?
 ?

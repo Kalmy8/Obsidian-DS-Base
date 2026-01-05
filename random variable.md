@@ -1,7 +1,12 @@
-#🃏/probability-theory 
-is **a function** on a [fundamental probability set](elementary%20event,%20fundamental%20probability%20set%20and%20an%20event.md), which maps every outcome of the probability set to a real (or complex) value. ^216b8e
-
-Example: let $\Omega = \{(i,j): i,j = 1,2,3.. \}$. Then the random variable $X$ can be defined as:
+---
+type: note
+status: done
+tags: [math/probability-theory]
+sources:
+-
+authors:
+-
+---
 $$X(i,j)= 3i + 6j, or$$ $$X(i,j)= i*j, or$$ $$X(i,j)= \sqrt{i}, etc$$ 
 >[!Note] 
 >Random variables are usually denoted with capital latin letters like $X, Y, Z$
@@ -26,7 +31,7 @@ A random variable is **a function** which maps elementary events from the fundam
 $$X(i,j)= 3i + 6j, or$$ $$X(i,j)= i*j, or$$ $$X(i,j)= \sqrt{i}, etc$$
 <!--SR:!2025-10-06,240,330-->
 
-How is a random variable bonded with probability? How can you express the likelihood that some random variable will take a certain  value?
+How is a random variable bonded with probability? How can you express the likelihood that some random variable will take a certain value?
 ?
 Probability is a property of an elementary event. Random variables maps elementary events to certain values, so, for every value the random variable can take, the likelihood will be the sum of corresponding elementary events probabilities. This fact is usually expressed with the usage of [probability density function](probability%20density%20function.md)/[probability mass function](probability%20mass%20function.md)/[cumulative distribution function](cumulative%20distribution%20function.md).
 <!--SR:!2026-07-20,365,330-->

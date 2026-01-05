@@ -1,9 +1,21 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What is a **Facade** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Facade** paradigm.
 ?
 [Facade.mhtml](../../📁%20files/Facade.mhtml)
 The **Facade pattern** is a [structural pattern](Structural%20patterns.md) used to bind relatively high amount of smaller classes and their functions together to serve some more general and complex purpose. The whole idea is being described fully given this example:
 > Imagine you have a small home cinema-theater and want to watch some film on it. In order to do so, you have to turn on a **projector**, an **audio system** and a **video-drive**. Later you will have to set some optimal volume level, put a video-cartridge inside, and press the "play " button. So, implementing this in python, you will have to create 3 class instances and call a bunch of methods to do so:
+---
 > ![Pasted image 20240902153318.png](../../📁%20files/Pasted%20image%2020240902153318.png)
 > Now, instead of doing this all of this manually, you can instead create a Facade class (like HomeTheater class), and gather all the instructions in a single **watch_movie()** function which will do all of the work for you:
 > ![Pasted image 20240902153419.png](../../📁%20files/Pasted%20image%2020240902153419.png)
@@ -72,5 +84,5 @@ mytheater.watch_movie(dvd_cartridge)
 
 ## Practical tasks:
 1. **Smart Home System**
-    - Create subsystems: `LightSystem`, `Thermostat`, `SecurityAlarm`.
-    - Build a `SmartHomeFacade` with methods like `leave_home()` (turns off lights, sets thermostat to eco mode, activates alarm).
+ - Create subsystems: `LightSystem`, `Thermostat`, `SecurityAlarm`.
+ - Build a `SmartHomeFacade` with methods like `leave_home()` (turns off lights, sets thermostat to eco mode, activates alarm).

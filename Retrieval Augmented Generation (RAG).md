@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 [RAG (Retrieval Augmented Generation) — простое и понятное объяснение / Хабр](https://habr.com/ru/articles/779526/)
 
 **The core idea: user prompts often include questions which require some additional data-sources** usage beyond the model's ability to generate text

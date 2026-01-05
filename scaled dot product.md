@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 Вот кратко и по делу.
 
 - 1) Что такое std матрицы

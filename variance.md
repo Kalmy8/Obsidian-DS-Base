@@ -1,6 +1,19 @@
+---
+type: note
+status: done
+tags: [math/probability-theory]
+sources:
+- "[[Probability Theory Course]]"
+authors:
+-
+---
+
+#🃏/semantic/math/probability-theory
+
 measures how far are random variable outcomes are distributed around it's [mathematical expectation](mathematical%20expectation.md).
 
 For any random variable, the variance can be defined as:
+
 $$V(X) = E(X - E(X))^2 = E(X - \mu)^{2}$$
 
 This formula is often simplified:
@@ -14,7 +27,6 @@ $$V(X)= E(X^{2}) - 2 E(X) E(X) + E(X)^{2} = E(X^{2})- E(X)^2 $$
 >In general, variance is often denoted as $\sigma^2$
 >If some sample of the data is described, it is usually denoted as $s^2$
 
-#🃏/probability-theory
 ## Review questions
 What is the intuitive definition of variance? Write down the formal mathematical definition and it's simplified version.
 ?

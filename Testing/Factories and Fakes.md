@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
+
 - Are used to create some testing data, which will be different each time you call a test thus can show you some flaws in the testing suite
 - **FactoryBoy** is an external library, which allows you to:
 	- Mimick an arbitrary class behavior (all the methods) using class Meta:... mechanism
@@ -6,7 +16,6 @@
 			- There are some community-created datasets as well
 		- It also has all sort of random generators (date, choice, number etc.)
 	- ![[Pasted image 20251205234641.png]]
-
 ### 1. Is there something built-in in Pytest?
 No, `pytest` is just a test runner. It does not generate data.
 - **Faker**: The standard library for generating random raw data (strings, emails, etc.).
@@ -17,6 +26,7 @@ No, `pytest` is just a test runner. It does not generate data.
 You are right: **Purely random tests are dangerous** because they are flaky (pass today, fail tomorrow).
 
 #### Solution A: Seeding (The "Fixed Random" approach)
+
 We use a **SEED** to make randomness deterministic.
 - If you set `Faker.seed(42)`, it generates the *exact same* "random" sequence every time.
 - If a test fails, you know the seed, so you can reproduce it.
@@ -27,17 +37,17 @@ Instead of random generation, pytest suggests **Parametrization** for fixed data
 ```python
 # The "100 objects" approach (Deterministic)
 @pytest.mark.parametrize("user_input, expected", [
-    ("user1", True),
-    ("user2", False),
-    # ... 98 more cases ...
+ ("user1", True),
+ ("user2", False),
+ # ... 98 more cases ...
 ])
 def test_users(user_input, expected):
-    assert check_user(user_input) == expected
+ assert check_user(user_input) == expected
 ```
 
 ### Summary: When to use what?
-| Approach                  | Tool                      | Use Case                                                                                             |
+| Approach | Tool | Use Case |
 | :------------------------ | :------------------------ | :--------------------------------------------------------------------------------------------------- |
-| **Fixed Data**            | `pytest.mark.parametrize` | Testing known edge cases (empty strings, nulls, exact logic).                                        |
-| **Deterministic Random**  | `FactoryBoy` + `Seed`     | Populating huge databases where specific values don't matter (e.g., "just give me 50 active users"). |
-| **True Random / Fuzzing** | `Hypothesis`              | Finding bugs you didn't think of. (e.g., "What if the username is 10MB long?").                      |
+| **Fixed Data** | `pytest.mark.parametrize` | Testing known edge cases (empty strings, nulls, exact logic). |
+| **Deterministic Random** | `FactoryBoy` + `Seed` | Populating huge databases where specific values don't matter (e.g., "just give me 50 active users"). |
+| **True Random / Fuzzing** | `Hypothesis` | Finding bugs you didn't think of. (e.g., "What if the username is 10MB long?"). |

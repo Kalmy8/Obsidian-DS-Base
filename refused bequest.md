@@ -1,7 +1,15 @@
-#🃏/code_smells 
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+---
 
+#🃏/semantic/code-smells
 
-"Refused bequest": If subclass  has nothing in common with the superclass, you should ...
+"Refused bequest": If subclass has nothing in common with the superclass, you should ...
 ?
 - eliminate inheritance in favor of [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation).
 

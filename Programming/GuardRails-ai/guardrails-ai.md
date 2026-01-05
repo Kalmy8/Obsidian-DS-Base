@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 [[guardrails integration]]
 
 [[Guard class]]

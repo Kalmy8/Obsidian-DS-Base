@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['math/probability-theory']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/math/probability-theory
+
 is the bagged version of the [decision tree algorithm](decision%20tree%20algorithm.md). Speaking more precisely, random forest algorithm, in contrast with just bagging over trees, **assumes that you are using only a subset of features** to train each tree in the ensemble
 
 In accordance to the original paper by *Leo Breiman*, "Random Forests" (Machine Learning, 45, 5-32, 2001), the overall random forest ensemble variance can be described as:
@@ -13,13 +25,9 @@ $ρ(x)$ is a *theoretical correlation*. It's not calculated from the trees in 
 - Sample a new training dataset from the overall population
 - Train a pair of random trees on this new dataset (using bootstrapping and random feature selection).
 
-
-
-
-
 ### Most important hyperparameters:
 #### Depth
-Since bagging technique does target model's variance to be reduced, we still need somewhat complex models to lower the bias. So it is recommended to build depth trees with no pruning at all, since we have overfitting problem covered up with bagging.  
+Since bagging technique does target model's variance to be reduced, we still need somewhat complex models to lower the bias. So it is recommended to build depth trees with no pruning at all, since we have overfitting problem covered up with bagging. 
 
 #### Number of estimators
 In theory, when estimators are independent and uncorrelated, we can **reduce variance by $k$ times where $k$ is the number of estimators**. In reality, true independency is unachievable, so from some point adding new estimators do increase computational expenses and training time, but does not result into any performance boost. 
@@ -45,7 +53,6 @@ Insights from the original works on Random Forests by *Leo Breiman* and subseque
 - For regression problems, the recommendation will be and $n_{min}=5$ examples.
 	- Due to the continuous nature of the target variable, predicting every and each value will include too much noise into our data, so we use a larger value to smooth the predictions a little (you can think of it as of binning the target feature).
 
-#🃏/probability-theory 
 ## Key questions
 
 How is random forest different from just bagging over the decision trees? What is the additional parameter and what is it's purpose? How should you tune this parameter?
@@ -55,7 +62,6 @@ How is random forest different from just bagging over the decision trees? What i
 - For regression problems, starting from $m = \frac{1}{3}$ is optimal, because regression tasks are generally harder and require more data to be solved with low bias.
 - For classification problems, starting point is $m = \sqrt{\text{Total number of features}}$
 <!--SR:!2025-12-27,232,330-->
-
 
 How does the total random forest variance is related with the individual tree variance? Provide a math equation and an intuition
 ?
@@ -69,12 +75,10 @@ where
 - This formula clearly shows that the total variance term is proportional to both single tree variance and the correlation between two random trees from the forest. No matter how single tree variance is big, if correlation is close to zero the all-together error would also be.
 <!--SR:!2026-02-15,267,330-->
 
-
 How to tune tree *depth* and *min_samples_leaf* parameters for both classification and regression tasks?
 ?
 - Depth parameter does usually stay unlimited, because tree's variance does not bother us too much when using bagging. So this way our trees will have the lowest bias possible
 - Min_samples_leaf parameter is usually set to 1 for classification tasks, resulting into fully-grown tree, for the same purpose
 - Min_samples_leaf parameter is usually set to 5-6 for regression tasks, because continuous data do always contain some noise, and we would like to sort of "bin" this data by increasing min_samples_leaf. This way, our tree won't remember each and every observation and won't be so overfitted.
 <!--SR:!2026-01-30,251,330-->
-
 

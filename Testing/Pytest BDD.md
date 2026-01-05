@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
+
 **Codewords:** pytest-bdd, Gherkin, feature files, step definitions, scenarios, fixtures
 
 ## Theoretical Material
@@ -10,34 +20,35 @@ Pytest-BDD is a plugin for the pytest testing framework that allows you to write
 
 Tests in pytest-bdd are written using Gherkin, a plain-text language that describes software's behavior without detailing implementation. These descriptions are stored in `.feature` files.
 
-*   **Feature:** Describes a high-level capability of the system.
-*   **Scenario:** A concrete example of a behavior that illustrates a feature.
-*   **Given:** Describes the initial context of the system.
-*   **When:** Describes an action or event performed by the user or system.
-*   **Then:** Describes an observable outcome or change in the system state.
-*   **And/But:** Used to extend a Given, When, or Then step.
+* **Feature:** Describes a high-level capability of the system.
+* **Scenario:** A concrete example of a behavior that illustrates a feature.
+* **Given:** Describes the initial context of the system.
+* **When:** Describes an action or event performed by the user or system.
+* **Then:** Describes an observable outcome or change in the system state.
+* **And/But:** Used to extend a Given, When, or Then step.
 
 **Example Feature File:**
 
 ```gherkin
 Feature: Calculator
-    As a user
-    I want to perform basic arithmetic operations
-    So that I can get accurate results
+---
+ As a user
+ I want to perform basic arithmetic operations
+ So that I can get accurate results
 
-    Scenario: Add two numbers
-        Given I have a calculator
-        And I enter "5"
-        When I press "add"
-        And I enter "3"
-        Then the result should be "8"
+ Scenario: Add two numbers
+ Given I have a calculator
+ And I enter "5"
+ When I press "add"
+ And I enter "3"
+ Then the result should be "8"
 
-    Scenario: Subtract two numbers
-        Given I have a calculator
-        And I enter "10"
-        When I press "subtract"
-        And I enter "4"
-        Then the result should be "6"
+ Scenario: Subtract two numbers
+ Given I have a calculator
+ And I enter "10"
+ When I press "subtract"
+ And I enter "4"
+ Then the result should be "6"
 ```
 
 ### Step Definitions
@@ -57,42 +68,42 @@ from pathlib import Path
 # as these step definitions if they were in separate files.
 @scenario('embedded_calculator_feature', 'Add two numbers')
 def test_add_two_numbers() -> None:
-    """Add two numbers scenario."""
-    pass
+ """Add two numbers scenario."""
+ pass
 
 @scenario('embedded_calculator_feature', 'Subtract two numbers')
 def test_subtract_two_numbers() -> None:
-    """Subtract two numbers scenario."""
-    pass
+ """Subtract two numbers scenario."""
+ pass
 
 @given("I have a calculator")
 def calculator() -> dict:
-    """Initializes a calculator state."""
-    return {"display": 0, "operation": None}
+ """Initializes a calculator state."""
+ return {"display": 0, "operation": None}
 
 @given('I enter "{number}"')
 def enter_number(calculator: dict, number: str) -> None:
-    """Enters a number into the calculator."""
-    calculator["display"] = int(number)
+ """Enters a number into the calculator."""
+ calculator["display"] = int(number)
 
 @when('I press "{operation_name}"')
 def press_operation(calculator: dict, operation_name: str) -> None:
-    """Performs an operation."""
-    calculator["operation"] = operation_name
+ """Performs an operation."""
+ calculator["operation"] = operation_name
 
 @when('I enter "{number}" again')
 def enter_second_number(calculator: dict, number: str) -> None:
-    """Enters the second number and performs calculation."""
-    second_number = int(number)
-    if calculator["operation"] == "add":
-        calculator["display"] += second_number
-    elif calculator["operation"] == "subtract":
-        calculator["display"] -= second_number
+ """Enters the second number and performs calculation."""
+ second_number = int(number)
+ if calculator["operation"] == "add":
+ calculator["display"] += second_number
+ elif calculator["operation"] == "subtract":
+ calculator["display"] -= second_number
 
 @then('the result should be "{expected_result}"')
 def check_result(calculator: dict, expected_result: str) -> None:
-    """Checks the final result."""
-    assert calculator["display"] == int(expected_result)
+ """Checks the final result."""
+ assert calculator["display"] == int(expected_result)
 ```
 
 ### Fixtures and Context Sharing

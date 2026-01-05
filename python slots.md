@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/job-interview #🃏/semantic/python
+
 [Python \_\_slots\_\_ and object layout explained - YouTube](https://www.youtube.com/watch?v=Iwf17zsDAnY)
 
 Slots is a magic attribute written like 
@@ -42,8 +54,6 @@ class Child(Father, Mother):
 	# Error
 ```
 
-
-#🃏/job_questions 
 ## Key questions
 
 What restrictions and benefits does the usage of `__slots__` class attribute provide?
@@ -56,10 +66,9 @@ What restrictions and benefits does the usage of `__slots__` class attribute pro
 	- 3+ times less memory consumption by the class instances
 <!--SR:!2026-02-05,257,330-->
 
-
 How do slots work with the simple inheritance and multi-inheritance?
 ?
 - Simple inheritance: `__slots__` are automatically inherited from the parent object. Can provide additional attributes like
-   `__slots__ = ('additional attribute')`
+ `__slots__ = ('additional attribute')`
 - Multi inheritance: is not possible, leads to an error
 <!--SR:!2026-01-15,236,330-->

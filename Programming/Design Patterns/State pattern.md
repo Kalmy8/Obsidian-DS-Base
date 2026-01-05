@@ -1,4 +1,16 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What is a **State** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **State** paradigm. Why is it similar and how is is it different from the [Strategy pattern](Strategy%20pattern.md)?
 ?
 [State.mhtml](../../📁%20files/State.mhtml)
@@ -10,12 +22,12 @@ The **State pattern** is a [behavioral pattern](Behavioral%20patterns.md) used t
 ##### State pattern structure
 ![Pasted image 20240906092838.png](Pasted%20image%2020240906092838.png)
 The pattern itself consists of **3 main parts**:
-1. **State and Context interface (ABC):**  abstract class defining some common operations which are meant to be processed differently within each state (like pressing the volume button on your phone). Both context class and concrete states are inherited from here, which guarantees that every method defined for user in Context Class will be served/implemented within State Classes.
+1. **State and Context interface (ABC):** abstract class defining some common operations which are meant to be processed differently within each state (like pressing the volume button on your phone). Both context class and concrete states are inherited from here, which guarantees that every method defined for user in Context Class will be served/implemented within State Classes.
 2. **Context Class:** a subclass of **Shared interface \[1]**. Like in a [Strategy pattern](Strategy%20pattern.md), the context class carries all the methods avaliable for client, and delegates their implementation to the currently active **concrete state \[3] object**. It should **has some field in order to refer to the state so it would be assumed a current state**. It also can have some `changeState(state)` method which can be used to manually switch to the desired state.
 3. **Concrete States:** a subclass of **State interface \[2]**, holding some actual business logic and concrete implementations. **Has some field to refer to the context class which now operates this state and a setter for it** in order to be able using context `changeState()` method and make a transition right into another state.
 ##### When to use?
 1. Your object is meant to work differently according to the application state, states are clearly separable and the transitions can be defined.
-2.  Your code is filled with many if-else statements to handle different object states, making it hard to read and maintain.
+2. Your code is filled with many if-else statements to handle different object states, making it hard to read and maintain.
 3. You have a lot of duplicate code across similar states and transitions of a condition-based state machine. Implementing some mid Abstract State classes and inheritance from them will help.
 ##### State pattern benefits
 1.  **Single Responsibility Principle:**. Organize the code related to particular states into separate classes.
@@ -28,41 +40,41 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 
 class Phone(ABC):
-    def __init__(self, initial_state : State):
-        self.current_state = initial_state
+ def __init__(self, initial_state : State):
+ self.current_state = initial_state
 
-    def set_state(self, state: State):
-        self.current_state = state
+ def set_state(self, state: State):
+ self.current_state = state
 
-    @abstractmethod 
-    def press_back_button(self):
-        """
-        This abstract method enforces that all Phone subclasses
-        must implement a way to handle the back button press.
-        """
-        pass 
+ @abstractmethod 
+ def press_back_button(self):
+ """
+ This abstract method enforces that all Phone subclasses
+ must implement a way to handle the back button press.
+ """
+ pass 
 
 # Defines possible operations
 class State(ABC):
-    @abstractmethod
-    def handle_back_button(self, phone: Phone):
-        """
-        Handle the back button press according to the state's logic.
-        """
-        pass
+ @abstractmethod
+ def handle_back_button(self, phone: Phone):
+ """
+ Handle the back button press according to the state's logic.
+ """
+ pass
 
 class IsLocked(State):
-    def handle_back_button(self, phone: Phone):
-        print('Nothing happened')
+ def handle_back_button(self, phone: Phone):
+ print('Nothing happened')
 
 class IsUnlocked(State):
-    def handle_back_button(self, phone: Phone):
-        print('Phone is now locked')
-        phone.set_state(IsLocked())
+ def handle_back_button(self, phone: Phone):
+ print('Phone is now locked')
+ phone.set_state(IsLocked())
 
 class Realme(Phone):
-    def press_back_button(self):
-        self.current_state.handle_back_button(self)  # Delegate to state
+ def press_back_button(self):
+ self.current_state.handle_back_button(self) # Delegate to state
 
 # Usage (same as before)
 ```

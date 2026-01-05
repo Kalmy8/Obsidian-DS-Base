@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 [[guardrails-ai]]
 
 - Ответственна за вызов к валидирующей llm

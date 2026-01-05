@@ -1,7 +1,16 @@
-#🃏/code_smells 
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/code-smells
 
 Temporary fields get their values (and thus are needed by objects) only under certain circumstances. Outside of these circumstances, they’re empty.
-
 
 Where to move temporart fields and code operating on them?
 ?

@@ -1,6 +1,17 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 [Flyweight pattern](Flyweight%20pattern.md)
 
-#🃏/design_patterns
 What is a **Flyweight** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Flyweight** paradigm.
 ?
 [Flyweight pattern](Flyweight%20pattern.md)
@@ -9,6 +20,7 @@ The **Flyweight pattern** is a [structural pattern](Structural%20patterns.md) us
 However, if you want to make use of it, you have to define:
 - **Immutable repeating (intrisinc) state:** object data which stays the same across practically all of the created objects.
 - **Mutable (extrisinc) state:** frequently changing object data which is unique across most part of the created objects.
+---
 The Flyweight pattern suggests that you **stop storing the extrinsic state inside the object**. Instead, you should pass this state to specific methods which rely on it. Only the intrinsic state stays within the object, letting you reuse it in different contexts. As a result, **you’d need fewer of objects since they only differ in the intrisinc state, which has much fewer variations** than the extrisinc. **This objects are called flyweights**, they are created and initalized only once and when re-used as much times as needed.
 ##### Flywheight pattern structure
 ![Pasted image 20240902214444.png](../../📁%20files/Pasted%20image%2020240902214444.png)
@@ -27,51 +39,51 @@ from dataclasses import dataclass
 # Flyweight class: stores the common, intrinsic state (as a simple data container)
 @dataclass(frozen=True)
 class TreeType:
-    name: str
-    color: str
-    texture: str
+ name: str
+ color: str
+ texture: str
 
 # Flyweight Factory class: manages and shares Flyweight objects
 class TreeTypeFactory:
-    _tree_types: Dict[str, TreeType] = {}
+ _tree_types: Dict[str, TreeType] = {}
 
-    @classmethod
-    def get_tree_type(cls, name: str, color: str, texture: str) -> TreeType:
-        key = f"{name}_{color}_{texture}"
-        if key not in cls._tree_types:
-            cls._tree_types[key] = TreeType(name, color, texture)
-            print(f"Creating new TreeType: {key}")
-        return cls._tree_types[key]
+ @classmethod
+ def get_tree_type(cls, name: str, color: str, texture: str) -> TreeType:
+ key = f"{name}_{color}_{texture}"
+ if key not in cls._tree_types:
+ cls._tree_types[key] = TreeType(name, color, texture)
+ print(f"Creating new TreeType: {key}")
+ return cls._tree_types[key]
 
 # Context class: stores extrinsic state, such as position
 class Tree:
-    def __init__(self, x: int, y: int, tree_type: TreeType):
-        self.x = x
-        self.y = y
-        self.tree_type = tree_type  # This refers to a shared Flyweight object
+ def __init__(self, x: int, y: int, tree_type: TreeType):
+ self.x = x
+ self.y = y
+ self.tree_type = tree_type # This refers to a shared Flyweight object
 
-    def draw(self):
-        """Draw the tree using its shared and unique state"""
-        print(f"Drawing {self.tree_type.name} tree at ({self.x}, {self.y}) with color {self.tree_type.color} and texture {self.tree_type.texture}")
+ def draw(self):
+ """Draw the tree using its shared and unique state"""
+ print(f"Drawing {self.tree_type.name} tree at ({self.x}, {self.y}) with color {self.tree_type.color} and texture {self.tree_type.texture}")
 
 # Client code example
 if __name__ == "__main__":
-    trees = []
-    factory = TreeTypeFactory()
+ trees = []
+ factory = TreeTypeFactory()
 
-    # Creating trees with shared types
-    oak_type = factory.get_tree_type("Oak", "Green", "Rough")
-    trees.append(Tree(10, 20, oak_type))
+ # Creating trees with shared types
+ oak_type = factory.get_tree_type("Oak", "Green", "Rough")
+ trees.append(Tree(10, 20, oak_type))
 
-    pine_type = factory.get_tree_type("Pine", "Green", "Smooth")
-    trees.append(Tree(30, 40, pine_type))
+ pine_type = factory.get_tree_type("Pine", "Green", "Smooth")
+ trees.append(Tree(30, 40, pine_type))
 
-    another_oak_type = factory.get_tree_type("Oak", "Green", "Rough")  # Reuse the shared Oak type
-    trees.append(Tree(50, 60, another_oak_type))
+ another_oak_type = factory.get_tree_type("Oak", "Green", "Rough") # Reuse the shared Oak type
+ trees.append(Tree(50, 60, another_oak_type))
 
-    # Draw all trees
-    for tree in trees:
-        tree.draw()
+ # Draw all trees
+ for tree in trees:
+ tree.draw()
 
 ```
 <!--SR:!2026-01-16,327,290-->

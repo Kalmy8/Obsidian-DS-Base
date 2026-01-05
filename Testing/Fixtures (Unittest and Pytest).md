@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
 ### Main Idea
 
 - are used to set up **an initial state of the system before the test run**
@@ -26,11 +35,12 @@ This is the core building block of tests in pytest. It is a way to create reusa
 	- **Pytest**: You **request** fixtures by naming them as arguments. `pytest` finds them, executes them, and passes the return value.
 - Pytest replaces the fixed hierarchy with flexible **Scopes**:
 
-| Unittest Hook     | Pytest Equivalent                                           |
+| Unittest Hook | Pytest Equivalent |
 | :---------------- | :---------------------------------------------------------- |
-| `setUp`           | `@pytest.fixture`                                           |
-| `setUpClass`      | `@pytest.fixture(scope="class")`<br>                        |
-| `setUpModule`     | `@pytest.fixture(scope="module")`                           |
+---
+| `setUp` | `@pytest.fixture` |
+| `setUpClass` | `@pytest.fixture(scope="class")`<br> |
+| `setUpModule` | `@pytest.fixture(scope="module")` |
 | *(No equivalent)* | `@pytest.fixture(scope="session")`<br>(once per entire run) |
 - **SetUp and TearDown difference:**
 	- In `unittest`, setup and teardown are separate methods. In `pytest`, they are often in the **same function** using `yield`:
@@ -40,15 +50,15 @@ import pytest
 
 @pytest.fixture
 def database_connection():
-    # SETUP: Everything before yield
-    conn = connect_to_db()
-    
-    yield conn  # The test runs here!
-    
-    # TEARDOWN: Everything after yield
-    conn.disconnect()
+ # SETUP: Everything before yield
+ conn = connect_to_db()
+ 
+ yield conn # The test runs here!
+ 
+ # TEARDOWN: Everything after yield
+ conn.disconnect()
 ```
-- **Composability:**  Fixtures can use other fixtures:
+- **Composability:** Fixtures can use other fixtures:
 ```python
 import pytest
 
@@ -59,11 +69,11 @@ def mock_buyer_sdk():
 # This fixture request mock_buyer_sdk fixture before it runs 
 @pytest.fixture
 def buyer_example(mock_buyer_sdk, ...):
-    # SETUP: Everything before yield
-    conn = mock_buyer_sdk.establish_connection()
-    
-    yield conn  # The test runs here!
-    
-    # TEARDOWN: Everything after yield
-    conn.disconnect()
+ # SETUP: Everything before yield
+ conn = mock_buyer_sdk.establish_connection()
+ 
+ yield conn # The test runs here!
+ 
+ # TEARDOWN: Everything after yield
+ conn.disconnect()
 ```

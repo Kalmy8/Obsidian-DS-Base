@@ -1,4 +1,15 @@
-#🃏/programming
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/python
+
 What is a dependency injection principle? When is it being benefitial and reccomended? What are the pros of dependency injection?
 ?
 A code-writing principle that suggest you to provide all the needed dependencies right to the classes methods/initializer instead of hardcoding them into your class. Using dependency injection is a preffered way to code because:

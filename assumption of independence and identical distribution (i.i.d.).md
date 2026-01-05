@@ -1,3 +1,14 @@
+---
+type: note
+status: done
+tags: ['math/probability-theory']
+sources:
+-
+authors:
+-
+---
+#🃏/semantic/math/probability-theory
+
 states, that datapoints you are working with were brought from the **same** (static, not dynamically changing) general population **independently** (meaning that they are fetched truly randomly)
 
 As the result of such a process, we do get **subsamples of the same distribution**, as the original one, this is often denoted like
@@ -10,10 +21,8 @@ If the assumption is true, then all the [descriptional statistics](Теория%
 **Caution**
 While the equality holds mathematically under i.i.d., **empirically**, individual subsets may slightly deviate from the population distribution due to random sampling variability (as mentioned earlier).
 
-Hopefully, according to the [Law of Big Numbers](Law%20of%20Big%20Numbers.md),  **as your sample size increases, empirical deviations from the true population distribution become statistically negligible**
+Hopefully, according to the [Law of Big Numbers](Law%20of%20Big%20Numbers.md), **as your sample size increases, empirical deviations from the true population distribution become statistically negligible**
 
-
-#🃏/probability-theory 
 #### Key questions:
 
 what does the assumption of independence and identical distribution (i.i.d.) state?

@@ -1,4 +1,14 @@
-#🃏/code_smells 
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+authors:
+
+- "[[Refactoring Guru - Code Smells]]"
+---
+
+#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
 
 What is the "primitives obsession"?
 ?

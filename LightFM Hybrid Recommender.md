@@ -1,3 +1,16 @@
+---
+type: note
+status: done
+tags: [tech/ml/recsys]
+sources:
+-
+authors:
+-
+- "[[Recommender Systems Course]]"
+---
+
+#🃏/semantic/ml/recsys #🃏/recsys-course
+
 **Codewords:** LightFM, Hybrid Recommender, Latent Representation, BPR, WARP, Implicit Feedback, Cold Start Problem, Feature Engineering
 
 ## LightFM: A Hybrid Recommender System
@@ -10,9 +23,6 @@ This hybrid nature allows it to overcome the main weakness of traditional matrix
 
 Unlike traditional matrix factorization (like FunkSVD) which learns a unique embedding vector for each user and each item, LightFM learns embeddings for **features**.
 
--   A user's representation is the sum of the embeddings of their features (e.g., age group, country, subscribed topics).
--   An item's representation is the sum of the embeddings of its features (e.g., movie genre, director, actors).
-
 If no features are provided, LightFM defaults to using identity matrices for features, effectively learning a unique embedding for each user/item and behaving exactly like a standard collaborative filtering model.
 
 This feature-based approach is powerful because it allows the model to generalize. If a new user comes in, the model can still create a representation for them based on their features, thus solving the user cold-start problem. The same applies to new items.
@@ -20,10 +30,6 @@ This feature-based approach is powerful because it allows the model to generaliz
 ### Key Hyperparameter: The Loss Function
 
 A critical choice in LightFM is the `loss` function, which depends on the type of feedback data you have. This is a very common interview question.
-
--   **`logistic`**: Use this for **explicit feedback**, where you have both positive (likes, 5-star ratings) and negative (dislikes, 1-star ratings) interactions. It trains the model to predict the score directly.
--   **`bpr` (Bayesian Personalized Ranking)**: The most popular choice for **implicit feedback** (clicks, purchases, views), where you only have positive interactions. It doesn't try to predict a rating. Instead, it tries to learn the relative order, ensuring that positive items are ranked higher than a random sample of negative (unobserved) items. It's optimized for ROC AUC.
--   **`warp` (Weighted Approximate-Rank Pairwise)**: Also for **implicit feedback**. It's similar to BPR but focuses more on the top of the recommendation list. It repeatedly samples negative items until it finds one that is ranked higher than the positive item, and then performs an update. This makes it more computationally intensive but often better at optimizing for **precision@k**.
 
 ### Example: Using LightFM with Item Features
 
@@ -48,17 +54,17 @@ item_features = movielens['item_features']
 # We use the 'warp' loss because Movielens ratings are implicit feedback
 # (we treat any rating >= 4.0 as a positive interaction)
 model = LightFM(loss='warp',
-                random_state=42,
-                learning_rate=0.05,
-                no_components=30,
-                item_alpha=1e-6)
+ random_state=42,
+ learning_rate=0.05,
+ no_components=30,
+ item_alpha=1e-6)
 
 # Train the model with both interaction and item feature data
 model.fit(train_interactions,
-          item_features=item_features,
-          epochs=10,
-          num_threads=2,
-          verbose=True)
+ item_features=item_features,
+ epochs=10,
+ num_threads=2,
+ verbose=True)
 
 # 3. Evaluate the Model
 # Calculate precision@10, a common ranking metric
@@ -70,47 +76,43 @@ print(f"Precision@10 (test): {test_precision:.2f}")
 
 # 4. Make Predictions
 def sample_recommendation(model, interactions, user_id, item_features):
-    n_users, n_items = interactions.shape
-    
-    # Get known positives for the user
-    known_positives = movielens['item_labels'][interactions.tocsr()[user_id].indices]
-    
-    # Predict scores for all items
-    scores = model.predict(user_id, np.arange(n_items), item_features=item_features)
-    
-    # Rank them
-    top_items_indices = np.argsort(-scores)
-    top_items = movielens['item_labels'][top_items_indices]
+ n_users, n_items = interactions.shape
+ 
+ # Get known positives for the user
+ known_positives = movielens['item_labels'][interactions.tocsr()[user_id].indices]
+ 
+ # Predict scores for all items
+ scores = model.predict(user_id, np.arange(n_items), item_features=item_features)
+ 
+ # Rank them
+ top_items_indices = np.argsort(-scores)
+ top_items = movielens['item_labels'][top_items_indices]
 
-    print(f"User {user_id}")
-    print("--- Known Positives:")
-    for x in known_positives[:5]:
-        print(f"    {x}")
+ print(f"User {user_id}")
+ print("--- Known Positives:")
+ for x in known_positives[:5]:
+ print(f" {x}")
 
-    print("--- Recommended:")
-    for x in top_items[:5]:
-        print(f"    {x}")
+ print("--- Recommended:")
+ for x in top_items[:5]:
+ print(f" {x}")
 
 # Get recommendations for user 3
 sample_recommendation(model, train_interactions, 3, item_features)
 ```
 
----
-
 **Practice Problem: Choosing the Right Model**
 
 You are tasked with building a recommender system for three different scenarios. For each, answer the following:
-1.  Would you use LightFM or a standard SVD model? Why?
-2.  If using LightFM, which `loss` function (`logistic`, `bpr`, or `warp`) would you choose? Why?
+1. Would you use LightFM or a standard SVD model? Why?
+2. If using LightFM, which `loss` function (`logistic`, `bpr`, or `warp`) would you choose? Why?
 
 **Scenarios:**
--   **Scenario A:** A news website where you have data on which articles users have clicked on. You also have metadata for each article (topic, length, author). The goal is to maximize user engagement by showing them relevant articles at the top of their feed.
--   **Scenario B:** A movie rating service where users give explicit ratings from 1 to 5 stars. You have no additional information about the movies or users. The goal is to accurately predict the rating a user would give to a movie they haven't seen.
--   **Scenario C:** An e-commerce site where you only have purchase history. You have extensive product metadata (category, brand, price) and user features (demographics). The business goal is to increase the Area Under the ROC Curve (AUC) for predicting the next purchase.
+- **Scenario A:** A news website where you have data on which articles users have clicked on. You also have metadata for each article (topic, length, author). The goal is to maximize user engagement by showing them relevant articles at the top of their feed.
+- **Scenario B:** A movie rating service where users give explicit ratings from 1 to 5 stars. You have no additional information about the movies or users. The goal is to accurately predict the rating a user would give to a movie they haven't seen.
+- **Scenario C:** An e-commerce site where you only have purchase history. You have extensive product metadata (category, brand, price) and user features (demographics). The business goal is to increase the Area Under the ROC Curve (AUC) for predicting the next purchase.
 
 ---
-
-#🃏/recsys
 
 **Key Questions for Your Interview:**
 

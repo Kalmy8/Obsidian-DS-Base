@@ -1,5 +1,14 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 
-**Who returns it?**
+**Who returns it?**
 Each individual validator (e.g., your LLMValidator, or a built-in like CorrectLanguage).
 
 **What is it?**
@@ -18,5 +27,4 @@ A simple object representing the result of a single validation check:
 	- error_message (for fail)
 	- fix_value (optional, for fixable failures)
 	- metadata, validated_chunk, etc.
-
 

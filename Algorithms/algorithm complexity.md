@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/algorithms']
+sources:
+-
+authors:
+-
+---
+
 ## Time complexity
 is an attribute of an algorithm. Thus it has to be hardware-independent.
 

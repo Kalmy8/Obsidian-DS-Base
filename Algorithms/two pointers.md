@@ -1,3 +1,14 @@
+---
+type: note
+status: done
+tags: ['tech/algorithms']
+sources:
+-
+authors:
+-
+---
+#🃏/semantic/algorithms
+
 **Codewords:** two pointers, fast and slow pointers, opposite-end pointers, in-place algorithm, time complexity, space complexity
 
 ## Two Pointers Technique
@@ -16,28 +27,28 @@ Given a sorted array of integers, find if there is a pair of numbers that add up
 
 ```python
 def find_pair_with_target_sum(arr: list[int], target: int) -> tuple[int, int] | None:
-    """
-    Finds a pair of numbers in a sorted array that sums up to the target.
+ """
+ Finds a pair of numbers in a sorted array that sums up to the target.
 
-    :param arr: A sorted list of integers.
-    :param target: The target sum.
-    :return: A tuple with the pair of numbers, or None if no such pair is found.
-    """
-    left = 0
-    right = len(arr) - 1
+ :param arr: A sorted list of integers.
+ :param target: The target sum.
+ :return: A tuple with the pair of numbers, or None if no such pair is found.
+ """
+ left = 0
+ right = len(arr) - 1
 
-    while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return arr[left], arr[right]
-        elif current_sum < target:
-            # The sum is too small, we need a larger number. Move the left pointer up.
-            left += 1
-        else: # current_sum > target
-            # The sum is too large, we need a smaller number. Move the right pointer down.
-            right -= 1
-    
-    return None
+ while left < right:
+ current_sum = arr[left] + arr[right]
+ if current_sum == target:
+ return arr[left], arr[right]
+ elif current_sum < target:
+ # The sum is too small, we need a larger number. Move the left pointer up.
+ left += 1
+ else: # current_sum > target
+ # The sum is too large, we need a smaller number. Move the right pointer down.
+ right -= 1
+ 
+ return None
 
 # Example
 my_array = [1, 2, 4, 6, 8, 9, 14, 20]
@@ -47,8 +58,6 @@ print(f"Array: {my_array}")
 print(f"Target Sum: {target_sum}")
 print(f"Found pair: {pair}") # Expected output: (2, 8)
 ```
-
----
 
 **Practice Problem: Two Sum II**
 
@@ -88,25 +97,25 @@ Given a sorted array, remove the duplicates in-place such that each element appe
 
 ```python
 def remove_duplicates(arr: list[int]) -> int:
-    """
-    Removes duplicates from a sorted array in-place.
+ """
+ Removes duplicates from a sorted array in-place.
 
-    :param arr: A sorted list of integers.
-    :return: The length of the array after removing duplicates.
-    """
-    if not arr:
-        return 0
+ :param arr: A sorted list of integers.
+ :return: The length of the array after removing duplicates.
+ """
+ if not arr:
+ return 0
 
-    # slow_pointer will track the position for the next unique element.
-    slow_pointer = 1 
-    
-    # fast_pointer will iterate through the array to find unique elements.
-    for fast_pointer in range(1, len(arr)):
-        if arr[fast_pointer] != arr[fast_pointer - 1]:
-            arr[slow_pointer] = arr[fast_pointer]
-            slow_pointer += 1
-            
-    return slow_pointer
+ # slow_pointer will track the position for the next unique element.
+ slow_pointer = 1 
+ 
+ # fast_pointer will iterate through the array to find unique elements.
+ for fast_pointer in range(1, len(arr)):
+ if arr[fast_pointer] != arr[fast_pointer - 1]:
+ arr[slow_pointer] = arr[fast_pointer]
+ slow_pointer += 1
+ 
+ return slow_pointer
 
 # Example
 my_array = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
@@ -134,8 +143,6 @@ nums_2 = [-7, -3, 2, 3, 11]
 2. Can you solve it in O(n) time using two pointers (from opposite ends)? Hint: The largest squared number will be at one of the ends of the original array.
 
 ---
-
-#🃏/algorithms
 
 **Key Questions:**
 

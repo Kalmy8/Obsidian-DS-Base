@@ -1,3 +1,16 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+#🃏/python-basics-course
+
 **Codewords:** Python complex data types (dict, tuple, set), their usage and methods.
 
 ### **1. Python dictionaries**
@@ -10,10 +23,11 @@ my_dictionary = {'1' : 'First_element',
 				 4 : ['strings','strings2']}
 
 print(my_dictionary['1'],
-	  my_dictionary['some_other_key'],
-	  my_dictionary[4], sep = '\n')
+	 my_dictionary['some_other_key'],
+	 my_dictionary[4], sep = '\n')
 
 # Output: 
+
 'First_element'
 2
 ['strings', 'strings2']
@@ -38,15 +52,15 @@ my_dictionary = {'1' : 'First_element',
 				 4 : ['strings','strings2']}
 
 print(my_dictionary.keys(),
-	  my_dictionary.values(),
-	  my_dictionary.items(), sep = '\n')
-	  
+	 my_dictionary.values(),
+	 my_dictionary.items(), sep = '\n')
+	 
 # Output: 
 dict_keys(['1', 'some_other_key', 4]) # Keys
 dict_values(['First_element', 2, ['strings','strings2']]) # Values
 dict_items[(1, 'First_element', 
-		  ('some_other_key', 2),
-		  (4, ['strings','strings2'])) # Items
+		 ('some_other_key', 2),
+		 (4, ['strings','strings2'])) # Items
 
 # "Appending" to a dictionary
 my_dictionary.update({'new_record' : 5})
@@ -130,17 +144,16 @@ print(set_a.difference(set_b))
 - Create a set containing the numbers 1, 2, 3, 4, and 5. Then, remove the number 3 from the set and print the updated set.
 - Given two sets of numbers: `set_a = {1, 2, 3, 4, 5}` and `set_b = {4, 5, 6, 7, 8}`, find the difference between `set_a` and `set_b` (i.e., elements that are in `set_a` but not in `set_b`). Print the result.
 
-#🃏/data-science
 ## Review Questions:
 Create a dictionary to store the names and ages of three people: "Alice" (25), "Bob" (30), and "Charlie" (35). Then, retrieve and print Bob's age.
 ?
 ```python
 people = {"Alice": 25, "Bob": 30, "Charlie": 35}
-print(people["Bob"])  # Output: 30
+print(people["Bob"]) # Output: 30
 ```
 <!--SR:!2026-11-28,365,350-->
 
-Given this dictionary:  `data = {"a": 1, "b": 2, "c": 3}`, print all the keys of this dictionary.
+Given this dictionary: `data = {"a": 1, "b": 2, "c": 3}`, print all the keys of this dictionary.
 ?
 ```python
 data = {"a": 1, "b": 2, "c": 3}
@@ -155,8 +168,8 @@ Implement a **frequency counter** with a dictionary `counts` where keys are char
 text = "abracadabra"
 counts = {}
 for char in text:
-    counts[char] = counts.get(char, 0) + 1 # Nice way to add occurances in one line.
-print(counts)  # Output: {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}
+ counts[char] = counts.get(char, 0) + 1 # Nice way to add occurances in one line.
+print(counts) # Output: {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}
 ```
 <!--SR:!2026-11-28,365,350-->
 
@@ -165,9 +178,9 @@ You have a tuple representing a date: `(2024, 8, 21)`. Extract the year, month, 
 ```python
 date = (2024, 8, 21)
 year, month, day = date
-print(year)   # Output: 2024
-print(month)  # Output: 8
-print(day)    # Output: 21
+print(year) # Output: 2024
+print(month) # Output: 8
+print(day) # Output: 21
 ```
 <!--SR:!2026-01-02,292,330-->
 
@@ -177,7 +190,7 @@ Given two sets: `set1 = {1, 2, 3, 4}` and `set2 = {3, 4, 5, 6}`, find the inters
 set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 intersection = set1.intersection(set2) 
-print(intersection)  # Output: {3, 4}
+print(intersection) # Output: {3, 4}
 ```
 <!--SR:!2026-01-06,296,330-->
 
@@ -186,7 +199,7 @@ You are managing a list of students and their grades, where the data is stored i
 ```python
 grades = {"Alice": [85, 90], "Bob": [78]}
 grades.setdefault("Charlie", []).append(92) 
-print(grades)  # Output: {'Alice': [85, 90], 'Bob': [78], 'Charlie': [92]}
+print(grades) # Output: {'Alice': [85, 90], 'Bob': [78], 'Charlie': [92]}
 ```
 <!--SR:!2026-11-28,365,350-->
 
@@ -195,10 +208,8 @@ You have a list of numbers with some duplicates: `[10, 20, 10, 30, 40, 30, 50]`.
 ```python
 numbers = [10, 20, 10, 30, 40, 30, 50]
 unique_numbers = set(numbers)
-difference = unique_numbers.difference({20, 30})  
-print(difference)  # Output: {40, 10, 50} (order may vary)
+difference = unique_numbers.difference({20, 30}) 
+print(difference) # Output: {40, 10, 50} (order may vary)
 ```
 <!--SR:!2026-10-03,365,350-->
-
-
 

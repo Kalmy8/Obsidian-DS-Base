@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: [tech/ml]
+sources:
+-
+authors:
+-
+---
+
 is a common machine-learning technique used to decrease model's variance
 
 ## Problem statement
@@ -40,7 +50,7 @@ The weights could be enormous, but they do balance each other to somewhat like *
 Regularization technique suggest modifying the problem itself by changing the OLS cost function this way:
 $$\large \mathcal{L}(\mathbf{X}, \mathbf{y}, \mathbf{w}) = \frac{1}{2n} \sum_{i=1}^n \left( y_si - \sum_{j=1}^p X_{ij} w_j \right)^2 + \lambda \sum_{j=1}^p w_{j}^{2},$$
 where
--  $\lambda$ is the regularization coefficient.
+- $\lambda$ is the regularization coefficient.
 
 This leads to a different analytical solution:
 $$\large w=(X^{T}X+\lambda I)^{-1}X^{T}y,$$
@@ -81,7 +91,4 @@ Your loss function can be divided into 2 simpler functions: the first part is re
 
 The training process stops when you end up in some balance point in between. The derivative for the first function is, and the derivative of the second is just +1/-1 or zero.
 
-
-
-#🃏/data-science 
-## Key questions
+#🃏/semantic/ml ## Key questions

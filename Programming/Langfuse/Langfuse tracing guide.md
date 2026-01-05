@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 
 ### CallbackHandler
 
@@ -19,12 +28,13 @@ chain = prompt | llm
 response = chain.invoke(
  {"topic": "cats"}, 
  config={"callbacks": [langfuse_handler]})
+---
 ```
 
 - Chains, tools, retrievers, agents, and LLM calls are mapped to Langfuse spans/generations automatically. 
 - You can set `user_id`, `session_id`, `tags` per execution via `metadata` (e.g. `langfuse_user_id`, `langfuse_session_id`, `langfuse_tags`).[(3)](https://langfuse.com/integrations/frameworks/langchain)[(1)](https://langfuse.com/docs/observability/get-started)
 - You can also drive trace IDs explicitly by wrapping the LangChain execution in a span with a predefined trace ID (see section 3 below).[(4)](https://langfuse.com/docs/observability/features/trace-ids-and-distributed-tracing)[(3)](https://langfuse.com/integrations/frameworks/langchain)
-### `@observe` decorator (function-level tracing)  
+### `@observe` decorator (function-level tracing) 
 
 The `@observe()` decorator is the high-level way to trace individual functions (sync or async) in your own code.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(5)](https://langfuse.com/docs/observability/sdk/python/overview)[(1)](https://langfuse.com/docs/observability/get-started) It automatically creates a Langfuse observation around the function, capturing inputs, outputs, timing, and errors.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)
 
@@ -59,12 +69,12 @@ def my_function(a, b):
 my_function(1, 2, langfuse_trace_id="1234567890abcdef1234567890abcdef")
 ```
 
-###  “Low-level” control
+### “Low-level” control
 
 Client, context managers, manual spans, trace updates
 
-####  Context managers: 
-`start_as_current_observation` (recommended low-level API)  
+#### Context managers: 
+`start_as_current_observation` (recommended low-level API) 
 
 Context managers are the main low-level building block. They create a span or generation and set it as the current observation in the OTEL context so children nest automatically.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(1)](https://langfuse.com/docs/observability/get-started)
 
@@ -87,7 +97,7 @@ langfuse.start_as_current_observation(as_type="span", name="process-request") as
  # Create a nested generation for an LLM call
  with langfuse.start_as_current_observation(as_type="generation", name="llm-response", model="gpt-3.5-turbo") as generation:
  # Your LLM call logic here
-  generation.update(output="Generated response")
+ generation.update(output="Generated response")
  
 # All spans are automatically closed when exiting their context blocks
 ```
@@ -95,7 +105,7 @@ langfuse.start_as_current_observation(as_type="span", name="process-request") as
 - Use `langfuse.update_current_span()` / `langfuse.update_current_generation()` if you don’t have a direct reference but are inside a traced context.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)
 
 #### Manual spans & generations 
-(`start_span`, `start_generation`)  
+(`start_span`, `start_generation`) 
 If you don’t want the span to become the current context, you can start spans manually and end them explicitly.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(1)](https://langfuse.com/docs/observability/get-started)
 
 ```python
@@ -161,7 +171,7 @@ with langfuse.start_as_current_observation(as_type="span", name="complex-pipelin
 	root_span.update_trace(
 				input={"original_query": "User's actual question"},
 				output={"final_answer": "Complete response", "confidence": 0.95},
-				metadata=...,  
+				metadata=..., 
 				name=..., # Trace Name
 				public=... #
 			)
@@ -208,8 +218,7 @@ with langfuse.start_as_current_observation(as_type="span", name="api-request"):
 # Service B will automatically extract and apply these attributes
 ```
 
-
-e) Custom / deterministic trace IDs  
+e) Custom / deterministic trace IDs 
 To align Langfuse traces with your own IDs (e.g. messageId, correlationId), you can use deterministic trace IDs via `create_trace_id()` and then pass them into either:[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(4)](https://langfuse.com/docs/observability/features/trace-ids-and-distributed-tracing)[(3)](https://langfuse.com/integrations/frameworks/langchain)
 
 - `langfuse_trace_id` when calling an `@observe`-decorated function.[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(4)](https://langfuse.com/docs/observability/features/trace-ids-and-distributed-tracing)
@@ -235,24 +244,23 @@ with langfuse.start_as_current_observation(
  trace_context={"trace_id": predefined_trace_id}
 ) as span:
  span.update_trace(
-  user_id="user_123",
-  input={"person": "Ada Lovelace"}
+ user_id="user_123",
+ input={"person": "Ada Lovelace"}
  )
  
  # LangChain execution will be part of this trace
  response = chain.invoke(
-  {"person": "Ada Lovelace"},
-  config={"callbacks": [langfuse_handler]}
+ {"person": "Ada Lovelace"},
+ config={"callbacks": [langfuse_handler]}
  )
  
  span.update_trace(output={"response": response})
  
-print(f"Trace ID: {predefined_trace_id}")  # Use this for scoring later
-print(f"Trace ID: {langfuse_handler.last_trace_id}")  # Care needed in concurrent environments where handler is reused
+print(f"Trace ID: {predefined_trace_id}") # Use this for scoring later
+print(f"Trace ID: {langfuse_handler.last_trace_id}") # Care needed in concurrent environments where handler is reused
 ```
 
-
-###  How to combine these in a “complex tracing system”
+### How to combine these in a “complex tracing system”
 
 With the above primitives, a typical complex setup in Python looks like:[(2)](https://langfuse.com/docs/observability/sdk/python/instrumentation)[(3)](https://langfuse.com/integrations/frameworks/langchain)[(5)](https://langfuse.com/docs/observability/sdk/python/overview)[(1)](https://langfuse.com/docs/observability/get-started)
 

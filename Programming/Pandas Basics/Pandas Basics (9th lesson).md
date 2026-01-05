@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Pandas Basics Course]]"
+authors:
+-
+---
+#🃏/semantic/pandas #🃏/pandas-basics-course
+
 **Codewords:** Data Quality, Missing Values, Outliers, Data Profiling, Data Cleaning, Data Types
 
 ## Basic Data Quality with ydata-profiling
@@ -21,21 +33,22 @@ profile = ProfileReport(df, minimal=True)
 # see more here: (https://docs.profiling.ydata.ai/latest/advanced_settings/available_settings/)
 
 # Example 3: Performance-oriented configuration for large datasets
+---
 profile_large = ProfileReport(
-    df,
-    title="Large Dataset Report",
-    minimal=True,                      # Enable minimal mode
-    pool_size=4,                       # Use 4 CPU cores
-    correlations=None,                 # Disable all correlations
-    interactions={"continuous": False}, # Disable interaction plots
-    vars={
-        "num": {"low_categorical_threshold": 0},  # Disable categorical conversion
-        "cat": {
-            "characters": False,
-            "words": False,
-            "length": False
-        }
-    }
+ df,
+ title="Large Dataset Report",
+ minimal=True, # Enable minimal mode
+ pool_size=4, # Use 4 CPU cores
+ correlations=None, # Disable all correlations
+ interactions={"continuous": False}, # Disable interaction plots
+ vars={
+ "num": {"low_categorical_threshold": 0}, # Disable categorical conversion
+ "cat": {
+ "characters": False,
+ "words": False,
+ "length": False
+ }
+ }
 )
 ```
 
@@ -73,21 +86,21 @@ import seaborn as sns
 sns.set(style="whitegrid")
 
 # Create a toy restaurant bill dataset
-np.random.seed(42)  # For reproducibility
+np.random.seed(42) # For reproducibility
 
 # Create normal distribution for most bills
-normal_bills = np.random.normal(loc=20, scale=5, size=95)  # Mean $20, SD $5
+normal_bills = np.random.normal(loc=20, scale=5, size=95) # Mean $20, SD $5
 
 # Add some outliers
-outlier_bills = np.array([50, 65, 75, 120, 5])  # Very high and very low bills
+outlier_bills = np.array([50, 65, 75, 120, 5]) # Very high and very low bills
 
 # Combine data
 bill_data = {
-    'table_number': range(1, 101),
-    'total_bill': np.concatenate([normal_bills, outlier_bills]),
-    'day': np.random.choice(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], 100),
-    'time': np.random.choice(['Lunch', 'Dinner'], 100),
-    'size': np.random.choice([1, 2, 3, 4], 100, p=[0.2, 0.4, 0.3, 0.1])
+ 'table_number': range(1, 101),
+ 'total_bill': np.concatenate([normal_bills, outlier_bills]),
+ 'day': np.random.choice(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], 100),
+ 'time': np.random.choice(['Lunch', 'Dinner'], 100),
+ 'size': np.random.choice([1, 2, 3, 4], 100, p=[0.2, 0.4, 0.3, 0.1])
 }
 
 # Create DataFrame
@@ -149,7 +162,7 @@ df['total_bill_capped'] = df['total_bill'].clip(lower=lower_bound, upper=upper_b
 
 # Option 3: Log transformation to reduce impact of outliers
 # Good for right-skewed data with positive values
-df['total_bill_log'] = np.log1p(df['total_bill'])  # log1p avoids issues with zero values
+df['total_bill_log'] = np.log1p(df['total_bill']) # log1p avoids issues with zero values
 ```
 
 **Let's compare all 3 options on the bill data above:**
@@ -181,10 +194,10 @@ plt.show()
 # Compare statistics
 print("\nComparison of statistics:")
 stats_df = pd.DataFrame({
-    'Original': df['total_bill'].describe(),
-    'After removing outliers': df_clean['total_bill'].describe(),
-    'After capping': df['total_bill_capped'].describe(),
-    'After log transform': df['total_bill_log'].describe()
+ 'Original': df['total_bill'].describe(),
+ 'After removing outliers': df_clean['total_bill'].describe(),
+ 'After capping': df['total_bill_capped'].describe(),
+ 'After log transform': df['total_bill_log'].describe()
 })
 print(stats_df)
 ```
@@ -194,36 +207,36 @@ print(stats_df)
 # Use this DataFrame for practice
 np.random.seed(42)
 data = {
-    'product_id': range(1, 101),
-    'price': np.concatenate([
-        np.random.normal(50, 10, 95),   # Normal prices
-        np.array([100, 125, 5, 8, 150])  # Outlier prices
-    ]),
-    'quantity': np.concatenate([
-        np.random.poisson(lam=5, size=95),  # Normal quantities
-        np.array([20, 25, 30, 0, 35])      # Outlier quantities
-    ]),
-    'category': np.random.choice(['Electronics', 'Clothing', 'Books', 'Home'], 100)
+ 'product_id': range(1, 101),
+ 'price': np.concatenate([
+ np.random.normal(50, 10, 95), # Normal prices
+ np.array([100, 125, 5, 8, 150]) # Outlier prices
+ ]),
+ 'quantity': np.concatenate([
+ np.random.poisson(lam=5, size=95), # Normal quantities
+ np.array([20, 25, 30, 0, 35]) # Outlier quantities
+ ]),
+ 'category': np.random.choice(['Electronics', 'Clothing', 'Books', 'Home'], 100)
 }
 df_products = pd.DataFrame(data)
 ```
 - **Tasks**:
-  1. Use boxplots to identify outliers in both price and quantity columns by category.
-     - Expected output: Boxplots showing distribution of values across categories with outliers visible
-  
-  2. Apply the IQR method to detect outliers in the price column.
-     - Expected output: A list of products with outlier prices and their details
-  
-  3. Handle outliers using two different methods:
-     - Remove outliers and calculate mean price by category
-     - Cap outliers and calculate mean price by category
-     - Expected output: Comparison of category means before and after outlier treatment
-  
-  4. Create a visualization showing the distribution of prices:
-     - Before outlier treatment
-     - After removing outliers
-     - After capping outliers
-     - Expected output: Three histograms showing the effect of different treatments
+ 1. Use boxplots to identify outliers in both price and quantity columns by category.
+ - Expected output: Boxplots showing distribution of values across categories with outliers visible
+ 
+ 2. Apply the IQR method to detect outliers in the price column.
+ - Expected output: A list of products with outlier prices and their details
+ 
+ 3. Handle outliers using two different methods:
+ - Remove outliers and calculate mean price by category
+ - Cap outliers and calculate mean price by category
+ - Expected output: Comparison of category means before and after outlier treatment
+ 
+ 4. Create a visualization showing the distribution of prices:
+ - Before outlier treatment
+ - After removing outliers
+ - After capping outliers
+ - Expected output: Three histograms showing the effect of different treatments
 
 # 3. Handling Missing Values
 
@@ -232,10 +245,10 @@ Let's create a dataset with some missing values:
 ```python
 # Create sample dataset with missing values
 data = {
-    'age': [25, np.nan, 35, 28, np.nan, 45, 32],
-    'salary': [50000, 60000, np.nan, 55000, 65000, np.nan, 70000], 
-    'department': ['IT', 'HR', np.nan, 'IT', 'Finance', 'HR', np.nan],
-    'performance': [4.5, np.nan, 4.2, np.nan, 3.8, 4.1, 4.4]
+ 'age': [25, np.nan, 35, 28, np.nan, 45, 32],
+ 'salary': [50000, 60000, np.nan, 55000, 65000, np.nan, 70000], 
+ 'department': ['IT', 'HR', np.nan, 'IT', 'Finance', 'HR', np.nan],
+ 'performance': [4.5, np.nan, 4.2, np.nan, 3.8, 4.1, 4.4]
 }
 df = pd.DataFrame(data)
 
@@ -266,24 +279,24 @@ import seaborn as sns
 sns.set(style="whitegrid")
 
 # Create a complete dataset of 100 people with height and weight
-np.random.seed(42)  # For reproducibility
+np.random.seed(42) # For reproducibility
 
 # Create four distinct groups of people to represent diversity
 # Group 1: Short and light weight
-heights_1 = np.random.normal(160, 5, 25)  # cm
-weights_1 = np.random.normal(55, 5, 25)   # kg
+heights_1 = np.random.normal(160, 5, 25) # cm
+weights_1 = np.random.normal(55, 5, 25) # kg
 
 # Group 2: Short and heavy weight
-heights_2 = np.random.normal(165, 5, 25)  # cm
-weights_2 = np.random.normal(85, 8, 25)   # kg
+heights_2 = np.random.normal(165, 5, 25) # cm
+weights_2 = np.random.normal(85, 8, 25) # kg
 
 # Group 3: Tall and light weight
-heights_3 = np.random.normal(185, 5, 25)  # cm
-weights_3 = np.random.normal(70, 5, 25)   # kg
+heights_3 = np.random.normal(185, 5, 25) # cm
+weights_3 = np.random.normal(70, 5, 25) # kg
 
 # Group 4: Tall and heavy weight
-heights_4 = np.random.normal(190, 5, 25)  # cm
-weights_4 = np.random.normal(100, 8, 25)  # kg
+heights_4 = np.random.normal(190, 5, 25) # cm
+weights_4 = np.random.normal(100, 8, 25) # kg
 
 # Combine all groups
 heights = np.concatenate([heights_1, heights_2, heights_3, heights_4])
@@ -295,10 +308,10 @@ colors = np.repeat(['blue', 'green', 'orange', 'red'], 25)
 
 # Create the complete dataset
 complete_data = pd.DataFrame({
-    'height': heights,
-    'weight': weights,
-    'group': groups,
-    'color': colors
+ 'height': heights,
+ 'weight': weights,
+ 'group': groups,
+ 'color': colors
 })
 
 # Show the effect on trend lines (what an algorithm might learn)
@@ -307,12 +320,12 @@ plt.figure(figsize=(10, 6))
 # Complete data trend
 plt.subplot(1, 2, 1)
 for group in complete_data['group'].unique():
-    subset = complete_data[complete_data['group'] == group]
-    plt.scatter(subset['height'], subset['weight'], label=group, alpha=0.5)
+ subset = complete_data[complete_data['group'] == group]
+ plt.scatter(subset['height'], subset['weight'], label=group, alpha=0.5)
 
 # Add overall trend line
 sns.regplot(x='height', y='weight', data=complete_data, scatter=False, 
-            line_kws={"color": "black", "lw": 2}, label='True relationship')
+ line_kws={"color": "black", "lw": 2}, label='True relationship')
 plt.title('Complete Data: True Relationship')
 plt.xlabel('Height (cm)')
 plt.ylabel('Weight (kg)')
@@ -321,14 +334,14 @@ plt.legend()
 # Biased data trend
 plt.subplot(1, 2, 2)
 for group in biased_data['group'].unique():
-    subset = biased_data[biased_data['group'] == group]
-    valid_subset = subset.dropna()
-    plt.scatter(valid_subset['height'], valid_subset['weight'], label=group, alpha=0.5)
+ subset = biased_data[biased_data['group'] == group]
+ valid_subset = subset.dropna()
+ plt.scatter(valid_subset['height'], valid_subset['weight'], label=group, alpha=0.5)
 
 # Add biased trend line (calculated only on available data)
 valid_data = biased_data.dropna()
 sns.regplot(x='height', y='weight', data=valid_data, scatter=False, 
-            line_kws={"color": "red", "lw": 2}, label='Biased relationship')
+ line_kws={"color": "red", "lw": 2}, label='Biased relationship')
 plt.title('Biased Data: Misleading Relationship')
 plt.xlabel('Height (cm)')
 plt.ylabel('Weight (kg)')
@@ -345,9 +358,8 @@ plt.show()
 
 ```python
 print(df.dropna(subsample = ...,
-                thresh = ...))
+ thresh = ...))
 ```
-
 
 ### Imputation
 
@@ -394,7 +406,7 @@ df['perf_ffill'] = df['performance'].bfill()
 # or df['perf_ffill'] = df['performance'].ffill()
 ```
 
-#### Interpolation  
+#### Interpolation 
 useful for numeric data with clear trends
 
 ```python
@@ -403,76 +415,73 @@ df['perf_interp'] = df['performance'].interpolate(method='linear')
 print(df)
 ```
 
-
 **Practice Problem: Missing Values Detection**
 ```python
 # Use this DataFrame for practice
 data = {
-    'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael', 'Emma'],
-    'age': [25, None, 35, 28, None, 45],
-    'salary': [50000, 60000, None, 55000, 65000, None],
-    'department': ['IT', 'HR', None, 'IT', 'Finance', 'HR'],
-    'rating': [4.5, None, 4.2, None, 3.8, 4.1]
+ 'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael', 'Emma'],
+ 'age': [25, None, 35, 28, None, 45],
+ 'salary': [50000, 60000, None, 55000, 65000, None],
+ 'department': ['IT', 'HR', None, 'IT', 'Finance', 'HR'],
+ 'rating': [4.5, None, 4.2, None, 3.8, 4.1]
 }
 df = pd.DataFrame(data)
 ```
 - **Tasks**:
-  1. Calculate and display the percentage of missing values in each column.
-     - Expected output: A Series showing percentage of NaN values per column
-  
-  3. Count how many rows have at least one missing value.
-     - Expected output: A single number representing rows with any NaN
+ 1. Calculate and display the percentage of missing values in each column.
+ - Expected output: A Series showing percentage of NaN values per column
+ 
+ 3. Count how many rows have at least one missing value.
+ - Expected output: A single number representing rows with any NaN
 
 **Practice Problem: Basic Imputation Strategies**
 ```python
 # Use this DataFrame for practice
 data = {
-    'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael', 'Emma'],
-    'age': [25, None, 35, 28, None, 45],
-    'salary': [50000, 60000, None, 55000, 65000, None],
-    'department': ['IT', 'HR', None, 'IT', 'Finance', 'HR'],
-    'rating': [4.5, None, 4.2, None, 3.8, 4.1]
+ 'name': ['John', 'Anna', 'Peter', 'Sarah', 'Michael', 'Emma'],
+ 'age': [25, None, 35, 28, None, 45],
+ 'salary': [50000, 60000, None, 55000, 65000, None],
+ 'department': ['IT', 'HR', None, 'IT', 'Finance', 'HR'],
+ 'rating': [4.5, None, 4.2, None, 3.8, 4.1]
 }
 df = pd.DataFrame(data)
 ```
 - **Tasks**:
-  1. Fill missing ages with the mean age.
-     - Expected output: A Series with no NaN values, missing ages replaced with mean
-  
-  2. Fill missing salaries with the median salary.
-     - Expected output: A Series with no NaN values, missing salaries replaced with median
-  
-  3. Fill missing departments with the mode (most common value).
-     - Expected output: A Series with no NaN values, missing departments replaced with most frequent department
+ 1. Fill missing ages with the mean age.
+ - Expected output: A Series with no NaN values, missing ages replaced with mean
+ 
+ 2. Fill missing salaries with the median salary.
+ - Expected output: A Series with no NaN values, missing salaries replaced with median
+ 
+ 3. Fill missing departments with the mode (most common value).
+ - Expected output: A Series with no NaN values, missing departments replaced with most frequent department
 
 **Practice Problem: Advanced Imputation Methods**
 ```python
 # Use this DataFrame for practice
 data = {
-    'date': pd.date_range(start='2023-01-01', periods=6, freq='D'),
-    'sales': [100, None, 120, None, None, 150],
-    'temperature': [20, None, 22, 25, None, 23],
-    'stock_level': [500, None, 400, 350, None, 200]
+ 'date': pd.date_range(start='2023-01-01', periods=6, freq='D'),
+ 'sales': [100, None, 120, None, None, 150],
+ 'temperature': [20, None, 22, 25, None, 23],
+ 'stock_level': [500, None, 400, 350, None, 200]
 }
 df = pd.DataFrame(data)
 ```
 - **Tasks**:
-  1. Use forward fill to impute missing sales values.
-     - Expected output: A Series with no NaN values, missing values filled with previous valid value
-  
-  2. Use linear interpolation for missing temperature values.
-     - Expected output: A Series with no NaN values, missing values interpolated based on surrounding values
-  
-  3. Use backward fill for missing stock levels.
-     - Expected output: A Series with no NaN values, missing values filled with next valid value
-
-
+ 1. Use forward fill to impute missing sales values.
+ - Expected output: A Series with no NaN values, missing values filled with previous valid value
+ 
+ 2. Use linear interpolation for missing temperature values.
+ - Expected output: A Series with no NaN values, missing values interpolated based on surrounding values
+ 
+ 3. Use backward fill for missing stock levels.
+ - Expected output: A Series with no NaN values, missing values filled with next valid value
 
 # 4. Data Type Issues
 ### Converting Data Types
 ```python
 # Convert to numeric
-df['value'] = pd.to_numeric(df['value'], errors='coerce')  # 'coerce' turns invalid values to NaN
+df['value'] = pd.to_numeric(df['value'], errors='coerce') # 'coerce' turns invalid values to NaN
 
 # Convert to datetime
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
@@ -512,7 +521,7 @@ duplicates = df.duplicated()
 print(f"Number of duplicates: {duplicates.sum()}")
 
 # Show duplicate rows
-df[df.duplicated(keep=False)]  # keep=False shows all duplicates
+df[df.duplicated(keep=False)] # keep=False shows all duplicates
 
 # Drop duplicates
 df_clean = df.drop_duplicates()
@@ -521,7 +530,7 @@ df_clean = df.drop_duplicates()
 df_clean = df.drop_duplicates(subset=['name', 'address'])
 
 # Keep first/last occurrence
-df_clean = df.drop_duplicates(keep='first')  # or 'last'
+df_clean = df.drop_duplicates(keep='first') # or 'last'
 ```
 
 **Practice Problem: Duplicate Handling**
@@ -533,33 +542,32 @@ df_clean = df.drop_duplicates(keep='first')  # or 'last'
 ```python
 # Use this DataFrame for practice
 data = {
-    'age': np.random.normal(35, 10, 1000),
-    'salary': np.random.lognormal(10, 0.5, 1000),
-    'department': np.random.choice(['IT', 'HR', 'Finance', 'Sales'], 1000),
-    'performance': np.random.uniform(1, 5, 1000),
-    'join_date': pd.date_range(start='2020-01-01', periods=1000, freq='D')
+ 'age': np.random.normal(35, 10, 1000),
+ 'salary': np.random.lognormal(10, 0.5, 1000),
+ 'department': np.random.choice(['IT', 'HR', 'Finance', 'Sales'], 1000),
+ 'performance': np.random.uniform(1, 5, 1000),
+ 'join_date': pd.date_range(start='2020-01-01', periods=1000, freq='D')
 }
 df = pd.DataFrame(data)
 ```
 - **Tasks**:
-  1. Create a minimal profile report focusing only on basic statistics.
-     - Disable all correlations and interactions
-     - Show only basic summary statistics
-     - Expected output: A lightweight HTML report
-  
-  2. Create a report focused on correlation analysis.
-     - Enable Spearman and Pearson correlations
-     - Set correlation warning threshold to 0.8
-     - Include correlation heatmaps
-     - Expected output: A report highlighting variable relationships
-  
-  3. Create a comprehensive report for missing value analysis.
-     - Enable all missing value plots
-     - Set custom descriptions for each variable
-     - Customize the appearance with a different theme
-     - Expected output: A detailed report about data completeness
+ 1. Create a minimal profile report focusing only on basic statistics.
+ - Disable all correlations and interactions
+ - Show only basic summary statistics
+ - Expected output: A lightweight HTML report
+ 
+ 2. Create a report focused on correlation analysis.
+ - Enable Spearman and Pearson correlations
+ - Set correlation warning threshold to 0.8
+ - Include correlation heatmaps
+ - Expected output: A report highlighting variable relationships
+ 
+ 3. Create a comprehensive report for missing value analysis.
+ - Enable all missing value plots
+ - Set custom descriptions for each variable
+ - Customize the appearance with a different theme
+ - Expected output: A detailed report about data completeness
 
-#🃏/pandas-basics
 **Review Questions:**
 1. What are the main strategies for handling missing values and when should each be used?
 2. How do Z-score and IQR methods differ in detecting outliers?

@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+
+---
 - **BDD stands for Behavior Driven Development**
 	- **Outside in:** This approach assumes that you have no information about the underlaying code or mechanism (imagine you are the user):
 		- If I add an item to my shopping cart - will it appear on the checkout page?

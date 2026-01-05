@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/ml']
+sources:
+-
+authors:
+-
+---
+
 is an ensembling ML method, which targets to reduce total error variance component.
 
 the main idea of bagging: instead of training one estimator, we could train several, using different subsamples of the training data, and then take the average prediction.
@@ -20,8 +30,7 @@ This core property of bagging defines the way it is most commonly used: **baggin
 
 Thus bagging is usually to used over [decision tree algorithm](decision%20tree%20algorithm.md), which, with some nuances, result into [random forest algorithm](random%20forest%20algorithm.md).
 
-#🃏/data-science  
-## Key questions:
+#🃏/semantic/ml ## Key questions:
 
 What is the core idea of a bagging technique, how can it be described? What benefits does it provide?
 ?

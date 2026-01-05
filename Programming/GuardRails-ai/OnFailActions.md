@@ -1,4 +1,12 @@
-  
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 ```python
 class OnFailAction(str, Enum):
 
@@ -10,6 +18,7 @@ class OnFailAction(str, Enum):
         FIX (Literal["fix"]): On failure, apply a static fix.
         FILTER (Literal["filter"]): On failure, filter out the invalid values.
         REFRAIN (Literal["refrain"]): On failure, refrain from responding;
+---
             return an empty value.
             
         NOOP (Literal["noop"]): On failure, do nothing.

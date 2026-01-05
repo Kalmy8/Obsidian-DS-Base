@@ -1,10 +1,20 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/job-interview #🃏/semantic/python
 
 What is a process? What is a thread?
 ?
 - Process - a launched program, which do operates some allocated resources, such as memory and computation time.
 - Every process has one or more threads (threads are also called lightweight processes). These threads share resources with each other but operate independently.
 <!--SR:!2026-02-23,275,330-->
-
 
 ### CPU and I/O - bounded tasks
 This terminology will be used later in the note, so let's clarify what does it mean:
@@ -16,7 +26,6 @@ What are the CPU and I/O-bounded tasks? How to execute these tasks efficiently/f
 - I/O tasks are tasks related from input/output of some data, for example tasks like reading/writing from a web-server, from a remote database, from a user and etc. This tasks themselves are not expensive, but have to wait for some data exchange to run off. Some of such tasks may run infinitely (accepting new users connections on a web-server).
 	- With such tasks, we should make sure that awaiting for new data exchange does not suspect the whole application, so we use concurrency/asynchronous execution.
 <!--SR:!2026-02-10,262,330-->
-
 
 ### Physical, logical cores
 Every modern CPU has at least **multiple physical cores** and, some of them, also have **multiple logical cores** (hyperthreading from Intel).
@@ -32,7 +41,6 @@ Parallel running involves **using multiple physical cores**, which increases the
 
 > [!quote] Note:
 > **Parallel running is the only way to deal well with some heavy CPU-bonded tasks** because the amount of computational power is increased by the amount of recruited physical cores.
-
 
 #### Concurrent running (SMT)
 This is the situation when \<N> threads take advantage of \<N> (the actual number for most of the modern processors equals to 2) logical cores to **smart-share resources of one physical core**.
@@ -61,19 +69,18 @@ The CPU **time-shares** between the threads, which means:
 > [!quote] Note:
 > **Context switching** must be avoided if possible, because it creates a lot of overhead.
 
-
 #### Practical examples
 Let's clarify the difference even further, exploring how parallel processes and threads can be executed using multiple cores and logical cores:
 
 - **Parallel Processes (OS-Level)**
-    - The OS can run **more processes** than the number of physical or logical cores, but:
-        - **Up to the number of physical cores**: Tasks can run in true parallel without context switching.
-        - **Beyond the number of physical cores**: Tasks will **time-share** the CPU using context switching, which can reduce efficiency.
--  **Parallel Threads (Inside a Process)**
+ - The OS can run **more processes** than the number of physical or logical cores, but:
+ - **Up to the number of physical cores**: Tasks can run in true parallel without context switching.
+ - **Beyond the number of physical cores**: Tasks will **time-share** the CPU using context switching, which can reduce efficiency.
+- **Parallel Threads (Inside a Process)**
 	- **Threads** within a process are scheduled by the OS just like separate processes.
 	- The number of threads that run simultaneously:
-	    - **Up to the number of logical cores**: Threads will run concurrently (on the same physical core), meaning they can change rapidly and do share the resources efficiently,  or even in parallel (if they are on different physical cores).
-	    - **Beyond the number of logical cores**: Threads will run with context switching, being swapped out and loaded back into the CPU, causing an overload and loosing performance
+	 - **Up to the number of logical cores**: Threads will run concurrently (on the same physical core), meaning they can change rapidly and do share the resources efficiently, or even in parallel (if they are on different physical cores).
+	 - **Beyond the number of logical cores**: Threads will run with context switching, being swapped out and loaded back into the CPU, causing an overload and loosing performance
 
 #### GIL
 The Global Interpreter Lock (GIL) in CPython (the most common Python implementation) **restricts only one thread of the same process from executing Python bytecode at a time**, even on multi-core systems.
@@ -91,22 +98,22 @@ Is a standard python module, which allows you to create separate independent pro
 
 This can be helpful if you try to solve some heavy CPU-bonded tasks, but only in case they can be split into independent pieces.
 
->[!quote] Example:  
+>[!quote] Example: 
 >Calculate a sum of all elements of a huge list. If your machine has 8 cores, you can "cut" the list into 8 smaller lists and calculate the sum of each of those lists separately on separate core and then just add up those numbers. You'll get a ~8x speedup by doing that.
 
 ```python
 from multiprocessing import Pool
 
 # Function applied to each element
-def square(n):    
+def square(n): 
 	return n * n
 	
-if __name__ == '__main__':    
+if __name__ == '__main__': 
 # Creating 4 separate processes
-	with Pool(processes=4) as pool:        
+	with Pool(processes=4) as pool: 
 		values = [1, 2, 3, 4, 5]
-		# Apply squaring to all values independently          
-		results = pool.map(square, values)        
+		# Apply squaring to all values independently 
+		results = pool.map(square, values) 
 		print(results)
 ```
 
@@ -116,8 +123,8 @@ A standard module allowing you to launch multiple threads. This can be used to u
 import threading
 
 def f(a, b, c):
-    # do something
-    pass
+ # do something
+ pass
 
 t = threading.Thread(target=f, args=(1, 2), kwargs={'c': 3})
 # Create a new thread
@@ -156,11 +163,11 @@ asyncio.run(main())
 - asyncio → for scalable, high-concurrency, non-blocking I/O tasks.
 - Threading → `threading` if you have blocking I/O code that cannot be easily converted to async or you need simpler concurrency.
 
-| **Asyncio**                                                                                                                                                                           | **Threading**                                                                                                                                             |
+| **Asyncio** | **Threading** |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Use **asyncio** when your task involves **a lot of I/O-bound operations** (e.g., HTTP requests, database queries) and you need to handle **many connections** **in a single thread**. | Use **threading** when your task involves **I/O-bound operations** **but you have blocking libraries** or tasks that are not designed to be asynchronous. |
-| Efficient for **high concurrency** with **low memory usage**.                                                                                                                         | Easier to implement if you don’t want to refactor existing blocking code.                                                                                 |
-| **Event loop-based concurrency**.                                                                                                                                                     | **Preemptive concurrency** (managed by OS).                                                                                                               |
+| Efficient for **high concurrency** with **low memory usage**. | Easier to implement if you don’t want to refactor existing blocking code. |
+| **Event loop-based concurrency**. | **Preemptive concurrency** (managed by OS). |
 
 What is a blocking operation? Can they be used with asyncio corutines?
 ?
@@ -169,8 +176,6 @@ What is a blocking operation? Can they be used with asyncio corutines?
 <!--SR:!2026-01-24,245,330-->
  
 
-
-#🃏/job_questions 
 ## Key questions
 
 What are the 3 possible states of running multiple processes/threads? Provide a short description of each one.
@@ -190,13 +195,11 @@ What are the 3 possible states of running multiple processes/threads? Provide a 
 		- Swapping causes a great overhead, so should be avoided, if possible
 <!--SR:!2026-02-18,270,330-->
 
-
 What is GIL? How does it limit the parallel running possibilities in python? How do multiple threads interact with GIL?
 ?
 - Global Interpreter Lock - a mechanism allowing only one thread to be executed at a time. Thus, running multiple threads within one CPython process is not possible
 - Multiple threads are trying to capture the GIL, prompting each other to release the GIL every 5 milliseconds. Whenever GIL is released, OS scheduler gives it to some thread
 <!--SR:!2026-01-28,249,330-->
-
 
 How do multiprocessing, threading and asyncio libraries allow for efficient multiple task execution?
 ?
@@ -204,6 +207,4 @@ How do multiprocessing, threading and asyncio libraries allow for efficient mult
 - threading allows for creation of multiple threads, utilizing the amount of logical cores on the machine. While not being able to run at the same time (due to the GIL), they might help you if you have some I/O-bonded task (even the blocking one, like `requests.get()`), because the "frozen" thread will be paused, and the resources will be used by another thread.
 - asyncio allows for concurrent running of multiple coroutines within a single thread, thanks to the event-loop mechanism. This will work only with non-blocking operations. The advantage is: the number of such coroutines might be much more, than the number of logical cores (there may be thousands of I/O bonded operations).
 <!--SR:!2026-01-20,241,330-->
-
-
 

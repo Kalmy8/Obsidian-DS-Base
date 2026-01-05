@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
 
 ## What is a Stub?
 
@@ -9,12 +18,12 @@ A **stub** is a minimal fake implementation that returns pre-defined responses. 
 
 ## When to Use Stubs Over Mocks
 
-| Use Stubs When...                                        | Use Mocks When...                                |
+| Use Stubs When... | Use Mocks When... |
 | -------------------------------------------------------- | ------------------------------------------------ |
-| You need a fake service for integration/BDD tests        | You need to verify specific method calls         |
-| The dependency is complex (DB, external API)             | You're testing that code *interacts correctly*   |
+| You need a fake service for integration/BDD tests | You need to verify specific method calls |
+| The dependency is complex (DB, external API) | You're testing that code *interacts correctly* |
 | **You want tests decoupled from implementation details** | Implementation details matter (retries, caching) |
-| Multiple tests need the same fake behavior               | Each test needs different call verification      |
+| Multiple tests need the same fake behavior | Each test needs different call verification |
 
 ### Rule of Thumb
 - **Unit tests** - Mocks (verify interactions)
@@ -28,44 +37,45 @@ A **stub** is a minimal fake implementation that returns pre-defined responses. 
 # Just create a stub that returns what you need:
 
 def stub_get_user(user_id: int) -> dict:
-    """Stub that always returns a valid user."""
-    return {"id": user_id, "name": "Test User", "active": True}
+---
+ """Stub that always returns a valid user."""
+ return {"id": user_id, "name": "Test User", "active": True}
 
 # In test:
 def test_user_greeting(monkeypatch):
-    monkeypatch.setattr("myapp.api.get_user", stub_get_user)
-    result = generate_greeting(user_id=42)
-    assert result == "Hello, Test User!"
-    # Notice: we don't check IF get_user was called  we check the RESULT
+ monkeypatch.setattr("myapp.api.get_user", stub_get_user)
+ result = generate_greeting(user_id=42)
+ assert result == "Hello, Test User!"
+ # Notice: we don't check IF get_user was called  we check the RESULT
 ```
 
 ### 2. Stub Class (Fake Repository)
 ```python
 class StubUserRepository:
-    """In-memory fake that replaces a real database repository."""
+ """In-memory fake that replaces a real database repository."""
 
-    def __init__(self):
-        self.users = {}
+ def __init__(self):
+ self.users = {}
 
-    def save(self, user: User) -> None:
-        self.users[user.id] = user
+ def save(self, user: User) -> None:
+ self.users[user.id] = user
 
-    def get(self, user_id: int) -> User | None:
-        return self.users.get(user_id)
+ def get(self, user_id: int) -> User | None:
+ return self.users.get(user_id)
 
-    def delete(self, user_id: int) -> None:
-        self.users.pop(user_id, None)
+ def delete(self, user_id: int) -> None:
+ self.users.pop(user_id, None)
 
 # In test:
 def test_user_service_creates_user():
-    repo = StubUserRepository()  # No database needed!
-    service = UserService(repository=repo)
+ repo = StubUserRepository() # No database needed!
+ service = UserService(repository=repo)
 
-    service.create_user(name="Alice")
+ service.create_user(name="Alice")
 
-    # Verify STATE, not interactions:
-    assert len(repo.users) == 1
-    assert list(repo.users.values())[0].name == "Alice"
+ # Verify STATE, not interactions:
+ assert len(repo.users) == 1
+ assert list(repo.users.values())[0].name == "Alice"
 ```
 
 ### 3. HTTP Stub Server (for BDD/Integration)
@@ -75,17 +85,17 @@ import responses
 
 @responses.activate
 def test_payment_flow():
-    # Stub the payment gateway
-    responses.add(
-        responses.POST,
-        "https://api.stripe.com/v1/charges",
-        json={"id": "ch_123", "status": "succeeded"},
-        status=200
-    )
+ # Stub the payment gateway
+ responses.add(
+ responses.POST,
+ "https://api.stripe.com/v1/charges",
+ json={"id": "ch_123", "status": "succeeded"},
+ status=200
+ )
 
-    # Test the full flow  don't care HOW it calls Stripe
-    result = process_payment(amount=100, card="tok_visa")
-    assert result.success is True
+ # Test the full flow  don't care HOW it calls Stripe
+ result = process_payment(amount=100, card="tok_visa")
+ assert result.success is True
 ```
 
 ### 4. Stub for BDD Step Definitions
@@ -94,32 +104,32 @@ def test_payment_flow():
 from behave import given, when, then
 
 class StubPaymentGateway:
-    """Fake payment service for BDD tests."""
+ """Fake payment service for BDD tests."""
 
-    def __init__(self):
-        self.should_succeed = True
-        self.processed_payments = []
+ def __init__(self):
+ self.should_succeed = True
+ self.processed_payments = []
 
-    def charge(self, amount: int, card: str) -> dict:
-        self.processed_payments.append({"amount": amount, "card": card})
-        if self.should_succeed:
-            return {"status": "success", "id": "stub_123"}
-        return {"status": "failed", "error": "Card declined"}
+ def charge(self, amount: int, card: str) -> dict:
+ self.processed_payments.append({"amount": amount, "card": card})
+ if self.should_succeed:
+ return {"status": "success", "id": "stub_123"}
+ return {"status": "failed", "error": "Card declined"}
 
 @given("the payment gateway is available")
 def step_impl(context):
-    context.payment_gateway = StubPaymentGateway()
-    # Inject stub into the app
-    context.app.payment_service = context.payment_gateway
+ context.payment_gateway = StubPaymentGateway()
+ # Inject stub into the app
+ context.app.payment_service = context.payment_gateway
 
 @given("the payment gateway will decline cards")
 def step_impl(context):
-    context.payment_gateway.should_succeed = False
+ context.payment_gateway.should_succeed = False
 
 @then("a payment of ${amount} should be processed")
 def step_impl(context, amount):
-    payments = context.payment_gateway.processed_payments
-    assert any(p["amount"] == int(amount) for p in payments)
+ payments = context.payment_gateway.processed_payments
+ assert any(p["amount"] == int(amount) for p in payments)
 ```
 
 ## Stubs vs Mocks: Side-by-Side
@@ -127,31 +137,31 @@ def step_impl(context, amount):
 ```python
 # ===== MOCK APPROACH (verify interactions) =====
 def test_sends_welcome_email_mock():
-    with patch("myapp.email.send") as mock_send:
-        register_user("alice@example.com")
+ with patch("myapp.email.send") as mock_send:
+ register_user("alice@example.com")
 
-        # Verify HOW the code behaved:
-        mock_send.assert_called_once_with(
-            to="alice@example.com",
-            subject="Welcome!",
-            body=ANY
-        )
+ # Verify HOW the code behaved:
+ mock_send.assert_called_once_with(
+ to="alice@example.com",
+ subject="Welcome!",
+ body=ANY
+ )
 
 # ===== STUB APPROACH (verify state) =====
 class StubEmailService:
-    def __init__(self):
-        self.sent_emails = []
+ def __init__(self):
+ self.sent_emails = []
 
-    def send(self, to, subject, body):
-        self.sent_emails.append({"to": to, "subject": subject, "body": body})
+ def send(self, to, subject, body):
+ self.sent_emails.append({"to": to, "subject": subject, "body": body})
 
 def test_sends_welcome_email_stub():
-    email_service = StubEmailService()
-    register_user("alice@example.com", email_service=email_service)
+ email_service = StubEmailService()
+ register_user("alice@example.com", email_service=email_service)
 
-    # Verify WHAT happened (state), not HOW:
-    assert len(email_service.sent_emails) == 1
-    assert email_service.sent_emails[0]["to"] == "alice@example.com"
+ # Verify WHAT happened (state), not HOW:
+ assert len(email_service.sent_emails) == 1
+ assert email_service.sent_emails[0]["to"] == "alice@example.com"
 ```
 
 ## Why Stubs Make Better Integration Tests

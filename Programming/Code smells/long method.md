@@ -1,4 +1,14 @@
-#🃏/code_smells
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+authors:
+- "[[Refactoring Guru - Code Smells]]"
+
+---
+
+#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
 
 What are the two rules of thumb detecting if method is too long?
 ?
@@ -17,8 +27,4 @@ What are the related refactorings to:
 -  [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object).
 -  [Decompose Conditional](https://refactoring.guru/decompose-conditional)
 -  [Extract Method](https://refactoring.guru/extract-method).
-
-
-
-
 

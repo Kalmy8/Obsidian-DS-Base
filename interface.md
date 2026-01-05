@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 is an agreement on how should the object interact with the rest of the world
 
 Examples:

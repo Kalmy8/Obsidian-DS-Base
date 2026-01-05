@@ -1,6 +1,20 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+#🃏/semantic/python-basics #🃏/python-basics-course
+
 **Codewords:** Logical Operators, Truthiness, Falsiness
 
 ### Logical Operators: `and`, `or`, `not`
+
 Logical operators are used to combine conditional statements.
 
 #### Truthiness and Falsiness
@@ -21,7 +35,7 @@ It also exhibits "short-circuiting" behavior: if the first operand is falsy, the
 # Example 1: Both conditions are True
 age = 25
 is_student = True
-print(age > 18 and is_student)  # Output: True
+print(age > 18 and is_student) # Output: True
 
 # Example 2: One condition is False (short-circuited)
 temperature = 15
@@ -37,7 +51,7 @@ It also exhibits "short-circuiting" behavior: if the first operand is truthy, th
 # Example 1: One condition is True
 has_license = True
 has_car = False
-print(has_license or has_car)  # Output: True
+print(has_license or has_car) # Output: True
 
 # Example 2: Both conditions are False
 is_hungry = False
@@ -51,11 +65,11 @@ The `not` operator negates the boolean value of its operand. If the operand is `
 ```python
 # Example 1: Negating a True value
 is_active = True
-print(not is_active)  # Output: False
+print(not is_active) # Output: False
 
 # Example 2: Negating a False value
 is_empty = False
-print(not is_empty)  # Output: True
+print(not is_empty) # Output: True
 ```
 
 #### Using `or` for Default Value Assignment (Common Idiom)
@@ -66,11 +80,11 @@ A common Python idiom uses the `or` operator to assign a default value to a vari
 # Example 1: Assigning a default list if user_input is None
 user_input_list: list | None = None
 actual_list = user_input_list or []
-print(actual_list)  # Output: []
+print(actual_list) # Output: []
 
 user_input_list = ["item1", "item2"]
 actual_list = user_input_list or []
-print(actual_list)  # Output: ['item1', 'item2']
+print(actual_list) # Output: ['item1', 'item2']
 
 # Example 2: Assigning a default string if user_name is an empty string
 user_name = ""
@@ -88,13 +102,11 @@ print(display_name) # Output: Alice
 3. Check if a boolean variable `is_logged_in` is `False` using the `not` operator.
 4. Combine conditions: Check if a user is an 'admin' AND their `status` is 'active', OR if their `role` is 'guest'.
 
-#🃏/python-basics
 ## Review Questions
 
 Evaluate the following expression: `(True and False) or (not True)`.
 ?
 - `(False) or (False)` which is `False`.
-
 
 Write a Python expression that checks if a variable `x` is greater than 5 AND less than 10.
 ?

@@ -1,3 +1,16 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[OOP Basics Course]]"
+authors:
+-
+---
+
+#🃏/oop-basics-course
+
 [next \>](OOP%20Basics%20(2nd)%20lesson.md)
 **Codewords:** OOP intuition, motivation behind it's usage
 
@@ -18,7 +31,7 @@ Note, that not all object have to really contain both properties and behaviors.
 Some of them might only contain properties (so-called **dataclasses**)
 Online shopping cart:
 	- **Properties:** `volume`, `products`
-	   - **Behaviors:** None
+	 - **Behaviors:** None
 
 Some of them might only contain behaviors (so-called static classes)
 Calculator (**static class**):
@@ -34,88 +47,88 @@ Whenever you are dealing with a new task, to actually DESCRIBE and write all the
 Let's say you want to make a renovation in your new flat. What are the required steps to take? Let's write a recipe:
 > In order to make the renovation: 
 > - I firstly will hire a **supervisor: a man**, who will *find and communicate* proper specialists for me
+---
 > - First, he will hire a **measurer** *to make a complete measurement* and *pass all the data back to the supervisor*. 
 > - When, a **designer** will *make a project of the flat*, with respect to all the measurements, and *return a list of the reqired furniture and it's parameters*. 
 > - **Supervisor** *buys* all the furniture. 
-> - Lastly, the **worker**  *places all the furniter to the corresponding positions*.
+> - Lastly, the **worker** *places all the furniter to the corresponding positions*.
 ```python
 class Supervisor:
-    def __init__(self):
-        self.measurer = Measurer()
-        self.designer = Designer()
-        self.worker = Worker()
-        self.measurements = None
-        self.furniture_list = None
+ def __init__(self):
+ self.measurer = Measurer()
+ self.designer = Designer()
+ self.worker = Worker()
+ self.measurements = None
+ self.furniture_list = None
 
-    def renovate(self):
-        self.measurements = self.measurer.measure()
-        self.furniture_list = self.designer.design(self.measurements)
-        self.buy_furniture(self.furniture_list)
-        self.worker.place_furniture(self.furniture_list)
+ def renovate(self):
+ self.measurements = self.measurer.measure()
+ self.furniture_list = self.designer.design(self.measurements)
+ self.buy_furniture(self.furniture_list)
+ self.worker.place_furniture(self.furniture_list)
 
-    def buy_furniture(self, furniture_list):
-        print("Supervisor: Buying furniture:")
-        for item in furniture_list:
-            print(f"  - {item}")
+ def buy_furniture(self, furniture_list):
+ print("Supervisor: Buying furniture:")
+ for item in furniture_list:
+ print(f" - {item}")
 
 class Measurer:
-    def measure(self):
-        print("Measurer: Taking measurements...")
-        measurements = {"length": 10, "width": 8, "height": 3}  # Example measurements
-        print("Measurer: Measurements complete.")
-        return measurements
+ def measure(self):
+ print("Measurer: Taking measurements...")
+ measurements = {"length": 10, "width": 8, "height": 3} # Example measurements
+ print("Measurer: Measurements complete.")
+ return measurements
 
 class Designer:
-    def design(self, measurements):
-        print("Designer: Creating a design based on measurements...")
-        furniture_list = []
-        if measurements["length"] > 5:
-            furniture_list.append("Large Sofa")
-        else:
-            furniture_list.append("Small Sofa")
-        if measurements["width"] > 7:
-            furniture_list.append("Large Table")
-        else: 
-            furniture_list.append("Small Table")
-        print("Designer: Design complete. Furniture list created.")
-        return furniture_list
+ def design(self, measurements):
+ print("Designer: Creating a design based on measurements...")
+ furniture_list = []
+ if measurements["length"] > 5:
+ furniture_list.append("Large Sofa")
+ else:
+ furniture_list.append("Small Sofa")
+ if measurements["width"] > 7:
+ furniture_list.append("Large Table")
+ else: 
+ furniture_list.append("Small Table")
+ print("Designer: Design complete. Furniture list created.")
+ return furniture_list
 
 class Worker:
-    def place_furniture(self, furniture_list):
-        print("Worker: Placing furniture:")
-        for item in furniture_list:
-            print(f"  - Placing {item}")
-        print("Worker: Furniture placement complete")
+ def place_furniture(self, furniture_list):
+ print("Worker: Placing furniture:")
+ for item in furniture_list:
+ print(f" - Placing {item}")
+ print("Worker: Furniture placement complete")
 
 # Create a Supervisor object and start the renovation
 supervisor = Supervisor()
 supervisor.renovate()
 ```
 
-
 ### From Analogy to Code 
 1. **Classes and Objects (20 mins):**
-   - **Class:** A blueprint or template for creating objects. (Like a car design).
-   - **Object:** An instance of a class. (A specific car built from that design).
-   - **Python Syntax:**
-     ```python
-     class Car:
-       def __init__(self, color, brand, model):
-           self.color = color 
-           self.brand = brand
-           self.model = model
-           self.fuel_level = 0 
+ - **Class:** A blueprint or template for creating objects. (Like a car design).
+ - **Object:** An instance of a class. (A specific car built from that design).
+ - **Python Syntax:**
+ ```python
+ class Car:
+ def __init__(self, color, brand, model):
+ self.color = color 
+ self.brand = brand
+ self.model = model
+ self.fuel_level = 0 
 
-       def refuel(self, amount):
-           self.fuel_level += amount
+ def refuel(self, amount):
+ self.fuel_level += amount
 
-     my_car = Car('Red', 'Toyota', 'Camry') 
-     print(my_car.color) # Accessing attributes
-     my_car.refuel(50)   # Using methods
-     ```
-   - **Key Point:** Focus on the `self` parameter: It refers to the current object. 
+ my_car = Car('Red', 'Toyota', 'Camry') 
+ print(my_car.color) # Accessing attributes
+ my_car.refuel(50) # Using methods
+ ```
+ - **Key Point:** Focus on the `self` parameter: It refers to the current object. 
 
-####  Practical Tasks:
+#### Practical Tasks:
 **Soda:** 
 - Create a class to represent different types of soda. This class should accept one argument upon initialization to specify the flavor or additive
 - Implement a method called **`show_my_drink()`** that prints a message indicating the type of soda.
@@ -123,7 +136,7 @@ supervisor.renovate()
 
 **Bank Account:**
 - Create a `BankAccount` class with attributes for `balance` and `account_number`. 
-- Implement methods: `deposit()`, `withdraw()`, and `get_balance()`.  
+- Implement methods: `deposit()`, `withdraw()`, and `get_balance()`. 
 - Encapsulate the balance so it cannot be directly modified outside the class.
 
 **Simple Rectangle:**
@@ -133,14 +146,13 @@ supervisor.renovate()
 **Library Book System:** 
 - Begin designing a basic Library system:
 - Have a `Book` class with attributes `title`, `author`
--  Create a `Member` class with attributes `First Name`, `Last Name` that can `borrow()` and `return_book()`
+- Create a `Member` class with attributes `First Name`, `Last Name` that can `borrow()` and `return_book()`
 - Create a `Library` class that keeps track of:
 	- Available books
 	- Borrowed books
 		- How long are they borrowed?
 		- Which member did borrow the book?
 
-#🃏/data-science 
 ## Key questions:
 
 **What is the main idea behind Object-Oriented Programming (OOP)? **What are the two main components of an object in OOP? Provide a real world example
@@ -150,7 +162,6 @@ supervisor.renovate()
 	- **Behaviors:** bark, fetch, eat
 	- **Properties:** breed, color, age
 <!--SR:!2025-12-30,262,330-->
-
 
 **In OOP, what is a class?**
 ?
@@ -182,7 +193,6 @@ It's the constructor, used to initialize the attributes of an object when it's c
 	 - **Examples:** a `MathUtils` class with methods like `add()`, `subtract()`, etc.
 <!--SR:!2026-02-16,283,330-->
 
-
 **Why is OOP often considered a more natural way to structure complex programs than procedural programming?**
 ?
 OOP allows you to model real-world objects and their interactions more closely, making the code more organized and easier to understand.
@@ -195,22 +205,22 @@ OOP allows you to model real-world objects and their interactions more closely, 
 ?
 ```python
 class Dog:
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
+ def __init__(self, name, breed):
+ self.name = name
+ self.breed = breed
 
-    def bark(self):
-        print("Woof!")
+ def bark(self):
+ print("Woof!")
 
-    def describe(self):
-        print(f"This is {self.name}, a {self.breed}.")
+ def describe(self):
+ print(f"This is {self.name}, a {self.breed}.")
 
 # Create two Dog objects
 dog1 = Dog("Buddy", "Golden Retriever")
 dog2 = Dog("Lucy", "Labrador")
 
 # Call methods on the objects
-dog1.describe()  # Output: This is Buddy, a Golden Retriever.
-dog2.describe()  # Output: This is Lucy, a Labrador.
+dog1.describe() # Output: This is Buddy, a Golden Retriever.
+dog2.describe() # Output: This is Lucy, a Labrador.
 ```
 <!--SR:!2026-11-28,365,330-->

@@ -1,4 +1,15 @@
-#🃏/job_questions 
+---
+type: note
+status: done
+tags: [tech/python]
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/data-structures #🃏/job-interview
+
 ## Key questions:
 
 What is a python lists work under the hood?
@@ -21,5 +32,4 @@ What are the algorithm complexity for methods:
 - Append/pop: O(1)
 - Insert/remove: O(n)
 <!--SR:!2025-10-26,245,330-->
-
 

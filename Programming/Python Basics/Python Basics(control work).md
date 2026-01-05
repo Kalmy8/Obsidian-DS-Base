@@ -1,24 +1,35 @@
-**Instructions:**  Answer the following questions and complete the programming tasks to the best of your ability. Show your code and output where applicable. 
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+**Instructions:** Answer the following questions and complete the programming tasks to the best of your ability. Show your code and output where applicable. 
 
 ### Part 1: Theory (30 points)
 
 1. **(4 points) Explain the difference between compiled and interpreted languages.** Provide an example of a compiled language and an interpreted language.
 2. **(4 points) What are the fundamental data types in Python?** Give examples of at least five different data types. 
 3. **(4 points) Define mutable and immutable data types in Python.** Explain the difference between them and give two examples of each.
-4. **(4 points)  What are docstrings in Python?** Explain their purpose and provide an example of how to write a docstring for a function. 
-5. **(5 points)  Explain the following concepts and provide a brief code example for each:**
-    * `*args`
-    * `**kwargs`
-    * Default parameter values in functions
-    * `break` statement in loops
-    * `continue` statement in loops
+4. **(4 points) What are docstrings in Python?** Explain their purpose and provide an example of how to write a docstring for a function. 
+5. **(5 points) Explain the following concepts and provide a brief code example for each:**
+ * `*args`
+ * `**kwargs`
+ * Default parameter values in functions
+ * `break` statement in loops
+ * `continue` statement in loops
 6. **(5 points) What is the output of the following code snippet? Explain your reasoning step-by-step.**
-   ```python
-   list1 = [1, 2, 3]
-   list2 = list1
-   list1.append(4) 
-   print(list2)
-   ```
+ ```python
+ list1 = [1, 2, 3]
+ list2 = list1
+ list1.append(4) 
+ print(list2)
+ ```
 
 ### Part 2: Programming (70 points)
 
@@ -40,23 +51,23 @@
 
 4. **List Manipulation:** Given a list of numbers, write a program to create two new lists: one containing the even numbers from the original list and the other containing the odd numbers.
 
-5. **Dictionary Operations:** Create a dictionary to store the names of students and their scores on a test.  
-    *  Implement a function to add a new student and their score. 
-    *  Implement a function to find the student with the highest score.
-    *  Implement a function to calculate the average score.
+5. **Dictionary Operations:** Create a dictionary to store the names of students and their scores on a test. 
+ * Implement a function to add a new student and their score. 
+ * Implement a function to find the student with the highest score.
+ * Implement a function to calculate the average score.
 
 ## Challenging Programming Tasks
 
 1. **Hangman Game:** Create a text-based Hangman game. The game should randomly select a word from a list, and the player must guess letters one at a time. 
 2. **Text Analyzer:** Write a program that reads a text file and analyzes its content. The program should be able to:
-    *  Count the number of words, sentences, and paragraphs in the text. 
-    *  Determine the frequency of each word.
-    *  Identify the longest and shortest words in the text.
-3. **Simple Calculator:** Create a simple calculator program that can perform basic arithmetic operations (addition, subtraction, multiplication, division).  Use functions for each operation and implement error handling.
+ * Count the number of words, sentences, and paragraphs in the text. 
+ * Determine the frequency of each word.
+ * Identify the longest and shortest words in the text.
+3. **Simple Calculator:** Create a simple calculator program that can perform basic arithmetic operations (addition, subtraction, multiplication, division). Use functions for each operation and implement error handling.
 4. **To-Do List Application:** Design a simple to-do list application that allows users to add, view, mark as complete, and delete tasks. You can store tasks in a list or dictionary. 
 5. **Rock, Paper, Scissors Game:** Implement a text-based Rock, Paper, Scissors game that allows a player to play against the computer.
 6. **Random Password Generator:** Write a program that generates strong, random passwords that meet specific criteria (length, case special character amount). 
-7. **File Encryption/Decryption:** Create a program that encrypts and decrypts files using a simple encryption algorithm.  (Note: For learning purposes, you can use a basic algorithm. Do not use this for real-world security.)
+7. **File Encryption/Decryption:** Create a program that encrypts and decrypts files using a simple encryption algorithm. (Note: For learning purposes, you can use a basic algorithm. Do not use this for real-world security.)
 8. **Contact Book:** Build a contact book application that allows users to store and manage contact information. 
 
 ## Advanced difficulty Tasks:
@@ -69,15 +80,14 @@ Design a function named `data_summarizer` that accepts a list of dictionaries. E
 - If all records are missing a specified attribute, it should `break` and return an error message.
 
 ```python
-data = [{"name": "Alice", "age": 25, "salary": 50000},       
-		{"name": "Bob", "age": None, "salary": 60000},     
-		{"name": "Charlie", "age": 30},     
-		{"name": "Dave", "salary": 55000} ]  
+data = [{"name": "Alice", "age": 25, "salary": 50000}, 
+		{"name": "Bob", "age": None, "salary": 60000}, 
+		{"name": "Charlie", "age": 30}, 
+		{"name": "Dave", "salary": 55000} ] 
 		
 data_summarizer(data, age=True, salary=True) 
 # Output: {'age': 55, 'salary': 165000} (skips missing values)
 ```
-
 
 ### Task 2: Custom List Filtering with Loop Control and `args`
 
@@ -87,7 +97,7 @@ Create a function called `filter_list` that takes a list and multiple filters as
 - Allow the user to pass a `stop_on_fail` keyword argument. If `True`, `break` from the loop on the first failure.
 
 ```python
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
 # Filters: even numbers, greater than 5 
 filtered_numbers = filter_list(numbers, lambda x: x % 2 == 0, lambda x: x > 5, stop_on_fail=False) 
 # Output: [6, 8, 10]
@@ -104,15 +114,15 @@ Write a function called `update_records` that accepts a dictionary where keys ar
 ```python
 students = {1: {"name": "Alice", 
 				"grade": 85, 
-				"attendance": 90},     
+				"attendance": 90}, 
 			2: {"name": "Bob", 
 				"grade": 78, 
-				"attendance": 80},     
+				"attendance": 80}, 
 			3: {"name": "Charlie", 
 				"grade": 92, 
 				"attendance": 85} 
-			}  
+			} 
 	
-update_records(students, id_1={"grade": 88, "attendance": 91}, id_4={"name": "David"})  
+update_records(students, id_1={"grade": 88, "attendance": 91}, id_4={"name": "David"}) 
 # Output: Updates only for valid IDs and skips non-existing ones`
 ```

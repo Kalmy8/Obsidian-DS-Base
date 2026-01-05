@@ -1,14 +1,24 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 is a relative/intuitive metric which measures the model ability to extract unobvious, logically/computationally complex relationships between the independent and the target variable
 
 Some classic ML model's estimated complexity:
 
-| Model                         | Complexity     | Bias                            | Variance | Stability |
+| Model | Complexity | Bias | Variance | Stability |
 | ----------------------------- | -------------- | ------------------------------- | -------- | --------- |
-| Linear Regression             | Low            | High                            | Low      | High      |
-| Polynomial Regression         | Medium         | Low to High (depends) on degree | High     | Low       |
-| Decision Trees                | Medium         | Low to High (depends on depth)  | High     | Low       |
-| Support Vector Machines (SVM) | Medium to High | Low to High (depends on kernel) | Medium   | Medium    |
-| Neural Networks               | High           | Low                             | High     | Low       |
+| Linear Regression | Low | High | Low | High |
+| Polynomial Regression | Medium | Low to High (depends) on degree | High | Low |
+| Decision Trees | Medium | Low to High (depends on depth) | High | Low |
+| Support Vector Machines (SVM) | Medium to High | Low to High (depends on kernel) | Medium | Medium |
+| Neural Networks | High | Low | High | Low |
 
 **Explanation:**
 - **Complexity:** This refers to the model's capacity to learn complex patterns. More complex models can fit intricate relationships but are also more prone to overfitting.

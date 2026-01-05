@@ -1,42 +1,27 @@
-#🃏/probability-theory 
-is an average weighted outcome of a given random variable.
-
-##### Definition
-For [discrete variable](../discrete%20variable.md) it is defined as 
-$$E(X)=\sum\limits_{w_k \in \Omega} X(w_{k})P(X = X(w_{k})),\ or$$
-$$E(X)=\sum\limits_{i = 1}^N x_{i} p_{i},$$
-where $x_{i}$ is an [elementary event](elementary%20event,%20fundamental%20probability%20set%20and%20an%20event.md#^f482b1) (same as $X(w_{k})$);
-$p_{i}$ is the [probability](../probability.md) of this event (same as $P(X = x)$).
-
-For [continuous variable](../continuous%20variable.md) is is defined as 
-$$E(X)=\int\limits_{-\infty}^{\infty} x f(x) dx, $$
-where $x$ is an random variable function outcome, $f(x)$ is simply the probability of the outcome $x$  ([probability density function](probability%20density%20function.md) applied to outcome $x$).
-
->[!Note]
->Mathematical expectation is often denoted as $\mu$
-
-#####  Properties:
-**1. Linearity:**
-
-* $E[aX + b] = aE[X] + b$, where *a* and *b* are constants.  This means the expected value of a linear transformation of a random variable is the same linear transformation of the expected value.
->[!proof]-
-> **For discrete case:**
-> $E[aX + b] =$    *Applying the definition*
-> $= \sum(ax_i + b)p_{i} =$  *Splitting sums*
-> $= \sum ax_{i}p_{i}+ \sum bp_{i}=$    *Factor out constants*
+---
+type: note
+status: done
+tags: [math/probability-theory]
+sources:
+-
+authors:
+-
+---
+> $E[aX + b] =$ *Applying the definition*
+> $= \sum(ax_i + b)p_{i} =$ *Splitting sums*
+> $= \sum ax_{i}p_{i}+ \sum bp_{i}=$ *Factor out constants*
 > $= a \sum x_{i}p_{i} + b \sum p_{i}=$ *$\sum p_{i} = 1$ by definiton of probability*
-> $= a E(X) + b$  
+> $= a E(X) + b$ 
 > **For continuous case by analogue, using $\int$**
 * $E[X + Y] = E[X] + E[Y]$, even if *X* and *Y* are not independent. This extends to any finite sum of random variables.
 
-
 **2. Constant Value:**
 
-* $E[c] = c$, where *c* is a constant.  The expected value of a constant is just the constant itself.
+* $E[c] = c$, where *c* is a constant. The expected value of a constant is just the constant itself.
 
 **3. Product of Independent Random Variables:**
 
-* $E[XY] = E[X]E[Y]$, if *X* and *Y* are independent random variables.  This doesn't generally hold if *X* and *Y* are dependent.
+* $E[XY] = E[X]E[Y]$, if *X* and *Y* are independent random variables. This doesn't generally hold if *X* and *Y* are dependent.
 
 **4. Non-negativity:**
 
@@ -54,7 +39,7 @@ where $x$ is an random variable function outcome, $f(x)$ is simply the probabili
 **7. Law of the Unconscious Statistician (LOTUS):**
 
 * $E[g(X)] = \sum g(x)P(X=x)$ for discrete random variables.
-* $E[g(X)] = \int g(x)f(x)dx$ for continuous random variables with probability density function f(x).  This allows us to calculate the expected value of a function of a random variable without needing to find the distribution of g(X) directly.
+* $E[g(X)] = \int g(x)f(x)dx$ for continuous random variables with probability density function f(x). This allows us to calculate the expected value of a function of a random variable without needing to find the distribution of g(X) directly.
 
 **8. Relationship to Mean:**
 

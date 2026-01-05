@@ -1,14 +1,21 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+- "[[Pandas Basics Course]]"
+authors:
+-
+---
+#🃏/semantic/pandas #🃏/pandas-basics-course
+
 **Codewords:** Seaborn visualization
 
 ### 0. Where do different type of plots come?
 
 Generally speaking, there are only 2 types of variables you can observe in a dataset:
-- [[discrete variable]]: school grade, blood type, color
-- [[continuous variable]]: age, height, weight
 
 All the plots in the world do only answer 2 questions:
-- What is the relationship between some several (2 or more) variables?
-- What are the characteristics of a single given variable?
 
 Thus, every different plot covers up some combination above:
 1) Lineplot/scatterplot shows the **relationship** between 2 **continuous** variables
@@ -23,11 +30,11 @@ import matplotlib.pyplot as plt
 
 np.random.seed(42)
 df = pd.DataFrame({
-    'city': np.random.choice(['Moscow', 'London', 'Paris'], 100),
-    'year': np.random.choice([2022, 2023], 100),
-    'sales': np.random.normal(1000, 200, 100).astype(int),
-    'profit': np.random.normal(200, 50, 100).astype(int),
-    'category': np.random.choice(['A', 'B', 'C'], 100)
+ 'city': np.random.choice(['Moscow', 'London', 'Paris'], 100),
+ 'year': np.random.choice([2022, 2023], 100),
+ 'sales': np.random.normal(1000, 200, 100).astype(int),
+ 'profit': np.random.normal(200, 50, 100).astype(int),
+ 'category': np.random.choice(['A', 'B', 'C'], 100)
 })
 ```
 
@@ -35,13 +42,13 @@ df = pd.DataFrame({
 
 ## Relationship Visualization Table
 
-| Plot Type         | X         | Y         | Use Case                        | Seaborn Function      |
+| Plot Type | X | Y | Use Case | Seaborn Function |
 |-------------------|-----------|-----------|----------------------------------|-----------------------|
-| Scatter           | Continuous| Continuous| Relationship between 2 continuous variables | sns.scatterplot       |
-| Line              | Discrete/Continuous| Continuous| Trend over time/group         | sns.lineplot          |
-| Bar               | Discrete  | Continuous| Compare means/totals by group   | sns.barplot           |
-| Swarm/Strip       | Discrete  | Continuous| Show all points by group        | sns.swarmplot/stripplot|
-| Heatmap           | Discrete  | Discrete  | Crosstab relationships          | sns.heatmap           |
+| Scatter | Continuous| Continuous| Relationship between 2 continuous variables | sns.scatterplot |
+| Line | Discrete/Continuous| Continuous| Trend over time/group | sns.lineplot |
+| Bar | Discrete | Continuous| Compare means/totals by group | sns.barplot |
+| Swarm/Strip | Discrete | Continuous| Show all points by group | sns.swarmplot/stripplot|
+| Heatmap | Discrete | Discrete | Crosstab relationships | sns.heatmap |
 
 ## Relationship Plot Examples
 
@@ -96,13 +103,13 @@ import matplotlib.pyplot as plt
 
 np.random.seed(42)
 students_df = pd.DataFrame({
-    'student_id': range(1, 101),
-    'study_hours': np.random.normal(15, 5, 100).round(1),
-    'exam_score': np.random.normal(75, 15, 100).round(1),
-    'attendance_rate': np.random.normal(85, 10, 100).round(1),
-    'major': np.random.choice(['Computer Science', 'Mathematics', 'Physics', 'Chemistry'], 100),
-    'year': np.random.choice([1, 2, 3, 4], 100),
-    'gpa': np.random.normal(3.2, 0.5, 100).round(2)
+ 'student_id': range(1, 101),
+ 'study_hours': np.random.normal(15, 5, 100).round(1),
+ 'exam_score': np.random.normal(75, 15, 100).round(1),
+ 'attendance_rate': np.random.normal(85, 10, 100).round(1),
+ 'major': np.random.choice(['Computer Science', 'Mathematics', 'Physics', 'Chemistry'], 100),
+ 'year': np.random.choice([1, 2, 3, 4], 100),
+ 'gpa': np.random.normal(3.2, 0.5, 100).round(2)
 })
 ```
 
@@ -119,21 +126,16 @@ students_df = pd.DataFrame({
 5. Show how study hours vary across different majors. Which major has students with the highest study hours?
 
 **Expected Outputs:**
-- 5 different plots showing relationships between variables
-- Brief interpretation of each relationship pattern
-- Identification of key insights from each visualization
-
----
 
 ### Remaining Plot Types
 
-| Category          | Plot Type         | X         | Y         | Use Case                        | Seaborn Function      |
+| Category | Plot Type | X | Y | Use Case | Seaborn Function |
 |-------------------|-------------------|-----------|-----------|----------------------------------|-----------------------|
-| **Counts**        | Countplot         | Discrete  | –         | Frequency of categories         | sns.countplot         |
-| **Proportions**   | Pie               | Discrete  | –         | Proportions                     | pandas .plot.pie      |
-| **Distributions** | Box/Violin        | Discrete  | Continuous| Distribution by group           | sns.boxplot/violinplot|
-|                   | Histogram/KDE     | Continuous| –         | Distribution                    | sns.histplot/kdeplot  |
-|                   | Jointplot         | Continuous| Continuous| Distribution of 2 variables     | sns.jointplot         |
+| **Counts** | Countplot | Discrete | – | Frequency of categories | sns.countplot |
+| **Proportions** | Pie | Discrete | – | Proportions | pandas .plot.pie |
+| **Distributions** | Box/Violin | Discrete | Continuous| Distribution by group | sns.boxplot/violinplot|
+| | Histogram/KDE | Continuous| – | Distribution | sns.histplot/kdeplot |
+| | Jointplot | Continuous| Continuous| Distribution of 2 variables | sns.jointplot |
 
 # Counts, Proportions, and Distributions
 
@@ -227,9 +229,6 @@ Using the students dataset:
 
 ---
 
-
-#🃏/pandas-basics
-
 **Key Questions:**
 
 1. What are the two main questions that all plots answer?
@@ -276,5 +275,4 @@ plt.show()
 - Exploratory data analysis
 - Quick overview of all relationships
 - Identifying patterns across multiple variables
-
 

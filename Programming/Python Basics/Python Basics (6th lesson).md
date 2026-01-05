@@ -1,3 +1,16 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+#🃏/python-basics-course
+
 **Codewords:** User-defined functions, default parameter, typing, args and kwargs.
 
 ### Basic function usage.
@@ -7,9 +20,9 @@ User-defined functions (methods) are invoked and work just like the standard bui
 ```python
 # First line states function's name and parameters
 def say_hello(name, surname):
-    # This part is called 'function body'
-    print('Hello, I am a Python function.')
-    print(f'Nice to meet you {name} {surname}!')
+ # This part is called 'function body'
+ print('Hello, I am a Python function.')
+ print(f'Nice to meet you {name} {surname}!')
 
 # Functions are invoked by their name
 say_hello('Alexey', 'Kalmy8')
@@ -25,9 +38,9 @@ Moreover, functions can also use parameters defined outside the function's body:
 weather_state = 'Fine'
 
 def say_hello(name, surname):
-    print('Hello, I am a Python function.')
-    print(f'Nice to meet you {name} {surname}!')
-    print(f'The weather is {weather_state}')
+ print('Hello, I am a Python function.')
+ print(f'Nice to meet you {name} {surname}!')
+ print(f'The weather is {weather_state}')
 
 say_hello('Alexey', 'Kalmy8')
 # Output: 'Hello, I am a Python function.'
@@ -42,9 +55,9 @@ Our function now just prints the passed parameters to the console, which is nice
 ```python
 # First line states function's name and parameters
 def summator(a, b):
-    # This part is called 'function body'
-    result = a + b
-    return result
+ # This part is called 'function body'
+ result = a + b
+ return result
 
 # Calling summator(..,..) with parameters now will result
 # in the calculated value
@@ -56,14 +69,13 @@ print(my_result)
 # Output: 10
 ```
 
-
 ### Introducing type hints/docs.
 There is a little issue with our `summator` function: for now, it can accept any arguments we pass, even if they make no sense. For example:
 
 ```python
 def summator(a, b):
-    result = a + b
-    return result
+ result = a + b
+ return result
 
 print(summator('somestring', 4))
 # Output: TypeError: can only concatenate str (not "int") to str
@@ -71,12 +83,12 @@ print(summator('somestring', 4))
 
 When you are working on a large application, it is impossible to memorize all functions and their usage details, thus there is a great chance to use some function in an inappropriate way/pass some mismatching parameters. We have 2 instruments to address this problem:
 
-###### Type hints: these are little helpers which advise you about what **variable types** the function expects from the user.  
+###### Type hints: these are little helpers which advise you about what **variable types** the function expects from the user. 
 ```python
-# Types of:     param1   param2   return_value
+# Types of: param1 param2 return_value
 def summator(a : int, b : int) -> int:
-    result = a + b
-    return result
+ result = a + b
+ return result
 
 print(summator('somestring', 4))
 # While execution will still crash, your IDE will
@@ -89,12 +101,12 @@ See? Now the function clearly states that it expects you to pass two **integers*
 This description can be included right on top of the function's body:
 ```python
 def summator(a : int, b : int) -> int:
-    '''
-    This function accepts 2 integers and returns their sum.
-    Example: summator(3,2) -> 5
-    '''
-    result = a + b
-    return result
+ '''
+ This function accepts 2 integers and returns their sum.
+ Example: summator(3,2) -> 5
+ '''
+ result = a + b
+ return result
 
 print(summator('somestring', 4))
 # Output: TypeError: can only concatenate str (not "int") to str
@@ -109,13 +121,13 @@ Moreover, if you are working with a modern IDE like PyCharm/Visual Studio, this 
 
 ```python
 def greet(name: str) -> str:
-    """
-    This function takes a person's name as input and returns a greeting message.
+ """
+ This function takes a person's name as input and returns a greeting message.
 
-    Example:
-    greet("Alice") -> "Hello, Alice!"
-    """
-    return f"Hello, {name}!"
+ Example:
+ greet("Alice") -> "Hello, Alice!"
+ """
+ return f"Hello, {name}!"
 ```
 
 ### Introducing default parameters:
@@ -126,20 +138,20 @@ Define a function `welcome_message` that has a default parameter for the languag
 
 ```python
 def welcome_message(name: str, language: str = "English") -> None:
-  """Prints a welcome message in the specified language.
+ """Prints a welcome message in the specified language.
 
-  Args:
-    name: The name of the person to welcome.
-    language: The language to use for the welcome message. 
-               Defaults to "English".
-  """
+ Args:
+ name: The name of the person to welcome.
+ language: The language to use for the welcome message. 
+ Defaults to "English".
+ """
 
-  if language == "English":
-    print(f"Hello, {name}! Welcome!")
-  elif language == "Spanish":
-    print(f"¡Hola, {name}! ¡Bienvenido!")
-  else:
-    print(f"Welcome, {name}!")
+ if language == "English":
+ print(f"Hello, {name}! Welcome!")
+ elif language == "Spanish":
+ print(f"¡Hola, {name}! ¡Bienvenido!")
+ else:
+ print(f"Welcome, {name}!")
 
 welcome_message("Alice") # Output: Hello, Alice! Welcome!
 welcome_message("Bob", language="Spanish") # Output: ¡Hola, Bob! ¡Bienvenido! 
@@ -154,32 +166,32 @@ welcome_message("Bob", language="Spanish") # Output: ¡Hola, Bob! ¡Bienvenido!
 
 ```python
 def max_of_numbers(*args: int) -> int:
-  """Returns the maximum value among the given integers.
-  """
-  if not args:
-    return None  # Or raise an exception
-  max_value = args[0]
-  for num in args[1:]:
-    if num > max_value:
-      max_value = num
-  return max_value
+ """Returns the maximum value among the given integers.
+ """
+ if not args:
+ return None # Or raise an exception
+ max_value = args[0]
+ for num in args[1:]:
+ if num > max_value:
+ max_value = num
+ return max_value
 
-print(max_of_numbers(1, 5, 3, 9, 2))  # Output: 9
+print(max_of_numbers(1, 5, 3, 9, 2)) # Output: 9
 ```
 
 **Problem:** Create a function `describe_person` that accepts any number of keyword arguments and prints them as a description.
 
 ```python
 def describe_person(name: str, **kwargs) -> None:
-  """Prints a description of a person based on the given keyword arguments.
+ """Prints a description of a person based on the given keyword arguments.
 
-  Args:
-    name: The name of the person.
-    **kwargs: Arbitrary keyword arguments describing the person.
-  """
-  print(f"Description of {name}:")
-  for key, value in kwargs.items():
-    print(f"- {key}: {value}")
+ Args:
+ name: The name of the person.
+ **kwargs: Arbitrary keyword arguments describing the person.
+ """
+ print(f"Description of {name}:")
+ for key, value in kwargs.items():
+ print(f"- {key}: {value}")
 
 describe_person("Alice", age=30, city="New York", profession="Engineer")
 ```
@@ -188,22 +200,21 @@ describe_person("Alice", age=30, city="New York", profession="Engineer")
 
 ```python
 def order_food(food: str = "Pizza", *toppings: str, **special_instructions) -> None:
-  """Prints an order confirmation with the given food, toppings and special instructions.
-  """
+ """Prints an order confirmation with the given food, toppings and special instructions.
+ """
 
-  print(f"You ordered a {food} with:")
-  for topping in toppings:
-    print(f" - {topping}")
+ print(f"You ordered a {food} with:")
+ for topping in toppings:
+ print(f" - {topping}")
 
-  if special_instructions:
-    print("Special instructions:")
-    for key, value in special_instructions.items():
-      print(f" - {key}: {value}")
+ if special_instructions:
+ print("Special instructions:")
+ for key, value in special_instructions.items():
+ print(f" - {key}: {value}")
 
 order_food("Burger", "Cheese", "Bacon", extra_sauce=True, no_pickles=True)
 ```
 
-#🃏/data-science
 ### Key Questions:
 
 Define a function `multiply` that takes two integers and returns their product. Use type hints.
@@ -233,7 +244,6 @@ Define a function `greet` that takes the name of the user, and, optionally, take
 ```
 <!--SR:!2026-11-28,365,350-->
 
-
 Create a function `sum_integers` that takes any number of integers and prints their sum?
 ?
 ```python
@@ -241,7 +251,6 @@ Create a function `sum_integers` that takes any number of integers and prints th
 		print sum(integers)
 ```
 <!--SR:!2026-01-19,298,342-->
-
 
 Define a function `print_kwargs` that takes any number of keyword arguments and prints them.
 ?

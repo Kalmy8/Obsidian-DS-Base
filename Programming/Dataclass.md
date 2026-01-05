@@ -1,5 +1,16 @@
-#🃏/programming
-What is the built-in @dataclass decorator from **dataclasses** library? How is it used, when is it being convinient? What other methods from the  **dataclasses** library are often called alongside? What do they do?
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/python
+
+What is the built-in @dataclass decorator from **dataclasses** library? How is it used, when is it being convinient? What other methods from the **dataclasses** library are often called alongside? What do they do?
 ?
 The @dataclass decorator allows you to automatically constuct **\_\_init\_\_**, **\_\_repr\_\_**, **\_\_eq\_\_** methods within decorated class, which is very handy for classes which do only store and represent some data (that's why they are called dataclasses really).
 ```python
@@ -34,23 +45,23 @@ from dataclasses import dataclass, field
 
 @dataclass
 class MultiFieldExample:
-    # Default value
-    name: str = field(default="Default Name")
+ # Default value
+ name: str = field(default="Default Name")
 
-    # Default factory function
-    items: list = field(default_factory=list)
+ # Default factory function
+ items: list = field(default_factory=list)
 
-    # Non-comparable field
-    metadata: dict = field(default_factory=dict, compare=False)
+ # Non-comparable field
+ metadata: dict = field(default_factory=dict, compare=False)
 
-    # Excluded from repr
-    password: str = field(repr=False, default="secret")
+ # Excluded from repr
+ password: str = field(repr=False, default="secret")
 
-    # With metadata
-    description: str = field(
-        default="A default description", 
-        metadata={'doc': 'This is the description of the object.'}
-    )
+ # With metadata
+ description: str = field(
+ default="A default description", 
+ metadata={'doc': 'This is the description of the object.'}
+ )
 
 # Usage Example
 example = MultiFieldExample()
@@ -58,9 +69,9 @@ print(example)
 # Output: MultiFieldExample(name='Default Name', items=[], metadata={}, description='A default description')
 
 example.items.append("Item 1")
-print(example.items)  # Output: ['Item 1']
+print(example.items) # Output: ['Item 1']
 
-print(example.password)  # Output: secret 
+print(example.password) # Output: secret 
 # But 'password' is not included in the repr output above
 ```
 3. **Asdict and astuple** methods do represent a dataclass as a dictionary and as a tuple accordingly:
@@ -68,7 +79,7 @@ print(example.password)  # Output: secret
 from dataclasses import asdict, astuple
 
 person = Person(name="Alice", age=30)
-print(asdict(person))  # {'name': 'Alice', 'age': 30}
+print(asdict(person)) # {'name': 'Alice', 'age': 30}
 print(astuple(person)) # ('Alice', 30)
 ```
 4. **Replace** method creates a copy of a dataclass but allow you to change some fields within:

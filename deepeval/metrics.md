@@ -1,10 +1,18 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # DeepEval Metrics Guide
 
 ## Overview
 
 DeepEval provides a comprehensive suite of metrics to evaluate LLM applications. Metrics use **LLM-as-a-judge** approach (typically GPT-4) to assess outputs. This guide covers the most popular metrics, what they measure, and how to tune them.
 
----
 
 ## RAG Metrics
 

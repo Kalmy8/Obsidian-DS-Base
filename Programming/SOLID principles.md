@@ -1,14 +1,25 @@
-#🃏/oop-basics
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/oop
+
 Name each of the SOLID principles. For each principle, describe benefits of it's usage and provide a simple example of the principle violation/commitement
 ?
 Let's break down each SOLID principle, exploring their benefits and illustrating both violations and good practices with simple Python examples:
 **1. Single Responsibility Principle (SRP)**
-   - **Description:** A class/module/function/service should have one, and only one, reason to change. In other words, a class should have only one job or responsibility.
-   - **Benefits:**
-      - **Increased Cohesion:** Makes classes more focused and understandable.
-      - **Reduced Coupling:**  Minimizes dependencies between classes, making them easier to change independently.
-      - **Improved Maintainability:**  Easier to find, fix, and extend code when classes have a clear purpose.
-   - **Violation Example:**
+ - **Description:** A class/module/function/service should have one, and only one, reason to change. In other words, a class should have only one job or responsibility.
+ - **Benefits:**
+ - **Increased Cohesion:** Makes classes more focused and understandable.
+ - **Reduced Coupling:** Minimizes dependencies between classes, making them easier to change independently.
+ - **Improved Maintainability:** Easier to find, fix, and extend code when classes have a clear purpose.
+ - **Violation Example:**
 ```python
 class Employee:
 	def calculate_salary(self):
@@ -19,7 +30,7 @@ class Employee:
 	 # ... 
 ```
 The `Employee` class has multiple responsibilities (salary calculation, report generation, email sending).
-   - **Commitment Example:**
+ - **Commitment Example:**
 ```python
 class SalaryCalculator:
 	def calculate_salary(self):
@@ -33,11 +44,11 @@ class EmailSender:
 ```
 Responsibilities are separated into distinct classes.
 **2. Open/Closed Principle (OCP)**
-   - **Description:** Software entities (classes, modules, functions) should be open for extension, but closed for modification.
-   - **Benefits:**
-     - **Flexibility:** You can add new features or behaviors without changing existing code
-     - **Stability:** Reduces the risk of introducing bugs in existing code when extending functionality
-   - **Violation Example:**
+ - **Description:** Software entities (classes, modules, functions) should be open for extension, but closed for modification.
+ - **Benefits:**
+ - **Flexibility:** You can add new features or behaviors without changing existing code
+ - **Stability:** Reduces the risk of introducing bugs in existing code when extending functionality
+ - **Violation Example:**
 ```python
 class AreaCalculator:
 
@@ -49,7 +60,7 @@ class AreaCalculator:
 		# Add more if-else for new shapes 
 ```
 Adding new shapes requires modifying the `calculate_area` method.
-   - **Commitment Example:**
+ - **Commitment Example:**
 ```python
 class Shape(ABC):
 	@abstractmethod
@@ -70,11 +81,11 @@ class AreaCalculator:
 ```
 New shapes can be added by creating new subclasses of `Shape` without modifying `AreaCalculator`.
 **3. Liskov Substitution Principle (LSP)**
-   - **Description:**  Subtypes should be substitutable for their base types without altering the correctness of the program.
-   - **Benefits:**
-      - **Predictability:** Ensures that subclasses behave as expected when used in place of their base classes.
-      - **Polymorphism:** Allows you to use subtypes interchangeably without introducing errors.
-   - **Violation Example:**
+ - **Description:** Subtypes should be substitutable for their base types without altering the correctness of the program.
+ - **Benefits:**
+ - **Predictability:** Ensures that subclasses behave as expected when used in place of their base classes.
+ - **Polymorphism:** Allows you to use subtypes interchangeably without introducing errors.
+ - **Violation Example:**
 ```python
 	class Bird(ABC):
 		@abstractmethod
@@ -92,7 +103,7 @@ New shapes can be added by creating new subclasses of `Shape` without modifying 
 	make_bird_fly(penguin) # Raises an error!
 ```
 The `Penguin` subclass breaks the expectation set by the `Bird` base class.
-   - **Commitment Example:**
+ - **Commitment Example:**
 ```python
 	class Bird(ABC):
 		@abstractmethod
@@ -112,11 +123,11 @@ The `Penguin` subclass breaks the expectation set by the `Bird` base class.
 ```
 Subclasses adhere to the contract of the base class (`move`), even if they implement it differently.
 **4. Interface Segregation Principle (ISP)**
-   - **Description:** Clients should not be forced to depend on methods they don't use. It's better to have multiple, smaller, client-specific interfaces than one large, general-purpose interface.
-   - **Benefits:**
-      - **Reduced Coupling:**  Clients only depend on the methods they need.
-      - **Increased Flexibility:**  Changes to unused methods don't affect clients.
-   - **Violation Example:**
+ - **Description:** Clients should not be forced to depend on methods they don't use. It's better to have multiple, smaller, client-specific interfaces than one large, general-purpose interface.
+ - **Benefits:**
+ - **Reduced Coupling:** Clients only depend on the methods they need.
+ - **Increased Flexibility:** Changes to unused methods don't affect clients.
+ - **Violation Example:**
 ```python
 	class Worker:
 		def work(self):
@@ -132,7 +143,7 @@ Subclasses adhere to the contract of the base class (`move`), even if they imple
 		# ... (implementation)
 ```
 The `Robot` class is forced to implement methods (`eat`, `sleep`) it doesn't need.
-   - **Commitment Example:**
+ - **Commitment Example:**
 ```python
 	class Workable(ABC):
 		def work(self):
@@ -154,13 +165,13 @@ The `Robot` class is forced to implement methods (`eat`, `sleep`) it doesn't nee
 ```
 Interfaces are more focused, and classes only implement what they need.
 **5. Dependency Inversion Principle (DIP)**
-   - **Description:**
-      - High-level modules should not depend on low-level modules. Both should depend on abstractions.
-      - Abstractions should not depend on details. Details should depend on abstractions.
-   - **Benefits:**
-     - **Reduced Coupling:** Makes modules more independent and reusable.
-     - **Improved Testability:** Easier to test modules in isolation.
-   - **Violation Example:**
+ - **Description:**
+ - High-level modules should not depend on low-level modules. Both should depend on abstractions.
+ - Abstractions should not depend on details. Details should depend on abstractions.
+ - **Benefits:**
+ - **Reduced Coupling:** Makes modules more independent and reusable.
+ - **Improved Testability:** Easier to test modules in isolation.
+ - **Violation Example:**
 ```python
 	class LightBulb:
 		def __init__(self):
@@ -185,7 +196,7 @@ Interfaces are more focused, and classes only implement what they need.
 				self.bulb.turn_on()
 ```
 The `Switch` class is tightly coupled to the `LightBulb` class.
-   - **Commitment Example:**
+ - **Commitment Example:**
 ```python
 	class Switchable(ABC):
 		@abstractmethod
@@ -207,5 +218,5 @@ The `Switch` class is tightly coupled to the `LightBulb` class.
 			# ... 
 ```
 Both `Switch` and `LightBulb` depend on the `Switchable` abstraction.
-**Remember:**  SOLID principles are guidelines, not rules.  Use them to make your code more maintainable, but don't be afraid to make trade-offs based on the complexity of your project.
+**Remember:** SOLID principles are guidelines, not rules. Use them to make your code more maintainable, but don't be afraid to make trade-offs based on the complexity of your project.
 <!--SR:!2026-07-20,365,330-->

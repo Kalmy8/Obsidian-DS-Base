@@ -1,4 +1,14 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: [tech/python]
+sources:
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/source/refactoring-guru/design-patterns
+
 What is a **Strategy** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **strategy** paradigm.
 ?
 **Strategy** is a [behavioral](Behavioral%20patterns.md) that pattern allows you to change functions behavior dynamically by providing a "strategy" argument. It consists of 3 main parts:
@@ -7,6 +17,7 @@ What is a **Strategy** design pattern? When is it useful and how would you know 
 3. **Concrete Strategies:** Implement the Strategy interface with different algorithms.
 ##### Why use Strategy pattern?
 You can possibly benefit from using it if you find yourself in a sutiatuon when:
+
 1. You have one shared task and many interchangable algorthims completing it in a different manner.
 2. Your method has a lot of `if-else` or `switch` statements.
 -----------------------------------------------------------
@@ -37,13 +48,12 @@ class ContextClass:
 ```
 <!--SR:!2027-09-06,824,330-->
 
-
 ## Practical tasks:
 1. **Payment Gateway**
-    - Define strategies: `CreditCardPayment`, `PayPalPayment`, `CryptoPayment`.
-    - Use a `PaymentProcessor` context class to switch payment methods at runtime.
-        
+ - Define strategies: `CreditCardPayment`, `PayPalPayment`, `CryptoPayment`.
+ - Use a `PaymentProcessor` context class to switch payment methods at runtime.
+ 
 2. **Image Filter App**
-    - Implement strategies for filters (`BlackAndWhite`, `Sepia`, `Blur`).
-    - Let users apply filters dynamically to an image.
+ - Implement strategies for filters (`BlackAndWhite`, `Sepia`, `Blur`).
+ - Let users apply filters dynamically to an image.
 

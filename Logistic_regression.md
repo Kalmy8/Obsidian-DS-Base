@@ -1,11 +1,13 @@
 ---
-
-excalidraw-plugin: parsed
-tags: [excalidraw]
-
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
 ---
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
-
+==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 
 # Excalidraw Data
 ## Text Elements

@@ -1,8 +1,20 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What is a **Command pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Command** paradigm.
 ?
 [Command.mhtml](../../📁%20files/Command.mhtml)
-The **Command pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to inroduce some mid **Command** layer which is responsible for  delivering user requests to some real worker (reciever). Remember the [Bridge pattern](Bridge%20pattern.md). Bridge pattern separates abstraction from the implementation. Every Abstraction has a set of features avaliable for a client (user interface), each feature is bonded and served with some methods which are implemented in concrete implementations (business logic). Now the Abstraction **(Invoker) is only responsible for pushing binded commands**, not invoking the implementation directly. **Every feature avaliable to user can be represented as a parametrized Command**. These commands are being initialized, binded to invokers and executed by **implementators (recievers)** then pushed. This complex structure is benefitial because:
+The **Command pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to inroduce some mid **Command** layer which is responsible for delivering user requests to some real worker (reciever). Remember the [Bridge pattern](Bridge%20pattern.md). Bridge pattern separates abstraction from the implementation. Every Abstraction has a set of features avaliable for a client (user interface), each feature is bonded and served with some methods which are implemented in concrete implementations (business logic). Now the Abstraction **(Invoker) is only responsible for pushing binded commands**, not invoking the implementation directly. **Every feature avaliable to user can be represented as a parametrized Command**. These commands are being initialized, binded to invokers and executed by **implementators (recievers)** then pushed. This complex structure is benefitial because:
+---
 1. Just like the bridge pattern, it decouples the business logic from the user interface, allowing both to develop independently. The recievers only need to provide some `execute(command)` method to be good to go with commands.
 2. Commands are acting as a mid-layer, which is benefitial over the bridge pattern, because they can be treated as a separate object, **so be logged/un-done/re-done/queued and scheduled.**
 ##### Command pattern structure
@@ -18,7 +30,7 @@ You can benefit from using the pattern in following situations:
 2. **Undo/Redo Functionality:** When you want to provide users with the ability to undo or redo actions.
 3. **Queuing and Scheduling:** When you need to queue requests or schedule them for later execution.
 4. **Parameterization:** When you want to pass requests as parameters to methods or store them in data structures.
-5.  **Logging and Tracking:** When you need to keep a history of requests for auditing or debugging purposes.
+5. **Logging and Tracking:** When you need to keep a history of requests for auditing or debugging purposes.
 ##### Command pattern mock-code example
 ```python
 # Abstract Command
@@ -62,7 +74,6 @@ class Canvas:
 	@staticmethod 
 	def to_right():
 		print("I have leaned to the right")
-
 
 left_button = Button(MoveLeft())
 right_button = Button(MoveRight())

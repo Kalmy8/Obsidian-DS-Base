@@ -1,9 +1,20 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Pandas Basics Course]]"
+authors:
+-
+---
 **Scenario 1: University Academic Performance Analysis**
 
 **Mock DataFrames:**
+
 ```python
 import pandas as pd
-    
+ 
 df_students_registry = pd.DataFrame({
 	'student_id': ['S1001', 'S1002', 'S1003', 'S1004', 'S1005'],
 	'student_name': ['Alice Wonderland', 'Robert "Bob" Builder', 'Charles Xavier', 'Diana Prince', 'Edward Scissorhands'],
@@ -33,11 +44,11 @@ df_course_catalog = pd.DataFrame({
 })
 ```
 **Tasks:**
-    1.  **Master Student Report:** Create a single DataFrame that combines student registry information with their full department name (from `df_program_details`). Then, merge this with their Fall 2023 course grades and full course titles. The final report should show `student_name`, `department_name`, `enrollment_year`, `course_full_title`, and `grade_numeric_percent` for all recorded grades.
-    2.  **High Achievers in CS:** From the master report (or by re-merging), filter to find all students majoring in 'Computer Science' who scored 90% or higher in any of their Fall 2023 courses. Display their `student_name`, `course_full_title`, and `grade_numeric_percent`.
-    3.  **Average Grade by Department:** Calculate the average `grade_numeric_percent` for each `department_name` in Fall 2023. Sort the results to show the department with the highest average grade first.
-    4.  **Reshape for Course Load Analysis:** Create a DataFrame where each row is a `student_name`, each column is a `course_full_title` taken in Fall 2023, and the values are their `grade_numeric_percent`. Use an appropriate reshaping method (`pivot_table`). Fill missing values (courses not taken by a student) with 0 or a suitable indicator.
-    5.  **Course Credits Analysis:** Merge the course catalog with program details to see which departments offer which courses. Then, using the `df_course_grades_fall2023`, calculate the total credit hours taken by each student in Fall 2023. List the student names and their total credit hours, sorted by total credit hours in descending order.
+ 1. **Master Student Report:** Create a single DataFrame that combines student registry information with their full department name (from `df_program_details`). Then, merge this with their Fall 2023 course grades and full course titles. The final report should show `student_name`, `department_name`, `enrollment_year`, `course_full_title`, and `grade_numeric_percent` for all recorded grades.
+ 2. **High Achievers in CS:** From the master report (or by re-merging), filter to find all students majoring in 'Computer Science' who scored 90% or higher in any of their Fall 2023 courses. Display their `student_name`, `course_full_title`, and `grade_numeric_percent`.
+ 3. **Average Grade by Department:** Calculate the average `grade_numeric_percent` for each `department_name` in Fall 2023. Sort the results to show the department with the highest average grade first.
+ 4. **Reshape for Course Load Analysis:** Create a DataFrame where each row is a `student_name`, each column is a `course_full_title` taken in Fall 2023, and the values are their `grade_numeric_percent`. Use an appropriate reshaping method (`pivot_table`). Fill missing values (courses not taken by a student) with 0 or a suitable indicator.
+ 5. **Course Credits Analysis:** Merge the course catalog with program details to see which departments offer which courses. Then, using the `df_course_grades_fall2023`, calculate the total credit hours taken by each student in Fall 2023. List the student names and their total credit hours, sorted by total credit hours in descending order.
 
 **Scenario 2: Online Bookstore Sales & Inventory**
 
@@ -75,11 +86,11 @@ df_customer_details = pd.DataFrame({
 })
 ```
 **Tasks:**
-    1.  **Total Book Inventory:** Use `melt` to transform `df_books_inventory` so that warehouse stock quantities are in a long format (columns: `book_isbn13`, `warehouse_id`, `stock_quantity`). Then, calculate the total stock quantity for each book across all warehouses.
-    2.  **Detailed Order Report:** Create a report that combines customer orders with book details (title, price, full genre name) and customer details (name, city). Calculate the total price for each item in an order (quantity * unit price).
-    3.  **Top Selling Tech Books:** Filter the detailed order report for books in the 'Technical & Programming' genre. Then, find the top 3 best-selling tech books by total quantity ordered. Display the book title and total quantity.
-    4.  **Customer Spending:** Calculate the total amount spent by each customer. List customer names and their total spending, sorted from highest to lowest.
-    5.  **Sales by Genre and Month:** Create a pivot table showing total revenue (sum of item total prices) for each `genre_full_name` and for each month of ordering. Extract the month from `order_date` for this.
+ 1. **Total Book Inventory:** Use `melt` to transform `df_books_inventory` so that warehouse stock quantities are in a long format (columns: `book_isbn13`, `warehouse_id`, `stock_quantity`). Then, calculate the total stock quantity for each book across all warehouses.
+ 2. **Detailed Order Report:** Create a report that combines customer orders with book details (title, price, full genre name) and customer details (name, city). Calculate the total price for each item in an order (quantity * unit price).
+ 3. **Top Selling Tech Books:** Filter the detailed order report for books in the 'Technical & Programming' genre. Then, find the top 3 best-selling tech books by total quantity ordered. Display the book title and total quantity.
+ 4. **Customer Spending:** Calculate the total amount spent by each customer. List customer names and their total spending, sorted from highest to lowest.
+ 5. **Sales by Genre and Month:** Create a pivot table showing total revenue (sum of item total prices) for each `genre_full_name` and for each month of ordering. Extract the month from `order_date` for this.
 
 **Scenario 3: Employee Project Allocation & Performance**
 
@@ -116,11 +127,11 @@ df_project_details_catalog = pd.DataFrame({
 })
 ```
 **Tasks:**
-    1.  **Full Employee-Project Report:** Create a comprehensive DataFrame that lists each employee's `full_name`, their `department_name_full`, the `project_name_official` they are assigned to, and their `hours_billed_monthly` for that project in that month. Handle the differently named ID columns carefully.
-    2.  **Tech Department Overtime:** Filter the report for employees in the 'Technology & Engineering' department who billed more than 70 hours in any single month on a project. Display their name, project name, and hours billed.
-    3.  **Total Hours per Project:** Calculate the total hours billed for each `project_name_official` across all employees and months. Sort the projects by total hours in descending order.
-    4.  **Department Workload Pivot:** Create a pivot table where the index is `department_name_full`, columns are `project_name_official`, and the values are the sum of `hours_billed_monthly`. This will show how many hours each department contributed to each project.
-    5.  **Salary vs. Project Involvement:** Merge employee HR data (including salary) with project assignments. For each employee, list their name, annual salary, and the number of distinct projects they were assigned to. Identify employees with a salary above 100K who are assigned to only one project. 
+ 1. **Full Employee-Project Report:** Create a comprehensive DataFrame that lists each employee's `full_name`, their `department_name_full`, the `project_name_official` they are assigned to, and their `hours_billed_monthly` for that project in that month. Handle the differently named ID columns carefully.
+ 2. **Tech Department Overtime:** Filter the report for employees in the 'Technology & Engineering' department who billed more than 70 hours in any single month on a project. Display their name, project name, and hours billed.
+ 3. **Total Hours per Project:** Calculate the total hours billed for each `project_name_official` across all employees and months. Sort the projects by total hours in descending order.
+ 4. **Department Workload Pivot:** Create a pivot table where the index is `department_name_full`, columns are `project_name_official`, and the values are the sum of `hours_billed_monthly`. This will show how many hours each department contributed to each project.
+ 5. **Salary vs. Project Involvement:** Merge employee HR data (including salary) with project assignments. For each employee, list their name, annual salary, and the number of distinct projects they were assigned to. Identify employees with a salary above 100K who are assigned to only one project. 
 
 **Scenario 4: Multi-City Weather Data Aggregation**
 
@@ -143,13 +154,13 @@ df_daily_readings_wide = pd.DataFrame({
 	'precipitation_mm_daily': [0, 5, 2, 0, 10, 1, 0, 3],
 	'humidity_percent_avg': [60, 75, 65, 50, 80, 70, 55, 68]
 })
-    ```
+ ```
 **Tasks:**
-    1.  **Reshape to Long Format:** Use `melt` to transform `df_daily_readings_wide` into a long format. The identifier variables should be `station_ref` and `reading_date_iso`. The variable name column should capture the metric type (e.g., 'temperature_high_celsius'), and the value column should hold the reading.
-    2.  **Enrich with Station Details:** Merge the long-format weather readings with `df_weather_stations_info` to include `city_name_common`, `latitude`, and `longitude` for each reading.
-    3.  **Rainy Days Report:** Filter the enriched data to find all instances where `precipitation_mm_daily` was greater than 0. Display the `city_name_common`, `reading_date_iso`, and the amount of precipitation.
-    4.  **Average Temperatures by City:** Using the long-format data, calculate the average value for `temperature_high_celsius` and `temperature_low_celsius` for each `city_name_common`. (Hint: you might need to filter for these specific metrics before or after pivoting/grouping).
-    5.  **Hottest Day per City:** For each `city_name_common`, find the date with the highest `temperature_high_celsius`. Display the city, date, and the high temperature. Sort by city name.
+ 1. **Reshape to Long Format:** Use `melt` to transform `df_daily_readings_wide` into a long format. The identifier variables should be `station_ref` and `reading_date_iso`. The variable name column should capture the metric type (e.g., 'temperature_high_celsius'), and the value column should hold the reading.
+ 2. **Enrich with Station Details:** Merge the long-format weather readings with `df_weather_stations_info` to include `city_name_common`, `latitude`, and `longitude` for each reading.
+ 3. **Rainy Days Report:** Filter the enriched data to find all instances where `precipitation_mm_daily` was greater than 0. Display the `city_name_common`, `reading_date_iso`, and the amount of precipitation.
+ 4. **Average Temperatures by City:** Using the long-format data, calculate the average value for `temperature_high_celsius` and `temperature_low_celsius` for each `city_name_common`. (Hint: you might need to filter for these specific metrics before or after pivoting/grouping).
+ 5. **Hottest Day per City:** For each `city_name_common`, find the date with the highest `temperature_high_celsius`. Display the city, date, and the high temperature. Sort by city name.
 
 **Scenario 5: Public Library User Activity**
 
@@ -180,8 +191,8 @@ df_book_loans_records = pd.DataFrame({
 })
 ```
 **Tasks:**
-    1.  **Loan Activity Report:** Create a detailed report by merging the three DataFrames. The report should include `member_name_registered`, `title_primary` of the book, `author_full_name`, `date_loaned_out`, and `date_returned_actual`.
-    2.  **Loan Duration:** For all returned books, calculate the duration of each loan in days. Add this as a new column `loan_duration_days` to the loan activity report. Filter out books that haven't been returned yet for this calculation.
-    3.  **Most Popular Genres:** Determine which `genre_main_category` is borrowed the most. List genres by the total number of times books from that genre have been loaned out, in descending order.
-    4.  **Active Borrowers in 90210:** Identify members from the `member_city_zipcode` '90210' who have borrowed at least one book. Display their names and the titles of the books they borrowed.
-    5.  **Books Loaned Over Time (Pivot):** Create a pivot table where the index is `member_name_registered`, columns are the `publication_year_original` of the books they borrowed, and the values are the count of books loaned. This will show if members prefer older or newer books.
+ 1. **Loan Activity Report:** Create a detailed report by merging the three DataFrames. The report should include `member_name_registered`, `title_primary` of the book, `author_full_name`, `date_loaned_out`, and `date_returned_actual`.
+ 2. **Loan Duration:** For all returned books, calculate the duration of each loan in days. Add this as a new column `loan_duration_days` to the loan activity report. Filter out books that haven't been returned yet for this calculation.
+ 3. **Most Popular Genres:** Determine which `genre_main_category` is borrowed the most. List genres by the total number of times books from that genre have been loaned out, in descending order.
+ 4. **Active Borrowers in 90210:** Identify members from the `member_city_zipcode` '90210' who have borrowed at least one book. Display their names and the titles of the books they borrowed.
+ 5. **Books Loaned Over Time (Pivot):** Create a pivot table where the index is `member_name_registered`, columns are the `publication_year_original` of the books they borrowed, and the values are the count of books loaned. This will show if members prefer older or newer books.

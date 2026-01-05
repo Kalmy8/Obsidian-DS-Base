@@ -1,4 +1,14 @@
-#🃏/code_smells 
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+- "[[Refactoring Guru - Code Smells]]"
+authors:
+-
+---
+
+#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
 
 What are the "data clumps"? How to know if you have encountered one?
 ?
@@ -12,4 +22,4 @@ What are the possible treatements for "data clumps", if:
 ?
 -  [Extract Class](https://refactoring.guru/extract-class) to move the fields to their own class.
 - use  [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object) to set them off as a class.
--  think about passing the entire data object to the method instead of just individual fields. [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
+- think about passing the entire data object to the method instead of just individual fields. [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)

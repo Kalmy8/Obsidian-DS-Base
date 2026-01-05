@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/backend']
+sources:
+- "[[Backend Basics Course]]"
+authors:
+-
+---
+
+#🃏/semantic/backend #🃏/backend-basics-course
+
 **Codewords:** Telegram Bot API, `aiogram`, Webhook, Polling, Environment Variables, `python-dotenv`, `dateparser`, `ngrok`.
 
 ## 1. How Telegram Bots Work
@@ -9,8 +21,8 @@ To create a bot, you need to talk to [@BotFather](https://t.me/botfather) on Tel
 ### Receiving Updates: Polling vs. Webhooks
 
 There are two ways your bot can get messages from users:
-1.  **Polling:** Your application repeatedly asks Telegram, "Are there any new messages for me?". This is simple to set up for development but is inefficient. It makes many unnecessary requests.
-2.  **Webhooks:** You provide Telegram with a public URL (an endpoint on your FastAPI server). Whenever there's a new message for your bot, Telegram sends an HTTP POST request with the update data to your URL. This is the preferred method for production as it's much more efficient.
+1. **Polling:** Your application repeatedly asks Telegram, "Are there any new messages for me?". This is simple to set up for development but is inefficient. It makes many unnecessary requests.
+2. **Webhooks:** You provide Telegram with a public URL (an endpoint on your FastAPI server). Whenever there's a new message for your bot, Telegram sends an HTTP POST request with the update data to your URL. This is the preferred method for production as it's much more efficient.
 
 ### Storing Your Token Securely
 You must **never** hardcode your bot token directly in your code. If you publish your code, your bot will be stolen. The standard practice is to use **environment variables**.
@@ -46,13 +58,13 @@ pip install aiogram
 Now let's combine everything: FastAPI will be our web server to handle webhooks from Telegram, and `aiogram` will process the updates to provide the bot's logic. We will also use the `dateparser` library to find dates in text.
 
 **Project Setup:**
-1.  Install all necessary libraries:
-    ```bash
-    pip install fastapi "uvicorn[standard]" aiogram python-dotenv dateparser
-    ```
-2.  Create your bot with @BotFather and get your token.
-3.  Create a `.env` file and add your `BOT_TOKEN`.
-4.  Create a file named `bot_main.py`.
+1. Install all necessary libraries:
+ ```bash
+ pip install fastapi "uvicorn[standard]" aiogram python-dotenv dateparser
+ ```
+2. Create your bot with @BotFather and get your token.
+3. Create a `.env` file and add your `BOT_TOKEN`.
+4. Create a file named `bot_main.py`.
 
 **The Code (`bot_main.py`):**
 ```python
@@ -75,7 +87,6 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 # For local testing, you'll need a tool like ngrok (see below).
 WEBHOOK_URL = "https://your-public-domain-here.com/webhook"
 
-
 # Initialize bot and dispatcher
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
@@ -86,95 +97,91 @@ app = FastAPI()
 # --- Bot Logic ---
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    """
-    This handler will be called when user sends `/start` or `/help` command
-    """
-    await message.reply(
-        "Hi!\nI'm DateParserBot!\n"
-        "Send me a message with any dates in it, and I'll find them for you."
-    )
+ """
+ This handler will be called when user sends `/start` or `/help` command
+ """
+ await message.reply(
+ "Hi!\nI'm DateParserBot!\n"
+ "Send me a message with any dates in it, and I'll find them for you."
+ )
 
 @dp.message_handler()
 async def parse_dates(message: types.Message):
-    """
-    This handler will be called for any text message.
-    """
-    # Use dateparser to find dates in the message text
-    # The language order helps the parser prioritize e.g. English dates
-    found_dates = dateparser.search.search_dates(
-        message.text, languages=['en', 'ru']
-    )
+ """
+ This handler will be called for any text message.
+ """
+ # Use dateparser to find dates in the message text
+ # The language order helps the parser prioritize e.g. English dates
+ found_dates = dateparser.search.search_dates(
+ message.text, languages=['en', 'ru']
+ )
 
-    if found_dates:
-        # Format the found dates for the reply
-        formatted_dates = [
-            f"'{text}' -> {date.strftime('%Y-%m-%d %H:%M')}" for text, date in found_dates
-        ]
-        reply_text = "I found these dates:\n" + "\n".join(formatted_dates)
-    else:
-        reply_text = "I couldn't find any dates in your message."
+ if found_dates:
+ # Format the found dates for the reply
+ formatted_dates = [
+ f"'{text}' -> {date.strftime('%Y-%m-%d %H:%M')}" for text, date in found_dates
+ ]
+ reply_text = "I found these dates:\n" + "\n".join(formatted_dates)
+ else:
+ reply_text = "I couldn't find any dates in your message."
 
-    await message.reply(reply_text)
-
+ await message.reply(reply_text)
 
 # --- Webhook Integration with FastAPI ---
 @app.on_event("startup")
 async def on_startup():
-    """
-    Actions to be performed when the application starts.
-    Sets the webhook.
-    """
-    webhook_info = await bot.get_webhook_info()
-    if webhook_info.url != WEBHOOK_URL:
-        await bot.set_webhook(url=WEBHOOK_URL)
-    logging.info("Webhook set to %s", WEBHOOK_URL)
+ """
+ Actions to be performed when the application starts.
+ Sets the webhook.
+ """
+ webhook_info = await bot.get_webhook_info()
+ if webhook_info.url != WEBHOOK_URL:
+ await bot.set_webhook(url=WEBHOOK_URL)
+ logging.info("Webhook set to %s", WEBHOOK_URL)
 
 @app.post("/webhook")
 async def webhook(request: Request):
-    """
-    This endpoint will receive updates from Telegram.
-    """
-    # Get the update from the request body and process it with aiogram
-    update = await request.json()
-    await dp.process_update(types.Update(**update))
-    # Return a 200 OK response to Telegram
-    return Response(status_code=200)
-
+ """
+ This endpoint will receive updates from Telegram.
+ """
+ # Get the update from the request body and process it with aiogram
+ update = await request.json()
+ await dp.process_update(types.Update(**update))
+ # Return a 200 OK response to Telegram
+ return Response(status_code=200)
 
 @app.on_event("shutdown")
 async def on_shutdown():
-    """
-    Actions to be performed when the application shuts down.
-    Removes the webhook.
-    """
-    await bot.delete_webhook()
-    logging.info("Webhook deleted.")
+ """
+ Actions to be performed when the application shuts down.
+ Removes the webhook.
+ """
+ await bot.delete_webhook()
+ logging.info("Webhook deleted.")
 
 ```
 ### Running the Project with `ngrok`
 
 For Telegram to send updates to your webhook, your application must be running on a public URL. During development, you can use a tool called **`ngrok`** to create a secure public URL for your local server.
 
-1.  [Download and install ngrok](https://ngrok.com/download).
-2.  Run your FastAPI app: `uvicorn bot_main:app --host 0.0.0.0 --port 8000`
-3.  In a new terminal, run ngrok to expose port 8000: `ngrok http 8000`
-4.  ngrok will give you a public URL like `https://abcdef12345.ngrok.io`.
-5.  **Copy this URL**, update the `WEBHOOK_URL` in your `bot_main.py` file to be `https://abcdef12345.ngrok.io/webhook`, and restart your uvicorn server.
+1. [Download and install ngrok](https://ngrok.com/download).
+2. Run your FastAPI app: `uvicorn bot_main:app --host 0.0.0.0 --port 8000`
+3. In a new terminal, run ngrok to expose port 8000: `ngrok http 8000`
+4. ngrok will give you a public URL like `https://abcdef12345.ngrok.io`.
+5. **Copy this URL**, update the `WEBHOOK_URL` in your `bot_main.py` file to be `https://abcdef12345.ngrok.io/webhook`, and restart your uvicorn server.
 
 Now your bot should be live and responding to messages!
 
----
-#🃏/backend-basics
 **Key Questions:**
 
 1. What are the two methods for a Telegram bot to receive messages? What are the pros and cons of each?
 ?
 - **Polling:** The bot repeatedly asks Telegram for updates.
-    - **Pros:** Simple to set up for local development.
-    - **Cons:** Inefficient, makes many useless requests, and has a delay.
+ - **Pros:** Simple to set up for local development.
+ - **Cons:** Inefficient, makes many useless requests, and has a delay.
 - **Webhooks:** Telegram sends updates to a public URL you provide.
-    - **Pros:** Very efficient, real-time updates, scalable for production.
-    - **Cons:** Requires a public URL and a web server, making setup more complex.
+ - **Pros:** Very efficient, real-time updates, scalable for production.
+ - **Cons:** Requires a public URL and a web server, making setup more complex.
 
 2. Why should you never hardcode your bot token in your source code?
 ?

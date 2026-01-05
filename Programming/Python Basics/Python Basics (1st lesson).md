@@ -1,3 +1,16 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+#🃏/python-basics-course
+
 **Codewords:** Compiled and Interpreted programming languages, Python Objects, Immutable and Mutable Data types
 
 ## 1. Python
@@ -22,7 +35,6 @@ Although C# has an **AOT compiler**, which actually translates all the **.IL** c
 The whole difference here is covered in small nuances on **stage 2** and **stage 3**. For example, one would say that **.IL** compiled file is closer to machine code and compilation proccess is much stricter, and the bytecode is closer to the original code thus can have more errors in it... 
 But that's all just some implementation details, so most part of **modern languages can be both compiled and interpreted depending on the concrete implementation!**
 
-
 ## 2. Data types
 Data type states some form of knowledge, some structure to keep information and also **all the methods avaliable** to work with that structure. 
 
@@ -32,12 +44,12 @@ So, let's say, *string* object is defined with quote symbols ('str' or "str") an
 It is helpful to think about all of our programm variables as of some kind of **objects** in computer memory. In fact, you often can come up into phrase that **everything in python is an object, and that's true**.
 ![Pasted image 20240807150909.png](../../📁%20files/Pasted%20image%2020240807150909.png)
 
-
 Data types can be either **mutable** or **immutable**, defyining if the related **objects** can or can not be changed in the memory heap.
 There are only 3 base data types that **are mutable**, memorize them:
 - Lists: \[elem1, elem2,..\]
 - Dictionaries: \{keyword : value, keyword2 : value2\}
 - Sets: {1,2,3,4}
+
 All other data types **are immutable**. 
 
 > Take a look at the concrete example [here](../Objects%20in%20Python.md) to clarify the difference.
@@ -48,7 +60,6 @@ The last thing to say, it is helpful to know that some of the objects are alread
 - False, True and None objects
 - Some other stuff...
 
-#🃏/data-science
 **Review Questions:**
 What are the key differences between interpreted and compiled languages, and how does Python fit into this classification?
 ?
@@ -65,7 +76,7 @@ Describe 4 main stages of the user-code execution process. Which of this process
 
 What are the `.pyc` files? What role do they play in terms of program execution?
 ?
-`.pyc`  (python-chached) files contain python **bytecode**, which is the result of first 3 stages of python code execution pipeline. This files are being cached into the script directory, and are being updated whenever a script is being modified. If there are no changes, PVM will skip first 3 stages and will interprete the bytecode right away, the **resulting performance boost is the reason why `.pyc` files exist**.
+`.pyc` (python-chached) files contain python **bytecode**, which is the result of first 3 stages of python code execution pipeline. This files are being cached into the script directory, and are being updated whenever a script is being modified. If there are no changes, PVM will skip first 3 stages and will interprete the bytecode right away, the **resulting performance boost is the reason why `.pyc` files exist**.
 <!--SR:!2025-12-25,284,336-->
 
 How are python datatypes categorized? Which datatypes fall into each category?
@@ -109,7 +120,7 @@ Name the output of each piece of the given code:
 	d2 = d1.copy()
 	d1['a'].append(4)
 	print(d2)
-	# OUTPUT HERE EQUALS  {'a': [1, 2, 3, 4]}#
+	# OUTPUT HERE EQUALS {'a': [1, 2, 3, 4]}#
 	a = (1, 2, [3, 4])
 	b = a
 	a[2].append(5)

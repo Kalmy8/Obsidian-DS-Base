@@ -1,5 +1,13 @@
-**Codewords:** A/B Testing, Online Metrics, Offline Metrics, Statistical Significance, p-value, MDE (Minimum Detectable Effect), ATS (Average Time Spent), Retention, Control Group, Treatment Group, Novelty Effect
-
+---
+type: note
+status: done
+tags: [tech/ml/recsys]
+sources:
+-
+authors:
+-
+- "[[Recommender Systems Course]]"
+---
 ## A/B Testing for Recommender Systems
 
 In recommender systems, offline metrics (like NDCG, Precision@K, MAP) are essential for iterating on models quickly. However, they don't always correlate with real user behavior and business goals. An A/B test is the gold standard for measuring the true impact of a new model or feature in a live production environment.
@@ -70,5 +78,3 @@ This is a typical full-cycle workflow you would follow in the role described.
 **Q7: Your test results for a new model are flat—the p-value is 0.4. But the product manager insists they've heard good anecdotal feedback and wants to launch it. How do you handle this?**
 **A:** "This is a common situation where data needs to be balanced with qualitative insights. My first step would be to present the results clearly: 'The experiment shows no statistically significant lift in our primary metrics, meaning we can't be confident that this new model is better than the old one.' However, a flat result doesn't mean it's worse. I would then dig deeper. I'd perform a **segmented analysis** to see if the model had a strong positive impact on a specific user group that was washed out in the average (e.g., new users, users in a specific country, fans of a niche genre). If a key segment shows strong improvement and no other segment is harmed, we could consider a partial or targeted rollout. If the analysis shows nothing, the final decision is about business risk. If the new model is cheaper to run or easier to maintain, launching it might be acceptable. If not, the data-driven decision is to stick with the current model and iterate on a new hypothesis."
 
----
-#🃏/recsys

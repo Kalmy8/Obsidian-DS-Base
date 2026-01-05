@@ -1,4 +1,15 @@
-[\<previous](OOP%20Basics%20(4th)%20lesson.md)  |  [[OOP Basics (6th) lesson|next >]]
+---
+type: note
+status: inbox
+tags: ['tech/python']
+sources:
+-
+- "[[OOP Basics Course]]"
+authors:
+-
+---
+
+[\<previous](OOP%20Basics%20(4th)%20lesson.md) | [[OOP Basics (6th) lesson|next >]]
 **Codewords:** soLID principles
 
 **Theory:** [SOLID principles](SOLID%20principles.md)
@@ -18,30 +29,30 @@ For each code snippet:
 
 ```python
 class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+ def __init__(self, width, height):
+ self.width = width
+ self.height = height
 
-    def set_width(self, width):
-        self.width = width
+ def set_width(self, width):
+ self.width = width
 
-    def set_height(self, height):
-        self.height = height
+ def set_height(self, height):
+ self.height = height
 
-    def calculate_area(self):
-        return self.width * self.height
+ def calculate_area(self):
+ return self.width * self.height
 
 class Square(Rectangle):
-    def __init__(self, side):
-        super().__init__(side, side)
+ def __init__(self, side):
+ super().__init__(side, side)
 
-    def set_width(self, width):
-        self.width = width
-        self.height = width
+ def set_width(self, width):
+ self.width = width
+ self.height = width
 
-    def set_height(self, height):
-        self.width = height
-        self.height = height
+ def set_height(self, height):
+ self.width = height
+ self.height = height
 ```
 
 > [!note]- Identify the Smell
@@ -56,40 +67,40 @@ class Square(Rectangle):
 ```python
 # In this case, composition might be favored over inheritance
 class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+ def __init__(self, width, height):
+ self.width = width
+ self.height = height
 
-    def set_width(self, width):
-        self.width = width
+ def set_width(self, width):
+ self.width = width
 
-    def set_height(self, height):
-        self.height = height
+ def set_height(self, height):
+ self.height = height
 
-    def calculate_area(self):
-        return self.width * self.height
+ def calculate_area(self):
+ return self.width * self.height
 
 class Square: #Does not inherit from Rectangle
-    def __init__(self, side):
-        self.side = side
-    
-    def set_side(self, side):
-        self.side = side
+ def __init__(self, side):
+ self.side = side
+ 
+ def set_side(self, side):
+ self.side = side
 
-    def calculate_area(self):
-        return self.side * self.side
+ def calculate_area(self):
+ return self.side * self.side
 ```
 
 **Task 2:**
 
 ```python
 class Bird:
-    def fly(self):
-        print("Flying")
+ def fly(self):
+ print("Flying")
 
 class Penguin(Bird):
-    def fly(self):
-        raise Exception("Penguins can't fly!")
+ def fly(self):
+ raise Exception("Penguins can't fly!")
 ```
 
 > [!note]- Identify the Smell
@@ -103,21 +114,21 @@ class Penguin(Bird):
 
 ```python
 class Bird:
-    def __init__(self, name):
-        self.name = name
+ def __init__(self, name):
+ self.name = name
 
 class FlyingBird(Bird):
-    def fly(self):
-        print(f"{self.name} is Flying")
+ def fly(self):
+ print(f"{self.name} is Flying")
 
 class FlightlessBird(Bird):
-    def walk(self):
-        print(f"{self.name} is walking")
+ def walk(self):
+ print(f"{self.name} is walking")
 
 class Penguin(FlightlessBird):
-    def __init__(self, name):
-        super().__init__(name)
-    
+ def __init__(self, name):
+ super().__init__(name)
+ 
 
 # Example usage
 eagle = FlyingBird("Eagle")
@@ -132,18 +143,18 @@ penguin.walk()
 ```python
 TODO bad example
 class Document:
-    def __init__(self, content):
-        self.content = content
+ def __init__(self, content):
+ self.content = content
 
-    def open(self):
-        print(f"Opening document: {self.content}")
+ def open(self):
+ print(f"Opening document: {self.content}")
 
 class ReadOnlyDocument(Document):
-    def open(self):
-        print(f"Opening document in read-only mode: {self.content}")
+ def open(self):
+ print(f"Opening document in read-only mode: {self.content}")
 
-    def save(self):
-        raise Exception("Cannot save a read-only document")
+ def save(self):
+ raise Exception("Cannot save a read-only document")
 ```
 
 > [!note]- Identify the Smell
@@ -158,19 +169,19 @@ class ReadOnlyDocument(Document):
 ```python
 TODO bad example
 class ReadableDocument:
-    def __init__(self, content):
-        self.content = content
+ def __init__(self, content):
+ self.content = content
 
-    def open(self):
-        print(f"Opening document: {self.content}")
+ def open(self):
+ print(f"Opening document: {self.content}")
 
 class WritableDocument(ReadableDocument):
-    def save(self):
-        print(f"Saving document: {self.content}")
+ def save(self):
+ print(f"Saving document: {self.content}")
 
 class ReadOnlyDocument(ReadableDocument):
-    def open(self):
-        print(f"Opening document in read-only mode: {self.content}")
+ def open(self):
+ print(f"Opening document in read-only mode: {self.content}")
 
 # Example usage
 readable_doc = ReadableDocument("Some content")
@@ -182,7 +193,7 @@ writable_doc.save()
 
 read_only_doc = ReadOnlyDocument("Read-only content")
 read_only_doc.open()
-# read_only_doc.save()  # This would not be defined for a ReadOnlyDocument
+# read_only_doc.save() # This would not be defined for a ReadOnlyDocument
 ```
 
 ### I - Interface Segregation Principle (ISP)
@@ -194,17 +205,17 @@ read_only_doc.open()
 ```python
 class AllInOnePrinter(ABC):
 	@abstractmethod
-    def print_document(self, document):
-        pass
+ def print_document(self, document):
+ pass
 	@abstractmethod
-    def scan_document(self, document):
-        pass
-    @abstractmethod
-    def fax_document(self, document):
-        pass
-    @abstractmethod
-    def staple_document(self, document):
-        pass
+ def scan_document(self, document):
+ pass
+ @abstractmethod
+ def fax_document(self, document):
+ pass
+ @abstractmethod
+ def staple_document(self, document):
+ pass
 ```
 
 > [!note]- Identify the Smell
@@ -218,31 +229,31 @@ class AllInOnePrinter(ABC):
 
 ```python
 class Printer:
-    def print_document(self, document):
-        raise NotImplementedError
+ def print_document(self, document):
+ raise NotImplementedError
 
 class Scanner:
-    def scan_document(self, document):
-        raise NotImplementedError
+ def scan_document(self, document):
+ raise NotImplementedError
 
 class Fax:
-    def fax_document(self, document):
-        raise NotImplementedError
+ def fax_document(self, document):
+ raise NotImplementedError
 
 class Stapler:
-    def staple_document(self, document):
-        raise NotImplementedError
+ def staple_document(self, document):
+ raise NotImplementedError
 
 # Example usage with specific devices
 class SimplePrinter(Printer):
-    def print_document(self, document):
-        print(f"Printing: {document}")
+ def print_document(self, document):
+ print(f"Printing: {document}")
 
 class AdvancedPrinter(Printer, Scanner):
-    def print_document(self, document):
-        print(f"Printing: {document}")
-    def scan_document(self, document):
-        print(f"Scanning: {document}")
+ def print_document(self, document):
+ print(f"Printing: {document}")
+ def scan_document(self, document):
+ print(f"Scanning: {document}")
 ```
 
 **Task 2:**
@@ -250,12 +261,12 @@ class AdvancedPrinter(Printer, Scanner):
 ```python
 TODO bad example (who is worker?? way too abstract)
 class Worker:
-    def work(self):
-        pass
-    def eat(self):
-        pass
-    def sleep(self):
-        pass
+ def work(self):
+ pass
+ def eat(self):
+ pass
+ def sleep(self):
+ pass
 ```
 
 > [!note]- Identify the Smell
@@ -269,28 +280,28 @@ class Worker:
 
 ```python
 class Workable:
-    def work(self):
-        raise NotImplementedError
+ def work(self):
+ raise NotImplementedError
 
 class Eatable:
-    def eat(self):
-        raise NotImplementedError
+ def eat(self):
+ raise NotImplementedError
 
 class Sleepable:
-    def sleep(self):
-        raise NotImplementedError
+ def sleep(self):
+ raise NotImplementedError
 
 class HumanWorker(Workable, Eatable, Sleepable):
-    def work(self):
-        print("Working...")
-    def eat(self):
-        print("Eating...")
-    def sleep(self):
-        print("Sleeping...")
+ def work(self):
+ print("Working...")
+ def eat(self):
+ print("Eating...")
+ def sleep(self):
+ print("Sleeping...")
 
 class RobotWorker(Workable):
-    def work(self):
-        print("Working...")
+ def work(self):
+ print("Working...")
 
 # Example usage
 human = HumanWorker()
@@ -306,14 +317,14 @@ robot.work()
 ```python
 TODO bad example: unobvious. I need smth more familiar for each person
 class DriverManager: 
-    def manage_files(self):
-        pass # e.g. copy, delete, move files
-    def manage_cloud_storage(self):
-        pass # e.g. upload, download files from cloud
-    def manage_databases(self):
-        pass # e.g. connect, query, update databases
-    def manage_network(self):
-        pass # e.g. configure network settings
+ def manage_files(self):
+ pass # e.g. copy, delete, move files
+ def manage_cloud_storage(self):
+ pass # e.g. upload, download files from cloud
+ def manage_databases(self):
+ pass # e.g. connect, query, update databases
+ def manage_network(self):
+ pass # e.g. configure network settings
 ```
 
 > [!note]- Identify the Smell
@@ -327,28 +338,28 @@ class DriverManager:
 
 ```python
 class FileManager:
-    def manage_files(self):
-        pass  # e.g., copy, delete, move files
+ def manage_files(self):
+ pass # e.g., copy, delete, move files
 
 class CloudStorageManager:
-    def manage_cloud_storage(self):
-        pass  # e.g., upload, download files from cloud
+ def manage_cloud_storage(self):
+ pass # e.g., upload, download files from cloud
 
 class DatabaseManager:
-    def manage_databases(self):
-        pass  # e.g., connect, query, update databases
+ def manage_databases(self):
+ pass # e.g., connect, query, update databases
 
 class NetworkManager:
-    def manage_network(self):
-        pass  # e.g., configure network settings
+ def manage_network(self):
+ pass # e.g., configure network settings
 
 # Example usage (you can create specific classes that implement only the needed interfaces)
 class FileAndCloudManager(FileManager, CloudStorageManager):
-    def manage_files(self):
-        print("Managing files...")
+ def manage_files(self):
+ print("Managing files...")
 
-    def manage_cloud_storage(self):
-        print("Managing cloud storage...")
+ def manage_cloud_storage(self):
+ print("Managing cloud storage...")
 
 manager = FileAndCloudManager()
 manager.manage_files()
@@ -362,17 +373,17 @@ TODO bad example: this is probably violation of SRP, bot not I principle
 
 you should instead go for unique shape-related thing (like median for triangle which cant be calculated)
 class Shape:
-    def calculate_median(self):
-        pass
-        
-    def calculate_radius(self):
-	    pass
-	    
-    def calculate_area(self):
-        pass
-        
-    def calculate_perimeter(self):
-        pass
+ def calculate_median(self):
+ pass
+ 
+ def calculate_radius(self):
+	 pass
+	 
+ def calculate_area(self):
+ pass
+ 
+ def calculate_perimeter(self):
+ pass
 
 ```
 
@@ -387,35 +398,35 @@ class Shape:
 
 ```python
 class Drawable:
-    def draw(self):
-        raise NotImplementedError
+ def draw(self):
+ raise NotImplementedError
 
 class Calculable:
-    def calculate_area(self):
-        raise NotImplementedError
-    
-    def calculate_perimeter(self):
-        raise NotImplementedError
+ def calculate_area(self):
+ raise NotImplementedError
+ 
+ def calculate_perimeter(self):
+ raise NotImplementedError
 
 class Serializable:
-    def serialize_to_json(self):
-        raise NotImplementedError
+ def serialize_to_json(self):
+ raise NotImplementedError
 
 class Circle(Drawable, Calculable, Serializable):
-    def __init__(self, radius):
-        self.radius = radius
-    
-    def draw(self):
-        print("Drawing a circle")
-    
-    def calculate_area(self):
-        return 3.14 * self.radius * self.radius
-    
-    def calculate_perimeter(self):
-        return 2 * 3.14 * self.radius
+ def __init__(self, radius):
+ self.radius = radius
+ 
+ def draw(self):
+ print("Drawing a circle")
+ 
+ def calculate_area(self):
+ return 3.14 * self.radius * self.radius
+ 
+ def calculate_perimeter(self):
+ return 2 * 3.14 * self.radius
 
-    def serialize_to_json(self):
-        print('serializing circle to json')
+ def serialize_to_json(self):
+ print('serializing circle to json')
 
 # Example usage
 circle = Circle(5)
@@ -432,23 +443,23 @@ circle.serialize_to_json()
 
 ```python
 class LightBulb(SomeBulb):
-    def turn_on(self):
-        print("LightBulb: ON")
+ def turn_on(self):
+ print("LightBulb: ON")
 
-    def turn_off(self):
-        print("LightBulb: OFF")
-        
+ def turn_off(self):
+ print("LightBulb: OFF")
+ 
 class Switch:
-    def __init__(self, bulb : SomeBulb):
-        self.bulb = bulb
-        self.on = False
-        
-    def operate(self):
-        self.on = not self.on
-        if self.on:
-            self.bulb.turn_on()
-        else:
-            self.bulb.turn_off()
+ def __init__(self, bulb : SomeBulb):
+ self.bulb = bulb
+ self.on = False
+ 
+ def operate(self):
+ self.on = not self.on
+ if self.on:
+ self.bulb.turn_on()
+ else:
+ self.bulb.turn_off()
 ```
 
 > [!note]- Identify the Smell
@@ -462,30 +473,30 @@ class Switch:
 
 ```python
 class Switchable: #Interface
-    def turn_on(self):
-        raise NotImplementedError
+ def turn_on(self):
+ raise NotImplementedError
 
-    def turn_off(self):
-        raise NotImplementedError
+ def turn_off(self):
+ raise NotImplementedError
 
 class LightBulb(Switchable):
-    def turn_on(self):
-        print("LightBulb: ON")
+ def turn_on(self):
+ print("LightBulb: ON")
 
-    def turn_off(self):
-        print("LightBulb: OFF")
+ def turn_off(self):
+ print("LightBulb: OFF")
 
 class Switch:
-    def __init__(self, device):
-        self.device = device
-        self.on = False
+ def __init__(self, device):
+ self.device = device
+ self.on = False
 
-    def operate(self):
-        self.on = not self.on
-        if self.on:
-            self.device.turn_on()
-        else:
-            self.device.turn_off()
+ def operate(self):
+ self.on = not self.on
+ if self.on:
+ self.device.turn_on()
+ else:
+ self.device.turn_off()
 
 # Example usage
 bulb = LightBulb()
@@ -498,17 +509,17 @@ switch.operate()
 
 ```python
 class XMLReportGenerator:
-    def generate_report(self, data):
-        # Code to generate an XML report
-        print("<report>...</report>")  # Placeholder
+ def generate_report(self, data):
+ # Code to generate an XML report
+ print("<report>...</report>") # Placeholder
 
 class Report:
-    def __init__(self, data):
-        self.data = data
-        self.generator = XMLReportGenerator()
+ def __init__(self, data):
+ self.data = data
+ self.generator = XMLReportGenerator()
 
-    def generate(self):
-        self.generator.generate_report(self.data)
+ def generate(self):
+ self.generator.generate_report(self.data)
 ```
 
 > [!note]- Identify the Smell
@@ -522,24 +533,24 @@ class Report:
 
 ```python
 class ReportGenerator: 
-    def generate_report(self, data):
-        raise NotImplementedError
+ def generate_report(self, data):
+ raise NotImplementedError
 
 class XMLReportGenerator(ReportGenerator):
-    def generate_report(self, data):
-        print("<report>...</report>")  # Placeholder
+ def generate_report(self, data):
+ print("<report>...</report>") # Placeholder
 
 class JSONReportGenerator(ReportGenerator):
-    def generate_report(self, data):
-        print("{report: ...}")
+ def generate_report(self, data):
+ print("{report: ...}")
 
 class Report:
-    def __init__(self, data, generator):
-        self.data = data
-        self.generator = generator
+ def __init__(self, data, generator):
+ self.data = data
+ self.generator = generator
 
-    def generate(self):
-        self.generator.generate_report(self.data)
+ def generate(self):
+ self.generator.generate_report(self.data)
 
 # Example usage
 data = {"key": "value"}
@@ -556,23 +567,23 @@ report2.generate()
 ```python
 TODO way to abstract make smth material, familiar
 class FileSystem:
-    def read_file(self, filename):
-        # Code to read a file from the file system
-        print(f"Reading from file: {filename}")
+ def read_file(self, filename):
+ # Code to read a file from the file system
+ print(f"Reading from file: {filename}")
 
-    def write_file(self, filename, data):
-        # Code to write data to a file
-        print(f"Writing to file: {filename}")
+ def write_file(self, filename, data):
+ # Code to write data to a file
+ print(f"Writing to file: {filename}")
 
 class DataProcessor:
-    def __init__(self):
-        self.file_system = FileSystem()
+ def __init__(self):
+ self.file_system = FileSystem()
 
-    def process_data(self, input_file, output_file):
-        data = self.file_system.read_file(input_file)
-        # ... process the data ...
-        processed_data = data
-        self.file_system.write_file(output_file, processed_data)
+ def process_data(self, input_file, output_file):
+ data = self.file_system.read_file(input_file)
+ # ... process the data ...
+ processed_data = data
+ self.file_system.write_file(output_file, processed_data)
 ```
 
 > [!note]- Identify the Smell
@@ -587,31 +598,31 @@ class DataProcessor:
 ```python
 TODO way to abstract make smth material, familiar
 class DataAccessor:
-    def read_data(self, source):
-        raise NotImplementedError
+ def read_data(self, source):
+ raise NotImplementedError
 
-    def write_data(self, destination, data):
-        raise NotImplementedError
+ def write_data(self, destination, data):
+ raise NotImplementedError
 
 class FileSystem(DataAccessor):
-    def read_data(self, filename):
-        # Code to read a file from the file system
-        print(f"Reading from file: {filename}")
-        return "data from file"  # Placeholder
+ def read_data(self, filename):
+ # Code to read a file from the file system
+ print(f"Reading from file: {filename}")
+ return "data from file" # Placeholder
 
-    def write_data(self, filename, data):
-        # Code to write data to a file
-        print(f"Writing to file: {filename}")
+ def write_data(self, filename, data):
+ # Code to write data to a file
+ print(f"Writing to file: {filename}")
 
 class DataProcessor:
-    def __init__(self, data_accessor):
-        self.data_accessor = data_accessor
+ def __init__(self, data_accessor):
+ self.data_accessor = data_accessor
 
-    def process_data(self, source, destination):
-        data = self.data_accessor.read_data(source)
-        # ... process the data ...
-        processed_data = data + " processed"
-        self.data_accessor.write_data(destination, processed_data)
+ def process_data(self, source, destination):
+ data = self.data_accessor.read_data(source)
+ # ... process the data ...
+ processed_data = data + " processed"
+ self.data_accessor.write_data(destination, processed_data)
 
 # Example usage
 file_system = FileSystem()

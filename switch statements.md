@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 [Switch Statements](https://refactoring.guru/smells/switch-statements)
 
 What is the rule of thumb of denying the "switch statements" code smell?

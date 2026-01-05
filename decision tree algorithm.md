@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: [tech/ml]
+sources:
+-
+authors:
+-
+---
 While building a tree, we are relying on some **scoring function** $\large S$ which will show as how good is tree in splitting the training data. 
 
 This function can be stated as:

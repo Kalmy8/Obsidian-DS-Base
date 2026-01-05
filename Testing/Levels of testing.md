@@ -1,5 +1,13 @@
-[Introduction to Test and Behavior Driven Development | Coursera](https://www.coursera.org/learn/test-and-behavior-driven-development-tdd-bdd/lecture/SZ8GA/testing-levels-and-release-cycle)
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
 
+---
 ![[Pasted image 20251205000403.png]]
 - Unit
 	- **What to test:** Per-module testing

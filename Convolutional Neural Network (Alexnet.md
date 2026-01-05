@@ -1,15 +1,17 @@
 ---
-
-excalidraw-plugin: parsed
-tags: [excalidraw]
-
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
 ---
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
-
+==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 
 # Text Elements
 Designed specifically for image-classification problems by 
-    Alex Krishevski in 2012. ^SfHybqUX
+ Alex Krishevski in 2012. ^SfHybqUX
 
 Similar to Simple Peceptron, AlexNet uses bounded layers of "neurons",
 but with 2 main distinctions:
@@ -18,7 +20,7 @@ but with 2 main distinctions:
 kernel to calculate next layer
 
 Before observing an overrall CNN example, we should get known to 
-2 new instances: kernels and pooling layers   ^TJI3t5T5
+2 new instances: kernels and pooling layers ^TJI3t5T5
 
 OVERALL SIGHT: ^VNll9HSG
 
@@ -26,7 +28,7 @@ The main idea is to successively apply kernels and poolings
 to reduce original dimension space (typically to 1/1/n), then flatten the
 output and apply a Simple Fully Connected layer perceptron for
 classification 
-   ^l7DpeuqL
+ ^l7DpeuqL
 
 KERNELS ^VT4tfJFW
 
@@ -47,10 +49,9 @@ by stride[1] from top to bottom ^ytDhxxXH
 * padding: string, either "valid" or "same" (case-insensitive). 
 "valid" means no padding. 
 "same" results in padding evenly to the left/right or up/down of the input. 
-When padding="same" and strides=1, the output has the same size as the input.   ^WmF19Iem
+When padding="same" and strides=1, the output has the same size as the input. ^WmF19Iem
 
 p ^94ReNhCh
-
 
 # Embedded files
 8fb69d571ed501cac3562b4a7343898382bd1e31: [Pasted Image 20240116154127\_764.png](📁%20files/Pasted%20Image%2020240116154127_764.png)
@@ -34965,12 +34966,12 @@ p ^94ReNhCh
 			"locked": false,
 			"fontSize": 28,
 			"fontFamily": 1,
-			"text": "Designed specifically for image-classification problems by \n    Alex Krishevski in 2012.",
-			"rawText": "Designed specifically for image-classification problems by \n    Alex Krishevski in 2012.",
+			"text": "Designed specifically for image-classification problems by \n Alex Krishevski in 2012.",
+			"rawText": "Designed specifically for image-classification problems by \n Alex Krishevski in 2012.",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Designed specifically for image-classification problems by \n    Alex Krishevski in 2012.",
+			"originalText": "Designed specifically for image-classification problems by \n Alex Krishevski in 2012.",
 			"lineHeight": 1.25,
 			"baseline": 59
 		},
@@ -35002,12 +35003,12 @@ p ^94ReNhCh
 			"locked": false,
 			"fontSize": 28,
 			"fontFamily": 1,
-			"text": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers  ",
-			"rawText": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers  ",
+			"text": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers ",
+			"rawText": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers ",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers  ",
+			"originalText": "Similar to Simple Peceptron, AlexNet uses bounded layers of \"neurons\",\nbut with 2 main distinctions:\n- Instead of, actually, neurons, we use feature maps\n- Instead of applying simple weights to each neuron, we apply a whole\nkernel to calculate next layer\n\nBefore observing an overrall CNN example, we should get known to \n2 new instances: kernels and pooling layers ",
 			"lineHeight": 1.25,
 			"baseline": 269
 		},
@@ -60525,12 +60526,12 @@ p ^94ReNhCh
 			"locked": false,
 			"fontSize": 27.99999999999999,
 			"fontFamily": 1,
-			"text": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n  ",
-			"rawText": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n  ",
+			"text": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n ",
+			"rawText": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n ",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n  ",
+			"originalText": "The main idea is to successively apply kernels and poolings\nto reduce original dimension space (typically to 1/1/n), then flatten the\noutput and apply a Simple Fully Connected layer perceptron for\nclassification \n ",
 			"lineHeight": 1.25,
 			"baseline": 164
 		},
@@ -97658,12 +97659,12 @@ p ^94ReNhCh
 			"locked": false,
 			"fontSize": 23.663983219923313,
 			"fontFamily": 1,
-			"text": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input.  ",
-			"rawText": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input.  ",
+			"text": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input. ",
+			"rawText": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input. ",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input.  ",
+			"originalText": "* kernel_size: (int, int), specifying the size of the convolution window.\n* strides: (int, int), specifying the stride length of the convolution. \n* padding: string, either \"valid\" or \"same\" (case-insensitive). \n\"valid\" means no padding. \n\"same\" results in padding evenly to the left/right or up/down of the input. \nWhen padding=\"same\" and strides=1, the output has the same size as the input. ",
 			"lineHeight": 1.25,
 			"baseline": 168
 		},

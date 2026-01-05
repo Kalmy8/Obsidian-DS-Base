@@ -1,7 +1,18 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What is a **Factory** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How is it different from the [Strategy pattern](Strategy%20pattern.md)? Provide some mock-code example of a class designed within a **Factory** paradigm.
 ?
 **Factory** is a [creational](Creational%20patterns.md) desing pattern allows you to create similar objects, hiding the creation implementation details and providing an convinient interface for you. It includes three main elements, just like the [Strategy pattern](Strategy%20pattern.md):
+---
 1. **Abstract Class** defines one single interface to share between child classes, so they indeed will have one shared type.
 2. **Concrete Classes** defining concrete objects to create.
 3. **Factory class** implementing the varying creation process.
@@ -58,8 +69,8 @@ In this example we actually have combined **Factory** and **Strategy** patterns,
 
 ## Practical tasks:
 1. **Document Parser Factory**
-    - Create a `DocumentFactory` that returns `PDFDocument`, `WordDocument`, or `MarkdownDocument` based on file extension.
-    - Each document type implements a `parse()` method.
-        
+ - Create a `DocumentFactory` that returns `PDFDocument`, `WordDocument`, or `MarkdownDocument` based on file extension.
+ - Each document type implements a `parse()` method.
+ 
 2. **UI Widget Factory**
-    - Build a `WidgetFactory` to create platform-specific UI elements (e.g., `WindowsButton`, `MacOSButton`) using a `create_button()` method.
+ - Build a `WidgetFactory` to create platform-specific UI elements (e.g., `WindowsButton`, `MacOSButton`) using a `create_button()` method.

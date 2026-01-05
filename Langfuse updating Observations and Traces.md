@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 ### Updating Observations[](https://langfuse.com/docs/observability/sdk/python/instrumentation#updating-observations)
 
 You can update observations with new information as your code executes.
@@ -14,6 +23,7 @@ You can update observations with new information as your code executes.
 |`metadata`|`Optional[Any]`|Additional metadata (JSON-serializable).|Both|
 |`version`|`Optional[str]`|Version identifier for the code/component.|Both|
 |`level`|`Optional[SpanLevel]`|Severity: `"DEBUG"`, `"DEFAULT"`, `"WARNING"`, `"ERROR"`.|Both|
+---
 |`status_message`|`Optional[str]`|A message describing the status, especially for errors.|Both|
 |`completion_start_time`|`Optional[datetime]`|Timestamp when the LLM started generating the completion (streaming).|Generation|
 |`model`|`Optional[str]`|Name/identifier of the AI model used.|Generation|
@@ -25,26 +35,25 @@ You can update observations with new information as your code executes.
 ```python
 from langfuse import get_client 
 
-langfuse = get_client() with langfuse.start_as_current_observation(as_type="generation", name="llm-call", model="gpt-5-mini") as gen:    
+langfuse = get_client() with langfuse.start_as_current_observation(as_type="generation", name="llm-call", model="gpt-5-mini") as gen: 
 
-gen.update(input={"prompt": "Why is the sky blue?"})    # ... make LLM call ...    
+gen.update(input={"prompt": "Why is the sky blue?"}) # ... make LLM call ... 
 
-response_text = "Rayleigh scattering..."    
-gen.update(        output=response_text,        usage_details={"input_tokens": 5, "output_tokens": 50},        metadata={"confidence": 0.9}    )
+response_text = "Rayleigh scattering..." 
+gen.update( output=response_text, usage_details={"input_tokens": 5, "output_tokens": 50}, metadata={"confidence": 0.9} )
  
  # Alternatively, update the current observation in context:
  
- with langfuse.start_as_current_observation(as_type="span", name="data-processing"):    
- # ... some processing ...    
+ with langfuse.start_as_current_observation(as_type="span", name="data-processing"): 
+ # ... some processing ... 
  
- langfuse.update_current_span(metadata={"step1_complete": True})   
+ langfuse.update_current_span(metadata={"step1_complete": True}) 
  
- # ... more processing ...    
+ # ... more processing ... 
  
  langfuse.update_current_span(output={"result": "final_data"})
 
 ```
-
 
 ### Setting Trace Attributes[](https://langfuse.com/docs/observability/sdk/python/instrumentation#setting-trace-attributes)
 
@@ -56,17 +65,17 @@ Trace-level attributes apply to the entire trace, not just a single observation.
 
 **Trace attribute parameters:**
 
-| Parameter    | Type                  | Description                                                      | Recommended Method       |
+| Parameter | Type | Description | Recommended Method |
 | ------------ | --------------------- | ---------------------------------------------------------------- | ------------------------ |
-| `name`       | `Optional[str]`       | Name for the trace.                                              | `update_trace()`         |
-| `user_id`    | `Optional[str]`       | ID of the user associated with this trace.                       | `propagate_attributes()` |
-| `session_id` | `Optional[str]`       | Session identifier for grouping related traces.                  | `propagate_attributes()` |
-| `version`    | `Optional[str]`       | Version of your application/service for this trace.              | `propagate_attributes()` |
-| `input`      | `Optional[Any]`       | Overall input for the entire trace.                              | `update_trace()`         |
-| `output`     | `Optional[Any]`       | Overall output for the entire trace.                             | `update_trace()`         |
-| `metadata`   | `Optional[Any]`       | Additional metadata for the trace.                               | `propagate_attributes()` |
-| `tags`       | `Optional[List[str]]` | List of tags to categorize the trace.                            | `propagate_attributes()` |
-| `public`     | `Optional[bool]`      | Whether the trace should be publicly accessible (if configured). | `update_trace()`         |
+| `name` | `Optional[str]` | Name for the trace. | `update_trace()` |
+| `user_id` | `Optional[str]` | ID of the user associated with this trace. | `propagate_attributes()` |
+| `session_id` | `Optional[str]` | Session identifier for grouping related traces. | `propagate_attributes()` |
+| `version` | `Optional[str]` | Version of your application/service for this trace. | `propagate_attributes()` |
+| `input` | `Optional[Any]` | Overall input for the entire trace. | `update_trace()` |
+| `output` | `Optional[Any]` | Overall output for the entire trace. | `update_trace()` |
+| `metadata` | `Optional[Any]` | Additional metadata for the trace. | `propagate_attributes()` |
+| `tags` | `Optional[List[str]]` | List of tags to categorize the trace. | `propagate_attributes()` |
+| `public` | `Optional[bool]` | Whether the trace should be publicly accessible (if configured). | `update_trace()` |
 
 **Note:** For `user_id`, `session_id`, `metadata`, `version`, and `tags`, consider using `propagate_attributes()` (see below) to ensure these attributes are applied to **all spans**, not just the trace object.
 

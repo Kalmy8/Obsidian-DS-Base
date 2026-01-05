@@ -1,27 +1,11 @@
-#🃏/probability-theory
-let's say you are running some **experiment** which can result into multiple different outcomes. Each outcome then will be called an **elementary event**, altogether they do **form a fundamental probability set**. ^f482b1
-
-**Example: for rolling a dice**, all possible outcomes would be $1,2,3,4,5,6$. Each single outcome is called an **elementary event**. 
-
-Usually every elementary event is assigned to small omega Greek letter like $w_{1},w_{2},..,w_{6}$.
-
-We can then define a fundamental probability set on this experiment as a set containing all elementary events and denote this set with the letter $\Omega$:
-$$\Omega = \{w_{1},w_{2},..,w_{6}\}$$
 ---
-**You can also define an elementary event as a combination or sequence if your outcome is complex.** For example, for rolling 2 dices, the set would be
-$$\Omega = \{w : (i,j); i,j \in(⚀⚁⚂⚃⚄⚅) \}$$ as your outcome now includes actually 2 "facts".
-
-The general denotion rule is :
-$$\Omega = \{w : [a,b,c]\}\ for\ collections,$$
-$$\Omega = \{w : (a,b,c)\}\ for\ ordered\ sequences$$ 
-
-**Some other examples:**
-n-attempts to toss a coin results in:
-$$\Omega = \{w : (a_{1},a_2,..,a_{n}),a \in(Heads/Tails)\}$$ 
-
-extracting 2 balls from a box with black/white balls results into
-$$\Omega = \{w : [a_{1},a_{2}],a \in(White/Black)\}$$ 
-
+type: note
+status: done
+tags: [math/probability-theory]
+sources:
+-
+authors:
+-
 ---
 **An Event** is just an arbitrary subspace of the **fundamental probability set**. They are usually denoted with grand alphabet letters like $A,B$ and since they are **sets**, all set-defined mathematical operations are available for them, including **intersection/difference/union** and etc. ^f9d291
 
@@ -30,8 +14,8 @@ Let's say we are tossing a coin 2 times so our **fundamental probability set** i
 $$\Omega = \{w : (a_{1},a_{2}),a \in(Heads/Tails)\}$$
 When we could define an Event $A$ as:
 $$A = \{(Heads, Heads)\}, or$$
-$$A =  \{(Heads, Tails)\}, or$$
-$$A =  \{(Tails, Heads)\}, or$$
+$$A = \{(Heads, Tails)\}, or$$
+$$A = \{(Tails, Heads)\}, or$$
 $$A = \{(Tails, Tails)\}.$$
 
 #### Key questions:
@@ -54,5 +38,5 @@ Rolling 2 dices at once: $\Omega=\{w : [a,b]\text{ for } a,b \in (⚀⚁⚂⚃�
 
 Definition of an event in probability. Example of how it can be represented using subsets of a fundamental probability set
 ?
-Event is just an arbitrary subspace of the fundamental probability set. So given the set $\Omega = \{w_{1},w_{2},..,w_{6}\}$ an event can be defined as  $A = \{w_{1}\}$ or $B = \{w_{4},w_{5},w_{6}\}$.
+Event is just an arbitrary subspace of the fundamental probability set. So given the set $\Omega = \{w_{1},w_{2},..,w_{6}\}$ an event can be defined as $A = \{w_{1}\}$ or $B = \{w_{4},w_{5},w_{6}\}$.
 <!--SR:!2025-10-19,253,330-->

@@ -1,13 +1,18 @@
-
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # 1 Параметры:
 
 ### 1. llm_output: str
 
-- What it is: The primary input. This is the raw string of text that you want to validate against the Guard's validators.
 
-- When to use it: Always. This is the fundamental purpose of the parse method. You call parse because you have a piece of text (from a user, a tool, or an LLM) and you need to check if it's valid.
 
----
 ### 2. metadata: Optional[Dict]
 
 - What it is: A dictionary containing any extra data that your validators might need to perform their checks. The content of this dictionary is entirely up to you and the requirements of your chosen validators.

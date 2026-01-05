@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 #⌛
 
 Floating numbers space is continuous (and infinite), thus they can not be stored in memory without some loss of accuracy.

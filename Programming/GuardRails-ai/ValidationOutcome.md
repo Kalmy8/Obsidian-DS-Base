@@ -1,4 +1,12 @@
-
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
  **Who returns it?**
 The Guard object (e.g., guard.parse(...) or guard(...)).
 

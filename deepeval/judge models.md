@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # DeepEval Judge Models Guide
 
 ## What Are Judge Models?
@@ -5,12 +14,7 @@
 **Judge models** are the LLMs used by DeepEval metrics to evaluate outputs using the **LLM-as-a-judge** approach. Instead of using rule-based evaluation, metrics use another LLM (the "judge") to assess the quality, correctness, or other properties of your LLM's outputs.
 
 **Key Points:**
-- Judge models evaluate your LLM application's outputs
-- They're used internally by metrics (you don't call them directly)
-- You can configure which judge model to use per metric or globally
-- Default judge model is typically GPT-4.1
 
----
 
 ## Available Judge Models
 

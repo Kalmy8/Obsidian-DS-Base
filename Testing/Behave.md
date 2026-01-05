@@ -1,5 +1,14 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
 
-##  Overview
+## Overview
 
 - Is a framework for running automated tests against BDD documents written in Gherkin Syntax
 - Workflow includes several steps:
@@ -58,7 +67,7 @@ Feature: LLM Microservice Response Generation
 	- Then I should see the status "Searching..."
 	- And I wait until the status changes to "Done"
 	- And I should see the search results
-  - With this in place, your automated tests can:
+ - With this in place, your automated tests can:
 	- Click the button
 	- **Wait until that status changes to a known “response complete” state**
 	- Only then check results
@@ -81,10 +90,10 @@ features/
 ├── b.feature
 ├── environment.py # Holds before_all(), after_all()
 └── steps/
-    ├── common_steps.py # Variable substitution here
-    ├── auth_steps.py # Domain-specific steps
-    ├── api_steps.py
-    └── ui_steps.py
+ ├── common_steps.py # Variable substitution here
+ ├── auth_steps.py # Domain-specific steps
+ ├── api_steps.py
+ └── ui_steps.py
 ```
 
 - For each Gherkin statement outlined in a Feature file - we have a corresponding python test method in a corresponding step file
@@ -107,38 +116,38 @@ def before_all(context):
 ##### 2️⃣ Feature level
 When Behave enters a **feature**, it **pushes a new layer** onto `context`.
 - Attributes set at feature level:
-    - Visible to **all scenarios in that feature**
-    - Not visible to other features
+ - Visible to **all scenarios in that feature**
+ - Not visible to other features
 ```python
-def before_feature(context, feature):     
+def before_feature(context, feature): 
 	context.api_url = "https://feature-specific"
 # will be accessible in all scenarios/steps (of that feature).
 ```
 ##### 3️⃣ Scenario level (most common usage)
 Each **scenario gets its own layer**.
 - Attributes set here:
-    - Shared **only within that scenario**
-    - Automatically discarded after the scenario end
+ - Shared **only within that scenario**
+ - Automatically discarded after the scenario end
 ```python
 def before_scenario(context, scenario): 
-    context.user = create_user()
+ context.user = create_user()
 # will be accessible in all steps (of that scenario).
 ```
 ##### 4️⃣ Step level
 Steps just **read/write the current context layer**.
 ```python
 @when("I log in") 
-def step_impl(context):     
+def step_impl(context): 
 	context.token = login(context.user)
 ```
 ##### Key rule: shadowing, not overwriting
 - If you set the same attribute name at multiple levels:
 
 ```
-before_all:      
+before_all: 
 	context.x = 1 
 	
-before_feature:  
+before_feature: 
 	context.x = 2 
 	
 before_scenario: 
@@ -155,5 +164,4 @@ After the scenario finishes:
 After the feature finishes:
 	`context.x == 1`
 ```
-
 

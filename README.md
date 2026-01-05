@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # Obsidian-DS-Base
 
 A comprehensive knowledge base for Data Science, Machine Learning, and Software Engineering topics, maintained as an Obsidian vault.
@@ -26,31 +35,32 @@ We welcome contributions! Here's how to get started:
 1. **Fork this repository** on GitHub
 
 2. **Clone your fork:**
-   ```bash
-   git clone <your-fork-url>
-   cd Obsidian-DS-Base
-   ```
+---
+ ```bash
+ git clone <your-fork-url>
+ cd Obsidian-DS-Base
+ ```
 
 3. **Remove spaced repetition marks (optional):**
-   ```bash
-   # On macOS/Linux
-   find . -name "*.md" -type f -exec sed -i '' '/<!--SR:/d' {} \;
-   
-   # On Linux (GNU sed)
-   find . -name "*.md" -type f -exec sed -i '/<!--SR:/d' {} \;
-   ```
+ ```bash
+ # On macOS/Linux
+ find . -name "*.md" -type f -exec sed -i '' '/<!--SR:/d' {} \;
+ 
+ # On Linux (GNU sed)
+ find . -name "*.md" -type f -exec sed -i '/<!--SR:/d' {} \;
+ ```
 
 4. **Set up the merge driver** (recommended for easier rebasing):
-   ```bash
-   git config merge.spaced-repetition.driver 'python3 .github-merge-drivers/merge-spaced-repetition.py %O %A %B'
-   ```
-   
-   This custom merge driver helps resolve conflicts when rebasing by automatically handling SR marks.
+ ```bash
+ git config merge.spaced-repetition.driver 'python3 .github-merge-drivers/merge-spaced-repetition.py %O %A %B'
+ ```
+ 
+ This custom merge driver helps resolve conflicts when rebasing by automatically handling SR marks.
 
 5. **Add upstream remote:**
-   ```bash
-   git remote add upstream <original-repo-url>
-   ```
+ ```bash
+ git remote add upstream <original-repo-url>
+ ```
 
 ### Workflow
 
@@ -63,7 +73,7 @@ To sync your fork with the latest changes from the main repository:
 git fetch upstream
 
 # Rebase your main branch onto upstream/main
-git checkout main  # or your main branch name
+git checkout main # or your main branch name
 git rebase upstream/main
 
 # If conflicts occur, the merge driver will help resolve SR mark conflicts
@@ -79,30 +89,30 @@ git push origin main
 #### Proposing New Notes via Pull Request
 
 1. **Create a feature branch:**
-   ```bash
-   git checkout -b feature/new-topic-notes
-   ```
+ ```bash
+ git checkout -b feature/new-topic-notes
+ ```
 
 2. **Make your changes:**
-   - Add new notes or improve existing ones
-   - Follow the existing structure and formatting
-   - Ensure your markdown files don't include SR marks (or remove them before committing)
+ - Add new notes or improve existing ones
+ - Follow the existing structure and formatting
+ - Ensure your markdown files don't include SR marks (or remove them before committing)
 
 3. **Commit and push:**
-   ```bash
-   git add .
-   git commit -m "Add notes on [topic]"
-   git push origin feature/new-topic-notes
-   ```
+ ```bash
+ git add .
+ git commit -m "Add notes on [topic]"
+ git push origin feature/new-topic-notes
+ ```
 
 4. **Open a Pull Request** on GitHub from your fork to the main repository
 
 5. **Keep your branch updated** while the PR is open:
-   ```bash
-   git fetch upstream
-   git rebase upstream/main
-   git push origin feature/new-topic-notes --force-with-lease
-   ```
+ ```bash
+ git fetch upstream
+ git rebase upstream/main
+ git push origin feature/new-topic-notes --force-with-lease
+ ```
 
 ### Repository Structure
 

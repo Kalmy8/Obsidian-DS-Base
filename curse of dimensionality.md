@@ -1,5 +1,14 @@
+---
+type: note
+status: done
+tags: ['tech/ml']
+sources:
+-
+authors:
+-
+---
  
-#####  Definition
+##### Definition
 By definition, the **curse of dimensionality** describes a problem when **the amount of data (observations) required to extract some meaningful knowledge increases exponentially while new features (dimensions) occur**.
 
 Let's provide a simple example:
@@ -16,7 +25,7 @@ Adding more features means even more data is required for machine learning, so e
 ##### 1. Empty space problem
  This problems refers to the situation when your data can no more cover all possible N-dimensional features space that you have created, so any ML algorithm you choose won't be able to discover true relationships between your variables and will only learn some frequent combinations inside your data, so it **will be overfitted on your exact subsample features distributions**. 
 
-#####  2. Non-meaningful distances problem
+##### 2. Non-meaningful distances problem
 As new dimensions are added, the data becomes more sparse and the distances between data points will increase:
 - Imagine you only have one feature with every observations laying within the [0,1] range. Maximum distance between 2 observations would be 1
 - Now imagine you have 2 features, so the hyperspace is the 1x1 square. Maximum distance between 2 observations would be $\sqrt{2}$
@@ -37,8 +46,7 @@ In 3d it's a sphere.
 
 Now let's say that the points reachable with half of the radius $R/2$ from the center will form **the inner part** of the n-ball, and the other point will form **the outer part**. 
 
-As you can imagine, the outer part should cover more volume in space, but what's the concrete  $\frac{V_{inner}}{V_{total}}$ ratio?
-
+As you can imagine, the outer part should cover more volume in space, but what's the concrete $\frac{V_{inner}}{V_{total}}$ ratio?
 
 ![300](Pasted%20image%2020241108192451.png)
 For the 1D n-ball, it's 0.5, we can clearly see that from the figure above.
@@ -66,41 +74,37 @@ Now imagine that the center of the n-ball is one of your data points, and you ar
 
 **Consider spending more time doing a proper [[feature selection]]**
 
-
-#🃏/data-science 
-#### Key questions:
+#🃏/semantic/ml #### Key questions:
 
 What is the fundamental problem described by the curse of dimensionality? **Illustrate that problem:** assume you need 30 data observations for some binary classification problem with a single binary descriptive and a single binary target feature. How many data points will you require for 2 descriptive features? 3 features? How do continuous features affect this situation?
-?  
+? 
 - The exponential increase in required data volume as features/dimensions are added, making ML models struggle to find meaningful patterns.
 - 2 features do create 4 possible combinations (0/0; 0/1; 1/0; 1/1), 3 featured do create 8 ($2^3$) combinations, generally $k$ features create at least $2^{k}$ combinations
 - Situation is getting worse with continuous features, as they do have much more than 2 possible values, so the data requirement grows more like $m^{k}$, where $m$ is an average amount of unique values contained by features
 
 What is the **empty space problem**? Why it leads to overfitting?
-?  
+? 
 - Empty space problem is a situation when your data covers only few common areas of the N-dimensional fields 
-- Models start relying on common feature combinations rather on  learning general relationships
+- Models start relying on common feature combinations rather on learning general relationships
 
 How does maximum Euclidean distance change with added dimensions? What's the maximum euclidian distance for 1D and 10D spaces? 
-?  
--  It grows as $\sqrt{n}$ (for n features)
+? 
+- It grows as $\sqrt{n}$ (for n features)
 - $\sqrt{1} = 1$ and $\sqrt{10} = 3.16$
 
 Why do distance metrics become unreliable in high dimensions?
-?  
+? 
 - Minimum and maximum distances converge - all points become roughly equidistant, making nearest neighbor searches meaningless.
 ![Pasted image 20241108183934.png](📁%20files/Pasted%20image%2020241108183934.png)
 
 What's the volume ratio formula for inner n-ball? What percentage of a 10D, 2D and 1D n-ball's volume lies in its outer shell?
-?  
+? 
 - $(1/2)^{n}$ in $n$-dimentional space
 - ~99.9% (only 0.1% in the inner sphere), compared to 50% in 1D and 25% in 2D.
 - ![300](📁%20files/Pasted%20image%2020241108192550.png)
 
 Which two ML methods handle high dimensionality well? Why?
-?  
-   - SVMs: Exploit linear separability in high-D spaces via kernel trick  
-   - Neural Networks: Learn feature interactions directly without distance metrics
-
-
+? 
+ - SVMs: Exploit linear separability in high-D spaces via kernel trick 
+ - Neural Networks: Learn feature interactions directly without distance metrics
 

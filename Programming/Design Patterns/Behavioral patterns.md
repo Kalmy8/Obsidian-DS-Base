@@ -1,4 +1,16 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
+
 What are the **Behavioral patterns**? Why are they called so, and what exact patterns do fit this category?
 ?
 These patterns deal with how objects interact and how responsibilities are assigned. Examples include:

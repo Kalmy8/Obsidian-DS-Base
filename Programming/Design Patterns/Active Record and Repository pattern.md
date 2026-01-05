@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
 [Почему здравый смысл важнее паттернов, а Active Record не так уж и плох / Хабр](https://habr.com/ru/companies/domclick/articles/515560/)
 
 """

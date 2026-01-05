@@ -27,13 +27,13 @@ authors:
 See below for valid tags.
 
 ### `sources` (optional)
-Links to people/personalities. Used when a note is inspired by or based on specific people. Each person should have a note in `Личности/` folder.
+Links to course/book MOC notes. Used when a note belongs to a specific course, book, or video series. Each course/book should have a MOC note.
 
 Format (multiline list):
 ```yaml
 sources:
-- "[[Person1]]"
-- "[[Person2]]"
+- "[[Course MOC]]"
+- "[[Book MOC]]"
 ```
 
 ### `authors` (optional)
@@ -46,7 +46,7 @@ authors:
 - "[[Author2]]"
 ```
 
-Note: For each person/author, there should be a corresponding note in the `Личности/` folder (MOC - Map of Content).
+Note: For each author, there should be a corresponding note in the `Личности/` folder (MOC - Map of Content).
 
 ---
 
@@ -55,16 +55,21 @@ Note: For each person/author, there should be a corresponding note in the `Ли�
 Loose categorization - "this note is about X":
 
 ```
-psychology              # mental models, approaches
-├── psychology/cbt      # Cognitive Behavioral Therapy
+tech                    # technology, programming (general)
+├── tech/python         # Python programming
+├── tech/ml             # machine learning
+├── tech/ml/dl          # deep learning  
+├── tech/ml/nlp         # natural language processing
+├── tech/ml/recsys      # recommender systems
+├── tech/algorithms     # algorithms and data structures
+├── tech/backend        # backend development
+├── tech/testing        # testing methodologies
 
-relationships           # love, partnerships, attachment
-communication           # negotiations, conflicts...
-myself             # my personal traits
-career                  # work, professional development
-health                  # physical health, fitness, sport
-tech                    # technology, programming
-obsidian                    # notes about the system itself
+math                    # statistics and probability theory
+├── math/statistics
+├── math/probability-theory
+
+obsidian                # notes about the system itself
 ```
 
 ---
@@ -76,7 +81,62 @@ obsidian                    # notes about the system itself
 Use `schema/X` tag only when the note actually answers ALL required questions.
 
 List:
-- [[schema_relationships_problem_treatment]]
+- ...
+
+---
+
+## Flashcard Tags
+
+Flashcard tags use subfolder structure to organize tags:
+- `#🃏/semantic/...` - Semantic tags describing what the note is about
+- `#🃏/source/...` - Source tags describing course/book (optional)
+- `#🃏/job-interview` - For questions commonly asked in interviews
+
+**Format:** `#🃏/semantic/tag-name #🃏/source/source-name #🃏/job-interview`
+
+**Rules:**
+- Use kebab-case for all tags (e.g., `code-smells`, not `code_smells`)
+- Semantic tags go under `#🃏/semantic/` subfolder
+- Source tags go under `#🃏/source/` subfolder
+- Job interview tag: `#🃏/job-interview` (no subfolder)
+- Multiple tags allowed: one card can belong to multiple decks
+- When reviewing in any deck, the timer updates for all tags
+
+**Semantic Tags (`#🃏/semantic/...`):**
+- `python` - Python programming
+- `data-structures` - Lists, hashmaps, sets, etc.
+- `algorithms` - Algorithm problems and solutions
+- `oop` - Object-oriented programming
+- `design-patterns` - Design patterns
+- `code-smells` - Code smells and refactoring
+- `math` - Mathematics (general)
+- `math/probability-theory` - Probability theory
+- `math/statistics` - Statistics
+- `ml` - Machine learning basics
+- `ml/nlp` - Natural language processing
+- `ml/recsys` - Recommender systems
+- `pandas` - Pandas library
+- `backend` - Backend development
+- `testing` - Testing methodologies
+
+**Source Tags (`#🃏/source/...`):**
+- `python-basics-course`
+- `oop-basics-course`
+- `backend-basics-course`
+- `pandas-basics-course`
+- `ml-basics-course`
+- `refactoring-guru/design-patterns`
+- `refactoring-guru/code-smells`
+- `probability-theory-course`
+- `recsys-course`
+- `langgraph-course`
+- `kotenkov-nlp-course`
+- `yandex-algorithms-course`
+
+**Examples:**
+- `#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells` - Code smells from Refactoring Guru
+- `#🃏/semantic/data-structures #🃏/job-interview` - Data structures questions for job interviews
+- `#🃏/semantic/python #🃏/source/python-basics-course` - Python basics from course
 
 ---
 

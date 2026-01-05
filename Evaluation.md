@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 **Codewords:** evaluation, offline eval, online eval, golden set, LLM-as-judge, rubric, metric, regression tests, RAG evaluation, RAGAS, faithfulness, context precision, answer relevance, task success rate, context recall, answer correctness, hallucination, retrieval quality, generation quality, human eval, automated eval, evaluation dataset, ground truth
 
 ## Why Evaluation for AI Agents
@@ -78,25 +87,26 @@ Instead of comparing to a reference answer, use another LLM to evaluate quality:
 ```python
 # Example: LLM-as-judge for answer quality
 def llm_judge_answer(question: str, answer: str, rubric: str) -> float:
-    judge_prompt = f"""
-    Question: {question}
-    Answer: {answer}
-    
-    Rubric: {rubric}
-    
-    Rate the answer from 0.0 to 1.0 based on the rubric.
-    Return only a number.
-    """
-    
-    response = llm.generate(judge_prompt)
-    score = float(response.strip())
-    return score
+---
+ judge_prompt = f"""
+ Question: {question}
+ Answer: {answer}
+ 
+ Rubric: {rubric}
+ 
+ Rate the answer from 0.0 to 1.0 based on the rubric.
+ Return only a number.
+ """
+ 
+ response = llm.generate(judge_prompt)
+ score = float(response.strip())
+ return score
 
 # Usage
 score = llm_judge_answer(
-    question="What is the capital of France?",
-    answer="Paris is the capital of France.",
-    rubric="Answer must be factually correct and concise."
+ question="What is the capital of France?",
+ answer="Paris is the capital of France.",
+ rubric="Answer must be factually correct and concise."
 )
 ```
 
@@ -167,10 +177,10 @@ from datasets import Dataset
 # - ground_truth: (Optional) The correct answer for correctness metrics
 
 eval_dataset = Dataset.from_dict({
-    "question": ["What is the capital of France?"],
-    "contexts": [["Paris is the capital of France. It is located in the north-central part of the country."]],
-    "answer": ["The capital of France is Paris."],
-    "ground_truth": ["Paris"]  # Optional, needed for answer_correctness
+ "question": ["What is the capital of France?"],
+ "contexts": [["Paris is the capital of France. It is located in the north-central part of the country."]],
+ "answer": ["The capital of France is Paris."],
+ "ground_truth": ["Paris"] # Optional, needed for answer_correctness
 })
 ```
 
@@ -179,53 +189,53 @@ eval_dataset = Dataset.from_dict({
 ```python
 from ragas import evaluate
 from ragas.metrics import (
-    faithfulness,
-    answer_relevance,
-    context_precision,
-    context_recall,
-    answer_correctness
+ faithfulness,
+ answer_relevance,
+ context_precision,
+ context_recall,
+ answer_correctness
 )
 
 # Prepare dataset (as shown above)
 eval_dataset = Dataset.from_dict({
-    "question": [
-        "What is the capital of France?",
-        "Who wrote Romeo and Juliet?"
-    ],
-    "contexts": [
-        ["Paris is the capital of France. It is located in the north-central part of the country."],
-        ["Romeo and Juliet is a tragedy written by William Shakespeare in the early part of his career."]
-    ],
-    "answer": [
-        "The capital of France is Paris.",
-        "Romeo and Juliet was written by William Shakespeare."
-    ],
-    "ground_truth": [
-        "Paris",
-        "William Shakespeare"
-    ]
+ "question": [
+ "What is the capital of France?",
+ "Who wrote Romeo and Juliet?"
+ ],
+ "contexts": [
+ ["Paris is the capital of France. It is located in the north-central part of the country."],
+ ["Romeo and Juliet is a tragedy written by William Shakespeare in the early part of his career."]
+ ],
+ "answer": [
+ "The capital of France is Paris.",
+ "Romeo and Juliet was written by William Shakespeare."
+ ],
+ "ground_truth": [
+ "Paris",
+ "William Shakespeare"
+ ]
 })
 
 # Evaluate with selected metrics
 result = evaluate(
-    dataset=eval_dataset,
-    metrics=[
-        faithfulness,           # Does answer stay true to context?
-        answer_relevance,      # Is answer relevant to question?
-        context_precision,     # Are retrieved contexts relevant?
-        context_recall,        # Did we retrieve all relevant contexts?
-        answer_correctness     # Is answer correct? (needs ground_truth)
-    ]
+ dataset=eval_dataset,
+ metrics=[
+ faithfulness, # Does answer stay true to context?
+ answer_relevance, # Is answer relevant to question?
+ context_precision, # Are retrieved contexts relevant?
+ context_recall, # Did we retrieve all relevant contexts?
+ answer_correctness # Is answer correct? (needs ground_truth)
+ ]
 )
 
 # Results are a dictionary with metric scores
 print(result)
 # {
-#     'faithfulness': 0.95,
-#     'answer_relevance': 0.92,
-#     'context_precision': 0.88,
-#     'context_recall': 0.75,
-#     'answer_correctness': 0.90
+# 'faithfulness': 0.95,
+# 'answer_relevance': 0.92,
+# 'context_precision': 0.88,
+# 'context_recall': 0.75,
+# 'answer_correctness': 0.90
 # }
 ```
 
@@ -285,10 +295,10 @@ from deepeval.metrics import AnswerRelevancyMetric
 
 # Define test case
 test_case = LLMTestCase(
-    input="What is the capital of France?",
-    actual_output="Paris",
-    expected_output="Paris",
-    context=["Paris is the capital of France."]
+ input="What is the capital of France?",
+ actual_output="Paris",
+ expected_output="Paris",
+ context=["Paris is the capital of France."]
 )
 
 # Run evaluation
@@ -313,8 +323,8 @@ from trulens_eval.feedback import Groundedness
 # Define feedback functions
 grounded = Groundedness(groundedness_provider=Huggingface())
 f_groundedness = Feedback(grounded.groundedness_measure_with_cot_reasons).on(
-    Select.RecordCalls.retriever.get_context().collect(),
-    Select.RecordCalls.llm.invoke()
+ Select.RecordCalls.retriever.get_context().collect(),
+ Select.RecordCalls.llm.invoke()
 )
 
 # Evaluate chain
@@ -338,14 +348,14 @@ from langsmith.evaluation import evaluate
 
 # Define evaluator
 def accuracy_evaluator(run, example):
-    return {"score": 1 if run.outputs["answer"] == example.outputs["expected"] else 0}
+ return {"score": 1 if run.outputs["answer"] == example.outputs["expected"] else 0}
 
 # Run evaluation
 results = evaluate(
-    lambda inputs: agent.run(inputs["question"]),
-    data=eval_dataset,
-    evaluators=[accuracy_evaluator],
-    experiment_prefix="rag_experiment"
+ lambda inputs: agent.run(inputs["question"]),
+ data=eval_dataset,
+ evaluators=[accuracy_evaluator],
+ experiment_prefix="rag_experiment"
 )
 ```
 
@@ -366,9 +376,9 @@ from phoenix.evals import run_evals
 # Run evaluations
 px.launch_app()
 run_evals(
-    dataframe=eval_df,
-    evaluator=your_evaluator,
-    output_column="eval_score"
+ dataframe=eval_df,
+ evaluator=your_evaluator,
+ output_column="eval_score"
 )
 ```
 
@@ -447,11 +457,11 @@ Start with product requirements and user needs:
 ```python
 # Example: Success criteria for a research assistant agent
 success_criteria = {
-    "task_completion_rate": 0.85,  # 85% of tasks completed successfully
-    "answer_quality_score": 0.80,   # Average quality score >= 0.8
-    "latency_p95": 10.0,            # 95th percentile latency < 10 seconds
-    "cost_per_query": 0.05,         # Average cost < $0.05 per query
-    "user_satisfaction": 4.0        # Average rating >= 4.0/5.0
+ "task_completion_rate": 0.85, # 85% of tasks completed successfully
+ "answer_quality_score": 0.80, # Average quality score >= 0.8
+ "latency_p95": 10.0, # 95th percentile latency < 10 seconds
+ "cost_per_query": 0.05, # Average cost < $0.05 per query
+ "user_satisfaction": 4.0 # Average rating >= 4.0/5.0
 }
 ```
 
@@ -469,19 +479,19 @@ import pandas as pd
 
 # Collect real user queries (from production traces or logs)
 real_queries = [
-    "What is the weather in Paris?",
-    "Book a flight to Tokyo",
-    "Summarize this document: ...",
-    # ... more queries
+ "What is the weather in Paris?",
+ "Book a flight to Tokyo",
+ "Summarize this document: ...",
+ # ... more queries
 ]
 
 # Add ground truth (manually annotated or from known correct answers)
 golden_dataset = pd.DataFrame({
-    "question": real_queries,
-    "expected_answer": [...],  # Ground truth answers
-    "expected_tools": [...],   # Expected tool calls
-    "category": [...],        # Query category for analysis
-    "difficulty": [...]       # Easy/medium/hard
+ "question": real_queries,
+ "expected_answer": [...], # Ground truth answers
+ "expected_tools": [...], # Expected tool calls
+ "category": [...], # Query category for analysis
+ "difficulty": [...] # Easy/medium/hard
 })
 
 # Save for regression testing
@@ -503,20 +513,20 @@ golden_dataset.to_json("eval_dataset.json", orient="records")
 ```python
 # Example: Hybrid evaluation strategy
 def evaluate_agent(agent, dataset, use_human_eval=False):
-    # Always run automated metrics
-    automated_scores = {
-        "task_success_rate": compute_success_rate(agent, dataset),
-        "average_latency": compute_latency(agent, dataset),
-        "ragas_scores": run_ragas_evaluation(agent, dataset)
-    }
-    
-    # Optionally run human evaluation on sample
-    if use_human_eval:
-        sample = dataset.sample(n=50)
-        human_scores = collect_human_ratings(agent, sample)
-        automated_scores["human_quality_score"] = human_scores
-    
-    return automated_scores
+ # Always run automated metrics
+ automated_scores = {
+ "task_success_rate": compute_success_rate(agent, dataset),
+ "average_latency": compute_latency(agent, dataset),
+ "ragas_scores": run_ragas_evaluation(agent, dataset)
+ }
+ 
+ # Optionally run human evaluation on sample
+ if use_human_eval:
+ sample = dataset.sample(n=50)
+ human_scores = collect_human_ratings(agent, sample)
+ automated_scores["human_quality_score"] = human_scores
+ 
+ return automated_scores
 ```
 
 ### Regression Testing and CI Integration
@@ -526,22 +536,22 @@ Automated evaluation should run in CI/CD:
 ```python
 # Example: Regression test in CI
 def test_agent_regression():
-    # Load golden dataset
-    eval_dataset = load_dataset("eval_dataset.json")
-    
-    # Run agent on eval set
-    results = evaluate_agent(current_agent, eval_dataset)
-    
-    # Load baseline scores
-    baseline_scores = load_baseline_scores()
-    
-    # Assert no regression
-    assert results["task_success_rate"] >= baseline_scores["task_success_rate"] * 0.95
-    assert results["answer_quality_score"] >= baseline_scores["answer_quality_score"] * 0.95
-    
-    # Fail CI if regression detected
-    if results["task_success_rate"] < baseline_scores["task_success_rate"]:
-        raise AssertionError("Task success rate regressed!")
+ # Load golden dataset
+ eval_dataset = load_dataset("eval_dataset.json")
+ 
+ # Run agent on eval set
+ results = evaluate_agent(current_agent, eval_dataset)
+ 
+ # Load baseline scores
+ baseline_scores = load_baseline_scores()
+ 
+ # Assert no regression
+ assert results["task_success_rate"] >= baseline_scores["task_success_rate"] * 0.95
+ assert results["answer_quality_score"] >= baseline_scores["answer_quality_score"] * 0.95
+ 
+ # Fail CI if regression detected
+ if results["task_success_rate"] < baseline_scores["task_success_rate"]:
+ raise AssertionError("Task success rate regressed!")
 ```
 
 **Practice Problem: Designing Evaluation Plans**
@@ -572,27 +582,27 @@ Production traces are a goldmine for building eval datasets:
 ```python
 # Example: Extract eval examples from traces
 def harvest_eval_examples_from_traces(traces, min_score=0.8):
-    eval_examples = []
-    
-    for trace in traces:
-        # Only use high-quality traces as positive examples
-        if trace.scores.get("user_rating", 0) >= min_score:
-            eval_examples.append({
-                "question": trace.input["query"],
-                "contexts": extract_contexts_from_trace(trace),
-                "answer": trace.output["answer"],
-                "ground_truth": trace.scores.get("expert_rating")
-            })
-        
-        # Use failed traces to identify failure modes
-        if trace.status == "error":
-            eval_examples.append({
-                "question": trace.input["query"],
-                "expected_behavior": "should_not_fail",
-                "failure_mode": trace.error_message
-            })
-    
-    return eval_examples
+ eval_examples = []
+ 
+ for trace in traces:
+ # Only use high-quality traces as positive examples
+ if trace.scores.get("user_rating", 0) >= min_score:
+ eval_examples.append({
+ "question": trace.input["query"],
+ "contexts": extract_contexts_from_trace(trace),
+ "answer": trace.output["answer"],
+ "ground_truth": trace.scores.get("expert_rating")
+ })
+ 
+ # Use failed traces to identify failure modes
+ if trace.status == "error":
+ eval_examples.append({
+ "question": trace.input["query"],
+ "expected_behavior": "should_not_fail",
+ "failure_mode": trace.error_message
+ })
+ 
+ return eval_examples
 ```
 
 ### Logging Evaluation Scores to Tracing
@@ -639,7 +649,7 @@ experiment_traces_v2 = run_agent_with_fix_v2(eval_dataset)
 scores_v1 = compute_eval_scores(experiment_traces_v1)
 scores_v2 = compute_eval_scores(experiment_traces_v2)
 if scores_v2["task_success_rate"] > scores_v1["task_success_rate"]:
-    best_version = "v2"
+ best_version = "v2"
 
 # 5. DEPLOY: Ship best version
 deploy_agent(best_version)
@@ -664,8 +674,6 @@ Describe the complete evaluation + tracing feedback loop for a RAG-based custome
 - Step-by-step description of the feedback loop
 - Concrete examples for each step
 - Explanation of how tracing and evaluation integrate
-
-#🃏/evaluation-agents
 
 **Key Questions:**
 
@@ -704,10 +712,10 @@ Describe the complete evaluation + tracing feedback loop for a RAG-based custome
 ?
 - **LLM-as-judge**: Using another LLM to evaluate the quality of answers instead of comparing to ground truth
 - **Risks**:
-  - Bias: Judge model may favor certain styles or formats
-  - Calibration: Scores may not reflect true quality (over/under-confident)
-  - Consistency: Same answer might get different scores on different runs
-  - Cost: Requires additional LLM calls
+ - Bias: Judge model may favor certain styles or formats
+ - Calibration: Scores may not reflect true quality (over/under-confident)
+ - Consistency: Same answer might get different scores on different runs
+ - Cost: Requires additional LLM calls
 
 7. How do you build a golden dataset for evaluation?
 ?

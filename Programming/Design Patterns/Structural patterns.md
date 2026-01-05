@@ -1,4 +1,16 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
+
 What are the **Structural patterns**? Why are they called so, and what exact patterns do fit this category?
 ?
 These patterns deal with how classes and objects are composed into larger structures. Examples include:

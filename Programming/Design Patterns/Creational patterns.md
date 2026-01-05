@@ -1,4 +1,15 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What are the **Creational patterns**? Why are they called so, and what exact patterns do fit this category?
 ?
 These design patterns handle the object creation process, optimizing the flexibility and reusability of the code. Following patterns do fall in this category:

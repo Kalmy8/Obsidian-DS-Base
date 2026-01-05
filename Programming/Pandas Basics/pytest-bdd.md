@@ -1,3 +1,14 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Pandas Basics Course]]"
+authors:
+-
+---
+
 ## Overview
 
 - Is a framework for running automated tests against BDD documents written in Gherkin Syntax, integrated with the Pytest testing framework.
@@ -6,85 +17,86 @@
 	1. Prepare **feature and step definition** files:
 		- `.feature` files are BDD docs written in Gherkin (thus containing Given, And, When, Then keywords).
 		- Step definitions are Python functions, usually located in `steps/` directories or `conftest.py`, decorated with `@scenario`, `@given`, `@when`, `@then` from `pytest_bdd`.
-        ```python
-        # example_steps.py
-        from pytest_bdd import scenario, given, when, then, parsers
+---
+ ```python
+ # example_steps.py
+ from pytest_bdd import scenario, given, when, then, parsers
 
-        @scenario('example.feature', 'Successful text generation for a given prompt')
-        def test_text_generation():
-            pass
+ @scenario('example.feature', 'Successful text generation for a given prompt')
+ def test_text_generation():
+ pass
 
-        @given("the LLM microservice is running")
-        def llm_service_running():
-            # Setup for the LLM service
-            pass
+ @given("the LLM microservice is running")
+ def llm_service_running():
+ # Setup for the LLM service
+ pass
 
-        @when(parsers.parse('I send a request with prompt "{prompt}"'))
-        def send_request(prompt):
-            # Logic to send request to LLM with the given prompt
-            pass
+ @when(parsers.parse('I send a request with prompt "{prompt}"'))
+ def send_request(prompt):
+ # Logic to send request to LLM with the given prompt
+ pass
 
-        @then("I should receive a response with a generated text")
-        def check_generated_text():
-            # Assert that a response with generated text is received
-            pass
+ @then("I should receive a response with a generated text")
+ def check_generated_text():
+ # Assert that a response with generated text is received
+ pass
 
-        @then(parsers.parse('the generated text should contain "{expected_text}"'))
-        def check_text_content(expected_text):
-            # Assert that the generated text contains the expected_text
-            pass
-        ```
+ @then(parsers.parse('the generated text should contain "{expected_text}"'))
+ def check_text_content(expected_text):
+ # Assert that the generated text contains the expected_text
+ pass
+ ```
 	2. **Prepare fixtures:**
 		- In `pytest-bdd`, you use standard Pytest fixtures (defined in `conftest.py` or other step files) to set up common state or inject dependencies.
 		- The `Background:` keyword in Gherkin can be mapped to Pytest fixtures that are automatically run before scenarios.
-        - You can define test data right inside feature files using vertical bars (outlining a table) with `Examples:` keyword.
-        - This data is accessed in step definitions as function arguments, which `pytest-bdd` automatically provides when used with `scenario` outlines.
-        ```gherkin
-        # example.feature
-        Feature: Calculator
+ - You can define test data right inside feature files using vertical bars (outlining a table) with `Examples:` keyword.
+ - This data is accessed in step definitions as function arguments, which `pytest-bdd` automatically provides when used with `scenario` outlines.
+ ```gherkin
+ # example.feature
+ Feature: Calculator
 
-          Scenario Outline: Adding two numbers
-            Given I have a calculator
-            When I add <a> and <b>
-            Then the result should be <sum>
+ Scenario Outline: Adding two numbers
+ Given I have a calculator
+ When I add <a> and <b>
+ Then the result should be <sum>
 
-            Examples:
-              | a | b | sum |
-              | 1 | 2 | 3   |
-              | 5 | 5 | 10  |
-        ```
-        ```python
-        # calculator_steps.py
-        from pytest_bdd import scenario, given, when, then, parsers
-        import pytest
+ Examples:
+ | a | b | sum |
+ | 1 | 2 | 3 |
+ | 5 | 5 | 10 |
+ ```
+ ```python
+ # calculator_steps.py
+ from pytest_bdd import scenario, given, when, then, parsers
+ import pytest
 
-        @scenario('calculator.feature', 'Adding two numbers')
-        def test_add_numbers():
-            pass
+ @scenario('calculator.feature', 'Adding two numbers')
+ def test_add_numbers():
+ pass
 
-        @pytest.fixture
-        def calculator():
-            class Calculator:
-                def add(self, a, b):
-                    return a + b
-            return Calculator()
+ @pytest.fixture
+ def calculator():
+ class Calculator:
+ def add(self, a, b):
+ return a + b
+ return Calculator()
 
-        @given("I have a calculator")
-        def have_calculator(calculator):
-            return calculator
+ @given("I have a calculator")
+ def have_calculator(calculator):
+ return calculator
 
-        @when(parsers.parse("I add {a:d} and {b:d}"))
-        def add_numbers(calculator, a, b):
-            return calculator.add(a, b)
+ @when(parsers.parse("I add {a:d} and {b:d}"))
+ def add_numbers(calculator, a, b):
+ return calculator.add(a, b)
 
-        @then(parsers.parse("the result should be {sum:d}"))
-        def check_sum(add_numbers, sum):
-            assert add_numbers == sum
-        ```
+ @then(parsers.parse("the result should be {sum:d}"))
+ def check_sum(add_numbers, sum):
+ assert add_numbers == sum
+ ```
 	3. Run Pytest. It will automatically discover and launch all related files.
-    ```bash
-    pytest
-    ```
+ ```bash
+ pytest
+ ```
 
 ## Feature and Step files writing tips
 - Help build [[Pytest-BDD]] feature files effectively
@@ -106,7 +118,7 @@
 			- Then I should see the status "Searching..."
 			- And I wait until the status changes to "Done"
 			- And I should see the search results
-	      - With this in place, your automated tests can:
+	 - With this in place, your automated tests can:
 			- Click the button
 			- **Wait until that status changes to a known “response complete” state**
 			- Only then check results

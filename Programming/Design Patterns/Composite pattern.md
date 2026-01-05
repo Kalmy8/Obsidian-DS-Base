@@ -1,8 +1,20 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
 What is a **Composite** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **Composite** paradigm.
 ?
 [Composite.mhtml](../../📁%20files/Composite.mhtml)
-The **Composite pattern** is a [structural pattern](Structural%20patterns.md)  used to represent tree-like hierarchial structures within your code, allowing you to interact with the whole structure as with a single object. It is very useful for some complex calculations, which involve a lot of parent-child related objects. Some examples would be:
+The **Composite pattern** is a [structural pattern](Structural%20patterns.md) used to represent tree-like hierarchial structures within your code, allowing you to interact with the whole structure as with a single object. It is very useful for some complex calculations, which involve a lot of parent-child related objects. Some examples would be:
+---
 1. Opening a file/folder in a file system.
 2. Running a DecisionTree ML algorithm.
 3. Working with some hierarchical structures like Manager>Manager>Worker.

@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: [tech/ml/recsys]
+sources:
+- "[[Recommender Systems Course]]"
+authors:
+-
+---
 - **Assume that the promoted content has some common features (so can be represented with a vector), we have defined and calculated them!**
 	- Users would also have some features, our **goal here would be to learn those feature vectors,** which would give us the possibility to predict if the user will like a particular movie or not 
 	- User's ratings can be expressed with a linear regression like: score = content_vector X user_vector 

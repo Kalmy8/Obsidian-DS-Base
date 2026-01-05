@@ -1,3 +1,14 @@
+---
+type: note
+status: done
+tags: ['math/statistics']
+sources:
+-
+authors:
+-
+---
+#🃏/semantic/math
+
 **Codewords:** gradient descent, batch gradient descent, stochastic gradient descent, mini-batch gradient descent, learning rate, convergence, optimization, cost function, parameters update
 
 ## Gradient Descent Overview
@@ -15,30 +26,25 @@ For a cost function J(θ) with parameters θ, the gradient descent update rule i
 ```
 
 Where:
-- **α (alpha)** is the learning rate - controls the step size
-- **∇J(θ)** is the gradient of the cost function with respect to parameters
-- **θ** represents the model parameters
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
 def simple_cost_function(theta: float, x: np.ndarray, y: np.ndarray) -> float:
-    """Simple quadratic cost function for demonstration."""
-    predictions = theta * x
-    return np.mean((predictions - y) ** 2)
+ """Simple quadratic cost function for demonstration."""
+ predictions = theta * x
+ return np.mean((predictions - y) ** 2)
 
 def gradient(theta: float, x: np.ndarray, y: np.ndarray) -> float:
-    """Gradient of the cost function."""
-    predictions = theta * x
-    return 2 * np.mean((predictions - y) * x)
+ """Gradient of the cost function."""
+ predictions = theta * x
+ return 2 * np.mean((predictions - y) * x)
 
 # Example data
 x = np.array([1, 2, 3, 4, 5])
-y = np.array([2, 4, 6, 8, 10])  # Perfect linear relationship: y = 2x
+y = np.array([2, 4, 6, 8, 10]) # Perfect linear relationship: y = 2x
 ```
-
----
 
 ## 1. Batch Gradient Descent (BGD)
 
@@ -52,45 +58,45 @@ y = np.array([2, 4, 6, 8, 10])  # Perfect linear relationship: y = 2x
 
 ```python
 def batch_gradient_descent(
-    x: np.ndarray, 
-    y: np.ndarray, 
-    learning_rate: float = 0.01, 
-    max_iterations: int = 1000,
-    tolerance: float = 1e-6
+ x: np.ndarray, 
+ y: np.ndarray, 
+ learning_rate: float = 0.01, 
+ max_iterations: int = 1000,
+ tolerance: float = 1e-6
 ) -> tuple[float, list[float]]:
-    """
-    Implements batch gradient descent for linear regression.
-    
-    :param x: Input features
-    :param y: Target values
-    :param learning_rate: Step size for parameter updates
-    :param max_iterations: Maximum number of iterations
-    :param tolerance: Convergence threshold
-    :return: Final parameter value and cost history
-    """
-    theta = 0.0  # Initialize parameter
-    cost_history = []
-    
-    for iteration in range(max_iterations):
-        # Compute cost
-        cost = simple_cost_function(theta, x, y)
-        cost_history.append(cost)
-        
-        # Check convergence
-        if iteration > 0 and abs(cost_history[-2] - cost_history[-1]) < tolerance:
-            print(f"Converged after {iteration} iterations")
-            break
-            
-        # Compute gradient using ALL training examples
-        grad = gradient(theta, x, y)
-        
-        # Update parameter
-        theta = theta - learning_rate * grad
-        
-        if iteration % 100 == 0:
-            print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
-    
-    return theta, cost_history
+ """
+ Implements batch gradient descent for linear regression.
+ 
+ :param x: Input features
+ :param y: Target values
+ :param learning_rate: Step size for parameter updates
+ :param max_iterations: Maximum number of iterations
+ :param tolerance: Convergence threshold
+ :return: Final parameter value and cost history
+ """
+ theta = 0.0 # Initialize parameter
+ cost_history = []
+ 
+ for iteration in range(max_iterations):
+ # Compute cost
+ cost = simple_cost_function(theta, x, y)
+ cost_history.append(cost)
+ 
+ # Check convergence
+ if iteration > 0 and abs(cost_history[-2] - cost_history[-1]) < tolerance:
+ print(f"Converged after {iteration} iterations")
+ break
+ 
+ # Compute gradient using ALL training examples
+ grad = gradient(theta, x, y)
+ 
+ # Update parameter
+ theta = theta - learning_rate * grad
+ 
+ if iteration % 100 == 0:
+ print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
+ 
+ return theta, cost_history
 
 # Example usage
 theta_final, costs = batch_gradient_descent(x, y, learning_rate=0.1)
@@ -108,7 +114,7 @@ Given a dataset with multiple features, implement batch gradient descent for mul
 # Toy dataset for multiple linear regression
 np.random.seed(42)
 n_samples = 100
-X = np.random.randn(n_samples, 2)  # 2 features
+X = np.random.randn(n_samples, 2) # 2 features
 true_weights = np.array([3.0, -2.0])
 true_bias = 1.5
 y = X @ true_weights + true_bias + 0.1 * np.random.randn(n_samples)
@@ -139,46 +145,46 @@ print(f"Dataset shape: X={X.shape}, y={y.shape}")
 
 ```python
 def stochastic_gradient_descent(
-    x: np.ndarray, 
-    y: np.ndarray, 
-    learning_rate: float = 0.01, 
-    max_iterations: int = 1000,
-    tolerance: float = 1e-6
+ x: np.ndarray, 
+ y: np.ndarray, 
+ learning_rate: float = 0.01, 
+ max_iterations: int = 1000,
+ tolerance: float = 1e-6
 ) -> tuple[float, list[float]]:
-    """
-    Implements stochastic gradient descent for linear regression.
-    
-    :param x: Input features
-    :param y: Target values
-    :param learning_rate: Step size for parameter updates
-    :param max_iterations: Maximum number of iterations
-    :param tolerance: Convergence threshold
-    :return: Final parameter value and cost history
-    """
-    theta = 0.0
-    cost_history = []
-    n_samples = len(x)
-    
-    for iteration in range(max_iterations):
-        # Randomly select one training example
-        random_idx = np.random.randint(0, n_samples)
-        x_i = x[random_idx]
-        y_i = y[random_idx]
-        
-        # Compute cost on current example
-        cost = simple_cost_function(theta, x_i, y_i)
-        cost_history.append(cost)
-        
-        # Compute gradient using ONLY the selected example
-        grad = 2 * (theta * x_i - y_i) * x_i
-        
-        # Update parameter
-        theta = theta - learning_rate * grad
-        
-        if iteration % 100 == 0:
-            print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
-    
-    return theta, cost_history
+ """
+ Implements stochastic gradient descent for linear regression.
+ 
+ :param x: Input features
+ :param y: Target values
+ :param learning_rate: Step size for parameter updates
+ :param max_iterations: Maximum number of iterations
+ :param tolerance: Convergence threshold
+ :return: Final parameter value and cost history
+ """
+ theta = 0.0
+ cost_history = []
+ n_samples = len(x)
+ 
+ for iteration in range(max_iterations):
+ # Randomly select one training example
+ random_idx = np.random.randint(0, n_samples)
+ x_i = x[random_idx]
+ y_i = y[random_idx]
+ 
+ # Compute cost on current example
+ cost = simple_cost_function(theta, x_i, y_i)
+ cost_history.append(cost)
+ 
+ # Compute gradient using ONLY the selected example
+ grad = 2 * (theta * x_i - y_i) * x_i
+ 
+ # Update parameter
+ theta = theta - learning_rate * grad
+ 
+ if iteration % 100 == 0:
+ print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
+ 
+ return theta, cost_history
 
 # Example usage
 theta_sgd, costs_sgd = stochastic_gradient_descent(x, y, learning_rate=0.1, max_iterations=500)
@@ -218,48 +224,48 @@ y_sgd = 2 * X_sgd + 1 + 0.1 * np.random.randn(50)
 
 ```python
 def mini_batch_gradient_descent(
-    x: np.ndarray, 
-    y: np.ndarray, 
-    batch_size: int = 32,
-    learning_rate: float = 0.01, 
-    max_iterations: int = 1000,
-    tolerance: float = 1e-6
+ x: np.ndarray, 
+ y: np.ndarray, 
+ batch_size: int = 32,
+ learning_rate: float = 0.01, 
+ max_iterations: int = 1000,
+ tolerance: float = 1e-6
 ) -> tuple[float, list[float]]:
-    """
-    Implements mini-batch gradient descent for linear regression.
-    
-    :param x: Input features
-    :param y: Target values
-    :param batch_size: Size of mini-batch
-    :param learning_rate: Step size for parameter updates
-    :param max_iterations: Maximum number of iterations
-    :param tolerance: Convergence threshold
-    :return: Final parameter value and cost history
-    """
-    theta = 0.0
-    cost_history = []
-    n_samples = len(x)
-    
-    for iteration in range(max_iterations):
-        # Randomly select mini-batch
-        batch_indices = np.random.choice(n_samples, size=batch_size, replace=False)
-        x_batch = x[batch_indices]
-        y_batch = y[batch_indices]
-        
-        # Compute cost on mini-batch
-        cost = simple_cost_function(theta, x_batch, y_batch)
-        cost_history.append(cost)
-        
-        # Compute gradient using mini-batch
-        grad = gradient(theta, x_batch, y_batch)
-        
-        # Update parameter
-        theta = theta - learning_rate * grad
-        
-        if iteration % 100 == 0:
-            print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
-    
-    return theta, cost_history
+ """
+ Implements mini-batch gradient descent for linear regression.
+ 
+ :param x: Input features
+ :param y: Target values
+ :param batch_size: Size of mini-batch
+ :param learning_rate: Step size for parameter updates
+ :param max_iterations: Maximum number of iterations
+ :param tolerance: Convergence threshold
+ :return: Final parameter value and cost history
+ """
+ theta = 0.0
+ cost_history = []
+ n_samples = len(x)
+ 
+ for iteration in range(max_iterations):
+ # Randomly select mini-batch
+ batch_indices = np.random.choice(n_samples, size=batch_size, replace=False)
+ x_batch = x[batch_indices]
+ y_batch = y[batch_indices]
+ 
+ # Compute cost on mini-batch
+ cost = simple_cost_function(theta, x_batch, y_batch)
+ cost_history.append(cost)
+ 
+ # Compute gradient using mini-batch
+ grad = gradient(theta, x_batch, y_batch)
+ 
+ # Update parameter
+ theta = theta - learning_rate * grad
+ 
+ if iteration % 100 == 0:
+ print(f"Iteration {iteration}: theta = {theta:.4f}, cost = {cost:.6f}")
+ 
+ return theta, cost_history
 
 # Example usage
 theta_mbgd, costs_mbgd = mini_batch_gradient_descent(x, y, batch_size=10, learning_rate=0.1)
@@ -325,8 +331,6 @@ y_compare = 3.2 * X_compare + 0.8 + 0.2 * np.random.randn(1000)
 
 ---
 
-#🃏/gradient-descent
-
 **Key Questions:**
 
 1. What is the fundamental principle behind gradient descent?
@@ -336,7 +340,7 @@ y_compare = 3.2 * X_compare + 0.8 + 0.2 * np.random.randn(1000)
 2. What are the three main variants of gradient descent and their key characteristics?
 ?
 - **Batch GD**: Uses entire dataset, stable but slow per iteration, memory intensive
-- **Stochastic GD**: Uses one example at a time, fast but noisy convergence, memory efficient  
+- **Stochastic GD**: Uses one example at a time, fast but noisy convergence, memory efficient 
 - **Mini-Batch GD**: Uses small subset of data, balanced approach, most practical for real applications
 
 3. Why is mini-batch gradient descent preferred in practice?

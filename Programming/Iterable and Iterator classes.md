@@ -1,10 +1,18 @@
-#🃏/python
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+#🃏/semantic/python
 
 - **ITERATOR** - a Python **object** with a special **`__next__()`** method, enabling iteration through a sequence.
 
 - **ITERABLE** - a Python **object** with either a **`__iter__()`** method (returning an **ITERATOR**) or a **`__getitem__()`** method (not reccomended)
 	- If an object has **`__getitem__`** but no **`__iter__`**, Python will attempt to create a default iterator that accesses elements sequentially by index using **` __getitem__`**, 
-- Basic Python iterables are **lists, sets, tuples, dictionaries, ranges, str**.  
+- Basic Python iterables are **lists, sets, tuples, dictionaries, ranges, str**. 
 
 What are the **Iterable and Iterator** python built-in classes? What methods should they implement and what are their usage?
 ?
@@ -13,6 +21,7 @@ Both classes can be used to created some data collections avaliable for traversi
 is the class responsible for iteration process over some collection, which is being passed during iterator initialization. To perform the iteration process, it has to implement a few required methods:
 1. **`__iter__(self)` method:** returns an **Iterator** itself (so the body of the method is just `return self`). While seeming meaningless, that is necessary for some python iterator usage scenarios such as "for" loops. That also allows you to work directly with iterator objects using **sorted(iterator)**, **list(iterator)** and so on.
 2. **`__next__(self)` method:** returns the next object in the bounded collectio and **raises StopIteration** error at the end.
+---
 ```python
 class MyIterator: 
 	def __init__(self, data): 

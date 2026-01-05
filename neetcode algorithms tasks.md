@@ -1,3 +1,14 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+-
+authors:
+-
+---
+
 ## Advices:
 - Iterate through the input list as less frequent as possible. You can create an additional collection as a sort of "memory", which will output useful takeaways from a single pass
 	- In general, using more helper collections usually saves time

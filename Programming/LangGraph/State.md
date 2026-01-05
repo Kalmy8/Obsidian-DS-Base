@@ -1,10 +1,16 @@
+---
+type: note
+status: done
+tags: []
+sources:
+- "[[LangGraph Course]]"
+authors:
+-
+---
 # **2) Can we use BaseModel or Dataclass instead of TypedDict for state? What are pros/cons?**
 
 ✔️ Yes — you can use:
 
-- `TypedDict`
-- `Pydantic BaseModel`
-- `Dataclass`
     
 
 LangGraph will convert them into a state container.
@@ -15,7 +21,6 @@ Internally, LangGraph normalizes everything into a **dict-like state**.
 
 All three work as long as fields have **Python type annotations**.
 
----
 
 ## **Comparison table**
 

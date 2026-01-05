@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/backend']
+sources:
+- "[[Backend Basics Course]]"
+authors:
+-
+---
+
+#🃏/semantic/backend #🃏/backend-basics-course
+
 **Codewords:** Client, Server, Client-Server Model, HTTP/S, Request, Response, Status Codes, API, REST, JSON.
 
 ## 1. How the Internet works
@@ -6,9 +18,6 @@ When you open a browser and go to a website like `google.com`, your computer (th
 
 It's the fundamental architecture of the web.
 
--   **Client:** Your device (computer, phone) that requests information or services.
--   **Server:** A powerful computer that stores data and provides services to clients.
-
 This communication happens using a set of rules, or a protocol, called **HTTP** (HyperText Transfer Protocol), or its secure version **HTTPS**.
 
 ### HTTP Requests and Responses
@@ -16,22 +25,8 @@ This communication happens using a set of rules, or a protocol, called **HTTP** 
 Think of HTTP as the language clients and servers use to talk to each other.
 
 An **HTTP Request** sent by a client has a few key parts:
--   **Method:** What action the client wants to perform. Common methods are:
-    -   `GET`: To retrieve data from the server.
-    -   `POST`: To send new data to the server.
-    -   `PUT`: To update existing data on the server.
-    -   `DELETE`: To remove data from the server.
--   **URL:** The address of the resource on the server you want to interact with.
--   **Headers:** Extra information, like the type of content the client expects.
--   **Body (optional):** The data you're sending to the server (used with `POST`, `PUT`).
 
 The server sends back an **HTTP Response**:
--   **Status Code:** A 3-digit number indicating the result of the request.
-    -   `2xx` (e.g., `200 OK`): Success!
-    -   `4xx` (e.g., `404 Not Found`): Client error. The client asked for something that doesn't exist or is not authorized.
-    -   `5xx` (e.g., `500 Internal Server Error`): Server error. Something went wrong on the server's side.
--   **Headers:** Extra information about the response.
--   **Body (optional):** The content requested by the client (like HTML, images, or data).
 
 ## 2. What is an API?
 
@@ -58,47 +53,45 @@ response = requests.get("https://cat-fact.herokuapp.com/facts")
 
 # 3. Check status and print
 if response.status_code == 200:
-    facts = response.json()
-    # 4. Print the first fact's text
-    if facts:
-        print("A random cat fact:")
-        print(facts[0]['text'])
+ facts = response.json()
+ # 4. Print the first fact's text
+ if facts:
+ print("A random cat fact:")
+ print(facts[0]['text'])
 else:
-    print(f"Error: {response.status_code}")
+ print(f"Error: {response.status_code}")
 ```
 
 ### What is JSON?
 **JSON (JavaScript Object Notation)** is a lightweight format for storing and transporting data. It's easy for humans to read and write and easy for machines to parse and generate. When you get data from an API, it's very often in JSON format. Python dictionaries and lists map directly to JSON objects and arrays, which makes working with JSON in Python very intuitive.
 
----
 **Practice Problem: Public APIs**
 
-1.  Find a public API from [this list](https://github.com/public-apis/public-apis) that doesn't require authentication.
-2.  Write a Python script using the `requests` library to make a `GET` request to one of its endpoints.
-3.  Check the status code of the response. If it's successful, print the first item from the list of results you get back.
-4.  Modify your script to fetch data about a specific resource if the API supports it (e.g., using an ID in the URL like `.../posts/5`).
+1. Find a public API from [this list](https://github.com/public-apis/public-apis) that doesn't require authentication.
+2. Write a Python script using the `requests` library to make a `GET` request to one of its endpoints.
+3. Check the status code of the response. If it's successful, print the first item from the list of results you get back.
+4. Modify your script to fetch data about a specific resource if the API supports it (e.g., using an ID in the URL like `.../posts/5`).
 
 ---
 
-#🃏/backend-basics
 **Key Questions:**
 
-1.  What is the client-server model?
+1. What is the client-server model?
 ?
--   It's the fundamental architecture of the web where a **client** (like your browser) requests information or services from a **server**, which stores data and provides those services.
+- It's the fundamental architecture of the web where a **client** (like your browser) requests information or services from a **server**, which stores data and provides those services.
 
-2.  What are the four most common HTTP methods and what are they used for?
+2. What are the four most common HTTP methods and what are they used for?
 ?
--   **GET:** To retrieve data.
--   **POST:** To create new data.
--   **PUT:** To update existing data.
--   **DELETE:** To remove data.
+- **GET:** To retrieve data.
+- **POST:** To create new data.
+- **PUT:** To update existing data.
+- **DELETE:** To remove data.
 
-3.  What's the difference between a 2xx, 4xx, and 5xx HTTP status code?
+3. What's the difference between a 2xx, 4xx, and 5xx HTTP status code?
 ?
--   **2xx:** The request was successful.
--   **4xx:** There was an error on the client's side (e.g., requesting a non-existent page).
--   **5xx:** There was an error on the server's side.
+- **2xx:** The request was successful.
+- **4xx:** There was an error on the client's side (e.g., requesting a non-existent page).
+- **5xx:** There was an error on the server's side.
 
 4. What is an API?
 ?

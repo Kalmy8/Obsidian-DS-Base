@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: ['tech/testing']
+sources:
+- "[[Test and Behavior Driven Development Course]]"
+authors:
+-
+---
+
 - In order to produce BDD Test Cases - one should understand and explore the problem domain, to see what actual features might be needed by the users: ![[Pasted image 20251207213412.png]]
 - **Document containing all the BDD Test Cases acts as a single source of truth** and updates constantly, reflecting the relevant state of an application behavior
 - **Structurally, every BDD Test Case contains of 3 parts:**

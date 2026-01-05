@@ -1,16 +1,20 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # Understanding `assert_test` in DeepEval
 
 ## What is `assert_test`?
 
 `assert_test` is DeepEval's function for evaluating LLM outputs in pytest. It:
-- Runs your LLM application with test inputs
-- Evaluates outputs using specified metrics
-- Raises `AssertionError` if metrics fail (pytest integration)
-- Logs results to Confident AI (if configured)
 
 **Key Point:** It's designed to work seamlessly with pytest, so failed evaluations become failed tests.
 
----
 
 ## Why `@observe` is Required (and When)
 

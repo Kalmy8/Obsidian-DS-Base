@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 #pytest
 
 This document summarizes practical ways to run **only a subset of tests** with `pytest`, plus some common conventions and best practices.
@@ -21,8 +30,6 @@ pytest tests/test_hybrid_routes.py::TestHybridRoutes::test_rest_endpoint
 #### 2. Using `-k` expressions (by test name / keyword)
 
 `-k` lets you select tests by **substring match** on test names and node ids, with boolean expressions:
-- Matching is against function names, class names, and parts of the path.
-- `and`, `or`, `not`, and parentheses are allowed.
 
 Use `-k` for **ad‑hoc selection** when you don’t want to change code/markers.
 
@@ -90,7 +97,6 @@ pytest -m "integration and not slow"
 
 Use these when you want to control which tests effectively participate in your “green build” without deleting them.
 
-- **Skipping** (don’t run under certain conditions):
 
 ```python
 import pytest
@@ -105,7 +111,6 @@ def test_non_windows_only():
     ...
 ```
 
-- **Expected failures** (tests that you know are broken but want to track):
 
 ```python
 @pytest.mark.xfail(reason="Bug #123, fix pending")
@@ -117,19 +122,16 @@ def test_buggy_case():
 
 You can combine selection methods:
 
-- **Only non‑slow tests in `tests/e2e`**:
 
 ```bash
 pytest tests/e2e -m "not slow"
 ```
 
-- **Hybrid tests in one file, excluding a known flaky one by name**:
 
 ```bash
 pytest tests/test_hybrid_routes.py -k "hybrid and not flaky_case_name"
 ```
 
-- **Only e2e integration tests matching `"weather"`**:
 
 ```bash
 pytest tests -m "e2e and integration" -k "weather"
@@ -137,7 +139,6 @@ pytest tests -m "e2e and integration" -k "weather"
 
 Pytest applies **all** filters together; tests must satisfy **path AND `-k` AND `-m`**.
 
----
 
 ## 6. Speeding up feedback (subset strategies)
 

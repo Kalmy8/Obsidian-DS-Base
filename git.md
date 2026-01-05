@@ -1,12 +1,20 @@
-
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 #### git checkout
 
 So, `git checkout` has two main personalities:
 
-1.  **Branch Management**: `git checkout <branch_name>`
-    *   Switches your `HEAD` to point to a different branch, updating your entire working directory to match.
-2.  **File Management**: `git checkout [<commit_or_branch>] -- <file_path(s)>`
-    *   "Checks out" files from a source (a commit, a branch, or the staging area) and places them into your working directory. It does **not** switch your branch.
+1. **Branch Management**: `git checkout <branch_name>`
+ * Switches your `HEAD` to point to a different branch, updating your entire working directory to match.
+2. **File Management**: `git checkout [<commit_or_branch>] -- <file_path(s)>`
+ * "Checks out" files from a source (a commit, a branch, or the staging area) and places them into your working directory. It does **not** switch your branch.
 
 ##### 2. Discarding Changes in Multiple Files
 
@@ -55,7 +63,6 @@ git checkout a1b2c3d -- main.py
 
 This is incredibly useful for reverting a specific change in one file without having to revert an entire commit.
 
-
 #### git config 
 
 Задает имя и почту пользователя, **от лица которого будут совершаться комиты**
@@ -81,9 +88,8 @@ tag is a pointer to a specific commit. Tags are divided in 2 categories:
 
 - "Dangling" commits occur when you delete an unmerged branch
 - Commits from that branch become "dangling" and will eventually be deleted by a garbage collector
-- You can restore those commits by creating  a new branch of them. "Dangling" commits hashes can be observed with git `reflog` command
+- You can restore those commits by creating a new branch of them. "Dangling" commits hashes can be observed with git `reflog` command
 ![[Pasted image 20251026225722.png]]
-
 
 #### Merging
 
@@ -123,7 +129,6 @@ tag is a pointer to a specific commit. Tags are divided in 2 categories:
 #### Rebasing 
 
 ![[Pasted image 20251026233246.png]]
-
 
 ![[Pasted image 20251026233315.png]]
 ![[Pasted image 20251026233413.png]]
@@ -181,15 +186,9 @@ ONLY IF YOU DID NOT SHARE THE HISTORY ALREADY (#TODO what does that mean?)
 
 ![[Pasted image 20251026233954.png]]
 
-
 ![[Pasted image 20251026234208.png]]
 
 ![[Pasted image 20251026234606.png]]
-
-
-
-
-
 
 **2. What does it mean to "not change git history if it's already shared"?**
 
@@ -213,9 +212,4 @@ If multiple developers need to work on a single large feature branch (`feature/n
 - **You can no longer rebase this branch.** It has the same status as `main` or `develop`. Rebasing it would break things for everyone collaborating on it.
 - **To keep it updated, you must merge `main` into it.** Periodically, one person should run `git merge main` on the feature branch. This creates a merge commit, but it safely brings in the latest updates without rewriting history.
 - **Sub-branches:** Developers can then safely create sub-branches from this shared feature branch and use `rebase` on their *own* sub-branches to keep them in sync with the main feature branch.
-
-
-
-
-
 

@@ -1,12 +1,19 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 # Conversational Goldens vs Simple Goldens
 
 ## Overview
 
 DeepEval supports two types of goldens for different evaluation scenarios:
-- **Simple Goldens** (`Golden`): Single-turn interactions (Q&A pairs)
-- **Conversational Goldens** (`ConversationalGolden`): Multi-turn conversations (chatbot dialogues)
 
----
 
 ## Structure Differences
 

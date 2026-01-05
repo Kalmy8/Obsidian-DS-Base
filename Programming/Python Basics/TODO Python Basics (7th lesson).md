@@ -1,12 +1,26 @@
-**Codewords**:  Lambda Functions, `functools` library, `map()`
+---
+type: note
+status: inbox
+tags: ['tech/python']
+sources:
+-
+- "[[Python Basics Course]]"
+authors:
+-
+---
+
+#🃏/python-basics-course
+
+**Codewords**: Lambda Functions, `functools` library, `map()`
+
 TODO zip, sorted, join
 
 ### Lambda Functions
-Lambda functions are small, anonymous functions defined using the `lambda` keyword.  They are especially useful for short, simple operations.
+Lambda functions are small, anonymous functions defined using the `lambda` keyword. They are especially useful for short, simple operations.
 
 ```python
-square = lambda x: x * x  # Example: A lambda function to square a number
-print(square(5))          # Output: 25
+square = lambda x: x * x # Example: A lambda function to square a number
+print(square(5)) # Output: 25
 ```
 
 **In-Lecture Problem 1:** Write a lambda function that takes two numbers and returns their sum.
@@ -18,10 +32,10 @@ The `map()` function applies a function to every item in an iterable (like a lis
 ```python
 numbers = [1, 2, 3, 4]
 squared = map(lambda x: x * x, numbers) 
-print(list(squared))  # Output: [1, 4, 9, 16] (Convert the map object to a list to see the results)
+print(list(squared)) # Output: [1, 4, 9, 16] (Convert the map object to a list to see the results)
 ```
 
-**In-Lecture Problem 2:**  Use `map()` and a lambda function to convert the list of strings `["1", "2", "3"]` to a list of integers.
+**In-Lecture Problem 2:** Use `map()` and a lambda function to convert the list of strings `["1", "2", "3"]` to a list of integers.
 
 ### `sorted()`
 - Returns a **new sorted object** without modifying the original collection
@@ -32,25 +46,25 @@ print(list(squared))  # Output: [1, 4, 9, 16] (Convert the map object to a list 
 ```python
 words = ["banana", "apple", "cherry"]
 sorted_words = sorted(words)
-print(sorted_words)  # ['apple', 'banana', 'cherry']
+print(sorted_words) # ['apple', 'banana', 'cherry']
 ```
--   `sorted()` allows for **custom sorting logic** by supporting the `key` parameter 
+- `sorted()` allows for **custom sorting logic** by supporting the `key` parameter 
 	- `key` parameter must be a **function of element**, returning the rank
 
 ```
 # Sort by string length
 words = ["Python", "is", "awesome"]
 words.sort(key=lambda x: len(x))
-print(words)  # ['is', 'Python', 'awesome']
+print(words) # ['is', 'Python', 'awesome']
 
 ```
 - `key` parameter could accept a function returning several values (in form of collection). **This would allow for sorting collections based on several criteria** (from higher to lower priority)
 
 ```python
 people = [
-    {"name": "Alice", "age": 25},
-    {"name": "Bob", "age": 30},
-    {"name": "Charlie", "age": 25}
+ {"name": "Alice", "age": 25},
+ {"name": "Bob", "age": 30},
+ {"name": "Charlie", "age": 25}
 ]
 
 # Sort by age, then by name
@@ -66,22 +80,22 @@ print(people)
 ```python
 numbers = [-3, 2, -1, 4]
 numbers.sort(key = lambda x: abs(x))
-print(numbers)  # [-1, 2, -3, 4]
+print(numbers) # [-1, 2, -3, 4]
 ```
 
 - Sort a list of strings by their last character:
 ```python
 words = ["apple", "banana", "kiwi", "cherry"]
 words.sort(key=lambda x: x[-1])
-print(words)  # ['banana', 'kiwi', 'apple', 'cherry']
+print(words) # ['banana', 'kiwi', 'apple', 'cherry']
 ```
 
 - Sort a list of students by math grade, then by science grade:
 ```python
 students = [
-    {"name": "Alice", "grades": {"math": 90, "science": 85}},
-    {"name": "Bob", "grades": {"math": 80, "science": 95}},
-    {"name": "Charlie", "grades": {"math": 90, "science": 80}}
+ {"name": "Alice", "grades": {"math": 90, "science": 85}},
+ {"name": "Bob", "grades": {"math": 80, "science": 95}},
+ {"name": "Charlie", "grades": {"math": 90, "science": 80}}
 ]
 
 students.sort(key=lambda x: (x["grades"]["math"], x["grades"]["science"]))
@@ -89,8 +103,8 @@ print(students)
 
 # Output:
 # [{'name': 'Bob', 'grades': {'math': 80, 'science': 95}},
-#  {'name': 'Charlie', 'grades': {'math': 90, 'science': 80}},
-#  {'name': 'Alice', 'grades': {'math': 90, 'science': 85}}]
+# {'name': 'Charlie', 'grades': {'math': 90, 'science': 80}},
+# {'name': 'Alice', 'grades': {'math': 90, 'science': 85}}]
 ```
 
 ### `functools.reduce()`
@@ -101,52 +115,51 @@ print(students)
 from functools import reduce
 
 numbers = [1, 2, 3, 4]
-product = reduce(lambda x, y: x * y, numbers)  
-print(product) # Output: 24  (1 * 2 * 3 * 4)
+product = reduce(lambda x, y: x * y, numbers) 
+print(product) # Output: 24 (1 * 2 * 3 * 4)
 ```
 
-**In-Lecture Problem 3:** Use `reduce()` to find the maximum value in a list of numbers.  (Hint:  Your lambda function should take two arguments and return the larger one).
-
+**In-Lecture Problem 3:** Use `reduce()` to find the maximum value in a list of numbers. (Hint: Your lambda function should take two arguments and return the larger one).
 
 ### `functools.singledispatch` and `singledispatchmethod`
 
-`@singledispatch` transforms a function into a single-dispatch generic function.  This allows you to define different behaviors based on the type of the first argument. Since Python 3.8, you can also use `@singledispatchmethod` to create overloaded methods. It serves the exact same purpose as its function counterpart but applies to class methods.
+`@singledispatch` transforms a function into a single-dispatch generic function. This allows you to define different behaviors based on the type of the first argument. Since Python 3.8, you can also use `@singledispatchmethod` to create overloaded methods. It serves the exact same purpose as its function counterpart but applies to class methods.
 
 ```python
 from functools import singledispatch
 
 @singledispatch
-def process_data(data):       # Default implementation for unsupported types
-    print(f"Processing generic data: {data}")
+def process_data(data): # Default implementation for unsupported types
+ print(f"Processing generic data: {data}")
 
-@process_data.register(int)     # Specialized for int
-def _(data):                     # The name of this inner function doesn't matter; we use "_"
-    print(f"Processing integer: {data}") 
+@process_data.register(int) # Specialized for int
+def _(data): # The name of this inner function doesn't matter; we use "_"
+ print(f"Processing integer: {data}") 
 
-@process_data.register(list)    # Specialized for list
+@process_data.register(list) # Specialized for list
 def _(data):
-    print("Processing list:", data)
+ print("Processing list:", data)
 
-process_data(10)      # Output: Processing integer: 10
-process_data("hello")  # Output: Processing generic data: hello
-process_data([1, 2])   # Output: Processing list: [1, 2]
+process_data(10) # Output: Processing integer: 10
+process_data("hello") # Output: Processing generic data: hello
+process_data([1, 2]) # Output: Processing list: [1, 2]
 
 #Example with singledispatchmethod
 class DataProcessor:
-    @singledispatchmethod
-    def process(self, data):
-        raise NotImplementedError("Unsupported type")
+ @singledispatchmethod
+ def process(self, data):
+ raise NotImplementedError("Unsupported type")
 
-    @process.register(int)
-    def _(self, data: int):
-        return f"Processing integer: {data}"
+ @process.register(int)
+ def _(self, data: int):
+ return f"Processing integer: {data}"
 
-    @process.register(str)
-    def _(self, data: str):
-        return f"Processing string: '{data}'"
+ @process.register(str)
+ def _(self, data: str):
+ return f"Processing string: '{data}'"
 
 processor = DataProcessor()
-print(processor.process(10))  # Output: Processing integer: 10
+print(processor.process(10)) # Output: Processing integer: 10
 print(processor.process('hi')) # Output: Processing string: 'hi'
 ```
 
@@ -164,33 +177,33 @@ Write a function called **`describe_data`** using @singledispatch that:
 from functools import partial
 
 def greet(greeting, name):
-    print(f"{greeting}, {name}!")
+ print(f"{greeting}, {name}!")
 
 greet_hello = partial(greet, "Hello") #The parameter greeting of greet(..) now always has a value of "Hello".
 
-greet_hello("Alice")  # Output: Hello, Alice!
-greet_hello("Bob")    # Output: Hello, Bob! 
+greet_hello("Alice") # Output: Hello, Alice!
+greet_hello("Bob") # Output: Hello, Bob! 
 ```
 
-**Problem:**    
-    - Create a function multiply(x, y) that returns the product of x and y.
-    - Use partial to create a new function called double that always multiplies by 2.
+**Problem:** 
+ - Create a function multiply(x, y) that returns the product of x and y.
+ - Use partial to create a new function called double that always multiplies by 2.
 
 ### `functools.cache` and `functools.lru_cache`
 
-**Caching can significantly speed up function calls by storing the results.**  
+**Caching can significantly speed up function calls by storing the results.** 
 
 The `@lru_cache` decorator provides a least-recently-used cache. 
 
 **@functools.lru_cache(maxsize=128, typed=False):**
 - **LRU (Least Recently Used) Cache:** This decorator implements a cache that stores a limited number of recent function calls. The maxsize parameter determines the maximum number of results to store. When the cache is full and a new result needs to be added, the least recently used item is discarded to make space.
-    - **maxsize Argument:**
-        - **maxsize=128 (default):** The cache can store up to 128 different results.
-        - **maxsize=None:** **Equals to @functools.cache**. The cache will grow without bound. Be careful with this, as it can consume a lot of memory if the function is called with many different arguments.
-        - **maxsize=0** effectively disables the cache.
-    - **typed Argument:**
-        - **typed=False (default):** Function arguments of different types will be treated as equivalent for caching purposes if their values are the same. For example, **`f(3)`** and **`f(3.0)`** will be considered the same call and will return the same cached result.
-        - **typed=True:** Arguments of different types are cached separately. f(3) and f(3.0) will have their own cached results.
+ - **maxsize Argument:**
+ - **maxsize=128 (default):** The cache can store up to 128 different results.
+ - **maxsize=None:** **Equals to @functools.cache**. The cache will grow without bound. Be careful with this, as it can consume a lot of memory if the function is called with many different arguments.
+ - **maxsize=0** effectively disables the cache.
+ - **typed Argument:**
+ - **typed=False (default):** Function arguments of different types will be treated as equivalent for caching purposes if their values are the same. For example, **`f(3)`** and **`f(3.0)`** will be considered the same call and will return the same cached result.
+ - **typed=True:** Arguments of different types are cached separately. f(3) and f(3.0) will have their own cached results.
 
 **Example:**
 ```python
@@ -231,8 +244,6 @@ end_time = time.time()
 print(f"Time taken (with cache): {end_time - start_time:.6f} seconds")
 ```
 
-
-#🃏/data-science 
 ## Key questions
 
 What is a lambda function? Write one that cubes a number.
@@ -260,7 +271,7 @@ sum_of_elements = reduce(lambda x, y: x + y, [1, 2, 3, 4])
 ```
 <!--SR:!2026-02-08,275,330-->
 
-What is the purpose of  `functools.singledispatch` and `functools.singledispatchmethod`?
+What is the purpose of `functools.singledispatch` and `functools.singledispatchmethod`?
 ?
 It creates a generic function/method that behaves differently based on the first argument's type.
 <!--SR:!2026-01-03,266,330-->
@@ -275,23 +286,22 @@ Using functools.singledispatch, create a function called get_info that return
 	
 	@singledispatch
 	def get_info(data):
-	    return None
+	 return None
 	
 	@get_info.register(int)
 	def _(data):
-	    return data * data
+	 return data * data
 	
 	@get_info.register(str)
 	def _(data):
-	    return data + data
+	 return data + data
 	
 	# Example Usage:
-	print(get_info(5))        # Output: 25
-	print(get_info("hello"))  # Output: hellohello
-	print(get_info(3.14))     # Output: None
+	print(get_info(5)) # Output: 25
+	print(get_info("hello")) # Output: hellohello
+	print(get_info(3.14)) # Output: None
 ```
 <!--SR:!2025-12-10,245,330-->
-
 
 How does `functools.partial` simplify function usage? Make a function that always adds 5 using `partial()`.
 ?
@@ -300,7 +310,7 @@ It allows creating new functions with some arguments pre-filled.
 from functools import partial
 
 def add(x, y):
-    return x + y
+ return x + y
 
 add_five = partial(add, 5) 
 ```
@@ -319,21 +329,21 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
 - Call fibonacci(5) twice and observe the output. Notice that the calculation is only performed once.
 ?
 ```python
-    from functools import lru_cache
-    
-    @lru_cache(maxsize=None)
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        print(f"Calculating fibonacci({n})")  # To see when it's actually calculating
-        return fibonacci(n - 1) + fibonacci(n - 2)
-    print(fibonacci(5))  # Much faster now!    
+ from functools import lru_cache
+ 
+ @lru_cache(maxsize=None)
+ def fibonacci(n):
+ if n <= 1:
+ return n
+ print(f"Calculating fibonacci({n})") # To see when it's actually calculating
+ return fibonacci(n - 1) + fibonacci(n - 2)
+ print(fibonacci(5)) # Much faster now! 
 ```
 <!--SR:!2026-05-20,350,359-->
 
 How many comparison methods need to be implemented for sorting?
-?  
--  Only one (usually `__lt__`) is required. Python can infer other comparisons automatically
+? 
+- Only one (usually `__lt__`) is required. Python can infer other comparisons automatically
 
 What's the output of the **`sorted()`** method?
 ?

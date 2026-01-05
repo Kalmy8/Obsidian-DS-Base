@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+-
+authors:
+-
+---
 In Langfuse terminology, both “span” and “generation” are observation types, but they serve different purposes.[(1)](https://langfuse.com/docs/observability/sdk/python/overview)
 
 - A **Langfuse Span** is a **generic OTel span** used for non‑LLM operations.[(1)](https://langfuse.com/docs/observability/sdk/python/overview)

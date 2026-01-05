@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 # DeepEval Framework FAQ
 
 ## 1. How should I upload my .csv dataset (turn it into an EvaluationDataset)?
@@ -7,9 +16,6 @@ To convert a `.csv` file into an `EvaluationDataset` in DeepEval, follow these s
 ### Step 1: Prepare Your CSV File
 
 Ensure your CSV file includes the necessary columns:
-- **Required**: `input` (the prompt/query to test)
-- **Required**: `expected_output` (the anticipated response)
-- **Optional**: `context` (supporting context or background information)
 
 ### Step 2: Load CSV into EvaluationDataset
 
@@ -75,7 +81,6 @@ for golden in dataset.goldens[:3]:  # Print first 3
 
 **Reference**: [DeepEval Datasets Documentation](https://deepeval.com/docs/evaluation-datasets)
 
----
 
 ## 2. How should I launch the evaluation process with pytest? Should I parametrize a single method to create test cases for each object inside the EvaluationDataset?
 

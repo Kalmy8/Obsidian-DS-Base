@@ -1,4 +1,14 @@
-[\<previous](OOP%20Basics%20(3rd)%20lesson.md)  |  [[TODO OOP Basics (5th) lesson|next >]]
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[OOP Basics Course]]"
+authors:
+-
+---
+[\<previous](OOP%20Basics%20(3rd)%20lesson.md) | [[TODO OOP Basics (5th) lesson|next >]]
 **Codewords:** SOlid principles
 
 **Theory:** [SOLID principles](../SOLID%20principles.md)
@@ -10,7 +20,6 @@ For each code snippet:
 2. **Explain the Problem:** Describe *why* the code violates the principle and what problems this violation might cause.
 3. **Refactor:** Rewrite the code to address the identified issues and make it adhere to the SOLID principle.
 
-
 ### S - Single Responsibility Principle (SRP)
 
 **Definition:** A class should have only one specific reason to change
@@ -18,24 +27,24 @@ For each code snippet:
 **Task 1:**
 ```python
 class User:
-    def __init__(self, name, email, address):
-        self.name = name
-        self.email = email
-        self.address = address
-        
-    def change_email(self, new_email):
-        if "@" in new_email:
-            self.email = new_email
-        else:
-            print("Invalid email format.")
-            
-    def save_to_database(self):
-        # Code to connect to database and save user data...
-        print(f"Saving {self.name}'s data to database...")
+ def __init__(self, name, email, address):
+ self.name = name
+ self.email = email
+ self.address = address
+ 
+ def change_email(self, new_email):
+ if "@" in new_email:
+ self.email = new_email
+ else:
+ print("Invalid email format.")
+ 
+ def save_to_database(self):
+ # Code to connect to database and save user data...
+ print(f"Saving {self.name}'s data to database...")
 ```
 
 > [!note]- Identify the Smell
->  The `User` class has multiple responsibilities: managing user data (`name`, `email`, `address`) and handling database operations (`save_to_database`).
+> The `User` class has multiple responsibilities: managing user data (`name`, `email`, `address`) and handling database operations (`save_to_database`).
 
 > [!note]- Explain the Problem
 >If the database logic changes (e.g., switching to a different database or changing the table structure), you'll have to modify the `User` class. Also, if the user data handling logic changes, you might need to change database-related code. This violates SRP, making the class harder to maintain and prone to errors.
@@ -44,20 +53,20 @@ class User:
 > Separate the database logic into a different class.
 ```python
 class User:
-    def __init__(self, name, email, address):
-        self.name = name
-        self.email = email
-        self.address = address
+ def __init__(self, name, email, address):
+ self.name = name
+ self.email = email
+ self.address = address
 
-    def change_email(self, new_email):
-        if "@" in new_email:
-            self.email = new_email
-        else:
-            print("Invalid email format.")
+ def change_email(self, new_email):
+ if "@" in new_email:
+ self.email = new_email
+ else:
+ print("Invalid email format.")
 
 class UserDatabase:
-    def save(self, user):
-        print(f"Saving {user.name}'s data to database...")
+ def save(self, user):
+ print(f"Saving {user.name}'s data to database...")
 
 # Example usage
 user = User("Alice", "alice@email.com", "123 Main St")
@@ -69,23 +78,23 @@ db.save(user)
 
 ```python
 class Order:
-    def __init__(self, items, prices):
-        self.items = items
-        self.prices = prices
+ def __init__(self, items, prices):
+ self.items = items
+ self.prices = prices
 
-    def calculate_total(self):
-        total = 0
-        for i in range(len(self.items)):
-            total += self.prices[i]
-        return total
+ def calculate_total(self):
+ total = 0
+ for i in range(len(self.items)):
+ total += self.prices[i]
+ return total
 
-    def print_order(self):
-        for i in range(len(self.items)):
-            print(f"{self.items[i]}: ${self.prices[i]}")
-        print(f"Total: ${self.calculate_total()}")
+ def print_order(self):
+ for i in range(len(self.items)):
+ print(f"{self.items[i]}: ${self.prices[i]}")
+ print(f"Total: ${self.calculate_total()}")
 
-    def send_confirmation_email(self, email):
-        print(f"Sending order confirmation to {email}...")
+ def send_confirmation_email(self, email):
+ print(f"Sending order confirmation to {email}...")
 ```
 
 > [!note]- Identify the Smell
@@ -99,26 +108,26 @@ class Order:
 
 ```python
 class Order:
-    def __init__(self, items, prices):
-        self.items = items
-        self.prices = prices
+ def __init__(self, items, prices):
+ self.items = items
+ self.prices = prices
 
-    def calculate_total(self):
-        total = 0
-        for i in range(len(self.items)):
-            total += self.prices[i]
-        return total
+ def calculate_total(self):
+ total = 0
+ for i in range(len(self.items)):
+ total += self.prices[i]
+ return total
 
 class OrderPrinter:
-    def print_order(self, order):
-        for i in range(len(order.items)):
-            print(f"{order.items[i]}: ${order.prices[i]}")
-        print(f"Total: ${order.calculate_total()}")
+ def print_order(self, order):
+ for i in range(len(order.items)):
+ print(f"{order.items[i]}: ${order.prices[i]}")
+ print(f"Total: ${order.calculate_total()}")
 
 class EmailSender:
-    def send_confirmation_email(self, order, email):
-        # Code to send an order confirmation email
-        print(f"Sending order confirmation to {email}...")
+ def send_confirmation_email(self, order, email):
+ # Code to send an order confirmation email
+ print(f"Sending order confirmation to {email}...")
 
 # Example usage
 order = Order(["Item1", "Item2"], [10, 20])
@@ -132,24 +141,24 @@ sender.send_confirmation_email(order, "test@example.com")
 
 ```python
 class ReportGenerator:
-    def __init__(self, data):
-        self.data = data
+ def __init__(self, data):
+ self.data = data
 
-    def generate_report(self, format):
-        if format == "PDF":
-            self.generate_pdf_report()
-        elif format == "CSV":
-            self.generate_csv_report()
-        else:
-            print("Invalid format.")
+ def generate_report(self, format):
+ if format == "PDF":
+ self.generate_pdf_report()
+ elif format == "CSV":
+ self.generate_csv_report()
+ else:
+ print("Invalid format.")
 
-    def generate_pdf_report(self):
-        # Code to create a PDF report from data
-        print("Generating PDF report...")
+ def generate_pdf_report(self):
+ # Code to create a PDF report from data
+ print("Generating PDF report...")
 
-    def generate_csv_report(self):
-        # Code to create a CSV report from data
-        print("Generating CSV report...")
+ def generate_csv_report(self):
+ # Code to create a CSV report from data
+ print("Generating CSV report...")
 ```
 
 > [!note]- Identify the Smell
@@ -163,21 +172,21 @@ class ReportGenerator:
 
 ```python
 class ReportGenerator: #Abstract class
-    def __init__(self, data):
-        self.data = data
+ def __init__(self, data):
+ self.data = data
 
-    def generate_report(self):
-        raise NotImplementedError
-        
+ def generate_report(self):
+ raise NotImplementedError
+ 
 class PDFReportGenerator(ReportGenerator):
-    def generate_report(self):
-        # Code to create a PDF report from data
-        print("Generating PDF report...")
+ def generate_report(self):
+ # Code to create a PDF report from data
+ print("Generating PDF report...")
 
 class CSVReportGenerator(ReportGenerator):
-    def generate_report(self):
-        # Code to create a CSV report from data
-        print("Generating CSV report...")
+ def generate_report(self):
+ # Code to create a CSV report from data
+ print("Generating CSV report...")
 
 # Example usage
 data = {"key": "value"}
@@ -191,23 +200,23 @@ csv_generator.generate_report()
 
 ```python
 class DataAnalyzer:
-    def __init__(self, data):
-        self.data = data
-    
-    def calculate_average(self):
-        pass #Some calculation here
+ def __init__(self, data):
+ self.data = data
+ 
+ def calculate_average(self):
+ pass #Some calculation here
 
-    def calculate_standard_deviation(self):
-        pass #Some calculation here
-    
-    def find_max(self):
-        pass #Some calculation here
-    
-    def find_min(self):
-        pass #Some calculation here
+ def calculate_standard_deviation(self):
+ pass #Some calculation here
+ 
+ def find_max(self):
+ pass #Some calculation here
+ 
+ def find_min(self):
+ pass #Some calculation here
 
-    def export_to_csv(self):
-        print("Exporting data to CSV...")
+ def export_to_csv(self):
+ print("Exporting data to CSV...")
 ```
 
 > [!note]- Identify the Smell
@@ -221,25 +230,25 @@ class DataAnalyzer:
 
 ```python
 class DataAnalyzer:
-    def __init__(self, data):
-        self.data = data
+ def __init__(self, data):
+ self.data = data
 
-    def calculate_average(self):
-        pass  # Some calculation here
+ def calculate_average(self):
+ pass # Some calculation here
 
-    def calculate_standard_deviation(self):
-        pass  # Some calculation here
+ def calculate_standard_deviation(self):
+ pass # Some calculation here
 
-    def find_max(self):
-        pass  # Some calculation here
+ def find_max(self):
+ pass # Some calculation here
 
-    def find_min(self):
-        pass  # Some calculation here
+ def find_min(self):
+ pass # Some calculation here
 
 class DataExporter:
-    def export_to_csv(self, data):
-        # Code to export the data to a CSV file
-        print("Exporting data to CSV...")
+ def export_to_csv(self, data):
+ # Code to export the data to a CSV file
+ print("Exporting data to CSV...")
 
 # Example usage
 data = [1, 2, 3, 4, 5]
@@ -256,17 +265,17 @@ exporter.export_to_csv(data)
 
 ```python
 class DiscountCalculator:
-    def __init__(self, discount_type, discount_value):
-        self.discount_type = discount_type
-        self.discount_value = discount_value
+ def __init__(self, discount_type, discount_value):
+ self.discount_type = discount_type
+ self.discount_value = discount_value
 
-    def calculate_discount(self, price):
-        if self.discount_type == "fixed":
-            return price - self.discount_value
-        elif self.discount_type == "percentage":
-            return price - (price * self.discount_value / 100)
-        else:
-            return price
+ def calculate_discount(self, price):
+ if self.discount_type == "fixed":
+ return price - self.discount_value
+ elif self.discount_type == "percentage":
+ return price - (price * self.discount_value / 100)
+ else:
+ return price
 ```
 
 > [!note]- Identify the Smell
@@ -279,23 +288,23 @@ class DiscountCalculator:
 > Use inheritance to allow adding new discount types without modifying existing code.
 
 ```python
-class DiscountCalculator:  # Base class for discounts
-    def calculate_discount(self, price):
-        raise NotImplementedError
+class DiscountCalculator: # Base class for discounts
+ def calculate_discount(self, price):
+ raise NotImplementedError
 
 class FixedDiscount(DiscountCalculator):
-    def __init__(self, discount_value):
-        self.discount_value = discount_value
+ def __init__(self, discount_value):
+ self.discount_value = discount_value
 
-    def calculate_discount(self, price):
-        return price - self.discount_value
+ def calculate_discount(self, price):
+ return price - self.discount_value
 
 class PercentageDiscount(DiscountCalculator):
-    def __init__(self, discount_percentage):
-        self.discount_percentage = discount_percentage
+ def __init__(self, discount_percentage):
+ self.discount_percentage = discount_percentage
 
-    def calculate_discount(self, price):
-        return price - (price * self.discount_percentage / 100)
+ def calculate_discount(self, price):
+ return price - (price * self.discount_percentage / 100)
 
 # Example usage:
 fixed_discount = FixedDiscount(10)
@@ -308,14 +317,14 @@ print(percentage_discount.calculate_discount(100))
 
 ```python
 class Logger:
-    def __init__(self, format):
-        self.format = format
+ def __init__(self, format):
+ self.format = format
 
-    def log(self, message):
-        if self.format == "text":
-            print(f"Log: {message}")
-        elif self.format == "html":
-            print(f"<p>Log: {message}</p>")
+ def log(self, message):
+ if self.format == "text":
+ print(f"Log: {message}")
+ elif self.format == "html":
+ print(f"<p>Log: {message}</p>")
 ```
 
 > [!note]- Identify the Smell
@@ -328,16 +337,16 @@ class Logger:
 > Create an interface (abstract class) for logging formats and separate
 ```python
 class Logger: #Abstract class
-    def log(self, message):
-        raise NotImplementedError
+ def log(self, message):
+ raise NotImplementedError
 
 class TextLogger(Logger):
-    def log(self, message):
-        print(f"Log: {message}")
+ def log(self, message):
+ print(f"Log: {message}")
 
 class HTMLLogger(Logger):
-    def log(self, message):
-        print(f"<p>Log: {message}</p>")
+ def log(self, message):
+ print(f"<p>Log: {message}</p>")
 
 # Example Usage
 text_logger = TextLogger()
@@ -350,19 +359,19 @@ html_logger.log("This is an HTML log.")
 
 ```python
 class Shape:
-    def __init__(self, shape_type, **kwargs):
-        self.shape_type = shape_type
-        if shape_type == "circle":
-            self.radius = kwargs["radius"]
-        elif shape_type == "rectangle":
-            self.width = kwargs["width"]
-            self.height = kwargs["height"]
+ def __init__(self, shape_type, **kwargs):
+ self.shape_type = shape_type
+ if shape_type == "circle":
+ self.radius = kwargs["radius"]
+ elif shape_type == "rectangle":
+ self.width = kwargs["width"]
+ self.height = kwargs["height"]
 
-    def calculate_area(self):
-        if self.shape_type == "circle":
-            return 3.14 * self.radius * self.radius
-        elif self.shape_type == "rectangle":
-            return self.width * self.height
+ def calculate_area(self):
+ if self.shape_type == "circle":
+ return 3.14 * self.radius * self.radius
+ elif self.shape_type == "rectangle":
+ return self.width * self.height
 ```
 
 > [!note]- Identify the Smell
@@ -377,23 +386,23 @@ class Shape:
 import math
 
 class Shape:
-    def calculate_area(self):
-        raise NotImplementedError
+ def calculate_area(self):
+ raise NotImplementedError
 
 class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
+ def __init__(self, radius):
+ self.radius = radius
 
-    def calculate_area(self):
-        return math.pi * self.radius * self.radius
+ def calculate_area(self):
+ return math.pi * self.radius * self.radius
 
 class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+ def __init__(self, width, height):
+ self.width = width
+ self.height = height
 
-    def calculate_area(self):
-        return self.width * self.height
+ def calculate_area(self):
+ return self.width * self.height
 
 # Example usage
 circle = Circle(5)
@@ -406,16 +415,16 @@ print(rectangle.calculate_area())
 
 ```python
 class Event:
-    def __init__(self, event_type, data):
-        self.event_type = event_type
-        self.data = data
+ def __init__(self, event_type, data):
+ self.event_type = event_type
+ self.data = data
 
-    def process_event(self):
-        if self.event_type == "click":
-            print(f"Processing click event: {self.data}")
-        elif self.event_type == "scroll":
-            print(f"Processing scroll event: {self.data}")
-        # ... other event types ...
+ def process_event(self):
+ if self.event_type == "click":
+ print(f"Processing click event: {self.data}")
+ elif self.event_type == "scroll":
+ print(f"Processing scroll event: {self.data}")
+ # ... other event types ...
 ```
 
 > [!note]- Identify the Smell
@@ -429,16 +438,16 @@ class Event:
 
 ```python
 class EventHandler:
-    def process_event(self, data):
-        raise NotImplementedError
+ def process_event(self, data):
+ raise NotImplementedError
 
 class ClickEventHandler(EventHandler):
-    def process_event(self, data):
-        print(f"Processing click event: {data}")
+ def process_event(self, data):
+ print(f"Processing click event: {data}")
 
 class ScrollEventHandler(EventHandler):
-    def process_event(self, data):
-        print(f"Processing scroll event: {data}")
+ def process_event(self, data):
+ print(f"Processing scroll event: {data}")
 
 # Example usage
 click_handler = ClickEventHandler()

@@ -1,6 +1,16 @@
-#🃏/design_patterns
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
 
-What is a **Singletone** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How does the **singletone** pattern utilizes **\__new\__** and  **\__init\__** methods in python? Provide some mock-code example of a class designed within a **singletone** paradigm.
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
+What is a **Singletone** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How does the **singletone** pattern utilizes **\__new\__** and **\__init\__** methods in python? Provide some mock-code example of a class designed within a **singletone** paradigm.
 ?
 Singletone is a [creational](Creational%20patterns.md) desing pattern forces the chosen class to have only one instance all over your application and to have one global entrypoint to that instance. This pattern is particularly useful when:
 1. Your object operates with some shared resources, like the database connection. This is the most common use-case
@@ -29,4 +39,4 @@ Note: **\__init\__** method is called only once, when the first instance of Sing
 <!--SR:!2027-01-07,635,330-->
 
 1. **App Config Manager**
-    - Create a `ConfigManager` singleton that loads settings from a file once and provides read-only access globally.
+ - Create a `ConfigManager` singleton that loads settings from a file once and provides read-only access globally.

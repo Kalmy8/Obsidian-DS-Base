@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+authors:
+-
+---
+
+#🃏/semantic/data-structures #🃏/job-interview
+
 are the fancy word for a **HashMap/HashTable** - a common data structure popular across many different programming languages.
 
 [python HashMaps (dictionaries)](python%20HashMaps%20(dictionaries).md)
@@ -100,8 +112,6 @@ The lookup logic is practically the same as the adding logic, so we will just na
 		2. If not, increment the index and move up to the next bucket. Repeat the process once again
 			1. If next bucket is empty (which means that element is not presented anywhere within a hashtable), return `False`
 
-
-#🃏/job_questions 
 ## Key questions:
 
 What is a HashMap? What is it's structure?
@@ -125,12 +135,10 @@ Hash is an integer value - a unique identifier of a python object. Hashes are be
 	- To enhance sustainability, one must provide `__hash__` and `__eq__` magic methods inside the class.
 <!--SR:!2026-03-08,288,336-->
 
-
 Adding to hashmap/lookup operation complexity
 ?
 Both operations have O(1) complexity
 <!--SR:!2026-02-19,271,336-->
-
 
 How are new elements added to a HashMap? Describe the full process, accounting for the possible hash/index collisions
 ?
@@ -155,13 +163,10 @@ How are the element being looked up in a hashtable?
 			1. If next bucket is empty (which means that element is not presented anywhere within a hashtable), return `False`
 <!--SR:!2026-03-03,283,336-->
 
-
 When and how does python increase the size of the hashmap?
 ?
 - Python keeps track of amount of empty buckets, taking care so there will be at least 1/3 of them in a hashmap.
 	- Whenever the number of empty buckets lowers to this limit, python doubles the size of the hashmap and copies all the data from the old one to the new one.
 		- This is done to performance reasons, otherwise collisions will be processes in O(n) times, which will reduce the speed of the hashmap a lot
 <!--SR:!2026-02-17,269,336-->
-
-
 

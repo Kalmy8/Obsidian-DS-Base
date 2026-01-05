@@ -1,3 +1,15 @@
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Pandas Basics Course]]"
+authors:
+-
+---
+#🃏/semantic/pandas #🃏/pandas-basics-course
+
 **Codewords:** DataFrame Modifications, Views vs. Copies, apply/map Methods
 
 ## Mock DataFrame for Examples
@@ -7,18 +19,19 @@ import numpy as np
 
 # Create a comprehensive DataFrame for practice
 data = {
-    'student_id': [1001, 1002, 1003, 1004, 1005, 1006],
-    'first_name': ['John', 'Anna', 'Peter', 'Maria', 'David', 'Sarah'],
-    'last_name': ['Smith', 'Johnson', 'Brown', 'Rodriguez', 'Wilson', 'Davis'],
-    'age': [20, 22, 19, 24, 21, 23],
-    'grade_math_midterm': [85, 92, 78, 95, 88, 90],
-    'grade_math_final': [87, 94, 82, 93, 85, 92],
-    'grade_science_midterm': [90, 89, 85, 97, 91, 88],
-    'email': [' john.smith@email.com ', 'anna.johnson@email.com', ' peter.brown@email.com', 
-              'maria.rodriguez@email.com', ' david.wilson@email.com', 'sarah.davis@email.com'],
-    'status': ['active', 'active', 'inactive', 'active', 'active', 'inactive'],
-    'enrollment_date': pd.to_datetime(['2023-01-15', '2023-02-01', '2023-01-20', 
-                                      '2023-01-10', '2023-02-15', '2023-01-25'])
+ 'student_id': [1001, 1002, 1003, 1004, 1005, 1006],
+ 'first_name': ['John', 'Anna', 'Peter', 'Maria', 'David', 'Sarah'],
+ 'last_name': ['Smith', 'Johnson', 'Brown', 'Rodriguez', 'Wilson', 'Davis'],
+ 'age': [20, 22, 19, 24, 21, 23],
+ 'grade_math_midterm': [85, 92, 78, 95, 88, 90],
+ 'grade_math_final': [87, 94, 82, 93, 85, 92],
+ 'grade_science_midterm': [90, 89, 85, 97, 91, 88],
+ 'email': [' john.smith@email.com ', 'anna.johnson@email.com', ' peter.brown@email.com', 
+---
+ 'maria.rodriguez@email.com', ' david.wilson@email.com', 'sarah.davis@email.com'],
+ 'status': ['active', 'active', 'inactive', 'active', 'active', 'inactive'],
+ 'enrollment_date': pd.to_datetime(['2023-01-15', '2023-02-01', '2023-01-20', 
+ '2023-01-10', '2023-02-15', '2023-01-25'])
 }
 df = pd.DataFrame(data)
 df
@@ -79,7 +92,7 @@ df['text'] = df['text'].replace(r'^old_', 'new_', regex=True)
 ### Using map() for entire DataFrame 
 ```python
 # Apply function to every element
-df = df.map(str.strip)  # Remove whitespace from all string elements
+df = df.map(str.strip) # Remove whitespace from all string elements
 
 # Increase all numeric values
 df = df.map(lambda x: x + 10)
@@ -98,7 +111,6 @@ Tasks:
 6. Uppercase all string columns in the DataFrame 
 7. Format all numeric columns to strings with two decimal places (85 --> "85.00")
 
-
 ## 6. Understanding Views vs. Copies problem
 
 ### What are Views and Copies?
@@ -109,35 +121,35 @@ Tasks:
 # Demonstrate the difference
 df_copy = df.copy() # Guarantees a copy
 df_view = df.loc[:] # Guarantees a view
-df_copy.loc[0, 'age'] = 100  # Original df not affected
-df_view.loc[0, 'age'] = 100  # Original df is modified
+df_copy.loc[0, 'age'] = 100 # Original df not affected
+df_view.loc[0, 'age'] = 100 # Original df is modified
 
 # Whether operations return views or copies depends on context:
 # - Some indexing operations may return views
-# - Some return copies  
+# - Some return copies 
 # - This unpredictability causes SettingWithCopyWarning
 
 # Example 1:
-subset = df[df['age'] > 20]     # Might be view or copy - unclear
-subset['status'] = 'adult'      # Warning occures
+subset = df[df['age'] > 20] # Might be view or copy - unclear
+subset['status'] = 'adult' # Warning occures
 
 # Example 2:
-df[df['age'] > 20]['grade'] = 90  # Might be view or copy - unclear
+df[df['age'] > 20]['grade'] = 90 # Might be view or copy - unclear
 ```
 
 ### Solutions
 
 #### Safety techinque
 ```python
-# 1: Use .loc for direct modification  
-df.loc[df['age'] > 20, 'status'] = 'adult'  # Clear intent: modify original
+# 1: Use .loc for direct modification 
+df.loc[df['age'] > 20, 'status'] = 'adult' # Clear intent: modify original
 
 # 2: Explicit copy when you want independent data
-subset = df[df['age'] > 20].copy()  # Clearly a copy
-subset['status'] = 'adult'          # No warning, clearly modifying copy only
+subset = df[df['age'] > 20].copy() # Clearly a copy
+subset['status'] = 'adult' # No warning, clearly modifying copy only
 
 # 3: Aviod chain operators
-df['status'] = df['status'].where(df['age'] <= 20, 'adult')  # No chaining
+df['status'] = df['status'].where(df['age'] <= 20, 'adult') # No chaining
 ```
 
 #### Copy-on-Write (CoW) - Modern Solution
@@ -146,12 +158,12 @@ df['status'] = df['status'].where(df['age'] <= 20, 'adult')  # No chaining
 pd.options.mode.copy_on_write = True
 
 # With CoW: operations create "lazy copies" that copy only when modified
-df_subset = df[df['age'] > 20]  # Lazy copy
-df_subset.iloc[0, 0] = 100      # Automatically triggers copy, original unchanged
+df_subset = df[df['age'] > 20] # Lazy copy
+df_subset.iloc[0, 0] = 100 # Automatically triggers copy, original unchanged
 
 # CoW benefits:
 # - Eliminates SettingWithCopyWarning
-# - Predictable behavior: modifications never affect other objects  
+# - Predictable behavior: modifications never affect other objects 
 # - Better performance through delayed copying
 ```
 
@@ -173,7 +185,7 @@ df.loc[:, 'new_column'] = values
 
 # remove columns using drop
 df = df.drop(['column1', 'column2'], axis=1)
-df = df.drop(df.columns[2], axis=1)  # Drop third column
+df = df.drop(df.columns[2], axis=1) # Drop third column
 # or using slicing
 df = df.loc[:, ~df.columns.isin(['column1', 'column2'])]
 ```
@@ -185,9 +197,9 @@ df['status'] = np.where(df['age'] >= 18, 'Adult', 'Minor')
 
 # Multiple conditions with numpy.select
 conditions = [
-    df['grade'] >= 90,
-    df['grade'] >= 80,
-    df['grade'] >= 70
+ df['grade'] >= 90,
+ df['grade'] >= 80,
+ df['grade'] >= 70
 ]
 choices = ['A', 'B', 'C']
 df['letter_grade'] = np.select(conditions, choices, default='F')
@@ -210,14 +222,14 @@ df.columns = [col.lower() for col in df.columns]
 ```python
 
 # Add/update a row (as a Series or dict)
-df.loc[len(df)] = [value1, value2, ...]  # Add at the end
+df.loc[len(df)] = [value1, value2, ...] # Add at the end
 # or append a row
 df = pd.concat([df, pd.DataFrame([{'col1': v1, 'col2': v2}])], ignore_index=True)
 
 # remove rows using drop
-df = df.drop([0, 2], axis=0)  # Remove rows with index 0 and 2
+df = df.drop([0, 2], axis=0) # Remove rows with index 0 and 2
 # or using slicing
-df = df[df['age'] >= 21]  # Keep only rows where age >= 21
+df = df[df['age'] >= 21] # Keep only rows where age >= 21
 ```
 
 **Practice Problem 4: DataFrame Modification Practice**
@@ -276,12 +288,11 @@ pickle стандартная python библиотека, которая соз
 
 **Practice Problem: Data Export**
 - **Tasks**:
-  - Export a DataFrame to CSV, Excel, and JSON formats.
-  - Customize the output by excluding the index and specifying a different delimiter for the CSV file.
-  - Verify the exported files by loading them back into Pandas and checking their contents.
+ - Export a DataFrame to CSV, Excel, and JSON formats.
+ - Customize the output by excluding the index and specifying a different delimiter for the CSV file.
+ - Verify the exported files by loading them back into Pandas and checking their contents.
 
-  
-#🃏/pandas-basics
+ 
 **Review Questions:**
 
 In pandas, we have 2 main methods to modify dataframe values. All
@@ -290,7 +301,7 @@ What are those main methods? What do they do?
 ?
 - `apply` acts a function on a single column/row of a dataframe
 - `map` acts a function on every element of the dataframe
-    
+ 
 What's the difference between dataframe view and copy?
 ?
 - View of the dataframe is a new reference to the same python object, thus
@@ -318,11 +329,11 @@ How can you do that in pandas?
 ?
 ```python
 import numpy as np
-  conditions = [
-      df['salary'] < 50000,
-      (df['salary'] >= 50000) & (df['salary'] <= 100000),
-      df['salary'] > 100000
-  ]
-  choices = ['low', 'medium', 'high']
-  df['salary_band'] = np.select(conditions, choices)
+ conditions = [
+ df['salary'] < 50000,
+ (df['salary'] >= 50000) & (df['salary'] <= 100000),
+ df['salary'] > 100000
+ ]
+ choices = ['low', 'medium', 'high']
+ df['salary_band'] = np.select(conditions, choices)
 ```

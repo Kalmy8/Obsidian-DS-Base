@@ -1,3 +1,12 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
 Are used for continuous variables and do represent **the distribution of the data** by printing frequencies of all data observations.
 
  ![400](📁%20files/Pasted%20image%2020241108200113.png)

@@ -1,9 +1,21 @@
-#🃏/design_patterns
-What is a **Chain of Responsibility pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? What are the concrete usage examples of CoR pattern applied to data science sphere? How CoR is different from stacking a few [decorators](Decorator%20pattern.md)?  Provide some mock-code example of a class designed within a **Chain of Responsibility pattern** paradigm.
+---
+type: note
+status: done
+tags: ['tech/python']
+sources:
+-
+- "[[Refactoring Guru - Design Patterns]]"
+authors:
+-
+---
+#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+
+What is a **Chain of Responsibility pattern** design pattern? When is it useful and how would you know if you will benefit from utilizng it? What are the concrete usage examples of CoR pattern applied to data science sphere? How CoR is different from stacking a few [decorators](Decorator%20pattern.md)? Provide some mock-code example of a class designed within a **Chain of Responsibility pattern** paradigm.
 ?
 [Chain of Responsibility.mhtml](../../📁%20files/Chain%20of%20Responsibility.mhtml)
 The **Chain pattern** is a [behavioral pattern](Behavioral%20patterns.md) used to define some multi-stage processing pipeline, where each handler can either process the request and/or pass it further, truncate the request if it is invalid. Constructed chain can be called from whatever node you need, and all of the handlers do share the common interface for client's usage.
 The CoR pattern is a relatively popular among data scienctists as it deals **great with handling pipelines**:
+---
 1. Data Validation and Preprocessing (MissingValueHandler -> ScalingHandler -> EncodingHandler -> NormalizationHandler)
 2. Model evaluation (AccuracyHandler -> PrecisionHandler -> RecallHandler -> F1ScoreHandler -> AUCRocHandler)
 3. Model hyperparameter tuning (GridSearchHandler -> RandomSearchHandler -> BayesianOptimizationHandler)

@@ -1,3 +1,13 @@
+---
+type: note
+status: done
+tags: []
+sources:
+-
+authors:
+-
+---
+
 # Running DeepEval & Observing Results
 
 ## Core Commands
@@ -23,12 +33,7 @@ pytest tests/eval/test_quality.py -v
 ```
 
 **Note:** Use `deepeval test run` instead of plain `pytest` to get:
-- DeepEval-specific reporting
-- Integration with Confident AI
-- Better error handling for metrics
-- Caching support
 
----
 
 ## Important Flags
 
