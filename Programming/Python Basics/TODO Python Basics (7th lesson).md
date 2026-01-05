@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/python-basics-course
+#🃏/source/python-basics-course
 
 **Codewords**: Lambda Functions, `functools` library, `map()`
 

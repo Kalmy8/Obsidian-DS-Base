@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/oop-basics-course
+#🃏/source/oop-basics-course
 
 [next \>](OOP%20Basics%20(2nd)%20lesson.md)
 **Codewords:** OOP intuition, motivation behind it's usage

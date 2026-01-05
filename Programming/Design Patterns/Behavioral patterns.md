@@ -8,7 +8,7 @@ sources:
 authors:
 -
 ---
-#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+#🃏/semantic/design-patterns #🃏/source/refactoring-guru/design-patterns
 
 
 What are the **Behavioral patterns**? Why are they called so, and what exact patterns do fit this category?

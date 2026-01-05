@@ -10,7 +10,7 @@ sources:
 authors:
 - null
 ---
-#🃏/semantic/pandas #🃏/pandas-basics-course
+#🃏/semantic/pandas #🃏/source/pandas-basics-course
 
 **Codewords:** Merge, Join, Concatenate, SQL-style Joins, Combining DataFrames
 

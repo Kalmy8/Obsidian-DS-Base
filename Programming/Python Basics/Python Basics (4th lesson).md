@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/semantic/python #🃏/python-basics-course
+#🃏/semantic/python #🃏/source/python-basics-course
 
 **Codewords:** Python's `for` loop, `enumerate` and `range` commands
 

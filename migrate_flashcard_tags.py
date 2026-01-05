@@ -34,13 +34,13 @@ SEMANTIC_TAG_MAPPING = {
 
 # Source tags based on folder paths
 SOURCE_TAG_MAPPING = {
-    "Programming/Python Basics": "#🃏/python-basics-course",
-    "Programming/OOP Basics": "#🃏/oop-basics-course",
-    "Programming/Backend Basics": "#🃏/backend-basics-course",
-    "Programming/Pandas Basics": "#🃏/pandas-basics-course",
-    "Programming/Machine Learning": "#🃏/ml-basics-course",
-    "Programming/Design Patterns": "#🃏/refactoring-guru/design-patterns",
-    "Programming/Code smells": "#🃏/refactoring-guru/code-smells",
+    "Programming/Python Basics": "#🃏/source/python-basics-course",
+    "Programming/OOP Basics": "#🃏/source/oop-basics-course",
+    "Programming/Backend Basics": "#🃏/source/backend-basics-course",
+    "Programming/Pandas Basics": "#🃏/source/pandas-basics-course",
+    "Programming/Machine Learning": "#🃏/source/ml-basics-course",
+    "Programming/Design Patterns": "#🃏/source/refactoring-guru/design-patterns",
+    "Programming/Code smells": "#🃏/source/refactoring-guru/code-smells",
     "Теория вероятностей": "#🃏/probability-theory-course",
     "RecSys": "#🃏/recsys-course",
     "Programming/LangGraph": "#🃏/langgraph-course",
@@ -101,7 +101,7 @@ def get_source_tag(filepath: Path) -> str | None:
     
     # Check for Котенков in filename
     if "[Котенков]" in path_str or "Котенков" in path_str:
-        return "#🃏/kotenkov-nlp-course"
+        return "#🃏/source/kotenkov-nlp-course"
     
     # Check for yandex algorithms
     if "yandex" in path_str.lower() and "algorithm" in path_str.lower():

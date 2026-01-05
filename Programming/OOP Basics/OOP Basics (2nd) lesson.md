@@ -8,7 +8,7 @@ sources:
 authors:
 -
 ---
-#🃏/oop-basics-course
+#🃏/source/oop-basics-course
 
 [\<previous](OOP%20Basics%20(1st)%20lesson.md) | [next\>](OOP%20Basics%20(3rd)%20lesson.md)
 **Codewords:** OOP principles: Encapsulation, Abstraction, Getters, Setters

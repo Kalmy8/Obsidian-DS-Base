@@ -8,7 +8,7 @@ sources:
 authors:
 -
 ---
-#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+#🃏/semantic/design-patterns #🃏/source/refactoring-guru/design-patterns
 
 [Flyweight pattern](Flyweight%20pattern.md)
 

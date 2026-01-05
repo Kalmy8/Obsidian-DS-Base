@@ -8,7 +8,7 @@ authors:
 -
 ---
 
-#🃏/semantic/backend #🃏/backend-basics-course
+#🃏/semantic/backend #🃏/source/backend-basics-course
 
 **Codewords:** Synchronous, Asynchronous, Concurrency, Parallelism, `asyncio`, `multiprocessing`, `threading`, GIL.
 

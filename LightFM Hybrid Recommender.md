@@ -9,7 +9,7 @@ authors:
 - "[[Recommender Systems Course]]"
 ---
 
-#🃏/semantic/ml/recsys #🃏/recsys-course
+#🃏/semantic/ml/recsys 
 
 **Codewords:** LightFM, Hybrid Recommender, Latent Representation, BPR, WARP, Implicit Feedback, Cold Start Problem, Feature Engineering
 

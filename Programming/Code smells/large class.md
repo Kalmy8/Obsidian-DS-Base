@@ -8,7 +8,7 @@ authors:
 
 ---
 
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 Then class is wearing to many functional hats, there are few techniques to consider:
 - If behaviour of the class can be split into a separate component

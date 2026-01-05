@@ -8,7 +8,7 @@ authors:
 -
 ---
 
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What are the "data clumps"? How to know if you have encountered one?
 ?

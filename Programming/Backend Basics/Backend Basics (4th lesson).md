@@ -8,7 +8,7 @@ authors:
 -
 ---
 
-#🃏/semantic/backend #🃏/backend-basics-course
+#🃏/semantic/backend #🃏/source/backend-basics-course
 
 **Codewords:** Telegram Bot API, `aiogram`, Webhook, Polling, Environment Variables, `python-dotenv`, `dateparser`, `ngrok`.
 

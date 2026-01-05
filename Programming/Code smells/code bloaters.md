@@ -8,7 +8,7 @@ authors:
 -
 ---
 
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What "code smell" falls in the "code bloaters" category if:
 - Your method is so long that it's hard to read?

@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/python-basics-course
+#🃏/source/python-basics-course
 
 **Codewords:** User-defined functions, default parameter, typing, args and kwargs.
 

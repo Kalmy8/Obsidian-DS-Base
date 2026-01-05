@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/python-basics-course
+#🃏/source/python-basics-course
 
 **Codewords:** Python complex data types (dict, tuple, set), their usage and methods.
 

@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/semantic/python-basics #🃏/python-basics-course
+#🃏/semantic/python #🃏/source/python-basics-course
 
 **Codewords:** Logical Operators, Truthiness, Falsiness
 

@@ -7,7 +7,7 @@ sources:
 authors:
 -
 ---
-#🃏/semantic/ml #🃏/ml-basics-course
+#🃏/semantic/ml #🃏/source/ml-basics-course
 
 **Codewords:** Machine-learning definition, Types of Machine Learning
 

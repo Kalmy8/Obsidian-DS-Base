@@ -8,7 +8,6 @@ sources:
 authors:
 - null
 ---
-#pytest
 
 This document summarizes practical ways to run **only a subset of tests** with `pytest`, plus some common conventions and best practices.
 #### 1. Running tests by path (file, dir, single test)

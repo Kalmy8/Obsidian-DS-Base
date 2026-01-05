@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/semantic/oop #🃏/oop-basics-course
+#🃏/semantic/oop #🃏/source/oop-basics-course
 
 [[TODO OOP Basics (5th) lesson|< previous]]
 **Codewords:** Magic Methods (Descriptors)

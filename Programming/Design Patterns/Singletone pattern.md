@@ -8,7 +8,7 @@ authors:
 -
 ---
 
-#🃏/semantic/design-patterns #🃏/refactoring-guru/design-patterns
+#🃏/semantic/design-patterns #🃏/source/refactoring-guru/design-patterns
 
 What is a **Singletone** design pattern? When is it useful and how would you know if you will benefit from utilizng it? How does the **singletone** pattern utilizes **\__new\__** and **\__init\__** methods in python? Provide some mock-code example of a class designed within a **singletone** paradigm.
 ?

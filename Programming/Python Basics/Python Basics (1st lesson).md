@@ -9,7 +9,7 @@ authors:
 -
 ---
 
-#🃏/python-basics-course
+#🃏/source/python-basics-course
 
 **Codewords:** Compiled and Interpreted programming languages, Python Objects, Immutable and Mutable Data types
 

@@ -7,7 +7,7 @@ sources:
 authors:
 -
 ---
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What are the typical code smells groups, described as:
 - Methods and classes that has grown to some gigantic proportions, making the code hard to read

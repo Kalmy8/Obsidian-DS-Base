@@ -8,7 +8,7 @@ sources:
 authors:
 -
 ---
-#🃏/python-basics-course
+#🃏/source/python-basics-course
 
 **Codewords:** Python standart IO, basic data types (int, float, str, list), their usage and methods.
 ### **1. Input and Output in Python**

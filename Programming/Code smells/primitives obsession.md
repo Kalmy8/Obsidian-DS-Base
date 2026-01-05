@@ -8,7 +8,7 @@ authors:
 - "[[Refactoring Guru - Code Smells]]"
 ---
 
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What is the "primitives obsession"?
 ?

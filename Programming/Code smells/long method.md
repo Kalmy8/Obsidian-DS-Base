@@ -8,7 +8,7 @@ authors:
 
 ---
 
-#🃏/semantic/code-smells #🃏/refactoring-guru/code-smells
+#🃏/semantic/code-smells #🃏/source/refactoring-guru/code-smells
 
 What are the two rules of thumb detecting if method is too long?
 ?

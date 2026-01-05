@@ -8,7 +8,7 @@ sources:
 authors:
 -
 ---
-#🃏/semantic/oop #🃏/oop-basics-course
+#🃏/semantic/oop #🃏/source/oop-basics-course
 
 [\<previous](OOP%20Basics%20(2nd)%20lesson.md) | [next\>](OOP%20Basics%20(4th)%20lesson.md)
 **Codewords:** OOP principles: **Inheritance and Polymorphism**
