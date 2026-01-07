@@ -1,11 +1,11 @@
 ---
-type: note
+excalidraw-plugin: parsed
+type: drawing
 status: done
-tags: []
+tags: [excalidraw, tech/ml/dl]
 sources:
 -
 authors:
--
 ---
 ==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 

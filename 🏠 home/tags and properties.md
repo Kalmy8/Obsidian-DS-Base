@@ -14,6 +14,7 @@ authors:
 |-------|---------|
 | `note` | Everything |
 | `book` | Books (via Zotero) |
+| `drawing` | Books (via Excalidraw) |
 
 ### `status` (mandatory)
 | Value | Meaning |
@@ -55,26 +56,27 @@ Note: For each author, there should be a corresponding note in the `Личнос
 Loose categorization - "this note is about X":
 
 ```
-tech                    # technology, programming (general)
-├── tech/python         # Python programming
+tech                    # technology, programming 
+├── tech/python         
 ├── tech/ml             # machine learning
 ├── tech/ml/dl          # deep learning  
 ├── tech/ml/nlp         # natural language processing
 ├── tech/ml/recsys      # recommender systems
-├── tech/algorithms     # algorithms and data structures
+├── tech/algorithms   
+├── tech/data structures
 ├── tech/backend        # backend development
 ├── tech/testing        # testing methodologies
 ├── tech/stack          # libraries and frameworks
-│   ├── tech/stack/pandas        # Pandas data manipulation library
-│   ├── tech/stack/langgraph     # LangGraph agent framework
-│   ├── tech/stack/deepeval      # DeepEval LLM evaluation library
-│   ├── tech/stack/pytest        # Pytest testing framework
-│   ├── tech/stack/guardrails-ai # GuardRails AI validation library
-│   ├── tech/stack/langfuse      # Langfuse observability platform
-│   ├── tech/stack/sqlalchemy    # SQLAlchemy ORM
-│   └── tech/stack/pytorch       # PyTorch deep learning framework
+│   ├── tech/stack/pandas        
+│   ├── tech/stack/langgraph     
+│   ├── tech/stack/deepeval      
+│   ├── tech/stack/pytest        
+│   ├── tech/stack/guardrails-ai 
+│   ├── tech/stack/langfuse      
+│   ├── tech/stack/sqlalchemy    
+│   └── tech/stack/pytorch     
 
-math                    # statistics and probability theory
+math                    
 ├── math/statistics
 ├── math/probability-theory
 
