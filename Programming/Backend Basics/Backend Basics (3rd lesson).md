@@ -8,8 +8,6 @@ authors:
 -
 ---
 
-#🃏/semantic/backend #🃏/source/backend-basics-course
-
 **Codewords:** FastAPI, Pydantic, Uvicorn, API Endpoint, Path Operation, Path Parameter, Query Parameter, Request Body.
 
 ## 1. Introduction to FastAPI

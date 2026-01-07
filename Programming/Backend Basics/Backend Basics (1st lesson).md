@@ -8,8 +8,6 @@ authors:
 -
 ---
 
-#🃏/semantic/backend #🃏/source/backend-basics-course
-
 **Codewords:** Client, Server, Client-Server Model, HTTP/S, Request, Response, Status Codes, API, REST, JSON.
 
 ## 1. How the Internet works

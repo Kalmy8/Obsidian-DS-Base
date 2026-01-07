@@ -8,8 +8,6 @@ authors:
 -
 ---
 
-#🃏/semantic/backend #🃏/source/backend-basics-course
-
 **Codewords:** Synchronous, Asynchronous, Concurrency, Parallelism, `asyncio`, `multiprocessing`, `threading`, GIL.
 
 ## 1. Concurrency in Python

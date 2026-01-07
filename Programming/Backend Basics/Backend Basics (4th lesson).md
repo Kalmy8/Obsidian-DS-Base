@@ -160,38 +160,3 @@ async def on_shutdown():
  logging.info("Webhook deleted.")
 
 ```
-### Running the Project with `ngrok`
-
-For Telegram to send updates to your webhook, your application must be running on a public URL. During development, you can use a tool called **`ngrok`** to create a secure public URL for your local server.
-
-1. [Download and install ngrok](https://ngrok.com/download).
-2. Run your FastAPI app: `uvicorn bot_main:app --host 0.0.0.0 --port 8000`
-3. In a new terminal, run ngrok to expose port 8000: `ngrok http 8000`
-4. ngrok will give you a public URL like `https://abcdef12345.ngrok.io`.
-5. **Copy this URL**, update the `WEBHOOK_URL` in your `bot_main.py` file to be `https://abcdef12345.ngrok.io/webhook`, and restart your uvicorn server.
-
-Now your bot should be live and responding to messages!
-
-**Key Questions:**
-
-1. What are the two methods for a Telegram bot to receive messages? What are the pros and cons of each?
-?
-- **Polling:** The bot repeatedly asks Telegram for updates.
- - **Pros:** Simple to set up for local development.
- - **Cons:** Inefficient, makes many useless requests, and has a delay.
-- **Webhooks:** Telegram sends updates to a public URL you provide.
- - **Pros:** Very efficient, real-time updates, scalable for production.
- - **Cons:** Requires a public URL and a web server, making setup more complex.
-
-2. Why should you never hardcode your bot token in your source code?
-?
-- The bot token is a secret password. If it's in your source code and you publish it (e.g., on GitHub), anyone can find it and take control of your bot. It should be stored securely, for example, in an environment variable.
-
-3. What is a webhook and how does it work with FastAPI and a Telegram bot?
-?
-- A webhook is a mechanism where a server (Telegram) automatically sends real-time data to another application when an event occurs.
-- With FastAPI, you create an endpoint (e.g., `/webhook`) that acts as the public URL. You tell Telegram this URL. When a user messages your bot, Telegram sends an HTTP POST request to your FastAPI endpoint. Your FastAPI application then processes this request, passing the data to `aiogram` to handle the bot's logic.
-
-4. What role does a tool like `ngrok` play in bot development?
-?
-- Telegram webhooks require a public HTTPS URL. When developing on your local machine, your server is only accessible at `localhost`. `ngrok` creates a secure public URL that tunnels to your local server, allowing Telegram to reach your application for testing and development. 
