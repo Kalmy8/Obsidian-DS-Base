@@ -28,7 +28,7 @@ authors:
 See below for valid tags.
 
 ### `sources` (optional)
-Links to course/book MOC notes. Used when a note belongs to a specific course, book, or video series. Each course/book should have a MOC note.
+Links to course/book MOC notes. Used when a note belongs to a specific course, book, or video series. Each course/book should have a MOC note located in the `Sources/` folder.
 
 Format (multiline list):
 ```yaml
@@ -36,6 +36,8 @@ sources:
 - "[[Course MOC]]"
 - "[[Book MOC]]"
 ```
+
+**Note:** All course MOC notes are located in the `Sources/` folder, organized by course name (e.g., `Sources/Python-Basic-Course/Python Basics Course.md`).
 
 ### `authors` (optional)
 Authors of books, courses, videos, or other content. Can be multiple authors.
