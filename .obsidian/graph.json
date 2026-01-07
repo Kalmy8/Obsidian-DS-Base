@@ -1,30 +1,22 @@
 {
   "collapse-filter": false,
-  "search": "",
+  "search": "tag:#math/probability-theory  ",
   "showTags": true,
   "showAttachments": false,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 14048348
-      }
-    }
-  ],
+  "colorGroups": [],
   "collapse-display": false,
-  "showArrow": true,
-  "textFadeMultiplier": 0.4,
-  "nodeSizeMultiplier": 1.38458799230824,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
-  "centerStrength": 0.471413721413721,
-  "repelStrength": 9.42827442827443,
-  "linkStrength": 0.779106029106029,
-  "linkDistance": 248,
-  "scale": 8,
-  "close": false
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1.2429465190259978,
+  "close": true
 }

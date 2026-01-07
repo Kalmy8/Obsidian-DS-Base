@@ -77,7 +77,9 @@ This how dealing with high bias resulted into high variance: the model now will 
 In order to do that, you often have to choose the model which will be complex enough, and apply some [variance-reducing techniques](../variance-reducing%20techniques.md).
 If you actually struggle to pick a model which could handle complex relationships within your data, you can instead apply some of the [bias-reducing techniques](../bias-reducing%20techniques.md)
 
-#🃏/semantic/ml ## Review questions
+#🃏/semantic/ml #🃏/semantic/math/probability-theory
+
+## Review questions
 
 What is the bias and the variance? Take a Mean Squared Error (MSE) metric and break it down to the bias-variance decomposition formula. For each term in the resulting equation, provide an intuition
 ?

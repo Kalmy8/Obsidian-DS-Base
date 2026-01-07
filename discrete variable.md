@@ -8,6 +8,8 @@ authors:
 -
 ---
 
+#🃏/semantic/math/probability-theory
+
 a variable which has **discrete distribution**, e.g. it can take only some certain values from some interval. Some common examples would be:
 
 Some common-used visualization techniques for such variables would be: [piecharts](piecharts.md), [barplots](barplots.md)

@@ -12,11 +12,11 @@ authors:
 
 is the real value showing how likely you are to get some outcome of an experiment, the outcome could be an **elementary event** or just an **event**.
 
-let's define a [fundamental probability set](Теория%20вероятностей/elementary%20event,%20fundamental%20probability%20set%20and%20an%20event.md) as $\Omega = \{w_{1}, w_{2}, .., w_{n}\}$.
+let's define a [[elementary event, fundamental probability set and an event | fundamental probability set]] as $\Omega = \{w_{1}, w_{2}, .., w_{n}\}$.
 
 For each **elementary event** inside the set, let's assign a value $P_i$ in such way that $\sum\limits_{i=1}^{n}P_{i}= 1$, where $P_{i} \geq 0$.
 
-Now each **elementary** event has some probability assigned to it, and it makes sense that [events](Теория%20вероятностей/elementary%20event,%20fundamental%20probability%20set%20and%20an%20event.md#^f9d291) will also have some probability. For an event $A$, it can defined as:
+Now each **elementary** event has some probability assigned to it, and it makes sense that [[elementary event, fundamental probability set and an event | events]] will also have some probability. For an event $A$, it can defined as:
 $P(A)=\sum\limits_{k: w_{k}\in A}P_k$
 
 Probabilities do have properties, which are obvious from the definition:

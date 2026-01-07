@@ -1,15 +1,18 @@
 ---
 type: note
 status: done
-tags: []
+tags: [math/probability-theory]
 sources:
 -
 authors:
 -
 ---
 
+#🃏/semantic/math/probability-theory
+
 **Definition**: 
-Skewness measures the **asymmetry** of a probability distribution.
+
+Skewness measures the **asymmetry** of a probability distribution.
 
 - **Positive skew**: Right tail longer; mass concentrated on the left (e.g., income distribution).
  
@@ -18,9 +21,19 @@ Skewness measures the **asymmetry** of a probability distribution.
 
 **Formula**:
 
-Skewness=E[(X−μ)3]σ3Skewness=σ3E[(X−μ)3]​
+$$\text{Skewness} = \frac{E[(X-\mu)^3]}{\sigma^3} = \frac{\mu_3}{\sigma^3}$$
 
 _(Standardized third central moment)_
+
+**Formulas via PMF/PDF:**
+
+- Discrete case (PMF):
+$$\text{Skewness} = \frac{1}{\sigma^3}\sum\limits_{i=1}^{N}(x_i - \mu)^3 p_i$$
+
+- Continuous case (PDF):
+$$\text{Skewness} = \frac{1}{\sigma^3}\int\limits_{-\infty}^{\infty}(x - \mu)^3 f(x)\,dx$$
+
+where $\mu = E[X]$ and $\sigma^2 = V(X)$.
 
 **Interpretation**:
 

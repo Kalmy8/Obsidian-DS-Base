@@ -4,8 +4,9 @@ status: done
 tags: [math/probability-theory]
 sources:
 -
-- "[[Probability Theory Course]]"
 authors:
 -
 ---
+
+#🃏/semantic/math/probability-theory
 

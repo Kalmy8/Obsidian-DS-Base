@@ -7,5 +7,8 @@ sources:
 authors:
 -
 ---
+
+#🃏/semantic/math/probability-theory
+
 Both for discrete and continuous variables, we often use the **cumulative distribution function (CDF)**, which gives the probability that the random variable is less than or equal to a particular value:
 $$F(x) = P(X \leq x)$$

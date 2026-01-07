@@ -1,13 +1,17 @@
 ---
 type: note
 status: done
-tags: []
+tags: [math/probability-theory]
 sources:
 -
 authors:
 -
 ---
+
+#🃏/semantic/math/probability-theory
+
 **Definition**: 
+
 Kurtosis measures the **"tailedness"** (likelihood of extreme values) of a distribution.
 
  
@@ -15,9 +19,21 @@ Kurtosis measures the **"tailedness"** (likelihood of extreme values) of a distr
 
 **Formula**:
 
-Kurtosis=E[(X−μ)4]σ4(Excess kurtosis subtracts 3)Kurtosis=σ4E[(X−μ)4]​(Excess kurtosis subtracts 3)
+$$\text{Kurtosis} = \frac{E[(X-\mu)^4]}{\sigma^4} = \frac{\mu_4}{\sigma^4}$$
+
+Excess kurtosis = Kurtosis - 3 (subtracts 3 so normal distribution has excess kurtosis = 0)
 
 _(Standardized fourth central moment; 3 = normal distribution)_
+
+**Formulas via PMF/PDF:**
+
+- Discrete case (PMF):
+$$\text{Kurtosis} = \frac{1}{\sigma^4}\sum\limits_{i=1}^{N}(x_i - \mu)^4 p_i$$
+
+- Continuous case (PDF):
+$$\text{Kurtosis} = \frac{1}{\sigma^4}\int\limits_{-\infty}^{\infty}(x - \mu)^4 f(x)\,dx$$
+
+where $\mu = E[X]$ and $\sigma^2 = V(X)$.
 
 **Interpretation**:
 

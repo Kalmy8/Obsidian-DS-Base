@@ -7,6 +7,9 @@ sources:
 authors:
 -
 ---
+
+#🃏/semantic/math/probability-theory
+
 **An Event** is just an arbitrary subspace of the **fundamental probability set**. They are usually denoted with grand alphabet letters like $A,B$ and since they are **sets**, all set-defined mathematical operations are available for them, including **intersection/difference/union** and etc. ^f9d291
 
 Example: 

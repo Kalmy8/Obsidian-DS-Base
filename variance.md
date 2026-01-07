@@ -16,6 +16,14 @@ For any random variable, the variance can be defined as:
 
 $$V(X) = E(X - E(X))^2 = E(X - \mu)^{2}$$
 
+**Formulas via PMF/PDF:**
+
+- Discrete case (PMF):
+$$V(X) = \sum\limits_{i=1}^{N}(x_i - \mu)^2 p_i$$
+
+- Continuous case (PDF):
+$$V(X) = \int\limits_{-\infty}^{\infty}(x - \mu)^2 f(x)\,dx$$
+
 This formula is often simplified:
 $$(X - E(X))^{2}= X^{2} - 2 X E(X) + E(X)^2$$
 Apply mathematical expectation for both sides:

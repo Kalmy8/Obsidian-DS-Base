@@ -11,7 +11,7 @@ aliases:
 - "h"
 ---
 
-🚪 **Entry poinys**
+🚪 **Entry points**
 ---
 
 - 🗓 [summary by days](summary%20by%20days.md)

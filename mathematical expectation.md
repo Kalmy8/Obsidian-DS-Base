@@ -7,6 +7,9 @@ sources:
 authors:
 -
 ---
+
+#🃏/semantic/math/probability-theory
+
 > $E[aX + b] =$ *Applying the definition*
 > $= \sum(ax_i + b)p_{i} =$ *Splitting sums*
 > $= \sum ax_{i}p_{i}+ \sum bp_{i}=$ *Factor out constants*
@@ -54,6 +57,6 @@ Give the intuitive definition of a mathematical expectation, provide formal math
 Mathematical expectation is an average weighted outcome of a given random variable. For discrete case, the formula would be:
 $$E[X]=\sum\limits_{w_{i}\in \Omega}X(w_{i})P(X = X(w_{i})) = \sum\limits_{i=1}^{N}x_{i}p_{i}$$
 For continuous case, the formula would be:
-$$E[X]=\int\limits_{w\in \Omega}X(w)dP(w)= \int\limits_{-\inf}^{\inf}xf(x)dx$$
+$$E[X]=\int\limits_{w\in \Omega}X(w)dP(w)= \int\limits_{-\inf}^{\inf}xf(x)dx,$$ where $f(x)$ is a [[probability density function]]
 <!--SR:!2025-11-10,275,330-->
 
