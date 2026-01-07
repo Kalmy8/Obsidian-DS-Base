@@ -257,18 +257,18 @@ To prevent direct access and modification of the attribute from outside the clas
 **Why is direct access to an object's attributes generally discouraged in OOP?**
 ?
 Direct access can lead to accidental or unauthorized modification of data, potentially corrupting the object's state or violating the intended logic of the class.
-<!--SR:!2025-12-18,253,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **Explain the purpose of "getter" and "setter" methods. Why are they important?**
 ?
 **Getters** provide controlled access to read an object's attributes, while **setters** allow controlled modification, often including validation to ensure data integrity.
-<!--SR:!2025-12-05,240,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **Explain the concept of abstraction in OOP and provide a real-world example.**
 ?
 - Abstraction hides complex implementation details and exposes only essential information to the user.
 - Example: A TV remote control hides the internal electronics but provides buttons for essential actions like changing channels and volume.
-<!--SR:!2026-01-07,270,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **Task:**
 - Create a class Circle with a private attribute radius.

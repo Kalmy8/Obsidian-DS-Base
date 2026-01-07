@@ -246,7 +246,7 @@ city = "London"
 temperature = 20
 print(f"The temperature in {city} is {temperature} degrees.")
 ```
-<!--SR:!2025-12-23,282,334-->
+<!--SR:!2027-01-07,365,354-->
 
 Use the input function to get two numbers from the user and print their sum.
 ?
@@ -298,7 +298,7 @@ text = "***important***"
 stripped_text = text.strip('*')
 print(stripped_text) # Output: important
 ```
-<!--SR:!2026-01-05,295,334-->
+<!--SR:!2027-01-07,365,354-->
 
 Get the substring `"Python"` from the string `"I love Python programming."`
 ?

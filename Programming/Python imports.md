@@ -104,18 +104,21 @@ What will happen if you try to launch `module_x.py` directly or import to the `m
 List the sources of `sys.path` in order of priority
 ?
 1. Script's directory
-2. PYTHONPATH 
+2. PYTHONPATH
 3. Installation defaults (site-packages)
+<!--SR:!2026-01-11,4,270-->
 
 What's the difference between a package and a module?
-? 
+?
 - Module = single .py file
 - Package = folder with modules (or with `__init__.py`)
+<!--SR:!2026-01-08,1,230-->
 
 What two things happen when you run `import my_module`?
 ?
-1. Executes all code in my_module.py 
+1. Executes all code in my_module.py
 2. Makes its objects available in current namespace
+<!--SR:!2026-01-11,4,270-->
 
 How does Python handle `from package.subpackage import module`? ? 
 - Executes `package/__init__.py`, then `subpackage/__init__.py`, then loads `module.py`.
@@ -125,13 +128,16 @@ Why do define `__all__` variable inside the  `__init__.py`?
 - For convinience: it allows you to import certain names right from the package directory instead of importing them from modules themselves:
 - ![[Pasted image 20250223205019.png | 600]]
 - ![[Pasted image 20250223205126.png]]
+<!--SR:!2026-01-11,4,270-->
 
-Why does a module work when imported but fail when run directly? 
-? 
+Why does a module work when imported but fail when run directly?
+?
 - Direct execution adds only its directory to `sys.path`, breaking parent/package imports.
+<!--SR:!2026-01-11,4,270-->
 
 Three recommended ways to fix import path issues:
 ?
 1. Set PYTHONPATH
 2. `pip install -e .` (editable mode)
 3. Launch as a module: `python -m ./subfolder/my_module.py`
+<!--SR:!2026-01-11,4,270-->

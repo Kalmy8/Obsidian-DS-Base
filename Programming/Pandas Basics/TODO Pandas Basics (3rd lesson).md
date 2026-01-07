@@ -192,7 +192,7 @@ After melting, you often encounter composite values you would like to expand in 
 So for that table, you want to split 'subject' column into 'subject' and 'year' columns. How do you handle such situation?
 ?
 - By using `df['subject'].str.split(by = '_', expand = True)` accessor on that value column Series
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-10,3,250-->
 
 Given this data:
 ```python

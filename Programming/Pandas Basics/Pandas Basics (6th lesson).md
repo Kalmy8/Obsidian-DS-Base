@@ -303,7 +303,7 @@ What are those main methods? What do they do?
 ?
 - `apply` acts a function on a single column/row of a dataframe
 - `map` acts a function on every element of the dataframe
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-10,3,250-->
  
 What's the difference between dataframe view and copy?
 ?
@@ -343,4 +343,4 @@ import numpy as np
  choices = ['low', 'medium', 'high']
  df['salary_band'] = np.select(conditions, choices)
 ```
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-10,3,250-->

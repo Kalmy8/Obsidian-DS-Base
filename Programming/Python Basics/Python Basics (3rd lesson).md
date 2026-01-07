@@ -182,7 +182,7 @@ print(year) # Output: 2024
 print(month) # Output: 8
 print(day) # Output: 21
 ```
-<!--SR:!2026-01-02,292,330-->
+<!--SR:!2027-01-07,365,350-->
 
 Given two sets: `set1 = {1, 2, 3, 4}` and `set2 = {3, 4, 5, 6}`, find the intersection of these sets and print the result.
 ?
@@ -192,7 +192,7 @@ set2 = {3, 4, 5, 6}
 intersection = set1.intersection(set2) 
 print(intersection) # Output: {3, 4}
 ```
-<!--SR:!2026-01-06,296,330-->
+<!--SR:!2027-01-07,365,350-->
 
 You are managing a list of students and their grades, where the data is stored in a dictionary. The dictionary currently looks like this: `grades = {"Alice": [85, 90], "Bob": [78]}`. Add a new student "Charlie" with an initial empty list of grades using `setdefault()`, and then add a grade of 92 for "Charlie". Print the updated dictionary.
 ?

@@ -255,7 +255,7 @@ Using the students dataset:
 ?
 - Use pd.crosstab() to create a contingency table
 - Pass the result to sns.heatmap()
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-10,3,250-->
 
 ---
 

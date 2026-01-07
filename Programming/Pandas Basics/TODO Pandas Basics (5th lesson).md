@@ -349,7 +349,7 @@ Fill the gaps:
 Crucial distinguish:
 - `agg()`, `transform()`, `filter()`, `apply()` can hold functions, which take .../.../.../... as their parameter
 ?
-- `agg()`, `transform()`, can hold functions, which always take **a single Column (pd.Series)** as their parameter 
+- `agg()`, `transform()`, can hold functions, which always take **a single Column (pd.Series)** as their parameter
 - `filter()` can hold functions, which **take a whole group (pd.DataFrame)** as their parameter
 - `apply()` can hold functions, which **take a whole group (pd.DataFrame) OR a single Column (pd.Series)** as their parameter depending on the context
 - Demonstrational code snippet:
@@ -392,6 +392,7 @@ _ = g.apply(lambda grp: (print('IN:', type(grp), '| shape:', grp.shape) or grp))
 print("\n--- apply on a SeriesGroupBy (select 1 column first) -> function receives Series ---")
 _ = g["score"].apply(show_input)
 ```
+<!--SR:!2026-01-11,4,277-->
 
 Why won't we always use `apply()`?
 ?

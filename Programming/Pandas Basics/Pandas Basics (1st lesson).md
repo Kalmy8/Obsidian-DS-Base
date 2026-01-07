@@ -310,22 +310,26 @@ What `read_csv()` parameters can help you solving them?
  - `na_values`, `converters`, `skipinitialspace`, `true_values`, `false_values`: These parameters aid in data cleaning by defining missing value indicators, applying transformations, ignoring spaces after delimiters, and specifying boolean values.
  - `parse_dates`, `encoding`: These parameters handle special data types by parsing dates and specifying file encoding.
  - `on_bad_lines`: This parameter manages lines with errors, such as skipping or warning.
+<!--SR:!2026-01-11,4,270-->
 
 How to create a DataFrame of a python dictionary?
 ?
 - By passing that dictionary inside `pd.DataFrame()` method
+<!--SR:!2026-01-11,4,270-->
 
 How do the `info()` and `describe()` methods differ in terms of the information they provide about a DataFrame?
 ?
-- The `info()` method provides a concise summary of a DataFrame, including the number of non-null entries, data types, and memory usage. 
+- The `info()` method provides a concise summary of a DataFrame, including the number of non-null entries, data types, and memory usage.
 - The `describe()` method, on the other hand, provides a statistical summary of numerical columns (count, mean, percentiles...)
+<!--SR:!2026-01-11,4,270-->
 
 What are the main differences between a DataFrame and a Series in Pandas?
 ?
-- A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types, similar to a spreadsheet or SQL table. 
-- A Series is a 1-dimensional labeled array capable of holding any data type. 
+- A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types, similar to a spreadsheet or SQL table.
+- A Series is a 1-dimensional labeled array capable of holding any data type.
 - Essentially, a DataFrame is a collection of Series.
 - Series and DataFrame has different methods
+<!--SR:!2026-01-11,4,270-->
 
 What are some common Series methods which are not available for DataFrame?
 - To get frequency counts of unique values
@@ -335,16 +339,19 @@ What are some common Series methods which are not available for DataFrame?
 - For datetime operations
 ?
 - s.value_counts()
-- s.nunique() 
+- s.nunique()
 - s.isin([...])
-- .str accessor 
+- .str accessor
 - .dt accessor
+<!--SR:!2026-01-10,3,250-->
 
 What are the `.size`, `.shape` attributes of a DataFrame and Series objects, such as size and shape, and how can they be accessed?
 ?
-- The `shape` attribute returns a tuple representing the dimensionality, 
+- The `shape` attribute returns a tuple representing the dimensionality,
 - `size` returns the number of elements
+<!--SR:!2026-01-11,4,270-->
 
 Why would you use `df.sample(frac=1)` line?
 ?
 - It is often used to shuffle dataframe, as it returns all the same rows in a random order
+<!--SR:!2026-01-11,4,270-->

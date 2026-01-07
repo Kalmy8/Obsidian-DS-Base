@@ -128,20 +128,24 @@ practice_ratings = np.array([
 1. What is the main limitation of applying pure SVD to recommender system problems?
 ?
 - Pure SVD requires a dense matrix with no missing values. However, user-item rating matrices in real-world scenarios are extremely sparse, containing mostly unknown ratings.
+<!--SR:!2026-01-08,1,230-->
 
 2. How does FunkSVD (or latent factor models) solve the sparsity problem?
 ?
 - It ignores the missing values and focuses only on the known ratings. It directly learns the user and item latent feature matrices by minimizing the prediction error on these known ratings, typically using optimization algorithms like SGD or ALS.
+<!--SR:!2026-01-08,1,230-->
 
 3. What is the relationship between Collaborative Filtering, Matrix Factorization, and SVD?
 ?
 - **Collaborative Filtering** is the high-level approach of using the "wisdom of the crowd" (user-item interactions) to make recommendations.
 - **Matrix Factorization** is a class of collaborative filtering models that decomposes the user-item matrix into latent feature matrices.
 - **SVD** is a specific matrix factorization technique. In practice, algorithms like FunkSVD that are *inspired* by SVD are used to perform the factorization on sparse matrices.
+<!--SR:!2026-01-08,1,230-->
 
 4. What is the role of the regularization term in the SVD loss function?
 ?
 - The regularization term (`λ (||p_u||² + ||q_i||²)`) prevents the model from overfitting to the training data. It penalizes overly large values in the user and item feature vectors, leading to a more generalizable model that performs better on unseen data.
+<!--SR:!2026-01-08,1,230-->
 
 ### "FunkSVD" vs. True SVD: A Critical Clarification
 

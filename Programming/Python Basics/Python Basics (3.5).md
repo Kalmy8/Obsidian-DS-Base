@@ -107,14 +107,17 @@ print(display_name) # Output: Alice
 Evaluate the following expression: `(True and False) or (not True)`.
 ?
 - `(False) or (False)` which is `False`.
+<!--SR:!2026-01-11,4,270-->
 
 Write a Python expression that checks if a variable `x` is greater than 5 AND less than 10.
 ?
 ```python
 5 < x < 10
 ```
+<!--SR:!2026-01-11,4,270-->
 
 How could `or` operator be used to conditionally assing a value to a variable?
 ?
 - variable = value1 or value2
 - here `or` returns first value1 if it's True(-ish), otherwise value2
+<!--SR:!2026-01-11,4,270-->

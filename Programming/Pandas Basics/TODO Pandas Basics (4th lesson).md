@@ -474,12 +474,12 @@ Describe the differences between
 How do you handle duplicate columns when merging DataFrames?
 ?
 By using `pd.merge(..., suffixes)` parameter
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-09,2,230-->
 
 How do you handle different column names when merging DataFrames?
 ?
 By using `pd.merge(..., left_on, right_on)` parameters
-<!--SR:!2026-01-06,1,230-->
+<!--SR:!2026-01-10,3,250-->
 
 Why are merge operations "risky"? What safety parameter should you ALWAYS include in merge operations and why?
 ?

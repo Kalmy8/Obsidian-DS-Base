@@ -66,7 +66,7 @@ What are the key differences between interpreted and compiled languages, and how
 - In order to complete the instructions given within the user code Interpreted languages do rely on an interpreter - a program which reads user code line-by-line, converts it into machine code and executes right away.
 - Compiled languages do instead firstly convert all the code into the machinery form, and when execute all the instructions at once.
 - Python is usually referred as an interpreter language, but it actually has a compilation stage (compiles into bytecode `.pyc` files ), so it's not quite accurate.
-<!--SR:!2025-12-08,288,336-->
+<!--SR:!2027-01-07,365,356-->
 
 Describe 4 main stages of the user-code execution process. Which of this processes belong to the compilation stage?
 - Lexical analysis: user-written code is being split into certain tokens: variable names, values, functions, control statements etc.
@@ -77,7 +77,7 @@ Describe 4 main stages of the user-code execution process. Which of this process
 What are the `.pyc` files? What role do they play in terms of program execution?
 ?
 `.pyc` (python-chached) files contain python **bytecode**, which is the result of first 3 stages of python code execution pipeline. This files are being cached into the script directory, and are being updated whenever a script is being modified. If there are no changes, PVM will skip first 3 stages and will interprete the bytecode right away, the **resulting performance boost is the reason why `.pyc` files exist**.
-<!--SR:!2025-12-25,284,336-->
+<!--SR:!2027-01-07,365,356-->
 
 How are python datatypes categorized? Which datatypes fall into each category?
 ?

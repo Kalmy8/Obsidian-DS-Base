@@ -252,7 +252,7 @@ A lambda function is a small anonymous function.
 ```python
 cube = lambda x: x ** 3 
 ```
-<!--SR:!2025-12-22,257,330-->
+<!--SR:!2027-01-07,365,350-->
 
 How does `map()` work? Write one to square each element in `[1, 2, 3]`.
 ?
@@ -274,7 +274,7 @@ sum_of_elements = reduce(lambda x, y: x + y, [1, 2, 3, 4])
 What is the purpose of `functools.singledispatch` and `functools.singledispatchmethod`?
 ?
 It creates a generic function/method that behaves differently based on the first argument's type.
-<!--SR:!2026-01-03,266,330-->
+<!--SR:!2027-01-07,365,350-->
 
 Using functools.singledispatch, create a function called get_info that returns the following:
 - For an integer, return the square of the integer.
@@ -301,7 +301,7 @@ Using functools.singledispatch, create a function called get_info that return
 	print(get_info("hello")) # Output: hellohello
 	print(get_info(3.14)) # Output: None
 ```
-<!--SR:!2025-12-10,245,330-->
+<!--SR:!2027-01-07,365,350-->
 
 How does `functools.partial` simplify function usage? Make a function that always adds 5 using `partial()`.
 ?
@@ -321,7 +321,7 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
 - Caches results of expensive function calls, greatly speeding up repeated executions by storing already computed results.
 - Max_size (int): number of last calls which will be memorized
 - Typed (bool): whether to treat **func(3)** and **func(3.0)** calls equal
-<!--SR:!2025-12-21,256,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **@lru_cache problem:**
 - Create a function fibonacci(n) that calculates the Nth Fibonacci number recursively (without caching)
@@ -342,14 +342,17 @@ What is the use of `@lru_cache`. What arguments does lru_cache accept, how do th
 <!--SR:!2026-05-20,350,359-->
 
 How many comparison methods need to be implemented for sorting?
-? 
+?
 - Only one (usually `__lt__`) is required. Python can infer other comparisons automatically
+<!--SR:!2026-01-11,4,314-->
 
 What's the output of the **`sorted()`** method?
 ?
 - A newly created collection with re-ordered elements
+<!--SR:!2026-01-11,4,314-->
 
 Sort this list of tuples, using the tuple's second element, then first element: data = [(1, 3), (2, 1), (3, 2)]
 ?
 - sorted_data = sorted(data, key=lambda x: (x[1], x[0]))
+<!--SR:!2026-01-11,4,314-->
 

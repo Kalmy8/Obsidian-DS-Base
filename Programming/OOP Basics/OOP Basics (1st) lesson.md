@@ -161,12 +161,12 @@ supervisor.renovate()
 - Example: A **Dog**:
 	- **Behaviors:** bark, fetch, eat
 	- **Properties:** breed, color, age
-<!--SR:!2025-12-30,262,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **In OOP, what is a class?**
 ?
 A class is like a blueprint or template for creating objects.
-<!--SR:!2025-11-29,239,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **In OOP, what is an object?**. How could objects of the same class be different: can they have different methods? Can they have different attributes/attribute values?
 ?
@@ -178,12 +178,12 @@ A class is like a blueprint or template for creating objects.
 **What does the `self` keyword represent in a Python class?**
 ?
 It refers to the current instance of the class (the object itself).
-<!--SR:!2026-01-04,267,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **What is the purpose of the `__init__` method in a Python class?**
 ?
 It's the constructor, used to initialize the attributes of an object when it's created.
-<!--SR:!2025-12-11,246,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **What is the difference between a "dataclass" and a "static class" as described in the conspect? Give a brief example of when you might use each one.**
 ?
@@ -196,7 +196,7 @@ It's the constructor, used to initialize the attributes of an object when it's c
 **Why is OOP often considered a more natural way to structure complex programs than procedural programming?**
 ?
 OOP allows you to model real-world objects and their interactions more closely, making the code more organized and easier to understand.
-<!--SR:!2025-12-20,255,330-->
+<!--SR:!2027-01-07,365,350-->
 
 **Programming Task:**
 1. Write the Python code for the Dog class, including the **`__init__`**, **`bark()`** , and **`describe()`** methods.
