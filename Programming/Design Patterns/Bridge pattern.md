@@ -134,4 +134,4 @@ email_sender.send_message("Hello!", "user@example.com")
 scheduled_email_sender = ScheduledMessageSender(ScheduledEmailService())
 scheduled_email_sender.schedule_message("Reminder!", "user@example.com", "2024-01-01 10:00")
 ```
-<!--SR:!2025-10-18,237,270-->
+<!--SR:!2027-01-05,365,290-->

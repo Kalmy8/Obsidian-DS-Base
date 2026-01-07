@@ -298,36 +298,40 @@ pickle стандартная python библиотека, которая соз
 **Review Questions:**
 
 In pandas, we have 2 main methods to modify dataframe values. All
-other methods are just syntax sugar and enforce simplicity. 
+other methods are just syntax sugar and enforce simplicity.
 What are those main methods? What do they do?
 ?
 - `apply` acts a function on a single column/row of a dataframe
 - `map` acts a function on every element of the dataframe
+<!--SR:!2026-01-06,1,230-->
  
 What's the difference between dataframe view and copy?
 ?
-- View of the dataframe is a new reference to the same python object, thus
-changes on view affect the original df
+- View of the dataframe is a new reference to the same python object, thus changes on view affect the original df
 - Copy is a separate object in python, thus changes only affect this new copy
+<!--SR:!2026-01-09,4,270-->
 
 Why does pandas raise SettingWithCopyWarning?
 ?
 - Some pandas operations can unpredictibly return a view or a copy, so when you modify them you can not be sure if you are changing the original df or not
+<!--SR:!2026-01-09,4,270-->
 
 How to modify values correctly so SettingWithCopyWarning occures?
 ?
 - By always using .loc (which guarantees to return a view)
+<!--SR:!2026-01-09,4,270-->
 
 2 ways to delete a column or a row from a dataframe
 ?
 - Using `drop` (simpler, faster)
 - Using `.loc/.iloc`
+<!--SR:!2026-01-09,4,270-->
 
 You have a DataFrame with a column "salary" containing employee salaries. You want to create a new column "salary_band" that assigns:
 "low" for salaries below 50,000
 "medium" for salaries between 50,000 and 100,000 (inclusive)
 "high" for salaries above 100,000
-How can you do that in pandas? 
+How can you do that in pandas?
 ?
 ```python
 import numpy as np
@@ -339,3 +343,4 @@ import numpy as np
  choices = ['low', 'medium', 'high']
  df['salary_band'] = np.select(conditions, choices)
 ```
+<!--SR:!2026-01-06,1,230-->

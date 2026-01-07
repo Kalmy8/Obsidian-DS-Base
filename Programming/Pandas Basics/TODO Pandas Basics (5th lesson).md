@@ -327,11 +327,12 @@ For every operation provide a simple example
 ?
 - `agg()` is used to **unite all the group's observations** into a single/several characteristics
 	- Example: divide students by groups and calculate group's mean
-- `transform()` is used to **modify every observation** based on the group's statistics 
+- `transform()` is used to **modify every observation** based on the group's statistics
 	- Example: calculate ranks given people's heights
 - `filter()` is used to **exclude certain groups** based on their single/several characteristics
 	- Example: divide students by groups and exclude groups where average score <= 40
 - `apply()` is more general and can be used for everything
+<!--SR:!2026-01-09,4,270-->
 
 Fill the gaps:
 - `agg()` maps Sequence[N] -> ...
@@ -339,24 +340,66 @@ Fill the gaps:
 - `filter` maps Sequence[N] -> ...
 - `apply` maps Sequence[N] -> ...
 ?
-- `agg()` maps Sequence[N] -> Single Entity 
+- `agg()` maps Sequence[N] -> Single Entity
 - `transform()` maps Sequence[N] -> Sequence[N]
 - `filter` maps Sequence[N] -> Sequence[M<=N]
 - `apply` maps Sequence[N] -> Sequence[M], where `M` can be arbitrary
+<!--SR:!2026-01-09,4,270-->
 
-TODO ITS NOT TRUE I GUESS
 Crucial distinguish:
-- `agg()`, `transform()`, `filter()` can hold functions, which take ... as their parameter
-- `apply()` can hold functions, which take ... as their parameter
+- `agg()`, `transform()`, `filter()`, `apply()` can hold functions, which take .../.../.../... as their parameter
 ?
-- `agg()`, `transform()`, `filter()` can hold functions, which take **a single Column (pd.Series)** as their parameter
-- `apply()` can hold functions, which **take a whole group (pd.DataFrame)** as their parameter
+- `agg()`, `transform()`, can hold functions, which always take **a single Column (pd.Series)** as their parameter 
+- `filter()` can hold functions, which **take a whole group (pd.DataFrame)** as their parameter
+- `apply()` can hold functions, which **take a whole group (pd.DataFrame) OR a single Column (pd.Series)** as their parameter depending on the context
+- Demonstrational code snippet:
+```python
+import pandas as pd
+
+df: pd.DataFrame = pd.DataFrame(
+    {
+        "team": ["A", "A", "B", "B", "C"],
+        "score": [10, 20, 5, 15, 7],
+        "minutes": [1, 2, 1, 2, 1],
+    }
+)
+
+g = df.groupby("team", sort=False)
+
+def show_input(x) -> int:
+    # prints what pandas passes into your function
+    print("IN:", type(x), "| name:", getattr(x, "name", None), "| shape:", getattr(x, "shape", None))
+    return 0
+
+print("\n--- agg on a single column (SeriesGroupBy) -> function receives Series ---")
+_ = g["score"].agg(show_input)
+
+print("\n--- agg on multiple columns (DataFrameGroupBy) -> function is STILL called per-column (Series) ---")
+_ = g[["score", "minutes"]].agg(show_input)  # show_input is called twice per group: once for score-Series, once for minutes-Series
+
+print("\n--- transform on a single column -> function receives Series ---")
+_ = g["score"].transform(show_input)
+
+print("\n--- transform on multiple columns -> function receives Series per column (not whole DataFrame) ---")
+_ = g[["score", "minutes"]].transform(show_input)
+
+print("\n--- filter (DataFrameGroupBy) -> function receives WHOLE group DataFrame ---")
+_ = g.filter(lambda grp: (print('IN:', type(grp), '| shape:', grp.shape) or True))
+
+print("\n--- apply (DataFrameGroupBy) -> function receives WHOLE group DataFrame ---")
+_ = g.apply(lambda grp: (print('IN:', type(grp), '| shape:', grp.shape) or grp))
+
+print("\n--- apply on a SeriesGroupBy (select 1 column first) -> function receives Series ---")
+_ = g["score"].apply(show_input)
+```
 
 Why won't we always use `apply()`?
 ?
 It is much slower compared to more specific `agg()`, `transform()`, `filter()`
+<!--SR:!2026-01-09,4,270-->
 
 When would you use `rolling()` operations?
 ?
 While calculating statistics for structured data, like calculating mean average for a time series
+<!--SR:!2026-01-09,4,270-->
 

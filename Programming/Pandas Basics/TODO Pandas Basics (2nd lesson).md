@@ -294,47 +294,55 @@ What is the difference between `loc` and `iloc` indexing methods in Pandas?
 ?
 - `loc` is label-based indexing that uses the row and column labels (index values) to select data
 - `iloc` is integer position-based indexing that uses the row and column positions (0-based integers) to select data
+<!--SR:!2026-01-09,4,270-->
 
 What exactly is a boolean mask in pandas, how is it created and used?
 ?
 - A boolean mask is a Series of True/False values with the same index as the DataFrame
 - Created by applying a condition to a DataFrame column: `mask = df['age'] > 20`
 - The mask can be used to filter rows and columns when applied within `.loc()`: `df.loc[mask]`
+<!--SR:!2026-01-09,4,270-->
 
 How do you combine multiple conditions in Boolean indexing (and/or/NOT)
 ?
 - Use `&` for AND conditions: `df.loc[(df['age'] > 20) & (df['grade'] >= 90)]`
 - Use `|` for OR conditions: `df.loc[(df['age'] > 22) | (df['grade'] >= 95)]`
 - Use `~` for NOT conditions: `df.loc[~(df['city'] == 'Chicago')]`
+<!--SR:!2026-01-09,4,270-->
 
-5. What are different ways to select specific columns in a DataFrame? 
+5. What are different ways to select specific columns in a DataFrame?
  Consider methods that:
  - Use label-based indexing
  - Use index-based indexing
- - Filter based on column name patterns 
+ - Filter based on column name patterns
  - Filter only numeric columns
  - Select all except of 2 columns
 ?
 - Using `loc`: `df.loc[:, ['col1', 'col2']]`
 - Using `iloc`: `df.iloc[:, 5:]`
-- Using `filter` method: `df.filter(like = grade')` or `df.loc[:, df.columns.str.startswith('grade')]` 
+- Using `filter` method: `df.filter(like = grade')` or `df.loc[:, df.columns.str.startswith('grade')]`
 - Using data types: `df.select_dtypes(include=['int64', 'float64'])`
 - Excluding columns: `df.loc[:, ~df.columns.isin(['name', 'city'])]`
+<!--SR:!2026-01-09,4,270-->
 
 How do you sort values within the dataframe? How do you switch the order (ascending/descending)?
 ?
 - `sort_values()` method
 - `sort_values(..., ascending = True/False)`
+<!--SR:!2026-01-09,4,270-->
 
 How does the `filter()` method work and what are its different approaches?
 ?
 - `filter(like='string')`: Selects columns containing the specified substring
 - `filter(regex='pattern')`: Selects columns matching the regular expression pattern
+<!--SR:!2026-01-09,4,270-->
 
 What does `convert_dtypes()` do in pandas? Why is it useful?
 ?
 - It automatically converts columns to the best possible dtype (e.g., string, Int64, boolean, category), making the DataFrame more memory efficient and enabling modern pandas features.
+<!--SR:!2026-01-09,4,270-->
 
 How do you select all columns of a specific dtype (e.g., numeric, string, boolean, category) in a DataFrame?
 ?
 - Use `df.select_dtypes(include='number')` for numeric, `include='string'` for string, `include='boolean'` for boolean, and `include='category'` for categorical columns.
+<!--SR:!2026-01-09,4,270-->

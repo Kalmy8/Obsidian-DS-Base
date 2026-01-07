@@ -150,7 +150,7 @@ nums_2 = [-7, -3, 2, 3, 11]
 ?
 - **Opposite Ends:** One pointer starts at the beginning and the other at the end, and they move towards each other.
 - **Fast and Slow:** Both pointers start at the beginning, but one moves faster than the other.
-<!--SR:!2025-11-29,1,230-->
+<!--SR:!2026-01-06,1,210-->
 
 3. For which type of problems is the "Opposite Ends" pattern most suitable?
 ?

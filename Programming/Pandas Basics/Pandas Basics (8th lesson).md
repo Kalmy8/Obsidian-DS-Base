@@ -233,25 +233,29 @@ Using the students dataset:
 
 **Key Questions:**
 
-1. What are the two main questions that all plots answer?
+1. What is the one of two main questions that every plot answers?
 ?
 - What is the relationship between variables?
 - Or what are the characteristics of a variable?
+<!--SR:!2026-01-09,4,270-->
 
 2. When would you use a line plot instead of a scatter plot?
 ?
 - When showing trends over time or ordered categories
 - When X-axis represents a sequence or progression
+<!--SR:!2026-01-09,4,270-->
 
 3. What's the difference between a bar plot and a swarm plot for discrete vs continuous data?
 ?
 - Bar plot shows aggregated values (means/totals)
 - Swarm plot shows individual data points distributed by group
+<!--SR:!2026-01-09,4,270-->
 
 5. How do you create a heatmap to show relationships between two discrete variables?
 ?
 - Use pd.crosstab() to create a contingency table
 - Pass the result to sns.heatmap()
+<!--SR:!2026-01-06,1,230-->
 
 ---
 

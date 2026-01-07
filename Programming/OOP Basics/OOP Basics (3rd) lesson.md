@@ -117,4 +117,5 @@ authors:
 What are the 2 main purposes which ABC classes usage cover?
 ?
 - They share properties (attributes) and behaviors (methods) with child classes (code reusage)
-- They enforce **interface** usage. 
+- They enforce **interface** usage.
+<!--SR:!2026-01-09,4,270--> 

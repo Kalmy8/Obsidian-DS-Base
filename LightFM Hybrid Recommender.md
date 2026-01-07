@@ -119,18 +119,22 @@ You are tasked with building a recommender system for three different scenarios.
 1. What is LightFM and why is it considered a "hybrid" recommender system?
 ?
 - LightFM is a machine learning model for recommendations. It's called "hybrid" because it combines two approaches: **collaborative filtering** (learning from the patterns of user-item interactions, like "users who liked movie A also liked movie B") and **content-based filtering** (learning from the features of users and items, like a user's age or a movie's genre). This allows it to make recommendations based on both interaction patterns and intrinsic characteristics.
+<!--SR:!2026-01-09,4,270-->
 
 2. How does LightFM solve the cold-start problem?
 ?
 - It solves the cold-start problem by using feature information. For a **new item**, as long as it has features (e.g., genre, director), LightFM can create a representation for it and recommend it to relevant users. For a **new user**, as long as they provide some features (e.g., age, country), the model can create an initial user representation and recommend items, instead of having no information like a pure collaborative filtering model would.
+<!--SR:!2026-01-06,1,230-->
 
 3. What are the main loss functions in LightFM (BPR and WARP) and when would you use them?
 ?
 - They are both designed for **implicit feedback** scenarios where you don't have explicit negative ratings.
 - **BPR (Bayesian Personalized Ranking):** A good general-purpose choice. It learns by comparing a known positive item with a randomly sampled negative (unobserved) item, aiming to rank the positive one higher. It's optimized for maximizing the overall ranking quality (AUC).
 - **WARP (Weighted Approximate-Rank Pairwise):** The best choice when you care most about the **top of the recommendation list** (e.g., precision@k). It's more computationally intensive because it actively searches for negative items that are "wrongly" ranked higher than a positive item, and focuses its learning on those difficult cases.
+<!--SR:!2026-01-06,1,230-->
 
 4. How does LightFM differ from a traditional matrix factorization model like SVD?
 ?
 - **Traditional SVD:** Learns a unique latent vector for every single user and every single item. It cannot handle new users/items and can't use any side information (features).
 - **LightFM:** Learns latent vectors for **features**, not for users/items directly. A user's vector is the sum of its feature vectors. This makes it more flexible, allows it to incorporate content information, and enables it to handle the cold-start problem effectively.
+<!--SR:!2026-01-06,1,230-->

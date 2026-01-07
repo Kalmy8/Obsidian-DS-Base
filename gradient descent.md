@@ -333,24 +333,29 @@ y_compare = 3.2 * X_compare + 0.8 + 0.2 * np.random.randn(1000)
 
 **Key Questions:**
 
-1. What is the fundamental principle behind gradient descent?
+1. How does the gradient descent minimizes the cost function?
 ?
 - Gradient descent minimizes a cost function by iteratively moving in the direction opposite to the gradient (slope). Since the gradient points to the direction of steepest ascent, moving in the opposite direction leads toward the minimum.
+<!--SR:!2026-01-09,4,270-->
 
 2. What are the three main variants of gradient descent and their key characteristics?
 ?
 - **Batch GD**: Uses entire dataset, stable but slow per iteration, memory intensive
-- **Stochastic GD**: Uses one example at a time, fast but noisy convergence, memory efficient 
+- **Stochastic GD**: Uses one example at a time, fast but noisy convergence, memory efficient
 - **Mini-Batch GD**: Uses small subset of data, balanced approach, most practical for real applications
+<!--SR:!2026-01-09,4,270-->
 
 3. Why is mini-batch gradient descent preferred in practice?
 ?
 - It combines the stability of batch gradient descent with the speed of stochastic gradient descent. It's vectorizable, tunable, and provides a good balance between convergence stability and computational efficiency.
+<!--SR:!2026-01-09,4,270-->
 
 4. What role does the learning rate play in gradient descent?
 ?
 - The learning rate (α) controls the step size in each parameter update. Too large values can cause overshooting and divergence, while too small values lead to slow convergence. It's a critical hyperparameter that often needs tuning or scheduling.
+<!--SR:!2026-01-09,4,270-->
 
 5. How does stochastic gradient descent help escape local minima?
 ?
 - The noise introduced by using single examples creates randomness in the gradient estimates, which can help the algorithm escape shallow local minima and potentially find better solutions, though it also makes convergence less stable.
+<!--SR:!2026-01-09,4,270-->

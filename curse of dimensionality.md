@@ -77,34 +77,43 @@ Now imagine that the center of the n-ball is one of your data points, and you ar
 #🃏/semantic/ml #### Key questions:
 
 What is the fundamental problem described by the curse of dimensionality? **Illustrate that problem:** assume you need 30 data observations for some binary classification problem with a single binary descriptive and a single binary target feature. How many data points will you require for 2 descriptive features? 3 features? How do continuous features affect this situation?
-? 
+?
 - The exponential increase in required data volume as features/dimensions are added, making ML models struggle to find meaningful patterns.
 - 2 features do create 4 possible combinations (0/0; 0/1; 1/0; 1/1), 3 featured do create 8 ($2^3$) combinations, generally $k$ features create at least $2^{k}$ combinations
 - Situation is getting worse with continuous features, as they do have much more than 2 possible values, so the data requirement grows more like $m^{k}$, where $m$ is an average amount of unique values contained by features
+<!--SR:!2026-01-09,4,270-->
 
 What is the **empty space problem**? Why it leads to overfitting?
-? 
-- Empty space problem is a situation when your data covers only few common areas of the N-dimensional fields 
-- Models start relying on common feature combinations rather on learning general relationships
+?
+- Empty space problem is a situation when your data covers is located very sparse in some areas of the N-dimensional space
+- Models then have too little local evidence to extract any general knowledge so they start relying on common feature combinations / noise rather on learning general relationships (which leads to high variance)
+<!--SR:!2026-01-09,4,270-->
 
-How does maximum Euclidean distance change with added dimensions? What's the maximum euclidian distance for 1D and 10D spaces? 
-? 
+How does maximum Euclidean distance change with added dimensions? What's the maximum euclidian distance for 1D and 10D spaces?
+?
 - It grows as $\sqrt{n}$ (for n features)
 - $\sqrt{1} = 1$ and $\sqrt{10} = 3.16$
+<!--SR:!2026-01-09,4,270-->
 
 Why do distance metrics become unreliable in high dimensions?
-? 
+?
 - Minimum and maximum distances converge - all points become roughly equidistant, making nearest neighbor searches meaningless.
 ![Pasted image 20241108183934.png](📁%20files/Pasted%20image%2020241108183934.png)
+<!--SR:!2026-01-09,4,270-->
 
 What's the volume ratio formula for inner n-ball? What percentage of a 10D, 2D and 1D n-ball's volume lies in its outer shell?
-? 
+?
 - $(1/2)^{n}$ in $n$-dimentional space
 - ~99.9% (only 0.1% in the inner sphere), compared to 50% in 1D and 25% in 2D.
 - ![300](📁%20files/Pasted%20image%2020241108192550.png)
+<!--SR:!2026-01-09,4,270-->
 
-Which two ML methods handle high dimensionality well? Why?
-? 
- - SVMs: Exploit linear separability in high-D spaces via kernel trick 
+Which ML methods handle high dimensionality well? Why?
+?
+ - Methods which do not rely on distance metrics OR have strong regularization mechanism (to exclude non-informative features):
+ - Linear models with Regularization
+ - Tree Models
+ - SVMs: Exploit linear separability in high-D spaces via kernel trick
  - Neural Networks: Learn feature interactions directly without distance metrics
+<!--SR:!2026-01-09,4,270-->
 

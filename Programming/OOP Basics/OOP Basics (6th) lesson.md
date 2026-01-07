@@ -9,8 +9,6 @@ authors:
 -
 ---
 
-#🃏/semantic/oop #🃏/source/oop-basics-course
-
 [[TODO OOP Basics (5th) lesson|< previous]]
 **Codewords:** Magic Methods (Descriptors)
 
@@ -86,18 +84,17 @@ class Book:
 
  def __str__(self):
  return f"'{self.title}' by {self.author}"
-
 ```
 
-## Hashing and Equality: `__hash__`, `__eq__`
+## Hashing and Equality: 
 
-- Hash is a unique static identificator, representing the object
-- Eq is method used by comparison `==` operator, logically saying that two objects are identical (even if their `id()` is different) or not 
-	- If two objects are identical `one == two`, then their hashes should be identical `hash(one) == hash(two)`
+- **Hash** is a unique static identificator, representing the object
+	- `__hash__` is a method, which should return object's hash
+-  `__eq__` is method used by comparison operator ( `= =)`, logically saying that two objects are identical (even if their `id()` is different) or not 
+	- If two objects are identical `one = = two`, then their hashes should be identical `hash(one) = = hash(two)`
 - Implementing both `__hash__` and `__eq__` descriptors is essential for objects usage inside sets/dicts
-- Mutable objects should not have `__hash__` descriptor, unless their equality does not rely on included elements (so `container1 == container2` even if container's elements are different)
+- Mutable objects should not have `__hash__` descriptor, unless their equality does not rely on included elements (so `container1 = =  container2` even if container's elements are different)
 	- Thus mutable objects can not be used as dictionary keys, overwise `unhashable type` error appears
-
 ```python
 class Student:
  def __init__(self, id, name):
@@ -142,7 +139,6 @@ class User:
 user1 = User("ALICE@example.com", "Alice")
 user2 = User("alice@example.com", "Alicia")
 print(user1 == user2) # Should be True
-
 ```
 
 - Code `Configuration` mutable class, which takes a list in it's intializer and makes a deepcopy of that list
@@ -263,24 +259,30 @@ d['City'] = 'Paris'
 print(d['CITY']) # Should output 'Paris'
 ```
 
+#🃏/semantic/oop #🃏/source/oop-basics-course 
 ## Key questions
+
 How to make a class callable (act as a function)?
 ?
 - Implement `__call__` method
+<!--SR:!2026-01-09,4,270-->
 
 What's the difference between `__str__` and `__repr__`?
 ?
-- `__str__` is user-friendly, 
+- `__str__` is user-friendly,
 - `__repr__` is unambiguous usually shows how to recreate the object, and is used as a fallback if `__str__` is not implemented
+<!--SR:!2026-01-09,4,270-->
 
 What methods are needed to use objects in a `set` or a `dict`?
 ?
 - Both `__hash__` and `__eq__` methods
+<!--SR:!2026-01-09,4,270-->
 
-What is the relationship between `__eq__` and `__hash__` methods? Why should they rely on same attributes? 
+What is the relationship between `__eq__` and `__hash__` methods? Why should they rely on same attributes?
 ?
 - If two objects are equal, they should have the same hash
 - That actually explains why they should rely on same logic: if attribute has changed, both `__eq__` and `__hash__` should change (or not change) to remain in sync
+<!--SR:!2026-01-09,4,270-->
 
 Several questions about writing custom python containers:
 - How to enable `for item in my_object` syntax?
@@ -292,4 +294,5 @@ Several questions about writing custom python containers:
 - Implement `__setitem__` method
 - Implement `__len__` method
 - Implement `__contains__` or `__iter__` + `__getitem__`
+<!--SR:!2026-01-09,4,270-->
 

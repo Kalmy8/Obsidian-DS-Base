@@ -153,23 +153,34 @@ df_long = pd.melt(
 What are the wide and long data formats? What methods allow you to switch from wide to long format and vice versa?
 ?
 - Long format:
- - Each row represents a single measurement for one subject/entity
- - Thus, each subject/entity will appear in N rows, where N is the number of metrics you measure
- - Variables are typically stored in a single column
+    - Each row represents a single measurement for one subject/entity
+    - Thus, each subject/entity will appear in N rows, where N is the number of metrics you measure
+    - Variables are typically stored in a single column:
+student_id	| exam	| score
+s1	| exam_math	| 90
+s1	| exam_english	| 85
+s2	| exam_math	| 70
+s2	| exam_english	| 88
 - Wide format:
- - Each row represents a complete set of observations for one subject/entity
- - Thus, one row per subject/entity
- - Variables "spread" across multiple columns
+    - Each row represents a complete set of observations for one subject/entity
+    - Thus, one row per subject/entity
+    - Variables "spread" across multiple columns
+student_id | exam_math | exam_english
+s1	| 90	| 85
+s2	| 70	| 88
 - Long -> Wide: `pivot_table()`
 - Wide -> Long: `melt()`
+<!--SR:!2026-01-09,4,270-->
 
 What happens when `pivot_table()` encounters duplicate values?
 ?
 - It aggregates them together using user-defined function passed with `aggfunc` parameter (default is `mean`)
+<!--SR:!2026-01-09,4,270-->
 
 How would you flatten a hierarchical index after reshaping operations?
 ?
 - With `reset_index()` method
+<!--SR:!2026-01-09,4,270-->
 
 After melting, you often encounter composite values you would like to expand in a separate column:
 | index | student | subject | grade |
@@ -181,6 +192,7 @@ After melting, you often encounter composite values you would like to expand in 
 So for that table, you want to split 'subject' column into 'subject' and 'year' columns. How do you handle such situation?
 ?
 - By using `df['subject'].str.split(by = '_', expand = True)` accessor on that value column Series
+<!--SR:!2026-01-06,1,230-->
 
 Given this data:
 ```python
@@ -192,7 +204,7 @@ data_wide = {
     'physics_2023': [92, 85, 80],
 }
 ```
-- Convert it to long format 
+- Convert it to long format
 - Convert it back again to the original format
 ?
 ```python
@@ -205,4 +217,5 @@ df_wide.melt( # Use melt (wide -> long)
    columns='subject') \
 	   .reset_index()
 ```
+<!--SR:!2026-01-09,4,270-->
 

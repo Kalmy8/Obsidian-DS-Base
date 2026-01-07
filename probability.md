@@ -67,12 +67,6 @@ How can you calculate the **probability of the complement** of an event $A$, den
 ?
 $$P(\Omega) = 1,$$
 $$\Omega = \{A\cup\neg{A}\},$$
-$$P(\Omega)=P(A)+P(\neg{A}),$$
+$$P(\{A\cup\neg{A}\})=P(A)+P(\neg{A}),$$
 $$P(\neg{A})= P(\Omega)- P(A) = 1 - P(A)$$
-<<<<<<< HEAD
-
-=======
-<!--SR:!2026-10-03,365,350-->
-
->>>>>>> main
-
+<!--SR:!2026-01-09,4,303-->

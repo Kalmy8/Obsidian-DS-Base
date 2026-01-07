@@ -61,7 +61,7 @@ How is random forest different from just bagging over the decision trees? What i
 - This helps trees in the forest to be uncorrelated with each other, by not only training them on different bootstrap samples, but also on different features.
 - For regression problems, starting from $m = \frac{1}{3}$ is optimal, because regression tasks are generally harder and require more data to be solved with low bias.
 - For classification problems, starting point is $m = \sqrt{\text{Total number of features}}$
-<!--SR:!2025-12-27,232,330-->
+<!--SR:!2027-01-05,365,350-->
 
 How does the total random forest variance is related with the individual tree variance? Provide a math equation and an intuition
 ?
