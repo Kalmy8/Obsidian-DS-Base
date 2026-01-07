@@ -25,16 +25,9 @@ Hopefully, according to the [Law of Big Numbers](Law%20of%20Big%20Numbers.md), *
 
 #### Key questions:
 
-what does the assumption of independence and identical distribution (i.i.d.) state?
+what does the assumption of independence and identical distribution (i.i.d.) state? If the assumption is true, what would be the effect?
 ?
-Datapoints you are working with were brought from the **same** (static, not dynamically changing) general population **independently** (meaning that they are fetched truly randomly)
-<<<<<<< HEAD
+- Datapoints you are working with were brought from the **same** (static, not dynamically changing) general population **independently** (meaning that they are fetched truly randomly)
+- If the assumption is true, then all the [descriptional statistics](Теория%20вероятностей/random%20variable.md#^0882fd) will be the same for the distributed and for an original random variable (according to the [Law of Big Numbers](Law%20of%20Big%20Numbers.md))
+<!--SR:!2026-01-09,4,280-->
 
-=======
->>>>>>> main
-<!--SR:!2026-10-03,365,350-->
-
-if the assumption is true, what would be the effect? How does the assumption rely's on the [Law of Big Numbers](Law%20of%20Big%20Numbers.md) to state that?
-?
-- If the assumption is true, then all the [descriptional statistics](Теория%20вероятностей/random%20variable.md#^0882fd) will be the same for the distributed and for an original random variable
-- [Law of Big Numbers](Law%20of%20Big%20Numbers.md) says that all descriptional statistic of an i.i.d. - sample will converge to general population statistics as you increase the number of observations 

@@ -448,18 +448,20 @@ How does `pd.concat()` method works for vertical and horizontal concatenation?
 ?
 - Vertical: append rows from one dataframe into another, creating new columns if needed
 - Horizontal: use indexes to append columns from one dataframe into another
+<!--SR:!2026-01-09,4,270-->
 
 What are the "key columns" during the merge?
 ?
 Columns which are used to align two tables together
+<!--SR:!2026-01-09,4,270-->
 
 How does the join types (inner, outer, etc..) work in general?
-Describe the differences between 
+Describe the differences between
 - inner,
-- outer, 
-- left, 
-- right, 
-- cartesian 
+- outer,
+- left,
+- right,
+- cartesian
 ?
 - In general: join types define which rows should we drop after the merge is done, based on key:
 - Inner: keep only rows with keys presented in both tables
@@ -467,23 +469,28 @@ Describe the differences between
 - Left: keep only rows from the left table
 - Right: keep only rows from the right table
 - Cartezian: pair every row from the left table with every row from the right table
+<!--SR:!2026-01-09,4,270-->
 
 How do you handle duplicate columns when merging DataFrames?
 ?
 By using `pd.merge(..., suffixes)` parameter
+<!--SR:!2026-01-06,1,230-->
 
 How do you handle different column names when merging DataFrames?
 ?
 By using `pd.merge(..., left_on, right_on)` parameters
+<!--SR:!2026-01-06,1,230-->
 
 Why are merge operations "risky"? What safety parameter should you ALWAYS include in merge operations and why?
 ?
 - Risky, because the resulting table often contains duplicates
 - `pd.merge(..., validate = '1:1'/'1:m'/'m:1'/'m:m') parameter
 - This parameter will raise errors if unexpected behaviour occurs
+<!--SR:!2026-01-09,4,270-->
 
 Why would you use a cartezian product?
 ?
 It's helpful when you need to create a whole set of entry combinations
 from the first and the second tables
+<!--SR:!2026-01-09,4,270-->
 

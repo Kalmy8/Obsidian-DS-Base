@@ -1,9 +1,8 @@
 ---
 type: note
 status: done
-tags: ['tech/python']
+tags: [tech/python]
 sources:
--
 - "[[Refactoring Guru - Design Patterns]]"
 authors:
 -
@@ -23,7 +22,6 @@ The pattern itself consists of **3 main parts**:
 3. **Proxy (wrapper):** a **Service \[2] sublcass** which offers all of the methods defined in a Service (disguise), but extends them to add some other logic like different initialization, caching, logging...
 ##### Proxy usage scenarios
 You can benefit from using the pattern in following situations:
-
 1. You need to operate a large heavy object, which should be initialized only when needed and possibly cached to be re-used later.
 2. You need to wrapp some object with remote access, logging, access policy, caching, or any other logic without modyfing the underlaying code. The [Decorator pattern](Decorator%20pattern.md) serves the same purpose, however, the main difference between this patterns in such scenario is the fact that **Proxy object usually fully manages the wrappee object lifecycle**.
 ##### Proxy pattern mock-code example

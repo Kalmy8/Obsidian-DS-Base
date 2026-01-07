@@ -7,6 +7,7 @@ sources:
 authors:
 -
 ---
+
 #🃏/semantic/design-patterns #🃏/source/refactoring-guru/design-patterns
 
 What is a **Strategy** design pattern? When is it useful and how would you know if you will benefit from utilizng it? Provide some mock-code example of a class designed within a **strategy** paradigm.
@@ -17,7 +18,6 @@ What is a **Strategy** design pattern? When is it useful and how would you know 
 3. **Concrete Strategies:** Implement the Strategy interface with different algorithms.
 ##### Why use Strategy pattern?
 You can possibly benefit from using it if you find yourself in a sutiatuon when:
-
 1. You have one shared task and many interchangable algorthims completing it in a different manner.
 2. Your method has a lot of `if-else` or `switch` statements.
 -----------------------------------------------------------

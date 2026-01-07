@@ -30,7 +30,8 @@ This core property of bagging defines the way it is most commonly used: **baggin
 
 Thus bagging is usually to used over [decision tree algorithm](decision%20tree%20algorithm.md), which, with some nuances, result into [random forest algorithm](random%20forest%20algorithm.md).
 
-#🃏/semantic/ml ## Key questions:
+#🃏/semantic/ml 
+## Key questions:
 
 What is the core idea of a bagging technique, how can it be described? What benefits does it provide?
 ?

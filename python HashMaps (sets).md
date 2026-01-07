@@ -1,18 +1,16 @@
 ---
 type: note
 status: done
-tags: ['tech/python']
+tags: [tech/python, tech/data-structures]
 sources:
 -
 authors:
 -
 ---
-
-#🃏/semantic/data-structures #🃏/job-interview
-
 are the fancy word for a **HashMap/HashTable** - a common data structure popular across many different programming languages.
 
 [python HashMaps (dictionaries)](python%20HashMaps%20(dictionaries).md)
+
 ## First view
 
 From the first view, HashMap is just a `key : value` - like structure, allowing you to access elements using hashcodes (instead of using indexes, like you do with a list)
@@ -112,6 +110,7 @@ The lookup logic is practically the same as the adding logic, so we will just na
 		2. If not, increment the index and move up to the next bucket. Repeat the process once again
 			1. If next bucket is empty (which means that element is not presented anywhere within a hashtable), return `False`
 
+#🃏/semantic/data-structures #🃏/job-interview
 ## Key questions:
 
 What is a HashMap? What is it's structure?
@@ -120,12 +119,7 @@ HashMap is a table containing rows (**buckets**). Each bucket does have the same
 ![Pasted image 20241127135419.png](Pasted%20image%2020241127135419.png)
 <!--SR:!2026-05-28,312,353-->
 
-=======
-<!--SR:!2025-11-25,275,330-->
-
->>>>>>> main
-
-What is hash? How is it calculated for different objects in python.
+What is hash? How is it calculated for different objects in python?
 ?
 Hash is an integer value - a unique identifier of a python object. Hashes are being calculated differently:
 - For python built-in immutable objects, hashing function with sustainable output is used
